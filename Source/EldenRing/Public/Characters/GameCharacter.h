@@ -15,7 +15,7 @@ class UPawnSensingComponent;
 class ULockOnComponent;
 class AWeapon_Actor;
 
-UCLASS()
+UCLASS(Abstract, Blueprintable)
 class BASIC_API AGameCharacter : public ACharacter, public IHitInterface
 {
 	GENERATED_BODY()
@@ -26,12 +26,12 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void Destroyed() override;
 
-	virtual void SetWeaponCollision(ECollisionEnabled::Type type) {};
+	virtual void SetWeaponCollision(ECollisionEnabled::Type type) PURE_VIRTUAL(AGameCharacter::SetWeaponCollision, );
 	virtual void SetParryCollision(const ECollisionEnabled::Type& type);
 
 	virtual void GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override {};
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
-	virtual void TakeExecution(AActor* target, const EGameDirection& direction, const int32& damage) {};
+	virtual void TakeExecution(AActor* target, const EGameDirection& direction, const int32& damage) PURE_VIRTUAL(AGameCharacter::TakeExecution, );
 
 	virtual bool IsCurrentActionState(const FString& action) { return false; }
 	virtual bool IsGuardState() { return false; }
@@ -39,11 +39,9 @@ public:
 	virtual void SetExecutionEnable(const bool& is_enable, AGameCharacter* const execution_target = nullptr);
 	virtual void SetActiveLockOn(const bool& is_visible);
 	
-	virtual void OnAttackDefended(const EAttackWeight& attack_weight) = 0;
-	virtual void OnAttackBlocked(const EAttackWeight& attack_weight) = 0;
-	virtual void OnParryStart() = 0;
-	virtual void OnParryEnd() = 0;
-	virtual void OnReactEnd() = 0;
+	virtual void OnAttackDefended(const EAttackWeight& attack_weight) PURE_VIRTUAL(AGameCharacter::OnAttackDefended, );
+	virtual void OnAttackBlocked(const EAttackWeight& attack_weight) PURE_VIRTUAL(AGameCharacter::OnAttackBlocked, );
+	virtual void OnReactEnd() PURE_VIRTUAL(AGameCharacter::OnReactEnd, );
 	virtual void OnTakeStunn();
 	virtual void OnEndStunn();
 	virtual void OnTakeExecutionEnd();
@@ -57,8 +55,8 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-	virtual void HitReact(const EGameDirection& hit_direction, const EAttackWeight& attack_weight) {};
-	virtual void RefreshHealthbar(float DamageAmount = 0) {};
+	virtual void HitReact(const EGameDirection& hit_direction, const EAttackWeight& attack_weight) PURE_VIRTUAL(AGameCharacter::HitReact, );
+	virtual void RefreshHealthbar(float DamageAmount = 0) PURE_VIRTUAL(AGameCharacter::RefreshHealthbar, );
 
 	void PlayMontage(UAnimMontage* montage, const FName& section_name, const float& play_rate = 1.0, const bool& stop_all_montage = false, const float& blend_out = 0.25);
 	void StopAllMontage(const float& weight = 0.25f);
