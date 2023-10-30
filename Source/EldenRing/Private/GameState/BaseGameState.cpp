@@ -17,8 +17,8 @@ void ABaseGameState::SpawnItemFromActor(AActor* actor, UItemObject* item_object,
 	FVector forward  = actor->GetActorForwardVector();
 
 	TArray<AActor*> ignores;
-	FHitResult		hit_result;
-	FVector			spawn_location = location + (forward * 150.f);
+	FHitResult hit_result;
+	FVector	   spawn_location = location + (forward * 150.f);
 
 	bool result = false;
 	if (is_ground_clamp)
@@ -52,8 +52,8 @@ void ABaseGameState::SpawnGoldFromActor(AActor* actor, const int32& gold_amount,
 	FVector forward  = actor->GetActorForwardVector();
 
 	TArray<AActor*> ignores;
-	FHitResult		hit_result;
-	FVector			spawn_location = location + (forward * 150.f);
+	FHitResult hit_result;
+	FVector	   spawn_location = location + (forward * 150.f);
 
 	bool result = false;
 	if (is_ground_clamp)
