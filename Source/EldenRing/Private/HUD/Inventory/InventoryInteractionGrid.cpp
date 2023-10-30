@@ -21,7 +21,7 @@
 
 void UInventoryInteractionGrid::InitInteractionGridWidget(UInventoryComponent* inventory_component, const int32& colum_count, const int32& row_count, const FMargin& margin)
 {
-	m_inventory_component	= inventory_component;
+	m_inventory_component		= inventory_component;
 
 	FVector2D	resolution	= FVector2D(GSystemResolution.ResX, GSystemResolution.ResY);
 	int32		gird_x		= int32((resolution.X * 0.5) * 0.6);
@@ -59,8 +59,8 @@ void UInventoryInteractionGrid::RefreshGridWidget()
 			CHECK_INVALID(item_widget)
 			item_widget->InitItemWidget(m_inventory_component->GetItemRemoveDelegate(), item, m_tile_size);
 
-			UPanelSlot*			panel_slot			= GridCanvasPanel->AddChild(item_widget);
-			UCanvasPanelSlot*	canvas_panel_slot	= Cast<UCanvasPanelSlot>(panel_slot);
+			UPanelSlot*	  panel_slot		= GridCanvasPanel->AddChild(item_widget);
+			UCanvasPanelSlot* canvas_panel_slot	= Cast<UCanvasPanelSlot>(panel_slot);
 
 			canvas_panel_slot->SetAutoSize(true);
 			canvas_panel_slot->SetPosition(FVector2D(tile->X * m_tile_size, tile->Y * m_tile_size));
@@ -85,23 +85,23 @@ int32 UInventoryInteractionGrid::NativePaint(const FPaintArgs& Args, const FGeom
 {
 	int32 paint_result = Super::NativePaint(Args, AllottedGeometry, MyCullingRect, OutDrawElements, LayerId, InWidgetStyle, bParentEnabled);
 
-	FPaintContext		paint_context	= FPaintContext(AllottedGeometry, MyCullingRect, OutDrawElements, LayerId, InWidgetStyle, bParentEnabled);
-	USlateBrushAsset*	brush			= LoadObject<USlateBrushAsset>(nullptr, TEXT("DataTable'/Game/Blueprint/HUD/Inventory/SB_InventoryColor.SB_InventoryColor'"), nullptr, LOAD_None, nullptr);
+	FPaintContext	  paint_context	= FPaintContext(AllottedGeometry, MyCullingRect, OutDrawElements, LayerId, InWidgetStyle, bParentEnabled);
+	USlateBrushAsset* brush		= LoadObject<USlateBrushAsset>(nullptr, TEXT("DataTable'/Game/Blueprint/HUD/Inventory/SB_InventoryColor.SB_InventoryColor'"), nullptr, LOAD_None, nullptr);
 
 	// Draw Enable Box
 	bool drag_drop_result = UWidgetBlueprintLibrary::IsDragDropping();
-	if (false == m_draw_drop_location || false == drag_drop_result) { return paint_result; }
+	if (false == m_draw_drop_location || false == drag_drop_result) return paint_result;
 
 	UItemObject* payload = GetPayload(UWidgetBlueprintLibrary::GetDragDroppingContent());
-	if (nullptr == payload) { return paint_result; }
+	if (nullptr == payload) return paint_result;
 
 	FIntPoint dimension	= payload->GetDimension() * m_tile_size;
 	FVector2D size		= FVector2D(dimension.X, dimension.Y);
 	FVector2D position	= FVector2D(m_start_tile_draged.X * m_tile_size, m_start_tile_draged.Y * m_tile_size);
 
-	if (nullptr == m_inventory_component) { return paint_result; }
+	if (nullptr == m_inventory_component) return paint_result;
 	bool is_enable_stack = m_inventory_component->IsRoomAvailableForPayload(payload);
-	FLinearColor color	 = is_enable_stack ? FLinearColor(0, 1, 0, 0.25) : FLinearColor(1, 0, 0, 0.25);
+	FLinearColor color   = is_enable_stack ? FLinearColor(0, 1, 0, 0.25) : FLinearColor(1, 0, 0, 0.25);
 
 	UWidgetBlueprintLibrary::DrawBox(paint_context, position, size, brush, color);
 
@@ -117,21 +117,16 @@ bool UInventoryInteractionGrid::NativeOnDrop(const FGeometry& InGeometry, const 
 
 	if (nullptr == m_inventory_component) { return drop_result; }
 
-	int32 index				= m_inventory_component->TileToIndex(m_start_tile_draged);
+	int32 index		= m_inventory_component->TileToIndex(m_start_tile_draged);
 	bool  is_add_success	= m_inventory_component->TryAddItemAt(payload, index);
 
-	//m_inventory_component->CheckAndUnequipSlot(payload);
-
-	//	ΩΩ∑‘ »∏¿¸ »ƒ ¿ÁΩ√µµ
+	//	Ïä¨Î°Ø ÌöåÏ†Ñ ÌõÑ Ïû¨ÏãúÎèÑ
 	is_add_success = (false == is_add_success) ? m_inventory_component->TryAddItem(payload) : true;
 
-	if (is_add_success)
-	{
-		payload->SetLastInventoryLocation(m_start_tile_draged);
-	}
+	if (is_add_success) { payload->SetLastInventoryLocation(m_start_tile_draged); }
 	else
 	{
-		//	¿Œ∫•≈‰∏Æ ∞¯∞£ ∫Œ¡∑
+		//	Ïù∏Î≤§ÌÜ†Î¶¨ Í≥µÍ∞Ñ Î∂ÄÏ°±
 		ABaseGameState* game_state = Cast<ABaseGameState>(UGameplayStatics::GetGameState(this));
 		if (nullptr == game_state) return false;
 
@@ -162,7 +157,7 @@ bool UInventoryInteractionGrid::NativeOnDragOver(const FGeometry& InGeometry, co
 	x = FMath::Clamp(x, 0, x);
 	y = FMath::Clamp(y, 0, y);
 
-	dimension			= UKismetMathLibrary::Divide_IntPointInt(FIntPoint(x, y), 2);
+	dimension		= UKismetMathLibrary::Divide_IntPointInt(FIntPoint(x, y), 2);
 	mouse_position		= UKismetMathLibrary::Divide_Vector2DFloat(mouse_position, m_tile_size);
 	FIntPoint tile_pos	= UKismetMathLibrary::Subtract_IntPointIntPoint(FIntPoint(mouse_position.X, mouse_position.Y), dimension);
 
@@ -197,10 +192,10 @@ FReply UInventoryInteractionGrid::NativeOnPreviewKeyDown(const FGeometry& InGeom
 	if (EKeys::R == UKismetInputLibrary::GetKey(InKeyEvent))
 	{
 		UDragDropOperation* drag_operation = UWidgetBlueprintLibrary::GetDragDroppingContent();
-		if (nullptr == drag_operation) { return FReply::Unhandled(); }
+		if (nullptr == drag_operation) return FReply::Unhandled();
 
 		UItemObject* payload = GetPayload(drag_operation);
-		if (nullptr == payload) { return FReply::Unhandled(); }
+		if (nullptr == payload) return FReply::Unhandled();
 
 		payload->RotateItemObject();
 
