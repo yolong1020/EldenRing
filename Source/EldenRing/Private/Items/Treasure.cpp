@@ -12,7 +12,7 @@
 
 ATreasure::ATreasure()
 {
-	m_mesh			= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh Component"));
+	m_mesh		= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh Component"));
 	RootComponent	= m_mesh;
 
 	m_sphere->SetupAttachment(RootComponent);
