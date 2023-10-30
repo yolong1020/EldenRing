@@ -51,7 +51,7 @@ private:
 
 private:
 	UAttributeComponent*	m_attribute;
-	FOnRefreshStatBar		m_regenerate_delegate;
+	FOnRefreshStatBar	m_regenerate_delegate;
 #pragma region Health
 	UPROPERTY(meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
 	UOverlay* HealthBar;
