@@ -15,5 +15,5 @@ class BASIC_API UGameHUDComponent : public UWidgetComponent
 
 private:
 	UPROPERTY()
-	UGameHUD* m_widget_HUD = nullptr;
+	UGameHUD* m_widget_HUD;
 };
