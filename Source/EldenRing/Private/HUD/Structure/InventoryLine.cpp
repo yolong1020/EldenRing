@@ -6,5 +6,5 @@
 FInventoryLine::FInventoryLine(const FVector2D& start, const FVector2D& end)
 {
 	Start	= start;
-	End		= end;
+	End	= end;
 }
