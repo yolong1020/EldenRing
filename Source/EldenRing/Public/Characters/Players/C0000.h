@@ -128,6 +128,7 @@ public:
 	void OnCameraExecutionFront(float curve_value);
 	UFUNCTION()
 	void OnCameraExecutionBack(float curve_value);
+	void CameraDirecting(const ECameraDirect& type, const float& curve_value);
 
 	void OnCameraShakeIn();
 	void OnCameraShakeOut();
