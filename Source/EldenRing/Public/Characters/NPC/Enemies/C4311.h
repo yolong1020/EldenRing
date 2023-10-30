@@ -16,8 +16,8 @@ public:
 
 	virtual void  Tick(float DeltaTime) override;
 	virtual void  GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override final;
-	virtual void  SetWeaponCollision(ECollisionEnabled::Type type) override;
-	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	virtual void  SetWeaponCollision(ECollisionEnabled::Type type) override final;
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override final;
 
 	virtual void OnChangeVigilanceState(const EVigilanceState& state) override final;
 	virtual void OnMoveCompleted(const FPathFollowingResult& Result) override final;
