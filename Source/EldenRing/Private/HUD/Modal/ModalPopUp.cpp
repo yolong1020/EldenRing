@@ -33,16 +33,15 @@ void UModalPopUp::OnClickConfirm()
 	CHECK_INVALID(InputCounter)
 	int32 input_amount = InputCounter->GetTextAmount();
 
-	if (player->GetTotalGold() >= input_amount)
-	{
-		ABaseGameState* game_state = Cast<ABaseGameState>(UGameplayStatics::GetGameState(this));
-		CHECK_INVALID(game_state)
-			
-		player->SetGold(-input_amount);
-		game_state->SpawnGoldFromActor(player, input_amount, true);
+	if (player->GetTotalGold() < input_amount) return;
+	
+	ABaseGameState* game_state = Cast<ABaseGameState>(UGameplayStatics::GetGameState(this));
+	CHECK_INVALID(game_state)
+		
+	player->SetGold(-input_amount);
+	game_state->SpawnGoldFromActor(player, input_amount, true);
 
-		this->RemoveFromParent();
-	}
+	this->RemoveFromParent();
 }
 
 void UModalPopUp::OnClickCancel()
