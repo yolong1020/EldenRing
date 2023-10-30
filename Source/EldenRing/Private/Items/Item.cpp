@@ -16,7 +16,7 @@ AItem::AItem()
 	PrimaryActorTick.bCanEverTick = true;
 
 	m_item_object	= CreateDefaultSubobject<UItemObject>(TEXT("Item Object"));
-	m_sphere		= CreateDefaultSubobject<USphereComponent>(TEXT("Sphere"));
+	m_sphere	= CreateDefaultSubobject<USphereComponent>(TEXT("Sphere"));
 }
 
 void AItem::BeginPlay()
