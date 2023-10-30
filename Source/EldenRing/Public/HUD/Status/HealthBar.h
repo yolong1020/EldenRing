@@ -15,5 +15,5 @@ class BASIC_API UHealthBar : public UUserWidget
 
 public:
 	UPROPERTY(meta = (BindWidget))
-	UProgressBar* HealthBar = nullptr;
+	UProgressBar* HealthBar;
 };
