@@ -26,7 +26,7 @@ public:
 	void EquipItem(UItemObject* const item_object);
 	void UnequipItem();
 
-	FORCEINLINE bool IsEmpty()									{ return m_equiped_item == nullptr; }
+	FORCEINLINE bool IsEmpty() { return m_equiped_item == nullptr; }
 	FORCEINLINE bool IsMatching(UItemObject* const item_object) { return m_equiped_item == item_object; }
 
 protected:
@@ -60,11 +60,11 @@ private:
 	UPROPERTY()
 	UItemObject*		m_equiped_item;
 
-	float				m_tile_size;
-	FVector2D			m_slot_size;
+	float			m_tile_size;
+	FVector2D		m_slot_size;
 	EEquipmentType		m_slot_type;
 
-	FItemOnAdd			ItemOnAdd;
+	FItemOnAdd		ItemOnAdd;
 	FItemOnAddAtEmpty	ItemOnAddEmpty;
 	FItemOnRemoved		ItemOnRemoved;
 };
