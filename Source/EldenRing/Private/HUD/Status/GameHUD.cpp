@@ -42,37 +42,37 @@ void UGameHUD::OnUpdateStaminaStatusBar(float value)
 
 void UGameHUD::UpdateStatusTimeline(const EOverlayStatType& type)
 {
-	float		  goal			= 0;
-	float		  current		= 0;
-	UProgressBar* progress_bar	= nullptr;
-	FTimeline	  time_line;
+	float goal    = 0;
+	float current = 0;
+	UProgressBar* progress_bar = nullptr;
+	FTimeline time_line;
 
 	switch (type)
 	{
 		case EOverlayStatType::EOST_Health: {
-			goal			= HealthBarCurrent->GetPercent();
+			goal = HealthBarCurrent->GetPercent();
 			HealthConsumeBar->SetPercent(FMath::Lerp(HealthConsumeBar->GetPercent(), goal, 0.05f));
 
-			current			= HealthConsumeBar->GetPercent();
+			current		= HealthConsumeBar->GetPercent();
 			progress_bar	= HealthConsumeBar;
-			time_line		= m_tl_consume_health;
+			time_line	= m_tl_consume_health;
 	
 		} break;
 		case EOverlayStatType::EOST_Mana: {
-			goal			= ManaBarCurrent->GetPercent();
+			goal		= ManaBarCurrent->GetPercent();
 			ManaConsumeBar->SetPercent(FMath::Lerp(ManaConsumeBar->GetPercent(), goal, 0.05f));
 
-			current			= ManaConsumeBar->GetPercent();
+			current		= ManaConsumeBar->GetPercent();
 			progress_bar	= ManaConsumeBar;
-			time_line		= m_tl_consume_mana;
+			time_line	= m_tl_consume_mana;
 		} break;
 		case EOverlayStatType::EOST_Stamina: {
-			goal			= StaminaBarCurrent->GetPercent();
+			goal		= StaminaBarCurrent->GetPercent();
 			StaminaConsumeBar->SetPercent(FMath::Lerp(StaminaConsumeBar->GetPercent(), goal, 10.f));
 
-			current			= StaminaConsumeBar->GetPercent();
+			current		= StaminaConsumeBar->GetPercent();
 			progress_bar	= StaminaConsumeBar;
-			time_line		= m_tl_consume_stamina;
+			time_line	= m_tl_consume_stamina;
 
 			if (int(goal * 100.f) >= int(current * 100.f))
 			{
@@ -91,18 +91,18 @@ void UGameHUD::InitialStatusBar(UAttributeComponent* const attribute)
 	m_attribute = attribute;
 
 	CHECK_INVALID(HealthBar)
-	UCanvasPanelSlot*	health_slot		= Cast<UCanvasPanelSlot>(HealthBar->Slot);
-	FVector2d			health_bar_size	= health_slot->GetSize();
+	UCanvasPanelSlot* health_slot	  = Cast<UCanvasPanelSlot>(HealthBar->Slot);
+	FVector2d	  health_bar_size = health_slot->GetSize();
 	health_slot->SetSize(FVector2d(m_attribute->GetHealthMax(), health_bar_size.Y));
 
 	CHECK_INVALID(ManaBar)
-	UCanvasPanelSlot* mana_slot		= Cast<UCanvasPanelSlot>(ManaBar->Slot);
-	FVector2d		  mana_bar_size = mana_slot->GetSize();
+	UCanvasPanelSlot* mana_slot	= Cast<UCanvasPanelSlot>(ManaBar->Slot);
+	FVector2d	  mana_bar_size = mana_slot->GetSize();
 	mana_slot->SetSize(FVector2d(m_attribute->GetManaMax(), mana_bar_size.Y));
 
 	CHECK_INVALID(StaminaBar)
-	UCanvasPanelSlot* stamina_slot = Cast<UCanvasPanelSlot>(StaminaBar->Slot);
-	FVector2d		  stamina_bar_size = stamina_slot->GetSize();
+	UCanvasPanelSlot* stamina_slot 	   = Cast<UCanvasPanelSlot>(StaminaBar->Slot);
+	FVector2d	  stamina_bar_size = stamina_slot->GetSize();
 	stamina_slot->SetSize(FVector2d(m_attribute->GetStaminaMax(), stamina_bar_size.Y));
 
 	//	Timeline
@@ -142,47 +142,39 @@ void UGameHUD::InitialStatusBar(UAttributeComponent* const attribute)
 
 void UGameHUD::RefreshStatBar(const EOverlayStatType& type, const float& percent, const bool& is_regenereate)
 {
-	UProgressBar*	stat_bar			= nullptr;
-	UProgressBar*	consume_bar			= nullptr;
-	USlider*		indicator_slider	= nullptr;
+	UProgressBar*	stat_bar		= nullptr;
+	UProgressBar*	consume_bar		= nullptr;
+	USlider*	indicator_slider	= nullptr;
 
 	switch (type)
 	{
 		case EOverlayStatType::EOST_Health: {
-			stat_bar		 = HealthBarCurrent;
-			consume_bar		 = HealthConsumeBar;
+			stat_bar	 = HealthBarCurrent;
+			consume_bar	 = HealthConsumeBar;
 			indicator_slider = HealthCurrent;
 
-			if (!is_regenereate && false == m_tl_consume_health.IsPlaying()) { 
-				m_tl_consume_health.PlayFromStart(); 
-			}
+			if (!is_regenereate && false == m_tl_consume_health.IsPlaying()) { m_tl_consume_health.PlayFromStart(); }
 		} break;
 		case EOverlayStatType::EOST_Mana: {
-			stat_bar		 = ManaBarCurrent;
-			consume_bar		 = ManaConsumeBar;
+			stat_bar	 = ManaBarCurrent;
+			consume_bar	 = ManaConsumeBar;
 			indicator_slider = ManaCurrent;
 
-			if (!is_regenereate && false == m_tl_consume_mana.IsPlaying()) { 
-				m_tl_consume_mana.PlayFromStart(); 
-			}
+			if (!is_regenereate && false == m_tl_consume_mana.IsPlaying()) { m_tl_consume_mana.PlayFromStart(); }
 		} break;
 		case EOverlayStatType::EOST_Stamina: {
-			stat_bar		 = StaminaBarCurrent;
-			consume_bar		 = StaminaConsumeBar;
+			stat_bar	 = StaminaBarCurrent;
+			consume_bar	 = StaminaConsumeBar;
 			indicator_slider = StaminaCurrent;
 
-			if (!is_regenereate && false == m_tl_consume_stamina.IsPlaying()) { 
-				m_tl_consume_stamina.PlayFromStart();
-			}
+			if (!is_regenereate && false == m_tl_consume_stamina.IsPlaying()) { m_tl_consume_stamina.PlayFromStart(); }
 		} break;
 		default: return;
 	}
 
 	stat_bar->SetPercent(percent);
 	indicator_slider->SetValue(percent);
-	if (is_regenereate) {
-		consume_bar->SetPercent(percent);
-	}
+	if (is_regenereate) { consume_bar->SetPercent(percent); }
 }
 
 void UGameHUD::SetQuickSlotItem(const EQuickSlotType& slot_type, UItemObject* const item_object, const EPotionSizeType& potion_size)
@@ -190,29 +182,27 @@ void UGameHUD::SetQuickSlotItem(const EQuickSlotType& slot_type, UItemObject* co
 	UImage* image_component = nullptr;
 	switch (slot_type)
 	{
-	case EQuickSlotType::EQST_Top:
-	case EQuickSlotType::EQST_Bottom:
-	{
-		image_component = (slot_type == EQuickSlotType::EQST_Top) ? QuickSlot_Top_Item : QuickSlot_Bottom_Item;
+		case EQuickSlotType::EQST_Top:
+		case EQuickSlotType::EQST_Bottom:
+		{
+			image_component = (slot_type == EQuickSlotType::EQST_Top) ? QuickSlot_Top_Item : QuickSlot_Bottom_Item;
 
-		if (m_potion_matarials.IsValidIndex((int32)potion_size) == false || m_potion_matarials[(int32)potion_size] == nullptr) { return; }
+			if (m_potion_matarials.IsValidIndex((int32)potion_size) == false || m_potion_matarials[(int32)potion_size] == nullptr) return;
 
-		image_component->SetVisibility(ESlateVisibility::Visible);
-		image_component->SetBrushFromMaterial(m_potion_matarials[(int32)potion_size]);
-		image_component->SetDesiredSizeOverride(FVector2D(1, 1));
-		break;
-	}
-	case EQuickSlotType::EQST_Left:
-	case EQuickSlotType::EQST_Right:
-	{
-		image_component = (slot_type == EQuickSlotType::EQST_Left) ? QuickSlot_Left_Item : QuickSlot_Right_Item;
+			image_component->SetVisibility(ESlateVisibility::Visible);
+			image_component->SetBrushFromMaterial(m_potion_matarials[(int32)potion_size]);
+			image_component->SetDesiredSizeOverride(FVector2D(1, 1));
+		} break;
+		case EQuickSlotType::EQST_Left:
+		case EQuickSlotType::EQST_Right:
+		{
+			image_component = (slot_type == EQuickSlotType::EQST_Left) ? QuickSlot_Left_Item : QuickSlot_Right_Item;
 
-		if (nullptr == item_object) { image_component->SetVisibility(ESlateVisibility::Hidden); return; }
+			if (nullptr == item_object) { image_component->SetVisibility(ESlateVisibility::Hidden); return; }
 
-		image_component->SetVisibility(ESlateVisibility::Visible);
-		image_component->SetBrushFromMaterial(item_object->GetIconImage(false));
-		image_component->SetDesiredSizeOverride(FVector2D(1, 1));
-		break;
-	}
+			image_component->SetVisibility(ESlateVisibility::Visible);
+			image_component->SetBrushFromMaterial(item_object->GetIconImage(false));
+			image_component->SetDesiredSizeOverride(FVector2D(1, 1));
+		} break;
 	}
 }
