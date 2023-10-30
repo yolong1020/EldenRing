@@ -13,7 +13,7 @@ class AAssemblyPoint;
 class AAssemblePointObject;
 struct FPathFollowingResult;
 
-UCLASS()
+UCLASS(Abstract, Blueprintable)
 class BASIC_API ANPC_Character : public AGameCharacter
 {
 	GENERATED_BODY()
@@ -21,14 +21,14 @@ class BASIC_API ANPC_Character : public AGameCharacter
 public:
 	ANPC_Character();
 
-	virtual void	Tick(float DeltaTime) override;
-	virtual void	Destroyed() override;
+	virtual void Tick(float DeltaTime) override;
+	virtual void Destroyed() override;
 
-	virtual float	TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
-	virtual void	TakeExecution(AActor* target, const EGameDirection& direction, const int32& damage) override;
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	virtual void TakeExecution(AActor* target, const EGameDirection& direction, const int32& damage) override;
 	
-	virtual bool	IsCurrentActionState(const FString& action) override;
-	virtual bool	IsGuardState() override;
+	virtual bool IsCurrentActionState(const FString& action) override;
+	virtual bool IsGuardState() override;
 
 	FORCEINLINE const EActionState_NPC&		GetActionState()		{ return m_action_state; }
 	FORCEINLINE const EVigilanceState&		GetVigilanceState()		{ return m_vigilance_state; }
@@ -42,23 +42,18 @@ public:
 	void SuccessAttack() { m_attack_success = true; }
 	void InitAssemblyPointObject(AAssemblePointObject* const point_object);
 
-	virtual void OnParryStart() override {};
-	virtual void OnParryEnd() override {};
-	virtual void OnReactEnd() override {};
-	virtual void OnAttackDefended(const EAttackWeight& attack_weight) override {};
-	virtual void OnAttackBlocked(const EAttackWeight& attack_weight) override {};
 	virtual void OnChangeVigilanceState(const EVigilanceState& state);
 	virtual void OnTurnEnd();
 	virtual void OnEndStunn();
 	virtual void OnDeathCompleted();
 	virtual void OnSwapWeaponR();
 	virtual bool IsNeedChangeDeath(const EGameDirection& direction);
-	virtual void OnNextAttack() 	= 0;
-	virtual void OnEndAttack()  	= 0;
-	virtual void OnWatchingSwitch() = 0;
-	virtual void OnRestingSwitch() 	= 0;
-	virtual void OnRestingEnd(const FString& section_name) = 0;
-	virtual void OnMoveCompleted(const FPathFollowingResult& Result) = 0;
+	virtual void OnNextAttack() 					 PURE_VIRTUAL(ANPC_Character::OnNextAttack, );
+	virtual void OnEndAttack()  					 PURE_VIRTUAL(ANPC_Character::OnEndAttack, );
+	virtual void OnWatchingSwitch() 				 PURE_VIRTUAL(ANPC_Character::OnWatchingSwitch, );
+	virtual void OnRestingSwitch() 					 PURE_VIRTUAL(ANPC_Character::OnRestingSwitch, );
+	virtual void OnRestingEnd(const FString& section_name) 		 PURE_VIRTUAL(ANPC_Character::OnRestingEnd, );
+	virtual void OnMoveCompleted(const FPathFollowingResult& Result) PURE_VIRTUAL(ANPC_Character::OnMoveCompleted, );
 
 	virtual bool InAssmeblyPointAction() { return false; }
 
@@ -72,17 +67,17 @@ protected:
 	bool EquipWeapon(const FName& socket_name, const EWeaponEquipHand& hand);
 
 	virtual void StartWatching();
-	virtual void StartConfront() 	= 0;
-	virtual void StartCombat() 	= 0;
-	virtual void StartAttack() 	= 0;
-	virtual void StartTurn(const EGameDirection& direction) = 0;
+	virtual void StartConfront() 				PURE_VIRTUAL(ANPC_Character::StartConfront, );
+	virtual void StartCombat()   				PURE_VIRTUAL(ANPC_Character::StartCombat, );
+	virtual void StartAttack()   				PURE_VIRTUAL(ANPC_Character::StartAttack, );
+	virtual void StartTurn(const EGameDirection& direction) PURE_VIRTUAL(ANPC_Character::StartTurn, );
 	virtual void ClearAllTimer();
 
 	virtual void StopAllMovement();
 
-	virtual void OnCheckMissingTarget() {};
 	virtual void OnMoveOtherPatrolPoint();
-	virtual void OnWatchingFinished() {};
+	virtual void OnCheckMissingTarget() PURE_VIRTUAL(ANPC_Character::OnCheckMissingTarget, );
+	virtual void OnWatchingFinished()   PURE_VIRTUAL(ANPC_Character::OnWatchingFinished, );
 
 	virtual void RefreshHealthbar(float DamageAmount = 0) override;
 
