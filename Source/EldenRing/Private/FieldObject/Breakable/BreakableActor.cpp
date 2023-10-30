@@ -8,7 +8,6 @@
 
 ABreakableActor::ABreakableActor()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
 	m_geometry_collection = CreateDefaultSubobject<UGeometryCollectionComponent>(TEXT("Geometry Collection"));
@@ -36,7 +35,6 @@ void ABreakableActor::Tick(float DeltaTime)
 void ABreakableActor::GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight)
 {
 	if (m_is_broken) return;
-
 	m_is_broken = true;
 
 	UWorld* world = GetWorld();
@@ -44,9 +42,8 @@ void ABreakableActor::GetHit_Implementation(const FVector& ImpactPoint, const EA
 
 	FVector location = GetActorLocation();
 	location.Z += 1.f;
-
 	int32 selection = FMath::RandRange(0, m_treasure_classes.Num() - 1);
-
+	
 	world->SpawnActor<ATreasure>(m_treasure_classes[selection], location, GetActorRotation());
 }
 
