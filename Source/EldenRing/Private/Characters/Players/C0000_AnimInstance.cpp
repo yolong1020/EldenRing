@@ -168,7 +168,6 @@ bool UC0000_AnimInstance::IsTryingMove()
 
 void UC0000_AnimInstance::AnimNotify_MontageStart()
 {
-
 	if (RootMotionMode == ERootMotionMode::RootMotionFromEverything) 
 	{ 
 		SetRootMotionMode(ERootMotionMode::RootMotionFromMontagesOnly);
@@ -176,12 +175,10 @@ void UC0000_AnimInstance::AnimNotify_MontageStart()
 		if (nullptr == m_movement_component) return;
 		m_movement_component->bAllowPhysicsRotationDuringAnimRootMotion = false;
 	}
-
 }
 
 void UC0000_AnimInstance::AnimNotify_MontageEnd()
 {
-
 	if (RootMotionMode == ERootMotionMode::RootMotionFromMontagesOnly)
 	{
 		SetRootMotionMode(ERootMotionMode::RootMotionFromEverything);
@@ -189,7 +186,6 @@ void UC0000_AnimInstance::AnimNotify_MontageEnd()
 		if (nullptr == m_movement_component) return;
 		m_movement_component->bAllowPhysicsRotationDuringAnimRootMotion = true;
 	}
-
 }
 
 void UC0000_AnimInstance::AnimNotify_EnableBoxCollision()
