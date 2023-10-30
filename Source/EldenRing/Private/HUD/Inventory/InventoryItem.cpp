@@ -19,7 +19,7 @@
 void UInventoryItem::InitItemWidget(FItemOnRemoved& func, UItemObject* item_object, const float& tile_size)
 {
 	m_item_object = item_object;
-	m_tile_size	  = tile_size;
+	m_tile_size   = tile_size;
 
 	ItemOnRemoved = func;
 	ItemRefresh();
@@ -28,8 +28,8 @@ void UInventoryItem::InitItemWidget(FItemOnRemoved& func, UItemObject* item_obje
 void UInventoryItem::InitItemWidget(FItemOnRemoved& func, UItemObject* item_object, const float& tile_size, const FVector2D& custom_size)
 {
 	m_item_object = item_object;
-	m_tile_size	  = tile_size;
-
+	m_tile_size   = tile_size;
+	
 	ItemOnRemoved = func;
 
 	m_slot_size.Set(custom_size.X * m_tile_size, custom_size.Y * m_tile_size);
@@ -48,11 +48,11 @@ void UInventoryItem::NativeOnDragDetected(const FGeometry& InGeometry, const FPo
 	Super::NativeOnDragDetected(InGeometry, InMouseEvent, OutOperation);
 
 	m_widget_drag = UWidgetBlueprintLibrary::CreateDragDropOperation(m_drag_drop_class);
-	m_widget_drag->Payload			 = m_item_object;
+	m_widget_drag->Payload		 = m_item_object;
 	m_widget_drag->DefaultDragVisual = this;
-	m_widget_drag->Pivot			 = EDragPivot::CenterCenter;
-	m_widget_drag->Offset			 = FVector2D(0, 0);
-	OutOperation					 = m_widget_drag;
+	m_widget_drag->Pivot		 = EDragPivot::CenterCenter;
+	m_widget_drag->Offset		 = FVector2D(0, 0);
+	OutOperation			 = m_widget_drag;
 
 	ItemOnRemoved.Execute(m_item_object);
 	RemoveFromParent();
@@ -94,7 +94,6 @@ void UInventoryItem::Refresh()
 void UInventoryItem::ItemRefresh()
 {
 	FIntPoint dimension = m_item_object->GetDimension();
-
 	m_slot_size.Set(dimension.X * m_tile_size, dimension.Y * m_tile_size);
 
 	Refresh();
