@@ -62,12 +62,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Margin", meta = (AllowPrivateAccess = "true"))
 	FMargin m_margin;
 
-	FItemOnRemoved			m_remove_item_delegate;
-	FInventoryTile			m_start_tile_draged;
+	FItemOnRemoved	m_remove_item_delegate;
+	FInventoryTile	m_start_tile_draged;
 
-	int32					m_colum_count;
-	int32					m_row_count;
-	float					m_tile_size;
+	int32		m_colum_count;
+	int32		m_row_count;
+	float		m_tile_size;
 
-	bool					m_draw_drop_location;
+	bool		m_draw_drop_location;
 };
