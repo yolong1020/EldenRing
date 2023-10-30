@@ -37,15 +37,15 @@ protected:
 protected:
 #pragma region Component
 	UPROPERTY(VisibleAnywhere)
-	USphereComponent* m_sphere = nullptr;
+	USphereComponent* m_sphere;
 
 	UPROPERTY(EditAnywhere)
-	UNiagaraComponent* m_effect_embers = nullptr;
+	UNiagaraComponent* m_effect_embers;
 #pragma endregion
 
 #pragma region Properties
 	UPROPERTY(VisibleAnywhere, Category = "Item Properties")
-	UItemObject* m_item_object;
+	UItemObject* 	m_item_object;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item Properties")
 	FName		m_item_name;
