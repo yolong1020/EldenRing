@@ -36,13 +36,13 @@ void UInventoryComponent::BeginPlay()
 	CHECK_INVALID(m_widget_inventory)
 
 	UWidget* widget_grid	= m_widget_inventory->GetWidgetFromName(FName("WBP_Inventory_Gird"));
-	m_widget_grid			= Cast<UInventoryGrid>(widget_grid);
+	m_widget_grid		= Cast<UInventoryGrid>(widget_grid);
 
 	UWidget* widget_equip	= m_widget_inventory->GetWidgetFromName(FName("WBP_Inventory_Equip"));
-	m_widget_equipment		= Cast<UInventoryEquip>(widget_equip);
+	m_widget_equipment	= Cast<UInventoryEquip>(widget_equip);
 
 	ItemOnRemoved	 = ItemOnRemoved.CreateUFunction(this, FName("RemoveItem"));
-	ItemOnAdd		 = ItemOnAdd.CreateUFunction(this, FName("AddItemAtTile"));
+	ItemOnAdd	 = ItemOnAdd.CreateUFunction(this, FName("AddItemAtTile"));
 	ItemOnAddAtEmpty = ItemOnAddAtEmpty.CreateUFunction(this, FName("AddItemAtEmptySlot"));
 
 	CHECK_INVALID(m_widget_grid)
@@ -59,7 +59,7 @@ void UInventoryComponent::AddItem(UItemObject* item_object, const int32& index)
 	const FIntPoint point		= item_object->GetDimension();
 	FInventoryTile  start_tile	= IndexToTile(index);
 
-	int32			find_idx;
+	int32		find_idx;
 	FInventoryTile	check_tile;
 
 	int x_max = start_tile.X + (point.X - 1);
@@ -102,10 +102,7 @@ void UInventoryComponent::RemoveItem(UItemObject* item_object)
 	{
 		if (false == m_slots.IsValidIndex(i)) continue;
 
-		if (m_slots[i] == item_object)
-		{
-			m_slots[i] = nullptr;
-		}
+		if (m_slots[i] == item_object) m_slots[i] = nullptr;
 	}
 
 	m_widget_grid->RefreshGridWidget();
@@ -121,7 +118,7 @@ void UInventoryComponent::AddItemAtEmptySlot(UItemObject* item_object)
 	if (false == TryAddItem(item_object))
 	{
 		ABaseGameState* game_state = Cast<ABaseGameState>(UGameplayStatics::GetGameState(this));
-		if (nullptr == game_state) { return; }
+		if (nullptr == game_state) return;
 
 		game_state->SpawnItemFromActor(GetOwner(), item_object, true);
 	}
@@ -153,9 +150,7 @@ void UInventoryComponent::ToggleInventory()
 
 bool UInventoryComponent::TryAddItem(UItemObject* item_object)
 {
-	if (nullptr == item_object) return false;
-
-	if (nullptr == &m_slots) return false;
+	if (nullptr == item_object || nullptr == &m_slots) return false;
 
 	int32 index = 0;
 	for (const UItemObject* slot : m_slots)
@@ -195,12 +190,12 @@ bool UInventoryComponent::TryAddItemAt(UItemObject* item_object, const int32& in
 
 bool UInventoryComponent::TryAddItemAndEquip(UItemObject* item_object)
 {
-	if (nullptr == item_object || nullptr == m_widget_equipment) { return false; }
+	if (nullptr == item_object || nullptr == m_widget_equipment) return false;
 
 	if (m_widget_equipment->IsSlotEmpty(EEquipmentType::EET_Weapon))
 	{
 		UInventoryEquipSlot* weapon_slot = m_widget_equipment->GetEmptyWeaponSlotWidget();
-		if (nullptr == weapon_slot) { return false; }
+		if (nullptr == weapon_slot) return false;
 
 		weapon_slot->EquipItem(item_object);
 		return true;
@@ -246,12 +241,12 @@ bool UInventoryComponent::IsRoomAvailable(UItemObject* item_object, const int32&
 {
 	if (nullptr == item_object) return false;
 
-	const FIntPoint point		= item_object->GetDimension();
+	const FIntPoint point	    = item_object->GetDimension();
 	FInventoryTile  start_tile  = IndexToTile(index);
 	FInventoryTile	check_tile;
 
-	int x_max	= start_tile.X + (point.X - 1);
-	int y_max	= start_tile.Y + (point.Y - 1);
+	int x_max = start_tile.X + (point.X - 1);
+	int y_max = start_tile.Y + (point.Y - 1);
 
 	for (int x = start_tile.X; x <= x_max; ++x)
 	{
@@ -279,8 +274,8 @@ bool UInventoryComponent::IsInInventory(UItemObject* item_object)
 {
 	for (int i = 0; i < m_slots.Num(); ++i)
 	{
-		if (nullptr == m_slots[i]) { continue; }
-		if (m_slots[i] == item_object) { return true; }
+		if (nullptr == m_slots[i]) continue;
+		if (m_slots[i] == item_object) return true;
 	}
 
 	return false;
