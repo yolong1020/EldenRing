@@ -18,5 +18,5 @@ public:
 
 private:
 	UPROPERTY()
-	UHealthBar* m_widget_healthbar = nullptr;
+	UHealthBar* m_widget_healthbar;
 };
