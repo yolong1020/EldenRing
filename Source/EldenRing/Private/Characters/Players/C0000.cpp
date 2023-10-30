@@ -1240,55 +1240,46 @@ void AC0000::OnEndKnockback()
 
 void AC0000::OnCameraFocusRotate(float curve_value)
 {
-	if (nullptr == m_actor_target)
-	{
-		m_timeline_camera_focus.Stop();
-		return;
-	}
-
-	FRotator rotator_current	= m_player_controller->GetControlRotation();
-	FRotator rotator_direction	= UKismetMathLibrary::MakeRotFromX(m_actor_target->GetActorLocation() - GetActorLocation());
-	FRotator rotator_goal		= FRotator(rotator_current.Pitch, rotator_direction.Yaw, rotator_direction.Roll);
-	FRotator rotation_calc		= UKismetMathLibrary::RInterpTo(m_player_controller->GetControlRotation(), rotator_goal, curve_value, 10);
-
-	m_player_controller->SetControlRotation(FRotator(rotator_current.Pitch, rotation_calc.Yaw, rotation_calc.Roll));
-	
-	if (rotation_calc == rotator_goal) { m_timeline_camera_focus.Stop(); }
+	CameraDirecting(ECameraDirect::ECD_Focus, curve_value);
 }
 
 void AC0000::OnCameraExecutionFront(float curve_value)
 {
-	if (nullptr == m_actor_target)
-	{
-		m_timeline_camera_execution_front.Stop();
-		return;
-	}
-	m_spring_arm->TargetArmLength   = m_spring_arm_length - (curve_value * 150);
-
-	FRotator rotator_current	= m_player_controller->GetControlRotation();
-	FRotator rotator_direction	= UKismetMathLibrary::MakeRotFromX(m_actor_target->GetActorLocation() - GetActorLocation());
-	FRotator rotator_goal		= FRotator(340.f, rotator_direction.Yaw, rotator_direction.Roll);
-	FRotator rotation_calc		= UKismetMathLibrary::RInterpTo(m_player_controller->GetControlRotation(), rotator_goal, curve_value, 10);
-
-	m_player_controller->SetControlRotation(FRotator(rotation_calc.Pitch, rotation_calc.Yaw, rotation_calc.Roll));
+	CameraDirecting(ECameraDirect::ECD_Front, curve_value);
 }
 
 void AC0000::OnCameraExecutionBack(float curve_value)
 {
+	CameraDirecting(ECameraDirect::ECD_Back, curve_value);
+}
+
+void AC0000::CameraDirecting(const ECameraDirect& type, const float& curve_value)
+{
+	FTimeline* timeline;
+	switch (type)
+	{
+		case ECameraDirect::ECD_Focus: timeline = &m_timeline_camera_focus; 		break;
+		case ECameraDirect::ECD_Front: timeline = &m_timeline_camera_execution_front; 	break;
+		case ECameraDirect::ECD_Back:  timeline = &m_timeline_camera_execution_back; 	break;
+	}
+
 	if (nullptr == m_actor_target)
 	{
-		m_timeline_camera_execution_back.Stop();
+		timeline->Stop();
 		return;
 	}
 
-	m_spring_arm->TargetArmLength = m_spring_arm_length - (curve_value * 150);
+	if (type != ECameraDirect::ECD_Focus) { m_spring_arm->TargetArmLength = m_spring_arm_length - (curve_value * 150); }
 
-	FRotator rotator_current	= m_player_controller->GetControlRotation();
-	FRotator rotator_direction	= UKismetMathLibrary::MakeRotFromX(m_actor_target->GetActorLocation() - GetActorLocation());
-	FRotator rotator_goal		= FRotator(340.f, rotator_direction.Yaw, rotator_direction.Roll);
-	FRotator rotation_calc		= UKismetMathLibrary::RInterpTo(m_player_controller->GetControlRotation(), rotator_goal, curve_value, 10);
+	FRotator rotator_current   = m_player_controller->GetControlRotation();
+	FRotator rotator_direction = UKismetMathLibrary::MakeRotFromX(m_actor_target->GetActorLocation() - GetActorLocation());
 
-	m_player_controller->SetControlRotation(FRotator(rotation_calc.Pitch, rotation_calc.Yaw, rotation_calc.Roll));
+	FRotator rotator_goal	   = FRotator(type == ECameraDirect::ECD_Focus ? rotator_current.Pitch : 340.f, rotator_direction.Yaw, rotator_direction.Roll);
+	FRotator rotation_calc     = UKismetMathLibrary::RInterpTo(m_player_controller->GetControlRotation(), rotator_goal, curve_value, 10);
+
+	m_player_controller->SetControlRotation(FRotator(rotator_current.Pitch, rotation_calc.Yaw, rotation_calc.Roll));
+
+	if (type == ECameraDirect::ECD_Focus && rotation_calc == rotator_goal) { m_timeline_camera_focus.Stop(); }
 }
 
 void AC0000::SetWeaponCollision(ECollisionEnabled::Type type)
