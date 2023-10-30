@@ -45,28 +45,6 @@ void ANPC_Character::BeginPlay()
 void ANPC_Character::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	FVector position = GetActorLocation();
-	position.Z -= 105.f;
-	FVector forward_dir = position + GetActorForwardVector().GetSafeNormal2D() * 100;
-
-	UKismetSystemLibrary::DrawDebugLine(this, position, forward_dir, FColor::Purple, 0.5f, 2.f);
-
-	FTransform transform = GetActorTransform();
-	transform.SetLocation(position);
-	transform.SetRotation(FVector(0, 0, 90).Rotation().Quaternion());
-	DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_tracking, 50, FColor::Red, false, 0.1);
-	DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_attack, 50, FColor::Black, false, 0.1);
-	DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_confront, 50, FColor::Blue, false, 0.1);
-
-	// if (nullptr != m_actor_target)
-	// {
-	// 	FVector target_position = m_actor_target->GetActorLocation();
-	// 
-	// 	FVector dir = (FVector(target_position.X, target_position.Y, position.Z) - position).GetSafeNormal();
-	// 
-	// 	UKismetSystemLibrary::DrawDebugArrow(this, position, position + dir * m_radius_tracking, 5.f, FColor::Red, 1.f);
-	// }
 }
 
 void ANPC_Character::Destroyed()
@@ -145,9 +123,6 @@ bool ANPC_Character::IsGuardState()
 	FString battle_pose  = StaticEnum<EBattlePose>()->GetNameStringByValue(int64(m_battle_pose));
 	FString action_state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
 
-	UE_LOG(LogTemp, Warning, TEXT("IsGuardState - BattlePose : %s"), *battle_pose)
-	UE_LOG(LogTemp, Warning, TEXT("IsGuardState - ActionState : %s"), *action_state)
-
 	return m_action_state == EActionState_NPC::EASN_Confronting && m_battle_pose == EBattlePose::EBP_Defense;
 }
 
@@ -156,7 +131,7 @@ void ANPC_Character::SetBlindPawn(const bool& is_blind)
 	CHECK_INVALID(m_pawn_sensing)
 
 	if (is_blind)	{ m_pawn_sensing->OnSeePawn.RemoveDynamic(this, &ANPC_Character::PawnSeen); }
-	else			{ m_pawn_sensing->OnSeePawn.AddDynamic(this, &ANPC_Character::PawnSeen); }
+	else		{ m_pawn_sensing->OnSeePawn.AddDynamic(this, &ANPC_Character::PawnSeen); }
 }
 
 bool ANPC_Character::EquipWeapon(const FName& socket_name, const EWeaponEquipHand& hand)
@@ -166,10 +141,10 @@ bool ANPC_Character::EquipWeapon(const FName& socket_name, const EWeaponEquipHan
 		if (nullptr == m_equiped_weapon_R)
 		{
 			UWorld* world = GetWorld();
-			if (nullptr == world) { return false; }
+			if (nullptr == world) return false;
 
 			AWeapon_Actor* weapon = world->SpawnActor<AWeapon_Actor>(m_class_weapon_R);
-			if (nullptr == weapon) { return false; }
+			if (nullptr == weapon) return false;
 
 			m_equiped_weapon_R = weapon;
 		}
@@ -181,10 +156,10 @@ bool ANPC_Character::EquipWeapon(const FName& socket_name, const EWeaponEquipHan
 		if (nullptr == m_equiped_weapon_L)
 		{
 			UWorld* world = GetWorld();
-			if (nullptr == world) { return false; }
+			if (nullptr == world) return false;
 
 			AWeapon_Actor* weapon = world->SpawnActor<AWeapon_Actor>(m_class_weapon_L);
-			if (nullptr == weapon) { return false; }
+			if (nullptr == weapon) return false;
 
 			m_equiped_weapon_L = weapon;
 		}
@@ -197,8 +172,8 @@ bool ANPC_Character::EquipWeapon(const FName& socket_name, const EWeaponEquipHan
 
 void ANPC_Character::InitAssemblyPointObject(AAssemblePointObject* const point_object)
 {
-	m_target_assembly_object	= point_object;
-	m_action_state				= EActionState_NPC::EASN_Resting;
+	m_target_assembly_object = point_object;
+	m_action_state		 = EActionState_NPC::EASN_Resting;
 }
 
 void ANPC_Character::OnChangeVigilanceState(const EVigilanceState& state)
@@ -212,13 +187,8 @@ void ANPC_Character::OnTurnEnd()
 
 	FVector position = GetActorLocation();
 	FVector direction = GetActorForwardVector();
-	if (!direction.IsNearlyZero())
-	{
-		direction.Normalize();
-	}
+	if (!direction.IsNearlyZero()) { direction.Normalize(); }
 	direction *= GetMovementComponent()->GetMaxSpeed();
-
-	//UKismetSystemLibrary::DrawDebugArrow(this, position, position + direction * 50, 5.f, FColor::Magenta, 5.f);
 
 	m_controller_ai->SetControlRotation(direction.Rotation());
 	m_controller_ai->StopMovement();
@@ -250,11 +220,11 @@ void ANPC_Character::OnSwapWeaponR()
 
 bool ANPC_Character::IsNeedChangeDeath(const EGameDirection& direction)
 {
-	if (m_attribute->IsAlive() || nullptr == m_montage_take_execution) { return false; }
+	if (m_attribute->IsAlive() || nullptr == m_montage_take_execution) return false;
 
 	FName section_name;
 	if (direction == EGameDirection::EGD_Front) { section_name = FName("TakeExecution_Death_Front"); m_death_pose = EDeathPose::EDP_Death_Front; }
-	else										{ section_name = FName("TakeExecution_Death_Back");  m_death_pose = EDeathPose::EDP_Death_Back;}
+	else					    { section_name = FName("TakeExecution_Death_Back");  m_death_pose = EDeathPose::EDP_Death_Back;}
 	
 	SetBlindPawn(true);
 	ClearAllTimer();
@@ -269,19 +239,7 @@ bool ANPC_Character::IsNeedChangeDeath(const EGameDirection& direction)
 
 void ANPC_Character::StartWatching()
 {
-	if (false == m_is_resting)
-	{
-		m_target_patrol = SelectPatrolTarget();
-	}
-	//else
-	//{
-	//	AAssemblePointObject* object = m_assembly_point->TryUsePointObject(this);
-	//	CHECK_INVALID(object)
-
-	//	m_target_patrol				= nullptr;
-	//	m_target_assembly_object	= object;
-	//	m_location_assembly_object	= object->GetActionLocation();
-	//}
+	if (false == m_is_resting) { m_target_patrol = SelectPatrolTarget(); }
 }
 
 void ANPC_Character::ClearAllTimer()
@@ -295,10 +253,7 @@ void ANPC_Character::ClearAllTimer()
 
 void ANPC_Character::StopAllMovement()
 {
-	if (nullptr != m_controller_ai)
-	{
-		m_controller_ai->StopMovement();
-	}
+	if (nullptr != m_controller_ai) { m_controller_ai->StopMovement(); }
 }
 
 void ANPC_Character::OnMoveOtherPatrolPoint()
@@ -306,26 +261,18 @@ void ANPC_Character::OnMoveOtherPatrolPoint()
 	FVector	target;
 	if (m_is_resting)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Is Resting!"))
-		AAssemblePointObject* object = m_assembly_point->TryUsePointObject(this);
+		AAssemblePointObject* object 	= m_assembly_point->TryUsePointObject(this);
 		CHECK_INVALID(object)
 
-		m_target_patrol				= nullptr;
+		m_target_patrol			= nullptr;
 		m_target_assembly_object	= object;
 		m_location_assembly_object	= object->GetActionLocation();
-		target = m_location_assembly_object;
+		target 				= m_location_assembly_object;
 	}
 
-	if (nullptr != m_target_patrol)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Patrol"))
-		target = m_target_patrol->GetActorLocation();
-	}
+	if (nullptr != m_target_patrol) { target = m_target_patrol->GetActorLocation(); }
 
 	EGameDirection	direction = FindDirection(this, target);
-
-	UE_LOG(LogTemp, Warning, TEXT("Check here!"))
-
 	if (direction == EGameDirection::EGD_Front)
 	{
 		m_action_state = EActionState_NPC::EASN_Patrolling;
@@ -364,10 +311,7 @@ void ANPC_Character::MoveToTarget(AActor* target, const float& accept_radius)
 	if (nullptr == m_controller_ai || nullptr == target) { return; }
 
 	FVector direction = target->GetActorLocation() - GetActorLocation();
-	if (!direction.IsNearlyZero())
-	{
-		direction.Normalize();
-	}
+	if (!direction.IsNearlyZero()) { direction.Normalize(); }
 	direction *= GetMovementComponent()->GetMaxSpeed();
 
 	m_controller_ai->SetControlRotation(direction.Rotation());
@@ -379,10 +323,7 @@ void ANPC_Character::MoveToLocation(const FVector& dest, const float& acceptance
 	if (nullptr == m_controller_ai) { return; }
 
 	FVector direction = dest - GetActorLocation();
-	if (!direction.IsNearlyZero())
-	{
-		direction.Normalize();
-	}
+	if (!direction.IsNearlyZero()) { direction.Normalize(); }
 	direction *= GetMovementComponent()->GetMaxSpeed();
 
 	m_controller_ai->SetControlRotation(direction.Rotation());
@@ -394,13 +335,9 @@ AActor* ANPC_Character::SelectPatrolTarget()
 	if (0 >= m_targets_patrol.Num()) return nullptr;
 
 	TArray<AActor*> valid_target;
-
 	for (const auto& point : m_targets_patrol)
 	{
-		if (point != m_target_patrol)
-		{
-			valid_target.AddUnique(point);
-		}
+		if (point != m_target_patrol) { valid_target.AddUnique(point); }
 	}
 
 	if (0 >= valid_target.Num()) return nullptr;
