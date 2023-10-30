@@ -23,5 +23,5 @@ protected:
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	USkeletalMeshComponent* m_mesh = nullptr;
+	USkeletalMeshComponent* m_mesh;
 };
