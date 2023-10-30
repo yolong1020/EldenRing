@@ -28,16 +28,16 @@ void UGameCharacter_AnimInstance::NativeUpdateAnimation(float delta)
 	Super::NativeUpdateAnimation(delta);
 
 	CHECK_INVALID(m_character_movement)
-	m_ground_speed			= UKismetMathLibrary::VSizeXY(m_character_movement->Velocity);
-	m_is_falling			= m_character_movement->IsFalling();
-	m_is_reached_apex		= m_character_movement->bNotifyApex;
+	m_ground_speed		= UKismetMathLibrary::VSizeXY(m_character_movement->Velocity);
+	m_is_falling		= m_character_movement->IsFalling();
+	m_is_reached_apex	= m_character_movement->bNotifyApex;
 
 	CHECK_INVALID(m_character_game)
-	m_action_state			= m_character_game->GetActionState();
-	m_equip_state			= m_character_game->GetEquipState();
-	m_vigilance_state		= m_character_game->GetVigilanceState();
-	m_death_pose			= m_character_game->GetDeathPose();
-	m_battle_pose			= m_character_game->GetBattlePose();
+	m_action_state		= m_character_game->GetActionState();
+	m_equip_state		= m_character_game->GetEquipState();
+	m_vigilance_state	= m_character_game->GetVigilanceState();
+	m_death_pose		= m_character_game->GetDeathPose();
+	m_battle_pose		= m_character_game->GetBattlePose();
 
 	AAssemblyPoint*		assembly_point	= m_character_game->GetAssemblyPoint();
 	AAssemblePointObject*	point_object	= m_character_game->GetAssemblyPointObject();
