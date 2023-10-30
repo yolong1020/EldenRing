@@ -27,10 +27,10 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	UCapsuleComponent* m_capsule = nullptr;
+	UCapsuleComponent* m_capsule;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	UGeometryCollectionComponent* m_geometry_collection = nullptr;
+	UGeometryCollectionComponent* m_geometry_collection;
 	
 private:	
 	UPROPERTY(EditAnywhere, Category = "Breakable Properties")
