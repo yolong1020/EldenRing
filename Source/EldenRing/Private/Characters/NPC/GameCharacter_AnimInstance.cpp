@@ -18,8 +18,8 @@ void UGameCharacter_AnimInstance::NativeInitializeAnimation()
 	m_character_game = Cast<ANPC_Character>(TryGetPawnOwner());
 	CHECK_INVALID(m_character_game)
 
-	m_character_movement = m_character_game->GetCharacterMovement();
-	m_is_blend_per_bone = false;
+	m_character_movement 	= m_character_game->GetCharacterMovement();
+	m_is_blend_per_bone 	= false;
 	m_hit_cycle_type	= EHitCycleType::EHCT_None;
 }
 
@@ -39,25 +39,23 @@ void UGameCharacter_AnimInstance::NativeUpdateAnimation(float delta)
 	m_death_pose			= m_character_game->GetDeathPose();
 	m_battle_pose			= m_character_game->GetBattlePose();
 
-	AAssemblyPoint*			assembly_point	= m_character_game->GetAssemblyPoint();
+	AAssemblyPoint*		assembly_point	= m_character_game->GetAssemblyPoint();
 	AAssemblePointObject*	point_object	= m_character_game->GetAssemblyPointObject();
 
 	m_rest_state = (nullptr == point_object) ? EAssemblyPointObjectType::EAPOT_None : point_object->GetPointObjectType();
-	if (nullptr == assembly_point || nullptr == point_object) { return; }
+	if (nullptr == assembly_point || nullptr == point_object) return;
 
 	if (EActionState_NPC::EASN_Resting == m_action_state)
 	{
-		FVector actor_location				= m_character_game->GetActorLocation();
-		FVector assemble_location			= assembly_point->GetActorLocation();
+		FVector actor_location			= m_character_game->GetActorLocation();
+		FVector assemble_location		= assembly_point->GetActorLocation();
 		FVector assemble_offset_location	= FVector(assemble_location.X, assemble_location.Y, actor_location.Z);
 		FVector point_object_location		= point_object->GetActorLocation();
 		FVector point_offset_location		= FVector(point_object_location.X, point_object_location.Y, actor_location.Z);
 
-		FVector  dir = (assemble_offset_location - actor_location).GetSafeNormal2D();
-
+		FVector  dir 		= (assemble_offset_location - actor_location).GetSafeNormal2D();
 		FVector	 location_calc	= UKismetMathLibrary::VInterpTo(actor_location, point_offset_location, delta, 2);
 		FRotator rotate_calc	= UKismetMathLibrary::RInterpTo(m_character_game->GetActorRotation(), dir.Rotation(), delta, 10);
-		//m_character_game->SetActorRotation(dir.Rotation());
 
 		m_character_game->SetActorLocationAndRotation(location_calc, rotate_calc);
 	}
@@ -65,10 +63,10 @@ void UGameCharacter_AnimInstance::NativeUpdateAnimation(float delta)
 
 void UGameCharacter_AnimInstance::SetHitReactProperties(const bool& is_need_blend, const int32& animation_index, const EAttackWeight& attack_weight, const EHitCycleType& cycle_type)
 {
-	m_is_blend_per_bone		= is_need_blend;
+	m_is_blend_per_bone	= is_need_blend;
 	m_hit_animation_index	= animation_index;
-	m_hit_attack_weight		= attack_weight;
-	m_hit_cycle_type		= cycle_type;
+	m_hit_attack_weight	= attack_weight;
+	m_hit_cycle_type	= cycle_type;
 }
 
 void UGameCharacter_AnimInstance::AnimNotify_MontageStart()
@@ -165,7 +163,7 @@ void UGameCharacter_AnimInstance::AnimNotify_OnWatchingToIdle()
 	CHECK_INVALID(m_character_game)
 
 	bool is_idle_to_watching = m_character_game->GetWatchingSwitch();
-	if (is_idle_to_watching) { return; }
+	if (is_idle_to_watching) return;
 	
 	m_character_game->OnWatchingSwitch();
 }
@@ -175,7 +173,7 @@ void UGameCharacter_AnimInstance::AnimNotify_OnIdleToWatching()
 	CHECK_INVALID(m_character_game)
 
 	bool is_idle_to_watching = m_character_game->GetWatchingSwitch();
-	if (false == is_idle_to_watching) { return; }
+	if (false == is_idle_to_watching) return;
 
 	m_character_game->OnWatchingSwitch();
 }
@@ -185,7 +183,7 @@ void UGameCharacter_AnimInstance::AnimNotify_OnRestingToIdle()
 	CHECK_INVALID(m_character_game)
 
 	bool is_idle_to_resting = m_character_game->GetRestingSwitch();
-	if (is_idle_to_resting) { return; }
+	if (is_idle_to_resting) return;
 
 	m_character_game->OnRestingSwitch();
 }
@@ -195,7 +193,7 @@ void UGameCharacter_AnimInstance::AnimNotify_OnIdleToResting()
 	CHECK_INVALID(m_character_game)
 
 	bool is_idle_to_resting = m_character_game->GetRestingSwitch();
-	if (false == is_idle_to_resting) { return; }
+	if (false == is_idle_to_resting) return;
 
 	m_character_game->OnRestingSwitch();
 }
