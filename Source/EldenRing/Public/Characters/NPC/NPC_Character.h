@@ -132,22 +132,22 @@ protected:
 #pragma endregion
 
 #pragma region Patrol
-	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	UPROPERTY(EditInstanceOnly, Category = "AI Patrol")
 	AActor* m_target_patrol;
 
-	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	UPROPERTY(EditInstanceOnly, Category = "AI Patrol")
 	TArray<AActor*> m_targets_patrol;
 
-	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	UPROPERTY(EditInstanceOnly, Category = "AI Patrol")
 	float m_time_wait_min;
 
-	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	UPROPERTY(EditInstanceOnly, Category = "AI Patrol")
 	float m_time_wait_max;
 
-	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	UPROPERTY(EditInstanceOnly, Category = "AI Patrol")
 	float m_time_patrol;
 
-	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	UPROPERTY(EditInstanceOnly, Category = "AI Patrol")
 	float m_sec_kwon_missing_target;
 
 	FVector			m_location_assembly_object;
