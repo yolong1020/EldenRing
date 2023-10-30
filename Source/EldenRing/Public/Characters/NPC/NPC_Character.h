@@ -42,7 +42,7 @@ public:
 	void SuccessAttack() { m_attack_success = true; }
 	void InitAssemblyPointObject(AAssemblePointObject* const point_object);
 
-	virtual void OnMoveCompleted(const FPathFollowingResult& Result) {};
+	virtual void OnMoveCompleted(const FPathFollowingResult& Result) = 0;
 	virtual void OnChangeVigilanceState(const EVigilanceState& state);
 	virtual void OnTurnEnd();
 	virtual void OnEndStunn();
