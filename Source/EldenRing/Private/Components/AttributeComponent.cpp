@@ -35,14 +35,7 @@ void UAttributeComponent::OnUpdateRegenerateStat_Health(float curve_value)
 	m_delegate_regenerate.Execute(EOverlayStatType::EOST_Health, GetHealthPercent(), true);
 
 	int32 index = (int32)EOverlayStatType::EOST_Health;
-	if (m_health_current == m_health_max)
-	{
-		m_timeline_regenerate[index].Stop();
-	}
-}
-
-void UAttributeComponent::OnUpdateRegenerateStat_Mana(float curve_value)
-{
+	if (m_health_current == m_health_max) { m_timeline_regenerate[index].Stop(); }
 }
 
 void UAttributeComponent::OnUpdateRegenerateStat_Stamina(float curve_value)
@@ -51,10 +44,7 @@ void UAttributeComponent::OnUpdateRegenerateStat_Stamina(float curve_value)
 	m_delegate_regenerate.Execute(EOverlayStatType::EOST_Stamina, GetStaminaPercent(), true);
 
 	int32 index = (int32)EOverlayStatType::EOST_Stamina;
-	if (m_stamina_current == m_stamina_max)
-	{
-		m_timeline_regenerate[index].Stop();
-	}
+	if (m_stamina_current == m_stamina_max) { m_timeline_regenerate[index].Stop(); }
 }
 
 void UAttributeComponent::ReceiveDamage(float damage)
@@ -89,41 +79,13 @@ void UAttributeComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	for (FTimeline timeline : m_timeline_regenerate)
-	{
-		timeline.TickTimeline(DeltaTime);
-	}
+	for (FTimeline timeline : m_timeline_regenerate) { timeline.TickTimeline(DeltaTime); }
 }
 
 void UAttributeComponent::RegenerateStat(const EOverlayStatType& stat_type)
 {
-	switch (stat_type)
-	{
-	case EOverlayStatType::EOST_Health:
-	{
-		int32 index = (int32)EOverlayStatType::EOST_Health;
-
-		if (m_timeline_regenerate[index].IsPlaying()) { break; }
-		m_timeline_regenerate[index].PlayFromStart();
-	}
-	break;
-	case EOverlayStatType::EOST_Mana:
-	{
-		int32 index = (int32)EOverlayStatType::EOST_Mana;
-
-		if (m_timeline_regenerate[index].IsPlaying()) { break; }
-		m_timeline_regenerate[index].PlayFromStart();
-	}
-	break;
-	case EOverlayStatType::EOST_Stamina:
-	{
-		int32 index = (int32)EOverlayStatType::EOST_Stamina;
-
-		if (m_timeline_regenerate[index].IsPlaying()) { break; }
-		m_timeline_regenerate[index].PlayFromStart();
-	}
-	break;
-	}
+	int32 idx = (int32)stat_type;
+	if (!m_timeline_regenerate[index].IsPlaying()) { m_timeline_regenerate[index].PlayFromStart(); } 
 }
 
 void UAttributeComponent::BindDelegate(FOnRefreshStatBar& function)
