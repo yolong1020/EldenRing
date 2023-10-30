@@ -23,5 +23,5 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = HUD)
 	TSubclassOf<UGameHUD> m_widget_class;
 
-	UGameHUD* m_widget_hud = nullptr;
+	UGameHUD* m_widget_hud;
 };
