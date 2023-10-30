@@ -50,16 +50,16 @@ AGameCharacter::AGameCharacter()
 	movement_component->bOrientRotationToMovement = true;
 	movement_component->bAllowPhysicsRotationDuringAnimRootMotion = true;
 
-	bUseControllerRotationYaw	= false;
+	bUseControllerRotationYaw   = false;
 	bUseControllerRotationPitch = false;
-	bUseControllerRotationRoll	= false;
+	bUseControllerRotationRoll  = false;
 
 	//	LockOn
 	m_widget_lockon = CreateDefaultSubobject<ULockOnComponent>(TEXT("LockOn Component"));
 	m_widget_lockon->SetupAttachment(RootComponent);
 
 	//	Attribute
-	m_attribute		= CreateDefaultSubobject<UAttributeComponent>(TEXT("Attributes"));
+	m_attribute = CreateDefaultSubobject<UAttributeComponent>(TEXT("Attributes"));
 }
 
 void AGameCharacter::BeginPlay()
@@ -141,43 +141,23 @@ EGameDirection AGameCharacter::FindDirection(const AActor* standard, const FVect
 	const FVector forward  = standard->GetActorForwardVector();
 	const FVector position = standard->GetActorLocation();
 	
-	//	Lower Impact Point to the Enemy's Actor Location.Z
 	const FVector target_lowered(target.X, target.Y, position.Z);
 	const FVector direction = (target_lowered - position).GetSafeNormal();
+	const double cos_theta = FVector::DotProduct(forward, direction);
 
-	//	Forward * ToHit = |Forward||ToHit| * cos(theta)
-	//	|Forward| = 1, |ToHit| =1, so Foward * ToHit = cos(theta)
-	const double CosTheta = FVector::DotProduct(forward, direction);
+	double theta = FMath::Acos(cos_theta);
+	theta = FMath::RadiansToDegrees(theta);
 
-	//	Take the inverse cosine (arc-cosine) of cos(theta) to get theta
-	double Theta = FMath::Acos(CosTheta);
-
-	//	Convert from Radians to degrees
-	Theta = FMath::RadiansToDegrees(Theta);
-
-	//	If CrossProduct points down, Theta should be negative.
 	const FVector cross = FVector::CrossProduct(forward, direction);
-	if (cross.Z < 0) Theta *= -1.f;
+	if (cross.Z < 0) theta *= -1.f;
 
 	EGameDirection target_from = EGameDirection::EGD_Back;
-	if (Theta >= -45.f && Theta < 45.f)
+	if (theta >= -45.f && theta < 45.f)
 		target_from = EGameDirection::EGD_Front;
-	else if (Theta >= -135.f && Theta < -45.f)
+	else if (theta >= -135.f && theta < -45.f)
 		target_from = EGameDirection::EGD_Left;
-	else if (Theta >= 45.f && Theta < 135.f)
+	else if (theta >= 45.f && theta < 135.f)
 		target_from = EGameDirection::EGD_Right;
-
-#ifdef _DEBUG
-	UKismetSystemLibrary::DrawDebugArrow(this, position, position + cross * 100.f, 5.f, FColor::Red, 5.f);
-
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(1, 5.f, FColor::Green, FString::Printf(TEXT("Theta: %f"), Theta));
-	}
-
-	UKismetSystemLibrary::DrawDebugArrow(this, position, position + forward * 60.f, 5.f, FColor::Red, 5.f);
-	UKismetSystemLibrary::DrawDebugArrow(this, position, position + direction * 60.f, 5.f, FColor::Blue, 5.f);
-#endif 
 
 	return target_from;
 }
@@ -223,15 +203,12 @@ void AGameCharacter::OnParryOverlap(UPrimitiveComponent* OverlappedComponent, AA
 {
 	CHECK_INVALID(OtherActor)
 
-	AMeleeAttack_Actor* weapon	= Cast<AMeleeAttack_Actor>(OtherActor);
+	AMeleeAttack_Actor* weapon = Cast<AMeleeAttack_Actor>(OtherActor);
 	if (nullptr == weapon) { return; }
 
-	AGameCharacter* attacker	= Cast<AGameCharacter>(weapon->GetOwner());
+	AGameCharacter* attacker = Cast<AGameCharacter>(weapon->GetOwner());
 	CHECK_INVALID(attacker)
-
 	if (GetOwner() == attacker) { return; }
-
-	UE_LOG(LogTemp, Warning, TEXT("Parry Success"))
 }
 
 void AGameCharacter::InExecutionOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -248,9 +225,7 @@ void AGameCharacter::InExecutionOverlap(UPrimitiveComponent* OverlappedComponent
 void AGameCharacter::OutExecutionOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	AGameCharacter* executor = Cast<AGameCharacter>(OtherActor);
-	if (nullptr == executor) { return; }
-
-	if (executor == this) { return; }
+	if (nullptr == executor || executor == this) { return; }
 
 	executor->SetExecutionEnable(false);
 }
