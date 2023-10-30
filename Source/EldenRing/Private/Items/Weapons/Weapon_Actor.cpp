@@ -35,7 +35,7 @@ AWeapon_Actor::AWeapon_Actor()
 	CreateDefaultSubobject<URadialVector>(TEXT("Radial Vector"));
 	CreateDefaultSubobject<UFieldSystemMetaDataFilter>(TEXT("Field System Meta Data Filter"));
 
-	FString		row_name	 = StaticEnum<EWeaponType>()->GetNameStringByValue(int64(m_weapon_type));
+	FString	    row_name	 = StaticEnum<EWeaponType>()->GetNameStringByValue(int64(m_weapon_type));
 	UDataTable* weapon_table = LoadObject<UDataTable>(nullptr, TEXT("DataTable'/Game/Blueprint/Data/DT_WeaponData.DT_WeaponData'"), nullptr, LOAD_None, nullptr);
 
 	CHECK_INVALID(weapon_table)
@@ -47,18 +47,15 @@ AWeapon_Actor::AWeapon_Actor()
 
 int32 AWeapon_Actor::GetWeaponDamage(const EAttackType& attack_type, const EAttackStrength& attack_strength)
 {
-	if (attack_type == EAttackType::EATKT_ParryAttack)
-	{
-		return m_value_damage * FMath::FRandRange(8, 12);
-	}
+	if (attack_type == EAttackType::EATKT_ParryAttack) return m_value_damage * FMath::FRandRange(8, 12);
 	else
 	{
 		int32 damage_range = FMath::FRandRange(0, m_value_damage);
 		switch (attack_type)
 		{
-		case EAttackType::EATKT_Attack:		 return m_value_damage + damage_range;
-		case EAttackType::EATKT_DashAttack:  return m_value_damage + (damage_range * 1.5);
-		case EAttackType::EATKT_JumpAttack:  return m_value_damage + (damage_range * 1.2);
+			case EAttackType::EATKT_Attack:	     return m_value_damage + damage_range;
+			case EAttackType::EATKT_DashAttack:  return m_value_damage + (damage_range * 1.5);
+			case EAttackType::EATKT_JumpAttack:  return m_value_damage + (damage_range * 1.2);
 		}
 	}
 
@@ -70,7 +67,7 @@ void AWeapon_Actor::BeginPlay()
 	Super::BeginPlay();
 	
 	m_is_using = false;
-
+	
 	UDataTable* item_table = LoadObject<UDataTable>(nullptr, TEXT("DataTable'/Game/Blueprint/Data/DT_ItemData.DT_ItemData'"), nullptr, LOAD_None, nullptr);
 	CHECK_INVALID(item_table)
 
@@ -88,19 +85,18 @@ void AWeapon_Actor::Tick(float DeltaTime)
 
 void AWeapon_Actor::DestructableObjectAction(const FVector& field_location)
 {
-	UObject* falloff		= GetDefaultSubobjectByName("Radial Falloff");
-	UObject* vector			= GetDefaultSubobjectByName("Radial Vector");
+	UObject* falloff	= GetDefaultSubobjectByName("Radial Falloff");
+	UObject* vector		= GetDefaultSubobjectByName("Radial Vector");
 	UObject* data_filter	= GetDefaultSubobjectByName("Field System Meta Data Filter");
 
-	URadialFalloff*				radial_falloff	 = (nullptr != falloff)		? Cast<URadialFalloff>(falloff) : nullptr;
-	URadialVector*				radial_vector	 = (nullptr != vector)		? Cast<URadialVector>(vector) : nullptr;
+	URadialFalloff*	radial_falloff	 = (nullptr != falloff)	? Cast<URadialFalloff>(falloff) : nullptr;
+	URadialVector*	radial_vector	 = (nullptr != vector)	? Cast<URadialVector>(vector) : nullptr;
 	UFieldSystemMetaDataFilter* meta_data_filter = (nullptr != data_filter)	? Cast<UFieldSystemMetaDataFilter>(data_filter) : nullptr;
 
 	if (nullptr == radial_falloff	||
-		nullptr == radial_vector	||
-		nullptr == meta_data_filter ||
-		nullptr == m_field_system)
-		return;
+	    nullptr == radial_vector	||
+	    nullptr == meta_data_filter ||
+	    nullptr == m_field_system) return;
 
 	radial_falloff->SetRadialFalloff(
 		m_radial_falloff_magnitude,
@@ -129,10 +125,6 @@ void AWeapon_Actor::DestructableObjectAction(const FVector& field_location)
 		EFieldPhysicsType::Field_LinearForce,
 		meta_data_filter,
 		radial_vector);
-
-#ifdef _DEBUG
-	DRAW_SPHERE_DURATION(ImpactPoint)
-#endif
 }
 
 bool AWeapon_Actor::IsEnableCollision(AActor* const OtherActor)
@@ -140,14 +132,14 @@ bool AWeapon_Actor::IsEnableCollision(AActor* const OtherActor)
 	if (nullptr == OtherActor) return false;
 
 	AActor* owner = GetOwner();
-	if (nullptr == owner || owner == OtherActor) { return false; }
+	if (nullptr == owner || owner == OtherActor) return false;
 	
 	AC0000* player = Cast<AC0000>(OtherActor);
-	if (nullptr != player && player->IsNotDamageMod()) { return false; }
+	if (nullptr != player && player->IsNotDamageMod()) return false;
 
 	if (owner->ActorHasTag("NPC") && OtherActor->ActorHasTag("NPC"))
 	{
-		if (owner->GetClass() == OtherActor->GetClass()) { return false; }
+		if (owner->GetClass() == OtherActor->GetClass()) return false;
 	}
 
 	return true;
@@ -171,7 +163,7 @@ void AWeapon_Actor::SetAttackWeight(const EEquipState& equip_state, const EAttac
 
 	switch (attack_type)
 	{
-	case EAttackType::EATKT_Attack:		attack_weight = m_weapon_data->Attack;		break;
+	case EAttackType::EATKT_Attack:	    attack_weight = m_weapon_data->Attack;	break;
 	case EAttackType::EATKT_DashAttack: attack_weight = m_weapon_data->DashAttack;	break;
 	case EAttackType::EATKT_JumpAttack: attack_weight = m_weapon_data->JumpAttack;	break;
 	default: return;
