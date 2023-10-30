@@ -20,8 +20,8 @@
 void UInventorySlotGrid::InitGridSlotWidget(UInventoryComponent* inventory_component, const int32& colum_count, const int32& row_count)
 {
 	m_inventory_component	= inventory_component;
-	m_colums				= colum_count;
-	m_rows					= row_count;
+	m_colums		= colum_count;
+	m_rows			= row_count;
 
 	FVector2D	resolution	= FVector2D(GSystemResolution.ResX, GSystemResolution.ResY);
 	int32		gird_x		= int32((resolution.X * 0.5) * 0.6);
@@ -50,8 +50,8 @@ void UInventorySlotGrid::InitGridSlotWidget(UInventoryComponent* inventory_compo
 			CHECK_INVALID(item_widget)
 			item_widget->InitSlotWidget(size);
 
-			UPanelSlot*			panel_slot			= GridCanvasPanel->AddChild(item_widget);
-			UCanvasPanelSlot*	canvas_panel_slot	= Cast<UCanvasPanelSlot>(panel_slot);
+			UPanelSlot*	  panel_slot	    = GridCanvasPanel->AddChild(item_widget);
+			UCanvasPanelSlot* canvas_panel_slot = Cast<UCanvasPanelSlot>(panel_slot);
 
 			canvas_panel_slot->SetSize(FVector2D(size, size));
 			canvas_panel_slot->SetPosition(FVector2D(idx_col * size, idx_row * size));
