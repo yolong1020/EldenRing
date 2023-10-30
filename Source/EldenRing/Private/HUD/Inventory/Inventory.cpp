@@ -25,15 +25,15 @@ bool UInventory::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent&
 {
 	bool drop_result = Super::NativeOnDrop(InGeometry, InDragDropEvent, InOperation);
 
-	if (nullptr == InOperation) { return drop_result; }
+	if (nullptr == InOperation) return drop_result;
 
 	UItemObject* item = Cast<UItemObject>(InOperation->Payload);
 
 	ABaseGameState* game_state = Cast<ABaseGameState>(UGameplayStatics::GetGameState(this));
-	if (nullptr == game_state) { return drop_result; }
+	if (nullptr == game_state) return drop_result;
 
 	AC0000* player = GetOwningPlayerPawn<AC0000>();
-	if (nullptr == player) { return drop_result; }
+	if (nullptr == player) return drop_result;
 
 	game_state->SpawnItemFromActor(player, item, true);
 
