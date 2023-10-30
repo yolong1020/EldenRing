@@ -32,13 +32,12 @@ void AAssemblePointObject::BeginPlay()
 	CHECK_INVALID(world)
 
 	m_is_using = false;
-	if (m_actor_rest)
-	{
-		m_is_using = true;
-		m_actor_rest->InitAssemblyPointObject(this);
+	if (nullptr == m_actor_rest) return;
+	
+	m_is_using = true;
+	m_actor_rest->InitAssemblyPointObject(this);
 
-		m_time_using_start = world->TimeSeconds;
-	}
+	m_time_using_start = world->TimeSeconds;
 }
 
 void AAssemblePointObject::Tick(float DeltaTime)
@@ -48,28 +47,20 @@ void AAssemblePointObject::Tick(float DeltaTime)
 
 void AAssemblePointObject::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	ANPC_Character*		npc		= Cast<ANPC_Character>(OtherActor);
-	USphereComponent*	sphere	= Cast<USphereComponent>(OtherComp);
+	ANPC_Character*	  npc	 = Cast<ANPC_Character>(OtherActor);
+	USphereComponent* sphere = Cast<USphereComponent>(OtherComp);
 
-	if (npc								== nullptr	||
-		npc->IsPatrol()					== false	||
-		npc->GetAssemblyPointObject()	!= this		||
-		sphere							== nullptr	|| 
-		sphere->GetFName() != FName("Interaction Sphere"))
-	{ return; }
+	if (npc	== nullptr				||
+	    npc->IsPatrol() == false			||
+	    npc->GetAssemblyPointObject() != this	||
+	    sphere == nullptr				|| 
+	    sphere->GetFName() != FName("Interaction Sphere")) return;
 
 	UWorld* world = GetWorld();
 	CHECK_INVALID(world)
 	
 	bool result = npc->InAssmeblyPointAction();
-	if (result) 
-	{
-		m_time_using_start	= world->TimeSeconds;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Fail Point Action"))
-	}
+	if (result)  { m_time_using_start = world->TimeSeconds; }
 }
 
 void AAssemblePointObject::InitData(AAssemblyPoint* const assembly_point)
@@ -85,24 +76,23 @@ void AAssemblePointObject::ResetPointObject()
 
 void AAssemblePointObject::UsePointObject(ANPC_Character* const npc)
 {
-	m_is_using			= true;
-	m_actor_rest		= npc;
+	m_is_using	= true;
+	m_actor_rest	= npc;
 }
 
 FVector AAssemblePointObject::GetActionLocation()
 {
-	if (nullptr == m_sphere_action) { return FVector::ZeroVector; }
-
-	return m_sphere_action->GetComponentLocation();
+	if (nullptr == m_sphere_action) return FVector::ZeroVector;
+	else 				return m_sphere_action->GetComponentLocation();
 }
 
 const FString AAssemblePointObject::GetInteractionSectionName()
 {
 	switch (m_point_object_type)
 	{
-	case EAssemblyPointObjectType::EAPOT_Bench: return FString("Resting_Switch_Bench");
-	case EAssemblyPointObjectType::EAPOT_Floor: return FString("Resting_Switch_Floor");
-	default: return FString();
+		case EAssemblyPointObjectType::EAPOT_Bench: return FString("Resting_Switch_Bench");
+		case EAssemblyPointObjectType::EAPOT_Floor: return FString("Resting_Switch_Floor");
+		default: return FString();
 	}
 }
 
