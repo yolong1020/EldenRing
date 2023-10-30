@@ -30,13 +30,13 @@ public:
 	virtual bool	IsCurrentActionState(const FString& action) override;
 	virtual bool	IsGuardState() override;
 
-	FORCEINLINE const EActionState_NPC&		GetActionState()			{ return m_action_state; }
-	FORCEINLINE const EVigilanceState&		GetVigilanceState()			{ return m_vigilance_state; }
-	FORCEINLINE const bool&					GetWatchingSwitch()			{ return m_is_idle_to_watching; }
-	FORCEINLINE const bool&					GetRestingSwitch()			{ return m_is_idle_to_resting; }
-	FORCEINLINE AAssemblyPoint*	const		GetAssemblyPoint()			{ return m_assembly_point; }
-	FORCEINLINE AAssemblePointObject* const	GetAssemblyPointObject()	{ return m_target_assembly_object; }
-	FORCEINLINE const bool&					IsPatrol()					{ return m_is_patrolling; }
+	FORCEINLINE const EActionState_NPC&		GetActionState()		{ return m_action_state; }
+	FORCEINLINE const EVigilanceState&		GetVigilanceState()		{ return m_vigilance_state; }
+	FORCEINLINE const bool&				GetWatchingSwitch()		{ return m_is_idle_to_watching; }
+	FORCEINLINE const bool&				GetRestingSwitch()		{ return m_is_idle_to_resting; }
+	FORCEINLINE AAssemblyPoint* const		GetAssemblyPoint()		{ return m_assembly_point; }
+	FORCEINLINE AAssemblePointObject* const		GetAssemblyPointObject()	{ return m_target_assembly_object; }
+	FORCEINLINE const bool&				IsPatrol()			{ return m_is_patrolling; }
 
 	UFUNCTION(BlueprintCallable)
 	void SuccessAttack() { m_attack_success = true; }
@@ -45,7 +45,7 @@ public:
 	virtual void OnMoveCompleted(const FPathFollowingResult& Result) {};
 	virtual void OnChangeVigilanceState(const EVigilanceState& state);
 	virtual void OnNextAttack() {};
-	virtual void OnEndAttack()	{};
+	virtual void OnEndAttack() {};
 	virtual void OnTurnEnd();
 	virtual void OnEndStunn();
 	virtual void OnDeathCompleted();
