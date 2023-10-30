@@ -42,7 +42,9 @@ public:
 	void SuccessAttack() { m_attack_success = true; }
 	void InitAssemblyPointObject(AAssemblePointObject* const point_object);
 
-	virtual void OnMoveCompleted(const FPathFollowingResult& Result) = 0;
+	virtual void OnParryStart() override {};
+	virtual void OnParryEnd() override {};
+	virtual void OnReactEnd() override {};
 	virtual void OnChangeVigilanceState(const EVigilanceState& state);
 	virtual void OnTurnEnd();
 	virtual void OnEndStunn();
@@ -54,6 +56,7 @@ public:
 	virtual void OnWatchingSwitch() = 0;
 	virtual void OnRestingSwitch() 	= 0;
 	virtual void OnRestingEnd(const FString& section_name) = 0;
+	virtual void OnMoveCompleted(const FPathFollowingResult& Result) = 0;
 
 	virtual bool InAssmeblyPointAction() { return false; }
 
