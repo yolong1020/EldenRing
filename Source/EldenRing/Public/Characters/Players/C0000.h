@@ -33,24 +33,24 @@ class BASIC_API AC0000 : public AGameCharacter
 public:
 	AC0000();
 
-	virtual void	Tick(float DeltaTime) override;
-	virtual void	SetWeaponCollision(ECollisionEnabled::Type type) override final;
-	virtual void	SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override final;
-	virtual void	GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override final;
-	virtual float	TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override final;
+	virtual void Tick(float DeltaTime) override;
+	virtual void SetWeaponCollision(ECollisionEnabled::Type type) override final;
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override final;
+	virtual void GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override final;
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override final;
 
-	virtual void	OnAttackDefended(const EAttackWeight& attack_weight) override final;
-	virtual void	OnAttackBlocked(const EAttackWeight& attack_weight) override final;
-	virtual void	OnReactEnd() override final;
+	virtual void OnAttackDefended(const EAttackWeight& attack_weight) override final;
+	virtual void OnAttackBlocked(const EAttackWeight& attack_weight) override final;
+	virtual void OnReactEnd() override final;
 
-	virtual bool	IsCurrentActionState(const FString& action) override final;
-	virtual bool	IsGuardState() override final;
+	virtual bool IsCurrentActionState(const FString& action) override final;
+	virtual bool IsGuardState() override final;
 
 protected:
-	virtual void	BeginPlay() override;
-	virtual void	Landed(const FHitResult& Hit) override;
+	virtual void BeginPlay() override;
+	virtual void Landed(const FHitResult& Hit) override;
 
-	virtual void	HitReact(const EGameDirection& hit_direction, const EAttackWeight& attack_weight) override final;
+	virtual void HitReact(const EGameDirection& hit_direction, const EAttackWeight& attack_weight) override final;
 
 	bool IsInputPossible();
 
@@ -139,9 +139,9 @@ public:
 	void SetGroundUnoccupied();
 	void SetGold(const int32& gold);
 
-	void	OnSuccessConsume();
-	void	OnEndConsume();
-	void	OnUseStamina(const int32& amount_stamina);
+	void OnSuccessConsume();
+	void OnEndConsume();
+	void OnUseStamina(const int32& amount_stamina);
 
 private:
 #pragma region Montage
