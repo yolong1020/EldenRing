@@ -13,7 +13,7 @@ struct FItemData : public FTableRowBase
 	EEquipmentType EquipmentType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FIntPoint	SlotSize;
+	FIntPoint SlotSize;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString MeshPath;
