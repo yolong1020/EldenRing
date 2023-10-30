@@ -1,0 +1,186 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "../GameCharacter.h"
+#include "NPC_Character.generated.h"
+
+class UHealthBarComponent;
+class AGameCharacter_AIController;
+class UGameCharacter_AnimInstance;
+class AAssemblyPoint;
+class AAssemblePointObject;
+struct FPathFollowingResult;
+
+UCLASS()
+class BASIC_API ANPC_Character : public AGameCharacter
+{
+	GENERATED_BODY()
+
+public:
+	ANPC_Character();
+
+	virtual void	Tick(float DeltaTime) override;
+	virtual void	Destroyed() override;
+
+	virtual float	TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	virtual void	TakeExecution(AActor* target, const EGameDirection& direction, const int32& damage) override;
+	
+	virtual bool	IsCurrentActionState(const FString& action) override;
+	virtual bool	IsGuardState() override;
+
+	FORCEINLINE const EActionState_NPC&		GetActionState()			{ return m_action_state; }
+	FORCEINLINE const EVigilanceState&		GetVigilanceState()			{ return m_vigilance_state; }
+	FORCEINLINE const bool&					GetWatchingSwitch()			{ return m_is_idle_to_watching; }
+	FORCEINLINE const bool&					GetRestingSwitch()			{ return m_is_idle_to_resting; }
+	FORCEINLINE AAssemblyPoint*	const		GetAssemblyPoint()			{ return m_assembly_point; }
+	FORCEINLINE AAssemblePointObject* const	GetAssemblyPointObject()	{ return m_target_assembly_object; }
+	FORCEINLINE const bool&					IsPatrol()					{ return m_is_patrolling; }
+
+	UFUNCTION(BlueprintCallable)
+	void SuccessAttack() { m_attack_success = true; }
+	void InitAssemblyPointObject(AAssemblePointObject* const point_object);
+
+	virtual void OnMoveCompleted(const FPathFollowingResult& Result) {};
+	virtual void OnChangeVigilanceState(const EVigilanceState& state);
+	virtual void OnNextAttack() {};
+	virtual void OnEndAttack()	{};
+	virtual void OnTurnEnd();
+	virtual void OnEndStunn();
+	virtual void OnDeathCompleted();
+	virtual void OnWatchingSwitch() {};
+	virtual void OnRestingSwitch() {};
+	virtual void OnRestingEnd(const FString& section_name) {};
+	virtual void OnSwapWeaponR();
+	virtual bool IsNeedChangeDeath(const EGameDirection& direction);
+
+	virtual bool InAssmeblyPointAction() { return false; }
+
+protected:
+	virtual void BeginPlay() override;
+	
+	UFUNCTION()
+	virtual void PawnSeen(APawn* seen_pawn) {};
+	void SetBlindPawn(const bool& is_blind);
+
+	bool EquipWeapon(const FName& socket_name, const EWeaponEquipHand& hand);
+
+	virtual void StartWatching();
+	virtual void StartConfront()	{};
+	virtual void StartCombat()		{};
+	virtual void StartAttack()		{};
+	virtual void StartTurn(const EGameDirection& direction) {};
+	virtual void ClearAllTimer();
+
+	virtual void StopAllMovement();
+
+	virtual void OnCheckMissingTarget() {};
+	virtual void OnMoveOtherPatrolPoint();
+	virtual void OnWatchingFinished() {};
+
+	virtual void RefreshHealthbar(float DamageAmount = 0) override;
+
+	bool IsInSight(AActor* target);
+	bool InTargetRange(AActor* target, double radius);
+	void MoveToTarget(AActor* target, const float& accept_radius = -1.f);
+	void MoveToLocation(const FVector& dest, const float& acceptance_radius = -1.f, const bool& stop_overlap = true);
+
+	AActor* SelectPatrolTarget();
+
+private:
+	UPROPERTY()
+	AGameCharacter_AIController* m_controller_ai = nullptr;
+
+protected:
+#pragma region Montage
+	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
+	UAnimMontage* m_montage_hit_medium;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
+	UAnimMontage* m_montage_hit_medium_direction;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
+	UAnimMontage* m_montage_hit_heavy_direction;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
+	UAnimMontage* m_montage_hit_extra_heavy_direction;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
+	UAnimMontage* m_montage_hit_ultra_heavy_directiony;
+
+	UPROPERTY(EditDefaultsOnly, Category = Montages)
+	UAnimMontage* m_montage_confront = nullptr;
+
+	UPROPERTY(EditDefaultsOnly, Category = Montages)
+	UAnimMontage* m_montage_resting = nullptr;
+#pragma endregion
+
+#pragma region Navigation
+	UPROPERTY(EditDefaultsOnly, Category = "AI Navigation")
+	double m_radius_patrol;
+
+	UPROPERTY(EditDefaultsOnly, Category = "AI Navigation")
+	double m_radius_attack;
+
+	UPROPERTY(EditDefaultsOnly, Category = "AI Navigation")
+	double m_radius_confront;
+
+	UPROPERTY(EditDefaultsOnly, Category = "AI Navigation")
+	double m_radius_tracking;
+
+#pragma endregion
+
+#pragma region Patrol
+	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	AActor* m_target_patrol;
+
+	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	TArray<AActor*> m_targets_patrol;
+
+	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	float m_time_wait_min = 0.f;
+
+	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	float m_time_wait_max = 0.f;
+
+	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	float m_time_patrol = 0.f;
+
+	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
+	float m_sec_kwon_missing_target = 2.f;
+
+	FVector					m_location_assembly_object;
+	AAssemblePointObject*	m_target_assembly_object;
+
+	bool m_is_idle_to_watching;
+	bool m_is_idle_to_resting;
+	bool m_is_patrolling;
+	bool m_is_resting;
+#pragma endregion
+
+#pragma region States
+	UPROPERTY(EditInstanceOnly, Category = "States")
+	EActionState_NPC m_action_state = EActionState_NPC::EASN_Unoccupied;
+
+	EVigilanceState	m_vigilance_state = EVigilanceState::EVS_Repose;
+#pragma endregion
+
+#pragma region Timer
+	FTimerHandle m_timer_sight;
+	FTimerHandle m_timer_watching;
+	FTimerHandle m_timer_patrol;
+	FTimerHandle m_timer_reserve_action;
+	FTimerHandle m_timer_hit;
+#pragma endregion
+
+#pragma region HUD
+	UPROPERTY(VisibleAnywhere)
+	UHealthBarComponent* m_widget_healthbar = nullptr;
+#pragma endregion
+
+#pragma region AssemblyPoint
+	UPROPERTY(EditInstanceOnly, Category = "Assembly Point Properties")
+	AAssemblyPoint* m_assembly_point;
+#pragma endregion
+};
