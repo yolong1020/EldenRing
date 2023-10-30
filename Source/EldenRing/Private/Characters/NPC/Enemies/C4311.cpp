@@ -33,10 +33,7 @@ void AC4311::BeginPlay()
 	{
 		m_equip_state = EEquipState::EES_EquippedOneHandedWeapon;
 
-		if (nullptr != m_class_weapon_L)
-		{
-			EquipWeapon("L_HandSocket", EWeaponEquipHand::EWEH_Left);
-		}
+		if (nullptr != m_class_weapon_L) { EquipWeapon("L_HandSocket", EWeaponEquipHand::EWEH_Left); }
 	}
 
 	if (m_action_state == EActionState_NPC::EASN_Patrolling)
@@ -49,7 +46,6 @@ void AC4311::BeginPlay()
 
 		TDelegate patrol_delegate = FTimerDelegate::CreateLambda([this]()->void {
 			m_is_resting = true;
-			//OnMoveOtherPatrolPoint();
 			GetWorldTimerManager().ClearTimer(m_timer_patrol);
 			});
 
@@ -94,7 +90,7 @@ void AC4311::GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeig
 	}
 	else
 	{
-		if (EDeathPose::EDP_Alive != m_death_pose) { return; }
+		if (EDeathPose::EDP_Alive != m_death_pose) return;
 
 		UGameCharacter_AnimInstance* anim_instance = Cast<UGameCharacter_AnimInstance>(GetMesh()->GetAnimInstance());
 		CHECK_INVALID(anim_instance)
@@ -103,8 +99,8 @@ void AC4311::GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeig
 		FName section_name;
 		switch (FMath::RandRange(0, m_montage_death->GetNumSections() - 1))
 		{
-		case 0: section_name = FName("Death_Front"); m_death_pose = EDeathPose::EDP_Death_Front; break;
-		case 1: section_name = FName("Death_Back");  m_death_pose = EDeathPose::EDP_Death_Back; break;
+			case 0: section_name = FName("Death_Front"); m_death_pose = EDeathPose::EDP_Death_Front; break;
+			case 1: section_name = FName("Death_Back");  m_death_pose = EDeathPose::EDP_Death_Back; break;
 		}
 
 		SetBlindPawn(true);
@@ -118,7 +114,6 @@ void AC4311::GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeig
 	}
 
 	if (nullptr != m_sound_hit) { UGameplayStatics::PlaySoundAtLocation(this, m_sound_hit, ImpactPoint); }
-
 	if (nullptr != m_particle_hit)
 	{
 		auto world = GetWorld();
@@ -126,10 +121,6 @@ void AC4311::GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeig
 
 		UGameplayStatics::SpawnEmitterAtLocation(world, m_particle_hit, ImpactPoint);			
 	}
-
-#ifdef _DEBUG
-	DRAW_SPHERE_DURATION(ImpactPoint)
-#endif
 }
 
 void AC4311::SetWeaponCollision(ECollisionEnabled::Type type)
@@ -140,10 +131,7 @@ void AC4311::SetWeaponCollision(ECollisionEnabled::Type type)
 	CHECK_INVALID(weapon)
 
 	auto collision_box = weapon->GetWeaponBox();
-	if (nullptr != collision_box)
-	{
-		collision_box->SetCollisionEnabled(type);
-	}
+	if (nullptr != collision_box) { collision_box->SetCollisionEnabled(type); }
 	m_equiped_weapon_R->m_ignore_actors.Empty();
 }
 
@@ -151,17 +139,7 @@ float AC4311::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AC
 {
 	Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 
-	if (EVigilanceState::EVS_Vigilance == m_vigilance_state)
-	{
-		// ≈∏∞Ÿ ∫Ø∞Ê ¡∂∞« « ø‰
-		// m_actor_target = EventInstigator->GetPawn();
-
-
-	}
-	else
-	{
-		m_actor_target = Cast<AGameCharacter>(EventInstigator->GetPawn());
-	}
+	if (EVigilanceState::EVS_Vigilance != m_vigilance_state) { m_actor_target = Cast<AGameCharacter>(EventInstigator->GetPawn()); }
 
 	return DamageAmount;
 }
@@ -171,36 +149,36 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 	UGameCharacter_AnimInstance* anim_instance = Cast<UGameCharacter_AnimInstance>(GetMesh()->GetAnimInstance());
 	CHECK_INVALID(anim_instance)
 
-	bool			is_need_blend			= true;
-	FString			hit_section_postfix		= "";
-	int32			selected_index			= 0;
+	bool		is_need_blend		= true;
+	FString		hit_section_postfix	= "";
+	int32		selected_index		= 0;
 
 	UAnimMontage*	montage_with_direction	= nullptr;
 	UAnimMontage*	montage_no_direction	= nullptr;
 
 	switch (attack_weight)
 	{
-	case EAttackWeight::EAW_Small:
-	{
-		hit_section_postfix		= FString("Small");
-	}break;
-	case EAttackWeight::EAW_Medium:
-	{
-		hit_section_postfix		= FString("Medium");
-		montage_no_direction	= m_montage_hit_medium;
-		montage_with_direction	= m_montage_hit_medium_direction;
-	} break;
-	case EAttackWeight::EAW_Heavy:
-	case EAttackWeight::EAW_ExtraHeavy:
-	case EAttackWeight::EAW_UltraHeavy: 
-	{
-		hit_section_postfix		= FString("UltraHeavy");
-		montage_with_direction	= nullptr;
+		case EAttackWeight::EAW_Small:
+		{
+			hit_section_postfix	= FString("Small");
+		}break;
+		case EAttackWeight::EAW_Medium:
+		{
+			hit_section_postfix	= FString("Medium");
+			montage_no_direction	= m_montage_hit_medium;
+			montage_with_direction	= m_montage_hit_medium_direction;
+		} break;
+		case EAttackWeight::EAW_Heavy:
+		case EAttackWeight::EAW_ExtraHeavy:
+		case EAttackWeight::EAW_UltraHeavy: 
+		{
+			hit_section_postfix	= FString("UltraHeavy");
+			montage_with_direction	= nullptr;
 
-		PlayMontage(m_montage_hit_ultra_heavy_directiony, FName(hit_section_postfix));
-		anim_instance->SetHitReactProperties(is_need_blend, selected_index, attack_weight, EHitCycleType::EHCT_Even);
-		anim_instance->SetRootMotionMode(ERootMotionMode::RootMotionFromMontagesOnly);
-	}
+			PlayMontage(m_montage_hit_ultra_heavy_directiony, FName(hit_section_postfix));
+			anim_instance->SetHitReactProperties(is_need_blend, selected_index, attack_weight, EHitCycleType::EHCT_Even);
+			anim_instance->SetRootMotionMode(ERootMotionMode::RootMotionFromMontagesOnly);
+		}
 	}
 
 	if (hit_section_postfix != FString("UltraHeavy"))
@@ -220,7 +198,7 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 			selected_index		= FMath::RandRange(1, montage_no_direction->GetNumSections());
 			hit_section_postfix += (FString("_0") + FString::FromInt(selected_index));
 		} break;
-		default: { return; }
+		default: return;
 		}
 
 		EHitCycleType cycle_type = anim_instance->GetHitCycle();
@@ -228,28 +206,28 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 		anim_instance->SetRootMotionMode(ERootMotionMode::RootMotionFromMontagesOnly);
 
 		if (hit_direction != EGameDirection::EGD_Front) { PlayMontage(montage_with_direction, FName(hit_section_postfix)); }
-		else											{ PlayMontage(montage_no_direction, FName(hit_section_postfix)); }
+		else						{ PlayMontage(montage_no_direction, FName(hit_section_postfix)); }
 		
 		bool is_already_clear = false;
 		for (FAnimMontageInstance* instance : anim_instance->MontageInstances)
 		{
-			if (false	== instance->bPlaying	||
-				nullptr == instance->Montage	||
-				false	== instance->Montage->GetFName().ToString().Contains("AM_HitReact")) { continue; }
+			if (false   == instance->bPlaying	||
+			    nullptr == instance->Montage	||
+			    false   == instance->Montage->GetFName().ToString().Contains("AM_HitReact")) continue;
 
 			int32 index = instance->Montage->GetSectionIndex(FName(hit_section_postfix));
-			if (0 > index) { continue; }
+			if (0 > index) continue;
 
-			FCompositeSection section		= instance->Montage->GetAnimCompositeSection(index);
-			int32			  segment_index = section.GetSegmentIndex();
+			FCompositeSection section = instance->Montage->GetAnimCompositeSection(index);
+			int32 segment_index 	  = section.GetSegmentIndex();
 
-			if (false == instance->Montage->SlotAnimTracks.IsValidIndex(0)) { continue; }
+			if (false == instance->Montage->SlotAnimTracks.IsValidIndex(0)) continue;
 
 			FSlotAnimationTrack& default_slot = instance->Montage->SlotAnimTracks[0];
-			if (false == default_slot.AnimTrack.AnimSegments.IsValidIndex(segment_index)) { continue; }
+			if (false == default_slot.AnimTrack.AnimSegments.IsValidIndex(segment_index)) continue;
 
 			FAnimSegment segment = default_slot.AnimTrack.AnimSegments[segment_index];
-			float		 length	 = segment.GetLength();
+			float length	     = segment.GetLength();
 
 			bool is_need_clear = (hit_direction == EGameDirection::EGD_Front) ? (instance->Montage == montage_no_direction) : (instance->Montage == montage_with_direction);
 			if (false == is_already_clear && is_need_clear)
@@ -266,34 +244,26 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 
 void AC4311::PawnSeen(APawn* seen_pawn)
 {
-	/* if (ºº∑¬ ∞ÀªÁ) return; */
-
 	AGameCharacter* target = Cast<AGameCharacter>(seen_pawn);
 	if (nullptr == target || IsCantMoveState()) { return; }
 
-	if (nullptr == m_actor_target)
+	if (nullptr == m_actor_target && seen_pawn->ActorHasTag(FName("Player")))
 	{
-		if (seen_pawn->ActorHasTag(FName("Player")))
-		{
-			//UE_LOG(LogTemp, Warning, TEXT("PawnSeen : Start Combat"));
-			StartCombat();
-			m_actor_target = target;
-		}
+		StartCombat();
+		m_actor_target = target;
 	}
 	else if (target == m_actor_target && EVigilanceState::EVS_Vigilance == m_vigilance_state)
 	{
 		OnCheckMissingTarget();
 
-		// π¸¿ß ≥ª
+		// Î≤îÏúÑ ÎÇ¥
 		if (InTargetRange(m_actor_target, m_radius_tracking))
 		{
 			if (InTargetRange(m_actor_target, m_radius_confront) == false)
 			{
 				if (m_action_state != EActionState_NPC::EASN_Attacking &&
-					m_action_state != EActionState_NPC::EASN_TakeExecution)
+				    m_action_state != EActionState_NPC::EASN_TakeExecution)
 				{
-					UE_LOG(LogTemp, Warning, TEXT("Is Tracking"));
-
 					ChangeRootMotionMode(ERootMotionMode::RootMotionFromEverything);
 					MoveToTarget(m_actor_target, m_radius_attack * 0.5);
 				}
@@ -304,17 +274,11 @@ void AC4311::PawnSeen(APawn* seen_pawn)
 				GetWorldTimerManager().ClearTimer(m_timer_reserve_action);
 			}
 		}
-		// π¸¿ß ¿Ã≈ª
+		// Î≤îÏúÑ Ïù¥ÌÉà
 		else
 		{
-			FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-			//UE_LOG(LogTemp, Warning, TEXT("Out Tracking PawnSeen State : %s"), *state);
-
 			if (m_action_state != EActionState_NPC::EASN_Attacking &&
-				m_action_state != EActionState_NPC::EASN_TakeExecution)
-			{
-				FinishVigilance();
-			}
+			    m_action_state != EActionState_NPC::EASN_TakeExecution) { FinishVigilance(); }
 		}
 	}
 }
@@ -330,8 +294,6 @@ void AC4311::StartWatching()
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("On Move Other Patrol Point by StartWatching"))
-
 		const float wait_sec = FMath::RandRange(m_time_wait_min, m_time_wait_max);
 		GetWorldTimerManager().SetTimer(m_timer_watching, this, &AC4311::OnMoveOtherPatrolPoint, wait_sec);
 	}
@@ -361,20 +323,19 @@ void AC4311::StartAttack()
 	FString section_name = "";
 	if (m_attack_strength != EAttackStrength::EATKS_Normal) { 
 		if ((FMath::Rand() % 100) > 50) { section_name = FString("Strong_Attack_"); }
-		else							{ section_name = FString("Dash_Attack"); }
+		else				{ section_name = FString("Dash_Attack"); }
 	}
 	else { section_name = FString("Attack_"); }
 
-	if (section_name != FString("Dash_Attack")) {
+	if (section_name != FString("Dash_Attack")) 
+	{
 		if ((FMath::Rand() % 100) > 50) { section_name += FString("01"); }
-		else							{ section_name += FString("02"); }
+		else				{ section_name += FString("02"); }
 	}
 	m_equiped_weapon_R->SetAttackWeight(m_equip_state, m_attack_strength, m_attack_type_prev);
-
-	//UE_LOG(LogTemp, Warning, TEXT("Play Montage : Start Attack"));
-	PlayMontage(m_montage_attack, FName(section_name));
-
 	m_attack_name_prev = FName(section_name);
+	
+	PlayMontage(m_montage_attack, FName(section_name));
 }
 
 void AC4311::StartTurn(const EGameDirection& direction)
@@ -384,35 +345,25 @@ void AC4311::StartTurn(const EGameDirection& direction)
 	FString pre_fix = FString();
 	switch (m_battle_pose)
 	{
-	case EBattlePose::EBP_Attack:	pre_fix = FString("Battle_"); break;
-	case EBattlePose::EBP_Defense:	pre_fix = FString("Shield_"); break;
+		case EBattlePose::EBP_Attack:	pre_fix = FString("Battle_"); break;
+		case EBattlePose::EBP_Defense:	pre_fix = FString("Shield_"); break;
 	}
 
 	FString post_fix = FString();
 	switch (direction)
 	{
-	case EGameDirection::EGD_Back:	post_fix = FString("Right_180"); break;
-	case EGameDirection::EGD_Left:	post_fix = FString("Left_90"); break;
-	case EGameDirection::EGD_Right: post_fix = FString("Right_90"); break;
+		case EGameDirection::EGD_Back:	post_fix = FString("Right_180"); break;
+		case EGameDirection::EGD_Left:	post_fix = FString("Left_90"); break;
+		case EGameDirection::EGD_Right: post_fix = FString("Right_90"); break;
 	}
 
-	FString dir = StaticEnum<EGameDirection>()->GetNameStringByValue(int64(direction));
-	UE_LOG(LogTemp, Warning, TEXT("StartTurn : State : %s"), *dir);
-
 	m_action_state = EActionState_NPC::EASN_Turn;
-
 	PlayMontage(m_montage_turn, FName(pre_fix + post_fix));
 }
 
 void AC4311::StartConfront()
 {
-	//UE_LOG(LogTemp, Warning, TEXT("StartConfront"))
-	//	2. ∞Ê∞Ë ¿⁄ºº - πÊæÓ / ¿œπ›
-	//		> ¿œ¡§ Ω√∞£ø° µ˚∂Ûº≠ øÚ¡˜¿Ã¥¬ πÊ«‚¿ª π¸¿ß ≥ª ∑£¥˝¿∏∑Œ ¡ÿ¥Ÿ.
-	//		> «√∑π¿ÃæÓ √º∑¬ø° µ˚∂Ûº≠ ∞¯∞›«¸ πÊæÓ«¸¿∏∑Œ ∫–∏Æ«—¥Ÿ.
-	if (nullptr == m_actor_target) return;
-
-	if (m_action_state == EActionState_NPC::EASN_HitReact) { return; }
+	if (nullptr == m_actor_target || m_action_state == EActionState_NPC::EASN_HitReact) return;
 
 	m_action_state	= EActionState_NPC::EASN_Confronting;
 	if (nullptr != Cast<AShield_Actor>(m_equiped_weapon_L)) { m_battle_pose = EBattlePose::EBP_Defense; }
@@ -422,18 +373,15 @@ void AC4311::StartConfront()
 	bool is_too_close = InTargetRange(m_actor_target, m_radius_attack);
 	if (is_too_close) { direction = EGameDirection::EGD_Back; }
 
-	FString section_name;
+	FString section_name = "";
 	switch (direction)
 	{
-	case EGameDirection::EGD_Back: section_name = FString("ToBack");  break;
-	case EGameDirection::EGD_Front:section_name = FString("ToFront"); break;
-	case EGameDirection::EGD_Left: section_name	= FString("ToLeft");  break;
-	case EGameDirection::EGD_Right:section_name = FString("ToRight"); break;
+		case EGameDirection::EGD_Back: section_name = FString("ToBack");  break;
+		case EGameDirection::EGD_Front:section_name = FString("ToFront"); break;
+		case EGameDirection::EGD_Left: section_name = FString("ToLeft");  break;
+		case EGameDirection::EGD_Right:section_name = FString("ToRight"); break;
 	}
-
 	if (Cast<AShield_Actor>(m_equiped_weapon_L) != nullptr) { section_name += FString("_Shield"); }
-
-	//UE_LOG(LogTemp, Warning, TEXT("Play Montage : Confront"));
 	PlayMontage(m_montage_confront, FName(section_name));
 
 	UAnimInstance* anim_instance = m_mesh->GetAnimInstance();
@@ -453,22 +401,15 @@ void AC4311::OnCheckMissingTarget()
 {
 	if (IsInSight(m_actor_target))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("OnCheckMissingTarget : Catch Target"));
 		GetWorldTimerManager().SetTimer(m_timer_sight, this, &AC4311::OnCheckMissingTarget, m_sec_kwon_missing_target);
 	}
 	else if (InTargetRange(m_actor_target, m_radius_tracking))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("OnCheckMissingTarget : StartTurn"));
 		EGameDirection direction = FindDirection(this, m_actor_target->GetActorLocation());
-
-		if (direction != EGameDirection::EGD_Front && false == IsCantMoveState())
-		{
-			StartTurn(direction);
-		}
+		if (direction != EGameDirection::EGD_Front && false == IsCantMoveState()) { StartTurn(direction); }
 	}
 	else if (false == InTargetRange(m_actor_target, m_radius_tracking))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("OnCheckMissingTarget : Missing Target"));
 		GetWorldTimerManager().ClearTimer(m_timer_sight);
 		FinishVigilance();
 	}
@@ -489,19 +430,12 @@ void AC4311::OnWatchingSwitch()
 		const float wait_sec = FMath::RandRange(m_time_wait_min * 2.f, m_time_wait_max * 2.f);
 		GetWorldTimerManager().SetTimer(m_timer_watching, this, &AC4311::OnWatchingFinished, wait_sec);
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("On Move Other Patrol Point by StartWatching"))
-		OnMoveOtherPatrolPoint();
-	}
+	else { OnMoveOtherPatrolPoint(); }
 }
 
 void AC4311::OnRestingSwitch()
 {
-	if (m_is_idle_to_resting)
-	{
-		m_action_state = EActionState_NPC::EASN_Resting;
-	}
+	if (m_is_idle_to_resting) { m_action_state = EActionState_NPC::EASN_Resting; }
 	else
 	{
 		TDelegate patrol_delegate = FTimerDelegate::CreateLambda([this]()->void {
@@ -515,7 +449,6 @@ void AC4311::OnRestingSwitch()
 			m_time_patrol,
 			false);
 
-		UE_LOG(LogTemp, Warning, TEXT("On Move Other Patrol Point by OnRestingSwitch"))
 		m_is_patrolling	= true;
 		m_target_patrol	= SelectPatrolTarget();
 		OnMoveOtherPatrolPoint();
@@ -529,30 +462,29 @@ void AC4311::OnRestingEnd(const FString& section_name)
 
 	capsule->SetCanEverAffectNavigation(false);
 
-	m_is_idle_to_resting			= false;
-	m_is_resting					= false;
-	m_target_assembly_object		= nullptr;
+	m_is_idle_to_resting		= false;
+	m_is_resting			= false;
+	m_target_assembly_object	= nullptr;
 	PlayMontage(m_montage_resting, FName(section_name));
 }
 
 bool AC4311::InAssmeblyPointAction()
 {
-	if (false == m_is_resting || nullptr == m_target_assembly_object) { return false; }
+	if (false == m_is_resting || nullptr == m_target_assembly_object) return false;
 
-	FVector delta			 = m_location_assembly_object;
+	FVector delta		 = m_location_assembly_object;
 	FVector action_location  = UKismetMathLibrary::Quat_RotateVector(GetActorRotation().Quaternion(), delta);
 
 	EGameDirection direction = FindDirection(this, m_assembly_point->GetActorLocation());
 	m_is_idle_to_resting	 = true;
-	m_is_patrolling			 = false;
+	m_is_patrolling		 = false;
 
 	if (direction == EGameDirection::EGD_Front)
 	{
 		UCapsuleComponent* capsule = GetCapsuleComponent();
-		if (nullptr == capsule) { return false; }
+		if (nullptr == capsule) return false;
 
 		capsule->SetCanEverAffectNavigation(true);
-		UE_LOG(LogTemp, Warning, TEXT("SetCanEverAffectNavigation"))
 
 		m_action_state = EActionState_NPC::EASN_Resting;
 		FVector object_location = FVector(m_location_assembly_object.X, m_location_assembly_object.Y, GetActorLocation().Z);
@@ -561,19 +493,10 @@ bool AC4311::InAssmeblyPointAction()
 		FVector assemble_offset_location = FVector(assemble_location.X, assemble_location.Y, GetActorLocation().Z);
 		FVector actor_location = GetActorLocation();
 
-		FVector dir = (assemble_offset_location - actor_location).GetSafeNormal2D();
-
-		//UKismetSystemLibrary::DrawDebugArrow(this, actor_location, actor_location + dir * 40.f, 5.f, FColor::Black, 5.f);
-
-		//SetActorLocation(object_location);
-
 		FString name = m_target_assembly_object->GetInteractionSectionName();
 		PlayMontage(m_montage_resting, FName(name), -1.f);
 	}
-	else
-	{
-		StartTurn(direction);
-	}
+	else { StartTurn(direction); }
 
 	return true;
 }
@@ -604,16 +527,11 @@ void AC4311::ChooseNextAction()
 {
 	if (m_death_pose != EDeathPose::EDP_Alive || IsCantMoveState()) { return; }
 
-	if (m_action_state != EActionState_NPC::EASN_Chasing)
-		m_action_state = ((FMath::Rand() % 100) > 40) ? EActionState_NPC::EASN_Attacking : EActionState_NPC::EASN_Confronting;
+	if (m_action_state != EActionState_NPC::EASN_Chasing) { m_action_state = ((FMath::Rand() % 100) > 40) ? EActionState_NPC::EASN_Attacking : EActionState_NPC::EASN_Confronting; }
 
 	switch (m_action_state)
 	{
-		case EActionState_NPC::EASN_Attacking:
-		{
-			StartAttack();
-		}
-		break;
+		case EActionState_NPC::EASN_Attacking: { StartAttack(); } break;
 		case EActionState_NPC::EASN_Confronting:
 		{
 			if (InTargetRange(m_actor_target, m_radius_tracking))
@@ -621,36 +539,26 @@ void AC4311::ChooseNextAction()
 				if (InTargetRange(m_actor_target, m_radius_confront) == false)
 				{
 					FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-					//UE_LOG(LogTemp, Warning, TEXT("ChooseNextAction State : %s"), *state);
 					
-					if (m_action_state != EActionState_NPC::EASN_Attacking/*&&
-						m_action_state != EActionState_NPC::EASN_HitReact &&
-						m_action_state != EActionState_NPC::EASN_TakeExecution*/)
+					if (m_action_state != EActionState_NPC::EASN_Attacking &&
+					    m_action_state != EActionState_NPC::EASN_HitReact &&
+					    m_action_state != EActionState_NPC::EASN_TakeExecution )
 					{
 						ChangeRootMotionMode(ERootMotionMode::RootMotionFromEverything);
 						MoveToTarget(m_actor_target);
 					}
 
 					m_action_state = EActionState_NPC::EASN_Chasing;
-
 					GetWorldTimerManager().ClearTimer(m_timer_reserve_action);
 				}
-				else
-				{
-					//UE_LOG(LogTemp, Warning, TEXT("ChooseNextAction : StartConfront"));
-					StartConfront();
-				}
+				else { StartConfront(); }
 			}
 			else
 			{
 				m_action_state = EActionState_NPC::EASN_Unoccupied;
-
 				if (m_action_state != EActionState_NPC::EASN_Attacking &&
-					m_action_state != EActionState_NPC::EASN_HitReact &&
-					m_action_state != EActionState_NPC::EASN_TakeExecution)
-				{
-					FinishVigilance();
-				}
+				    m_action_state != EActionState_NPC::EASN_HitReact  &&
+				    m_action_state != EActionState_NPC::EASN_TakeExecution) { FinishVigilance(); }
 			}
 		}
 	}
@@ -670,18 +578,18 @@ void AC4311::FinishVigilance()
 
 bool AC4311::IsCantMoveState()
 {
-	return (m_action_state == EActionState_NPC::EASN_HitReact ||
-			m_action_state == EActionState_NPC::EASN_GuardReact ||
-			m_action_state == EActionState_NPC::EASN_Swap ||
-			m_action_state == EActionState_NPC::EASN_TakeExecution ||
-			m_action_state == EActionState_NPC::EASN_Stunning ||
+	return (m_action_state == EActionState_NPC::EASN_HitReact 		||
+			m_action_state == EActionState_NPC::EASN_GuardReact 	||
+			m_action_state == EActionState_NPC::EASN_Swap 		||
+			m_action_state == EActionState_NPC::EASN_TakeExecution  ||
+			m_action_state == EActionState_NPC::EASN_Stunning 	||
 			m_death_pose   != EDeathPose::EDP_Alive);
 }
 
 void AC4311::OnChangeVigilanceState(const EVigilanceState& state)
 {
 	m_action_state = (m_action_state == EActionState_NPC::EASN_Swap) ? EActionState_NPC::EASN_Unoccupied : m_action_state;
-	if (IsCantMoveState()) { return; }
+	if (IsCantMoveState()) return;
 
 	Super::OnChangeVigilanceState(state);
 
@@ -693,10 +601,6 @@ void AC4311::OnChangeVigilanceState(const EVigilanceState& state)
 	}
 	else if (EVigilanceState::EVS_Vigilance == state)
 	{
-		// Chase or Shot
-		//FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-		//UE_LOG(LogTemp, Warning, TEXT("OnChangeVigilanceState State : %s"), *state);
-
 		CHECK_INVALID(m_widget_healthbar)
 		m_widget_healthbar->SetVisibility(true);
 
@@ -705,43 +609,24 @@ void AC4311::OnChangeVigilanceState(const EVigilanceState& state)
 		if (direction == EGameDirection::EGD_Front)
 		{
 			 m_action_state = EActionState_NPC::EASN_Chasing;
-
 			 MoveToTarget(m_actor_target, m_radius_attack * 0.5);
 		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("OnChangeVigilanceState : StartTurn"));
-			StartTurn(direction);
-		}
-
-		//m_action_state = EActionState_NPC::EASN_Chasing;
-		//MoveToTarget(m_actor_target);
+		else { StartTurn(direction); }
 	}
 }
 
 void AC4311::OnMoveCompleted(const FPathFollowingResult& Result)
 {
-	if (EActionState_NPC::EASN_Chasing == m_action_state)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("MoveComplete"))
-	}
-
 	switch (m_action_state)
 	{
-	case EActionState_NPC::EASN_Patrolling:
+		case EActionState_NPC::EASN_Patrolling:
 		{
 			m_action_state = EActionState_NPC::EASN_Unoccupied;
-
-			if (InTargetRange(m_target_patrol, m_radius_patrol))
-			{
-				StartWatching();
-			}
+			if (InTargetRange(m_target_patrol, m_radius_patrol)) { StartWatching(); }
 		} break;
-	case EActionState_NPC::EASN_Chasing:
+		case EActionState_NPC::EASN_Chasing:
 		{
-			if (InTargetRange(m_actor_target, m_radius_attack)) {
-				StartAttack();
-			}
+			if (InTargetRange(m_actor_target, m_radius_attack)) { StartAttack(); }
 		} break;
 	}
 }
@@ -749,20 +634,13 @@ void AC4311::OnMoveCompleted(const FPathFollowingResult& Result)
 void AC4311::OnNextAttack()
 {
 	if (m_attack_type_prev > EAttackType::EATKT_Attack ||
-		m_attack_strength > EAttackStrength::EATKS_Normal)
+	    m_attack_strength > EAttackStrength::EATKS_Normal)
 		return;
 
-	// 1. ∞¯∞› º∫∞¯¿Œ ∞ÊøÏ
-	// 2. ∞¯∞› π¸¿ßø° ¥ÎªÛ¿Ã ¿÷¥¬ ∞ÊøÏ
-	// 3. «—π¯ ¥ı ∞¯∞› or ∞¯∞› ¡ﬂ¡ˆ
 	if (m_attack_success || InTargetRange(m_actor_target, m_radius_attack) || (1 == FMath::RandRange(0, 1)))
 	{
 		FName next_section = ChooseNextAttack();
-		if (next_section.IsNone())
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Can not found next attack section."));
-			return;
-		}
+		if (next_section.IsNone()) return; 
 
 		UAnimInstance* anim_instance = m_mesh->GetAnimInstance();
 		if (nullptr != anim_instance)
@@ -774,32 +652,19 @@ void AC4311::OnNextAttack()
 		}
 
 		m_equiped_weapon_R->SetAttackWeight(m_equip_state, m_attack_strength, m_attack_type_prev);
-
-		//UE_LOG(LogTemp, Warning, TEXT("Play Montage : Next Attack"));
+ 
 		PlayMontage(m_montage_attack, next_section);
 		return;
 	}
-
-	//	2. ∞Ê∞Ë ¿⁄ºº - πÊæÓ / ¿œπ›
-	//		> «√∑π¿ÃæÓ √º∑¬ø° µ˚∂Ûº≠ ∞¯∞›«¸ πÊæÓ«¸¿∏∑Œ ∫–∏Æ«—¥Ÿ.
 }
 
 void AC4311::OnEndAttack()
 {
-	if (m_action_state == EActionState_NPC::EASN_Unoccupied)
-	{
-		FinishVigilance();
-	}
+	if (m_action_state == EActionState_NPC::EASN_Unoccupied) { FinishVigilance(); }
 	else if (m_action_state != EActionState_NPC::EASN_Chasing)
 	{
 		FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-		//UE_LOG(LogTemp, Warning, TEXT("OnEndAttack StartConfront State : %s"), *state);
-
-		if (InTargetRange(m_actor_target, m_radius_tracking))
-		{
-			//UE_LOG(LogTemp, Warning, TEXT("OnEndAttack : StartConfront"));
-			StartConfront();
-		}
+		if (InTargetRange(m_actor_target, m_radius_tracking)) { StartConfront(); }
 	}
 }
 
@@ -809,10 +674,8 @@ void AC4311::OnReactEnd()
 	CHECK_INVALID(anim_instance)
 
 	anim_instance->IsNeedBlendPerBone(false);
-
 	CHECK_INVALID(m_actor_target)
 
-	//UE_LOG(LogTemp, Warning, TEXT("Now Unoccupied"))
 	m_action_state = EActionState_NPC::EASN_Unoccupied;
 	EGameDirection direction = FindDirection(this, m_actor_target->GetActorLocation());
 
@@ -820,27 +683,19 @@ void AC4311::OnReactEnd()
 	{
 		(EVigilanceState::EVS_Repose == m_vigilance_state) ? StartCombat() : StartConfront();
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("OnReactEnd : StartTurn"));
-		StartTurn(direction);
-	}
+	else { StartTurn(direction); }
 }
 
 void AC4311::OnTurnEnd()
 {
-	if ((m_death_pose != EDeathPose::EDP_Alive) || IsCantMoveState()) { return; }
+	if ((m_death_pose != EDeathPose::EDP_Alive) || IsCantMoveState()) return;
 
 	Super::OnTurnEnd();
-	UE_LOG(LogTemp, Warning, TEXT("OnTurnEnd "));
 	if (m_vigilance_state == EVigilanceState::EVS_Repose)
 	{
 		StopAllMontage();
 
-		if (nullptr != m_actor_target)
-		{
-			StartCombat();
-		}
+		if (nullptr != m_actor_target) { StartCombat(); }
 		else if (m_is_patrolling)
 		{
 			m_action_state = EActionState_NPC::EASN_Patrolling;
@@ -856,24 +711,12 @@ void AC4311::OnTurnEnd()
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("In Else "));
 			UCapsuleComponent* capsule = GetCapsuleComponent();
 			CHECK_INVALID(capsule)
 			capsule->SetCanEverAffectNavigation(true);
 
 			CHECK_INVALID(m_target_assembly_object)
 			m_action_state = EActionState_NPC::EASN_Resting;
-
-			FVector assemble_location = m_assembly_point->GetActorLocation();
-			FVector assemble_offset_location = FVector(assemble_location.X, assemble_location.Y, GetActorLocation().Z);
-			FVector object_location = FVector(m_location_assembly_object.X, m_location_assembly_object.Y, GetActorLocation().Z);
-			FVector actor_location = GetActorLocation();
-
-			FVector dir = (assemble_offset_location - actor_location).GetSafeNormal2D();
-
-			//UKismetSystemLibrary::DrawDebugArrow(this, actor_location, actor_location + dir * 40.f, 5.f, FColor::Black, 5.f);
-
-			//SetActorLocation(object_location);
 
 			FString name = m_target_assembly_object->GetInteractionSectionName();
 			PlayMontage(m_montage_resting, FName(name), -1.f);
@@ -883,36 +726,25 @@ void AC4311::OnTurnEnd()
 	{
 		FString status = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
 
-		if (InTargetRange(m_actor_target, m_radius_confront))
-		{
-			StartConfront();
-		}
-		else if (false == InTargetRange(m_actor_target, m_radius_tracking))
-		{
-			FinishVigilance();
-		}
-		else
-		{
-			OnCheckMissingTarget();
-		}
+		if 	(InTargetRange(m_actor_target, m_radius_confront))  { StartConfront(); }
+		else if (!InTargetRange(m_actor_target, m_radius_tracking)) { FinishVigilance(); }
+		else 							    { OnCheckMissingTarget(); }
 	}
 }
 
 void AC4311::OnAttackDefended(const EAttackWeight& attack_weight)
 {
-	if (m_battle_pose  != EBattlePose::EBP_Defense ||
-		m_action_state != EActionState_NPC::EASN_Confronting)
-	{ return; }
+	if (m_battle_pose  != EBattlePose::EBP_Defense || m_action_state != EActionState_NPC::EASN_Confronting) return;
 
 	FName section_name;
 	switch (attack_weight)
 	{
-	case EAttackWeight::EAW_Small:
-	case EAttackWeight::EAW_Medium:		section_name = FName("Guard_Medium");	  break;
-	case EAttackWeight::EAW_Heavy:		section_name = FName("Guard_Heavy");	  break;
-	case EAttackWeight::EAW_ExtraHeavy:
-	case EAttackWeight::EAW_UltraHeavy: section_name = FName("Guard_ExtraHeavy"); break;
-	case EAttackWeight::EAW_None: { return; }
+		case EAttackWeight::EAW_Small:
+		case EAttackWeight::EAW_Medium:		section_name = FName("Guard_Medium");	  break;
+		case EAttackWeight::EAW_Heavy:		section_name = FName("Guard_Heavy");	  break;
+		case EAttackWeight::EAW_ExtraHeavy:
+		case EAttackWeight::EAW_UltraHeavy: 	section_name = FName("Guard_ExtraHeavy"); break;
+		case EAttackWeight::EAW_None: return;
 	}
 
 	m_action_state = EActionState_NPC::EASN_GuardReact;
@@ -921,10 +753,9 @@ void AC4311::OnAttackDefended(const EAttackWeight& attack_weight)
 
 void AC4311::OnAttackBlocked(const EAttackWeight& attack_weight)
 {
-	if (m_attack_strength == EAttackStrength::EATKS_Strong) { return; }
+	if (m_attack_strength == EAttackStrength::EATKS_Strong) return;
 
 	FName section_name = FName("Blocked_Normal");
-
 	PlayMontage(m_montage_blocked, section_name);
 }
 
@@ -933,7 +764,6 @@ void AC4311::OnTakeStunn()
 	Super::OnTakeStunn();
 
 	m_action_state = EActionState_NPC::EASN_Stunning;
-
 	PlayMontage(m_montage_stunn, FName("Stunned"));
 }
 
