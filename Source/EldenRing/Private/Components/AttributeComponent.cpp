@@ -85,7 +85,7 @@ void UAttributeComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 void UAttributeComponent::RegenerateStat(const EOverlayStatType& stat_type)
 {
 	int32 idx = (int32)stat_type;
-	if (!m_timeline_regenerate[index].IsPlaying()) { m_timeline_regenerate[index].PlayFromStart(); } 
+	if (stat_type != EOverlayStatType::EOST_End && !m_timeline_regenerate[index].IsPlaying()) { m_timeline_regenerate[index].PlayFromStart(); } 
 }
 
 void UAttributeComponent::BindDelegate(FOnRefreshStatBar& function)
