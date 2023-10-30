@@ -23,30 +23,30 @@ class BASIC_API AGameCharacter : public ACharacter, public IHitInterface
 public:
 	AGameCharacter();
 
-	virtual void	Tick(float DeltaTime) override;
-	virtual void	Destroyed() override;
+	virtual void Tick(float DeltaTime) override;
+	virtual void Destroyed() override;
 
-	virtual void	SetWeaponCollision(ECollisionEnabled::Type type) {};
-	virtual void	SetParryCollision(const ECollisionEnabled::Type& type);
+	virtual void SetWeaponCollision(ECollisionEnabled::Type type) {};
+	virtual void SetParryCollision(const ECollisionEnabled::Type& type);
 
-	virtual void	GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override {};
-	virtual float	TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
-	virtual void	TakeExecution(AActor* target, const EGameDirection& direction, const int32& damage) {};
+	virtual void GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override {};
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	virtual void TakeExecution(AActor* target, const EGameDirection& direction, const int32& damage) {};
 
-	virtual bool	IsCurrentActionState(const FString& action) { return false; }
-	virtual bool	IsGuardState() { return false; }
+	virtual bool IsCurrentActionState(const FString& action) { return false; }
+	virtual bool IsGuardState() { return false; }
 
-	virtual void	SetExecutionEnable(const bool& is_enable, AGameCharacter* const execution_target = nullptr);
-	virtual void	SetActiveLockOn(const bool& is_visible);
+	virtual void SetExecutionEnable(const bool& is_enable, AGameCharacter* const execution_target = nullptr);
+	virtual void SetActiveLockOn(const bool& is_visible);
 	
-	virtual void	OnAttackDefended(const EAttackWeight& attack_weight) = 0;
-	virtual void	OnAttackBlocked(const EAttackWeight& attack_weight) = 0;
-	virtual void	OnParryStart() = 0;
-	virtual void	OnParryEnd() = 0;
-	virtual void	OnReactEnd() = 0;
-	virtual void	OnTakeStunn();
-	virtual void	OnEndStunn();
-	virtual void	OnTakeExecutionEnd();
+	virtual void OnAttackDefended(const EAttackWeight& attack_weight) = 0;
+	virtual void OnAttackBlocked(const EAttackWeight& attack_weight) = 0;
+	virtual void OnParryStart() = 0;
+	virtual void OnParryEnd() = 0;
+	virtual void OnReactEnd() = 0;
+	virtual void OnTakeStunn();
+	virtual void OnEndStunn();
+	virtual void OnTakeExecutionEnd();
 
 	virtual FVector	GetBoneLocation(const FName& bone_name);
 	FORCEINLINE EEquipState			GetEquipState()		{ return m_equip_state; }
