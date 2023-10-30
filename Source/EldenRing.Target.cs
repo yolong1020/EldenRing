@@ -3,9 +3,9 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class BasicTarget : TargetRules
+public class EldenRingTarget : TargetRules
 {
-	public BasicTarget(TargetInfo Target) : base(Target)
+	public EldenRingTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
