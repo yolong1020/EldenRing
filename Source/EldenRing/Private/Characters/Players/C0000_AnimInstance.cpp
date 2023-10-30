@@ -30,15 +30,15 @@ void UC0000_AnimInstance::NativeUpdateAnimation(float delta)
 	CHECK_INVALID(m_character_C000)
 	
 	const FVector last_input_vector = m_movement_component->GetLastInputVector();
-	AActor*	const actor_target		= m_character_C000->GetTarget();
+	AActor*	const actor_target	= m_character_C000->GetTarget();
 
 	EActionState action = m_character_C000->GetActionState();
 
 	if (action != EActionState::EAS_Knockbacking && action != EActionState::EAS_Consume)
 	{
 		bool is_action_guard	= (action == EActionState::EAS_Guarding);
-		m_is_guard				= m_character_C000->IsInputKeyByFKey(EKeys::RightMouseButton) && is_action_guard;
-		m_is_blend_by_bone		= IsTryingMove() && is_action_guard;
+		m_is_guard		= m_character_C000->IsInputKeyByFKey(EKeys::RightMouseButton) && is_action_guard;
+		m_is_blend_by_bone	= IsTryingMove() && is_action_guard;
 	}
 	if (action == EActionState::EAS_Knockbacking) { m_is_blend_by_bone = false; }
 
@@ -73,7 +73,7 @@ void UC0000_AnimInstance::LockOnTarget(const FVector& last_input_vector, AActor*
 	}
 
 	float input_scale = 0;
-	if		(m_character_C000->IsInputKey(FName("MoveForward"), input_scale, true))	{ m_only_move_side = false; }
+	if	(m_character_C000->IsInputKey(FName("MoveForward"), input_scale, true))	{ m_only_move_side = false; }
 	else if (m_character_C000->IsInputKey(FName("MoveSide"), input_scale, true))	{ m_only_move_side = true; }
 
 	if (input_scale != 0) { m_is_front_or_right = (input_scale > 0); }
@@ -84,11 +84,11 @@ void UC0000_AnimInstance::LockOnTarget(const FVector& last_input_vector, AActor*
 	{
 		FRotator input_rotate = last_input_vector.GetSafeNormal2D().Rotation();
 
-		if (m_only_move_side)		input_rotate.Yaw -= (90.f * input_scale);
-		else if (0 > input_scale)	input_rotate.Yaw += 180.f;
+		if (m_only_move_side)		{ input_rotate.Yaw -= (90.f * input_scale); }
+		else if (0 > input_scale)	{ input_rotate.Yaw += 180.f; }
 
-		direction_rotated	= FRotationMatrix(input_rotate).GetUnitAxis(EAxis::X);
-		const FRotator	rotate_calc			= UKismetMathLibrary::RInterpTo(m_character_C000->GetActorRotation(), direction_rotated.Rotation(), delta, 10);
+		direction_rotated		= FRotationMatrix(input_rotate).GetUnitAxis(EAxis::X);
+		const FRotator	rotate_calc	= UKismetMathLibrary::RInterpTo(m_character_C000->GetActorRotation(), direction_rotated.Rotation(), delta, 10);
 
 		m_character_C000->SetActorRotation(rotate_calc.Quaternion());
 	}
@@ -96,13 +96,9 @@ void UC0000_AnimInstance::LockOnTarget(const FVector& last_input_vector, AActor*
 	// Rotate Spine	-------------------------------------------
 	const FRotator player_rotator = UKismetMathLibrary::MakeRotFromX(m_character_C000->GetActorForwardVector());
 	const FRotator target_rotator = UKismetMathLibrary::FindLookAtRotation(m_character_C000->GetActorLocation(), actor_target->GetActorLocation());
-	m_spine_rotation = target_rotator - player_rotator;
+	m_spine_rotation 	      = target_rotator - player_rotator;
 
 	if (20.f > FMath::Abs(m_spine_rotation.Yaw) || 45.f < FMath::Abs(m_spine_rotation.Yaw)) m_spine_rotation = FRotator::ZeroRotator;
-
-	//	FVector input_dir = last_input_vector.GetSafeNormal2D();
-	//	UKismetSystemLibrary::DrawDebugArrow(this, ViewerLocation, ViewerLocation + input_dir * 40, 5.f, FColor::Purple, 1.f);
-	//	UKismetSystemLibrary::DrawDebugArrow(this, ViewerLocation, ViewerLocation + forward * 40, 5.f, FColor::Yellow, 1.f);
 }
 
 void UC0000_AnimInstance::CheckNotInput(const FVector& last_input_vector)
@@ -115,8 +111,7 @@ void UC0000_AnimInstance::CheckNotInput(const FVector& last_input_vector)
 	else if ((m_time_delta > m_time_cur_input + 0.1) && (EGroundState::EGS_Walk < m_character_C000->GetGroundState())) 
 	{
 		EActionState action = m_character_C000->GetActionState();
-		if (EActionState::EAS_Dodgeing == action ||
-			EActionState::EAS_Guarding == action) return;
+		if (EActionState::EAS_Dodgeing == action || EActionState::EAS_Guarding == action) return;
 
 		m_time_cur_input = m_time_delta;
 		m_is_stop_move	 = true;
@@ -145,10 +140,9 @@ void UC0000_AnimInstance::SetRotateAttack(const float& delta)
 		m_character_C000->GetActionState() != EActionState::EAS_Attacking)
 	{ return; }
 
-	float	axis_x		= 0;
-	float	axis_y		= 0;
-	bool	move_axis_x = m_character_C000->IsInputKey(FName("MoveForward"), axis_x, true);
-	bool	move_axis_y = m_character_C000->IsInputKey(FName("MoveSide"), axis_y, true);
+	float	axis_x, axis_y  = 0;
+	bool	move_axis_x 	= m_character_C000->IsInputKey(FName("MoveForward"), axis_x, true);
+	bool	move_axis_y 	= m_character_C000->IsInputKey(FName("MoveSide"), axis_y, true);
 
 	if (false == move_axis_x && false == move_axis_y) return;
 
@@ -158,16 +152,16 @@ void UC0000_AnimInstance::SetRotateAttack(const float& delta)
 	const FVector  direction_x = FRotationMatrix(Yaw_rotation).GetUnitAxis(EAxis::X) * axis_x;
 	const FVector  direction_y = FRotationMatrix(Yaw_rotation).GetUnitAxis(EAxis::Y) * axis_y;
 
-	const FRotator rotate_calc	= UKismetMathLibrary::RInterpTo(m_character_C000->GetActorRotation(), (direction_x + direction_y).Rotation(), delta, 10);
+	const FRotator rotate_calc = UKismetMathLibrary::RInterpTo(m_character_C000->GetActorRotation(), (direction_x + direction_y).Rotation(), delta, 10);
 
 	m_character_C000->SetActorRotation(rotate_calc.Quaternion());
 }
 
 bool UC0000_AnimInstance::IsTryingMove()
 {
-	float scale;
+	float scale = 0;
 	if (m_character_C000->IsInputKey(FName("MoveForward"), scale, true)) { return true; }
-	if (m_character_C000->IsInputKey(FName("MoveSide"), scale, true))	 { return true; }
+	if (m_character_C000->IsInputKey(FName("MoveSide"), scale, true))    { return true; }
 
 	return false;
 }
@@ -175,9 +169,10 @@ bool UC0000_AnimInstance::IsTryingMove()
 void UC0000_AnimInstance::AnimNotify_MontageStart()
 {
 
-	if (RootMotionMode == ERootMotionMode::RootMotionFromEverything) {
+	if (RootMotionMode == ERootMotionMode::RootMotionFromEverything) 
+	{ 
 		SetRootMotionMode(ERootMotionMode::RootMotionFromMontagesOnly);
-
+		
 		if (nullptr == m_movement_component) return;
 		m_movement_component->bAllowPhysicsRotationDuringAnimRootMotion = false;
 	}
@@ -230,10 +225,7 @@ void UC0000_AnimInstance::AnimNotify_OnDodgeEnd()
 	CHECK_INVALID(m_character_C000)
 	m_character_C000->SetActionUnoccupied();
 
-	if (m_character_C000->IsInputAxisActionKey())
-	{
-		m_character_C000->OnDodgeEnd();
-	}
+	if (m_character_C000->IsInputAxisActionKey()) { m_character_C000->OnDodgeEnd(); }
 }
 
 void UC0000_AnimInstance::AnimNotify_OnTurnEnd()
@@ -278,10 +270,7 @@ void UC0000_AnimInstance::AnimNotify_ReserveNextAttack()
 void UC0000_AnimInstance::AnimNotify_OnAttackEnd()
 {
 	CHECK_INVALID(m_character_C000)
-	if (EActionState::EAS_Execution == m_character_C000->GetActionState())
-	{
-		m_character_C000->OnEndDirection();
-	}
+	if (EActionState::EAS_Execution == m_character_C000->GetActionState()) { m_character_C000->OnEndDirection(); }
 
 	m_character_C000->OnEndAttack();
 
@@ -304,11 +293,6 @@ void UC0000_AnimInstance::AnimNotify_OnDisableInput()
 	m_is_stop_move	 = false;
 }
 
-void UC0000_AnimInstance::AnimNotify_OnMoveStopStart()
-{
-
-}
-
 void UC0000_AnimInstance::AnimNotify_OnMoveStopEnd()
 {
 	CHECK_INVALID(m_character_C000)
@@ -318,7 +302,6 @@ void UC0000_AnimInstance::AnimNotify_OnMoveStopEnd()
 void UC0000_AnimInstance::AnimNotify_OnGuardStart()
 {
 	m_is_guard = true;
-	UE_LOG(LogTemp, Warning, TEXT("Guard Start"))
 }
 
 void UC0000_AnimInstance::AnimNotify_OnGuardEnd()
@@ -326,10 +309,7 @@ void UC0000_AnimInstance::AnimNotify_OnGuardEnd()
 	m_is_guard = false;
 	CHECK_INVALID(m_character_C000)
 
-	if (false == m_character_C000->IsInputAxisActionKey())
-	{
-		m_character_C000->OnGuardEnd();
-	}
+	if (false == m_character_C000->IsInputAxisActionKey()) { m_character_C000->OnGuardEnd(); }
 }
 
 void UC0000_AnimInstance::AnimNotify_OnKnockbackStart()
