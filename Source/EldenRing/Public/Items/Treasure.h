@@ -28,7 +28,7 @@ private:
 	UStaticMeshComponent* m_mesh;
 
 	UPROPERTY(EditAnywhere, Category = Sound)
-	USoundBase*	m_sound_pickup = nullptr;
+	USoundBase* m_sound_pickup;
 
 	UPROPERTY(EditAnywhere, Category = "Treasure Properties")
 	int32	m_value_min;
