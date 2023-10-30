@@ -41,8 +41,6 @@ public:
 
 	virtual void	OnAttackDefended(const EAttackWeight& attack_weight) override final;
 	virtual void	OnAttackBlocked(const EAttackWeight& attack_weight) override final;
-	virtual void	OnCameraShakeIn() override final;
-	virtual void	OnCameraShakeOut() override final;
 	virtual void	OnReactEnd() override final;
 	virtual void	OnSuccessConsume();
 	virtual void	OnEndConsume();
@@ -133,6 +131,9 @@ public:
 	void OnCameraExecutionFront(float curve_value);
 	UFUNCTION()
 	void OnCameraExecutionBack(float curve_value);
+
+	void OnCameraShakeIn();
+	void OnCameraShakeOut();
 
 	bool IsInputKey(const FName& Input_name, float& scale, const bool& is_axis);
 	bool IsInputAxisActionKey();
