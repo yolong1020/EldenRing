@@ -29,11 +29,11 @@
 
 void UInventoryGrid::InitGridWidget(UInventoryComponent* inventory_component, const float& tile_size, const int32& colum_count, const int32& row_count)
 {
-	m_tile_size				= tile_size;
+	m_tile_size		= tile_size;
 	m_inventory_component	= inventory_component;
 
 	UWidget* widget_slot_grid = GetWidgetFromName(FName("WBP_Inventory_SlotGrid"));
-	m_widget_slot_grid = Cast<UInventorySlotGrid>(widget_slot_grid);
+	m_widget_slot_grid 	  = Cast<UInventorySlotGrid>(widget_slot_grid);
 	CHECK_INVALID(m_widget_slot_grid)
 	m_widget_slot_grid->InitGridSlotWidget(inventory_component, colum_count, row_count);
 	
