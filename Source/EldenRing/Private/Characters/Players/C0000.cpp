@@ -430,7 +430,6 @@ void AC0000::OnUseStamina(const int32& amount_stamina)
 bool AC0000::IsCurrentActionState(const FString& action)
 {
 	FString action_state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-	UE_LOG(LogTemp, Warning, TEXT("IsCurrentActionState - ActionState : %s"), *action_state)
 
 	if (action == "Attacking") { return m_action_state == EActionState::EAS_Attacking; }
 	return false;
