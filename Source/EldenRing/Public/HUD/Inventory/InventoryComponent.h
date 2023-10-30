@@ -40,18 +40,18 @@ public:
 	void AddItemAtEmptySlot(UItemObject* item_object);
 
 	FInventoryTile	IndexToTile(int32 index);
-	int32			TileToIndex(const FInventoryTile& tile);
+	int32		TileToIndex(const FInventoryTile& tile);
 
 	UFUNCTION()
 	bool IsRoomAvailableForPayload(UItemObject* item_object);
 	bool IsRoomAvailable(UItemObject* item_object, const int32& index);
 	bool IsInInventory(UItemObject* item_object);
 
-	FORCEINLINE FItemOnRemoved&		GetItemRemoveDelegate()			{ return ItemOnRemoved; }
-	FORCEINLINE FItemOnAdd&			GetItemAddDelegate()			{ return ItemOnAdd; }
-	FORCEINLINE FItemOnAddAtEmpty&	GetItemAddAtEmptyDelegate()		{ return ItemOnAddAtEmpty; }
-	FORCEINLINE const int32&		GetColumSize()					{ return m_colum_count; }
-	FORCEINLINE const int32&		GetRowSize()					{ return m_row_count; }
+	FORCEINLINE FItemOnRemoved&	GetItemRemoveDelegate()		{ return ItemOnRemoved; }
+	FORCEINLINE FItemOnAdd&		GetItemAddDelegate()		{ return ItemOnAdd; }
+	FORCEINLINE FItemOnAddAtEmpty&	GetItemAddAtEmptyDelegate()	{ return ItemOnAddAtEmpty; }
+	FORCEINLINE const int32&	GetColumSize()			{ return m_colum_count; }
+	FORCEINLINE const int32&	GetRowSize()			{ return m_row_count; }
 
 protected:
 	virtual void BeginPlay() override;
@@ -73,20 +73,20 @@ private:
 	int32 m_row_count;
 
 	UPROPERTY()
-	APlayerController*		m_player_controller;
+	APlayerController*	m_player_controller;
 	
 	UPROPERTY()
-	UInventory*				m_widget_inventory;
+	UInventory*		m_widget_inventory;
 
 	UPROPERTY()
-	UInventoryEquip*		m_widget_equipment;
+	UInventoryEquip*	m_widget_equipment;
 	
 	UPROPERTY()
-	UInventoryGrid*			m_widget_grid;
+	UInventoryGrid*		m_widget_grid;
 
-	bool					m_is_opened;
+	bool			m_is_opened;
 
-	FItemOnAdd				ItemOnAdd;
-	FItemOnAddAtEmpty		ItemOnAddAtEmpty;
-	FItemOnRemoved			ItemOnRemoved;
+	FItemOnAdd		ItemOnAdd;
+	FItemOnAddAtEmpty	ItemOnAddAtEmpty;
+	FItemOnRemoved		ItemOnRemoved;
 };
