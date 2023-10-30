@@ -20,10 +20,10 @@ public class Basic : ModuleRules
 			"FieldSystemEngine",
 			"GeometryCollectionEngine",
 			"UMG",
-            "Slate",
-            "SlateCore",
-            "AIModule",
-            "Cascade"
+           	 	"Slate",
+            		"SlateCore",
+            		"AIModule",
+            		"Cascade"
         });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
