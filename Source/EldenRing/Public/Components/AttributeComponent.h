@@ -29,16 +29,16 @@ public:
 	void BindDelegate(FOnRefreshStatBar& function);
 
 	FORCEINLINE float GetHealthPercent()	{ return m_health_current / m_health_max; }
-	FORCEINLINE float GetManaPercent()		{ return m_mana_current / m_mana_max; }
+	FORCEINLINE float GetManaPercent()	{ return m_mana_current / m_mana_max; }
 	FORCEINLINE float GetStaminaPercent()	{ return m_stamina_current / m_stamina_max; }
 
 	FORCEINLINE float GetHealthCurrent()	{ return m_health_current; }
-	FORCEINLINE float GetManaCurrent()		{ return m_mana_current; }
+	FORCEINLINE float GetManaCurrent()	{ return m_mana_current; }
 	FORCEINLINE float GetStaminaCurrent()	{ return m_stamina_current; }
 
-	FORCEINLINE float GetHealthMax()		{ return m_health_max; }
-	FORCEINLINE float GetManaMax()			{ return m_mana_max; }
-	FORCEINLINE float GetStaminaMax()		{ return m_stamina_max; }
+	FORCEINLINE float GetHealthMax()	{ return m_health_max; }
+	FORCEINLINE float GetManaMax()		{ return m_mana_max; }
+	FORCEINLINE float GetStaminaMax()	{ return m_stamina_max; }
 
 	bool IsAlive();
 
@@ -72,10 +72,10 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Actor Attributes")
 	float m_stamina_max;
 
-	FOnRefreshStatBar	m_delegate_regenerate;
-	TArray<FTimeline>	m_timeline_regenerate;
+	FOnRefreshStatBar m_delegate_regenerate;
+	TArray<FTimeline> m_timeline_regenerate;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Timeline", meta = (AllowPrivateAccess = "true"))
-	UCurveFloat*	m_curve_regenerate;
+	UCurveFloat* m_curve_regenerate;
 
 };
