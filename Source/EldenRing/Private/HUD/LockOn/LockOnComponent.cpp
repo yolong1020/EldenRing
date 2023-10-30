@@ -28,21 +28,17 @@ void ULockOnComponent::BeginPlay()
 	m_player_controller = Cast<APlayerController>(actor->GetController());
 	CHECK_INVALID(m_player_controller)
 
-	if (nullptr == m_widget_lockon)
-	{
-		m_widget_lockon = Cast<ULockOn>(GetUserWidgetObject());
-		CHECK_INVALID(m_widget_lockon)
-	}
+	if (nullptr != m_widget_lockon) return;
+	
+	m_widget_lockon = Cast<ULockOn>(GetUserWidgetObject());
+	CHECK_INVALID(m_widget_lockon)
 }
 
 void ULockOnComponent::ActiveLockOn(AActor* const target)
 {
 	CHECK_INVALID(m_widget_lockon)
 
-	if (m_widget_lockon->IsInViewport())
-	{
-		m_widget_lockon->RemoveFromParent();
-	}
+	if (m_widget_lockon->IsInViewport()) { m_widget_lockon->RemoveFromParent(); }
 	else
 	{
 		m_widget_lockon->AddToViewport();
