@@ -60,6 +60,6 @@ private:
 	FItemOnRemoved	m_remove_item_delegate;
 
 	FInventoryTile	m_start_tile_draged;
-	double			m_tile_size;
-	bool			m_draw_drop_location;
+	double		m_tile_size;
+	bool		m_draw_drop_location;
 };
