@@ -19,13 +19,13 @@ void UInventoryEquip::InitEquipWidget(UInventoryComponent* const inventory_compo
 	m_inventory_component = inventory_component;
 	CHECK_INVALID(m_inventory_component);
 
-	FItemOnAdd			add_delegate		= m_inventory_component->GetItemAddDelegate();
+	FItemOnAdd		add_delegate		= m_inventory_component->GetItemAddDelegate();
 	FItemOnAddAtEmpty	add_empty_delegate	= m_inventory_component->GetItemAddAtEmptyDelegate();
 	FItemOnRemoved		remove_delegate		= m_inventory_component->GetItemRemoveDelegate();
 
-	FVector2D	resolution = FVector2D(GSystemResolution.ResX, GSystemResolution.ResY);
-	int32		gird_x = int32((resolution.X * 0.5) * 0.6);
-	int32		gird_y = int32(gird_x * 1.32);
+	FVector2D resolution = FVector2D(GSystemResolution.ResX, GSystemResolution.ResY);
+	int32	  gird_x     = int32((resolution.X * 0.5) * 0.6);
+	int32	  gird_y     = int32(gird_x * 1.32);
 
 	CHECK_INVALID(GridBorder)
 	UCanvasPanelSlot* border_slot = UWidgetLayoutLibrary::SlotAsCanvasSlot(GridBorder);
@@ -56,10 +56,10 @@ UInventoryEquipSlot* const UInventoryEquip::GetSlotWidget(const EEquipmentType& 
 {
 	switch (equip_type)
 	{
-	case EEquipmentType::EET_Head: return HeadSlot;
-	case EEquipmentType::EET_Body: return BodySlot;
-	case EEquipmentType::EET_Arms: return HandsSlot;
-	case EEquipmentType::EET_Legs: return PantsSlot;
+		case EEquipmentType::EET_Head: return HeadSlot;
+		case EEquipmentType::EET_Body: return BodySlot;
+		case EEquipmentType::EET_Arms: return HandsSlot;
+		case EEquipmentType::EET_Legs: return PantsSlot;
 	}
 
 	return nullptr;
@@ -67,14 +67,8 @@ UInventoryEquipSlot* const UInventoryEquip::GetSlotWidget(const EEquipmentType& 
 
 UInventoryEquipSlot* const UInventoryEquip::GetEmptyWeaponSlotWidget()
 {
-	if (nullptr != RightWeaponSlot && RightWeaponSlot->IsEmpty())
-	{
-		return RightWeaponSlot;
-	}
-	else if (nullptr != LeftWeaponSlot && LeftWeaponSlot->IsEmpty())
-	{
-		return LeftWeaponSlot;
-	}
+	if (nullptr != RightWeaponSlot && RightWeaponSlot->IsEmpty()) 	 { return RightWeaponSlot; }
+	else if (nullptr != LeftWeaponSlot && LeftWeaponSlot->IsEmpty()) { return LeftWeaponSlot; }
 
 	return nullptr;
 }
@@ -85,8 +79,8 @@ UInventoryEquipSlot* const UInventoryEquip::GetMatchingItemSlot(const EEquipment
 
 	if (equip_type == EEquipmentType::EET_Weapon)
 	{
-		if (nullptr != RightWeaponSlot && RightWeaponSlot->IsMatching(item_object))		{ return RightWeaponSlot; }
-		else if (nullptr != LeftWeaponSlot && LeftWeaponSlot->IsMatching(item_object))	{ return LeftWeaponSlot; }
+		if 	(nullptr != RightWeaponSlot && RightWeaponSlot->IsMatching(item_object)) { return RightWeaponSlot; }
+		else if (nullptr != LeftWeaponSlot && LeftWeaponSlot->IsMatching(item_object))	 { return LeftWeaponSlot; }
 	}
 	else 
 	{
@@ -102,25 +96,23 @@ void UInventoryEquip::CheckAndUnequipSlot(UItemObject* const item_object)
 	CHECK_INVALID(item_object)
 
 	EEquipmentType equip_type = item_object->GetItemEquipType();
-	if (equip_type == EEquipmentType::EET_None || equip_type == EEquipmentType::EET_Max) { return; }
+	if (equip_type == EEquipmentType::EET_None || equip_type == EEquipmentType::EET_Max) return;
 
 	UInventoryEquipSlot* slot = nullptr;
-
 	if (EEquipmentType::EET_Weapon == equip_type)
 	{
-		if		(nullptr != RightWeaponSlot && RightWeaponSlot->IsMatching(item_object))	{ slot = RightWeaponSlot; }
-		else if (nullptr != LeftWeaponSlot && LeftWeaponSlot->IsMatching(item_object))		{ slot = LeftWeaponSlot; }
+		if	(nullptr != RightWeaponSlot && RightWeaponSlot->IsMatching(item_object)) { slot = RightWeaponSlot; }
+		else if (nullptr != LeftWeaponSlot && LeftWeaponSlot->IsMatching(item_object))	 { slot = LeftWeaponSlot; }
 	}
 	else { slot = GetSlotWidget(equip_type); }
 
-	// 스왑인지 확인할 수 있는 수단이 필요하다.
 	CHECK_INVALID(slot)
 	slot->UnequipItem();
 }
 
 bool UInventoryEquip::IsSlotEmpty(const EEquipmentType& equip_type)
 {
-	if (EEquipmentType::EET_None == equip_type || EEquipmentType::EET_Max == equip_type) { return false; }
+	if (EEquipmentType::EET_None == equip_type || EEquipmentType::EET_Max == equip_type) return false;
 	
 	UInventoryEquipSlot* slot = nullptr;
 	switch (equip_type)
@@ -135,18 +127,18 @@ bool UInventoryEquip::IsSlotEmpty(const EEquipmentType& equip_type)
 			if (nullptr != RightWeaponSlot)	
 			{
 				is_empty = RightWeaponSlot->IsEmpty(); 
-				if (is_empty) { return true; }
+				if (is_empty) return true;
 			}
 			else if (nullptr != LeftWeaponSlot) 
 			{ 
 				is_empty = LeftWeaponSlot->IsEmpty();
-				if (is_empty) { return true; }
+				if (is_empty) return true;
 			}
 		}
 		break;
 	}
 
-	if (nullptr == slot) { return false; }
+	if (nullptr == slot) return false;
 
 	return slot->IsEmpty();
 }
