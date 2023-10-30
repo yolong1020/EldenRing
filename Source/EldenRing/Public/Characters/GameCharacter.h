@@ -29,7 +29,6 @@ public:
 	virtual void SetWeaponCollision(ECollisionEnabled::Type type) PURE_VIRTUAL(AGameCharacter::SetWeaponCollision, );
 	virtual void SetParryCollision(const ECollisionEnabled::Type& type);
 
-	virtual void GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override {};
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 	virtual void TakeExecution(AActor* target, const EGameDirection& direction, const int32& damage) PURE_VIRTUAL(AGameCharacter::TakeExecution, );
 
@@ -40,7 +39,7 @@ public:
 	virtual void SetActiveLockOn(const bool& is_visible);
 	
 	virtual void OnAttackDefended(const EAttackWeight& attack_weight) PURE_VIRTUAL(AGameCharacter::OnAttackDefended, );
-	virtual void OnAttackBlocked(const EAttackWeight& attack_weight) PURE_VIRTUAL(AGameCharacter::OnAttackBlocked, );
+	virtual void OnAttackBlocked(const EAttackWeight& attack_weight)  PURE_VIRTUAL(AGameCharacter::OnAttackBlocked, );
 	virtual void OnReactEnd() PURE_VIRTUAL(AGameCharacter::OnReactEnd, );
 	virtual void OnTakeStunn();
 	virtual void OnEndStunn();
