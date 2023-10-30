@@ -30,13 +30,13 @@ public:
 	virtual bool	IsCurrentActionState(const FString& action) override;
 	virtual bool	IsGuardState() override;
 
-	FORCEINLINE const EActionState_NPC&		GetActionState()			{ return m_action_state; }
-	FORCEINLINE const EVigilanceState&		GetVigilanceState()			{ return m_vigilance_state; }
-	FORCEINLINE const bool&					GetWatchingSwitch()			{ return m_is_idle_to_watching; }
-	FORCEINLINE const bool&					GetRestingSwitch()			{ return m_is_idle_to_resting; }
-	FORCEINLINE AAssemblyPoint*	const		GetAssemblyPoint()			{ return m_assembly_point; }
-	FORCEINLINE AAssemblePointObject* const	GetAssemblyPointObject()	{ return m_target_assembly_object; }
-	FORCEINLINE const bool&					IsPatrol()					{ return m_is_patrolling; }
+	FORCEINLINE const EActionState_NPC&		GetActionState()		{ return m_action_state; }
+	FORCEINLINE const EVigilanceState&		GetVigilanceState()		{ return m_vigilance_state; }
+	FORCEINLINE const bool&				GetWatchingSwitch()		{ return m_is_idle_to_watching; }
+	FORCEINLINE const bool&				GetRestingSwitch()		{ return m_is_idle_to_resting; }
+	FORCEINLINE AAssemblyPoint* const		GetAssemblyPoint()		{ return m_assembly_point; }
+	FORCEINLINE AAssemblePointObject* const		GetAssemblyPointObject()	{ return m_target_assembly_object; }
+	FORCEINLINE const bool&				IsPatrol()			{ return m_is_patrolling; }
 
 	UFUNCTION(BlueprintCallable)
 	void SuccessAttack() { m_attack_success = true; }
@@ -44,16 +44,16 @@ public:
 
 	virtual void OnMoveCompleted(const FPathFollowingResult& Result) {};
 	virtual void OnChangeVigilanceState(const EVigilanceState& state);
-	virtual void OnNextAttack() {};
-	virtual void OnEndAttack()	{};
 	virtual void OnTurnEnd();
 	virtual void OnEndStunn();
 	virtual void OnDeathCompleted();
-	virtual void OnWatchingSwitch() {};
-	virtual void OnRestingSwitch() {};
-	virtual void OnRestingEnd(const FString& section_name) {};
 	virtual void OnSwapWeaponR();
 	virtual bool IsNeedChangeDeath(const EGameDirection& direction);
+	virtual void OnNextAttack() 	= 0;
+	virtual void OnEndAttack()  	= 0;
+	virtual void OnWatchingSwitch() = 0;
+	virtual void OnRestingSwitch() 	= 0;
+	virtual void OnRestingEnd(const FString& section_name) = 0;
 
 	virtual bool InAssmeblyPointAction() { return false; }
 
@@ -67,10 +67,10 @@ protected:
 	bool EquipWeapon(const FName& socket_name, const EWeaponEquipHand& hand);
 
 	virtual void StartWatching();
-	virtual void StartConfront()	{};
-	virtual void StartCombat()		{};
-	virtual void StartAttack()		{};
-	virtual void StartTurn(const EGameDirection& direction) {};
+	virtual void StartConfront() 	= 0;
+	virtual void StartCombat() 	= 0;
+	virtual void StartAttack() 	= 0;
+	virtual void StartTurn(const EGameDirection& direction) = 0;
 	virtual void ClearAllTimer();
 
 	virtual void StopAllMovement();
@@ -90,7 +90,7 @@ protected:
 
 private:
 	UPROPERTY()
-	AGameCharacter_AIController* m_controller_ai = nullptr;
+	AGameCharacter_AIController* m_controller_ai;
 
 protected:
 #pragma region Montage
@@ -110,10 +110,10 @@ protected:
 	UAnimMontage* m_montage_hit_ultra_heavy_directiony;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_confront = nullptr;
+	UAnimMontage* m_montage_confront;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_resting = nullptr;
+	UAnimMontage* m_montage_resting;
 #pragma endregion
 
 #pragma region Navigation
@@ -139,18 +139,18 @@ protected:
 	TArray<AActor*> m_targets_patrol;
 
 	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
-	float m_time_wait_min = 0.f;
+	float m_time_wait_min;
 
 	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
-	float m_time_wait_max = 0.f;
+	float m_time_wait_max;
 
 	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
-	float m_time_patrol = 0.f;
+	float m_time_patrol;
 
 	UPROPERTY(EditInstanceOnly, Category = "AI Patroll")
-	float m_sec_kwon_missing_target = 2.f;
+	float m_sec_kwon_missing_target;
 
-	FVector					m_location_assembly_object;
+	FVector			m_location_assembly_object;
 	AAssemblePointObject*	m_target_assembly_object;
 
 	bool m_is_idle_to_watching;
@@ -161,9 +161,8 @@ protected:
 
 #pragma region States
 	UPROPERTY(EditInstanceOnly, Category = "States")
-	EActionState_NPC m_action_state = EActionState_NPC::EASN_Unoccupied;
-
-	EVigilanceState	m_vigilance_state = EVigilanceState::EVS_Repose;
+	EActionState_NPC m_action_state    = EActionState_NPC::EASN_Unoccupied;
+	EVigilanceState	 m_vigilance_state = EVigilanceState::EVS_Repose;
 #pragma endregion
 
 #pragma region Timer
@@ -176,7 +175,7 @@ protected:
 
 #pragma region HUD
 	UPROPERTY(VisibleAnywhere)
-	UHealthBarComponent* m_widget_healthbar = nullptr;
+	UHealthBarComponent* m_widget_healthbar;
 #pragma endregion
 
 #pragma region AssemblyPoint

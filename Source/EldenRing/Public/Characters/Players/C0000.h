@@ -34,22 +34,17 @@ public:
 	AC0000();
 
 	virtual void	Tick(float DeltaTime) override;
-	virtual void	SetWeaponCollision(ECollisionEnabled::Type type) override;
-	virtual void	SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	virtual void	GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override;
-	virtual float	TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	virtual void	SetWeaponCollision(ECollisionEnabled::Type type) override final;
+	virtual void	SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override final;
+	virtual void	GetHit_Implementation(const FVector& ImpactPoint, const EAttackWeight& attack_weight) override final;
+	virtual float	TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override final;
 
 	virtual void	OnAttackDefended(const EAttackWeight& attack_weight) override final;
 	virtual void	OnAttackBlocked(const EAttackWeight& attack_weight) override final;
-	virtual void	OnCameraShakeIn() override final;
-	virtual void	OnCameraShakeOut() override final;
 	virtual void	OnReactEnd() override final;
-	virtual void	OnSuccessConsume();
-	virtual void	OnEndConsume();
-	virtual void	OnUseStamina(const int32& amount_stamina);
 
-	virtual bool	IsCurrentActionState(const FString& action) override;
-	virtual bool	IsGuardState() override;
+	virtual bool	IsCurrentActionState(const FString& action) override final;
+	virtual bool	IsGuardState() override final;
 
 protected:
 	virtual void	BeginPlay() override;
@@ -57,7 +52,7 @@ protected:
 
 	virtual void	HitReact(const EGameDirection& hit_direction, const EAttackWeight& attack_weight) override final;
 
-	virtual bool	IsInputPossible();
+	bool IsInputPossible();
 
 	void MoveForward(float value);
 	void MoveSide(float value);
@@ -107,7 +102,7 @@ public:
 	FORCEINLINE void SetJumpStartLocation(const FVector& start_location)		{ m_location_jump_start		= start_location; }
 	FORCEINLINE void SetInputMovementEnable(const bool& enable)			{ m_enable_input_movement	= enable; }
 	FORCEINLINE void SetInputAttackRotateEnable(const bool& enable)			{ m_enable_input_attack_rotate	= enable; }
-	FORCEINLINE void SetLandingFinish()						{ m_jump_state			= EJumpState::EJS_Unoccupied; UE_LOG(LogTemp, Warning, TEXT("Jumpstate Unoccupied"));}
+	FORCEINLINE void SetLandingFinish()						{ m_jump_state			= EJumpState::EJS_Unoccupied; }
 	FORCEINLINE void SetActionUnoccupied()						{ m_action_state		= EActionState::EAS_Unoccupied; }
 	FORCEINLINE void SetAttackEnable(const bool& enable)				{ m_enable_attack		= enable; }
 	FORCEINLINE void SetShortAttackEnable(const bool& enable)			{ m_enable_attack_short		= enable; }
@@ -134,12 +129,19 @@ public:
 	UFUNCTION()
 	void OnCameraExecutionBack(float curve_value);
 
+	void OnCameraShakeIn();
+	void OnCameraShakeOut();
+
 	bool IsInputKey(const FName& Input_name, float& scale, const bool& is_axis);
 	bool IsInputAxisActionKey();
 	bool IsInputKeyByFKey(const FKey& key);
 
 	void SetGroundUnoccupied();
 	void SetGold(const int32& gold);
+
+	void	OnSuccessConsume();
+	void	OnEndConsume();
+	void	OnUseStamina(const int32& amount_stamina);
 
 private:
 #pragma region Montage
@@ -150,22 +152,22 @@ private:
 	UAnimMontage* m_montage_hit_ultra;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_swap = nullptr;
+	UAnimMontage* m_montage_swap;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_jump = nullptr;
+	UAnimMontage* m_montage_jump;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_land = nullptr;
+	UAnimMontage* m_montage_land;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_land_jog = nullptr;
+	UAnimMontage* m_montage_land_jog;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_dodge = nullptr;
+	UAnimMontage* m_montage_dodge;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_ground = nullptr;
+	UAnimMontage* m_montage_ground;
 #pragma endregion
 
 #pragma region Component
@@ -198,7 +200,7 @@ private:
 #pragma endregion
 
 #pragma region Attack
-	FName			m_attack_name_prev;
+	FName			m_attack_name_prev 	= "";
 	EAttackType		m_attack_type_prev	= EAttackType::EATKT_None;
 	EAttackStrength 	m_attack_strength	= EAttackStrength::EATKS_None;
 	EBattlePose		m_battle_pose		= EBattlePose::EBP_Unoccupied;
@@ -246,22 +248,22 @@ private:
 #pragma endregion
 
 #pragma region Values
-	bool	m_is_sprint			= false;
-	bool	m_is_guard			= false;
-	bool	m_is_not_damage_mod		= false;
-	bool	m_enable_sprint_turn		= false;
-	bool	m_enable_attack			= false;
-	bool	m_enable_attack_short		= false;
-	bool	m_enable_input_movement		= false;
-	bool	m_enable_input_attack_rotate	= false;
+	bool	m_is_sprint;
+	bool	m_is_guard;
+	bool	m_is_not_damage_mod;
+	bool	m_enable_sprint_turn;
+	bool	m_enable_attack;
+	bool	m_enable_attack_short;
+	bool	m_enable_input_movement;
+	bool	m_enable_input_attack_rotate;
 
-	float	m_spring_arm_length 		= 0.f;
+	float	m_spring_arm_length;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Gold Amount")
-	int32	m_total_gold 			= 0;
+	int32	m_total_gold;
 
-	int32	m_total_potion 			= 0;
-	FVector	m_location_jump_start = FVector::ZeroVector;
+	int32	m_total_potion;
+	FVector	m_location_jump_start;
 
 	TArray<TTuple<USkeletalMeshComponent*, UItemObject*>> m_equiped_item;
 #pragma endregion

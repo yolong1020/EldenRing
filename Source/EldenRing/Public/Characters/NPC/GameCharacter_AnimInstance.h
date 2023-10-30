@@ -22,9 +22,9 @@ public:
 
 	void SetHitReactProperties(const bool& is_need_blend, const int32& animation_index, const EAttackWeight& attack_weight, const EHitCycleType& cycle_type);
 
-	FORCEINLINE void  IsNeedBlendPerBone(bool is_need)				{ m_is_blend_per_bone = is_need; }
+	FORCEINLINE void  IsNeedBlendPerBone(bool is_need)		{ m_is_blend_per_bone = is_need; }
 	FORCEINLINE void  SetHitCycle(const EHitCycleType& hit_cycle)	{ m_hit_cycle_type = hit_cycle; }
-	FORCEINLINE const EHitCycleType& GetHitCycle()					{ return m_hit_cycle_type; }
+	FORCEINLINE const EHitCycleType& GetHitCycle()			{ return m_hit_cycle_type; }
 
 	UPROPERTY(BlueprintReadOnly)
 	ANPC_Character* m_character_game;
