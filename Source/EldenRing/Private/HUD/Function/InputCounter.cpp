@@ -82,14 +82,8 @@ void UInputCounter::OnChnageTextCommited(const FText& Text, ETextCommit::Type Co
 	int32 total_gold  = m_owner->GetTotalGold();
 	int32 input_value = FCString::Atoi(*InputText->GetText().ToString());
 
-	if (false == bIsNumeric || 0 > input_value)
-	{
-		InputText->SetText(FText::FromString("0"));
-	}
-	else if (total_gold < input_value)
-	{
-		SetTextAsCurrency(total_gold);
-	}
+	if (false == bIsNumeric || 0 > input_value) { InputText->SetText(FText::FromString("0")); }
+	else if (total_gold < input_value) 	    { SetTextAsCurrency(total_gold); }
 }
 
 void UInputCounter::SetTextAsCurrency(const int32& amount)
@@ -102,7 +96,7 @@ void UInputCounter::SetTextAsCurrency(const int32& amount)
 
 int32 UInputCounter::GetTextAmount()
 {
-	if (nullptr == InputText) { return 0; }
+	if (nullptr == InputText) return 0;
 
 	return FCString::Atoi(*InputText->GetText().ToString());
 }
