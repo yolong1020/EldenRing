@@ -47,11 +47,9 @@ public:
 	virtual void	OnParryEnd() {};
 	virtual void	OnTakeExecutionEnd();
 	virtual void	OnReactEnd() {};
-	virtual void	OnCameraShakeIn() {};
-	virtual void	OnCameraShakeOut() {};
 
 	virtual FVector	GetBoneLocation(const FName& bone_name);
-	FORCEINLINE EEquipState				GetEquipState()		{ return m_equip_state; }
+	FORCEINLINE EEquipState			GetEquipState()		{ return m_equip_state; }
 	FORCEINLINE USphereComponent* const	GetParrySphere()	{ return m_sphere_parry; }
 	FORCEINLINE const EDeathPose&		GetDeathPose()		{ return m_death_pose; }
 	FORCEINLINE const EBattlePose&		GetBattlePose()		{ return m_battle_pose; }
@@ -109,13 +107,13 @@ protected:
 
 #pragma region Combat
 	UPROPERTY(VisibleInstanceOnly)
-	AGameCharacter*	m_actor_target;
+	AGameCharacter*	m_actor_target = nullptr;
 
 	UPROPERTY(VisibleInstanceOnly)
-	AGameCharacter*	m_actor_execution_target;
+	AGameCharacter*	m_actor_execution_target = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
-	ULockOnComponent* m_widget_lockon;
+	ULockOnComponent* m_widget_lockon = nullptr;
 
 	UPROPERTY(EditDefaultsOnly, Category = Parry)
 	USphereComponent* m_sphere_parry = nullptr;
@@ -123,22 +121,22 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = execution)
 	TArray<USphereComponent*> m_sphere_execution;
 
-	FName			m_attack_name_prev;
-	bool			m_attack_success		= false;
-	bool			m_is_enable_execution	= false;
-	int32			m_lockon_index;
+	FName		m_attack_name_prev 	= "";
+	bool		m_attack_success	= false;
+	bool		m_is_enable_execution	= false;
+	int32		m_lockon_index 		= 0;
 
-	EAttackType		m_attack_type_prev		= EAttackType::EATKT_None;
-	EAttackStrength m_attack_strength		= EAttackStrength::EATKS_None;
-	EBattlePose		m_battle_pose			= EBattlePose::EBP_Unoccupied;
+	EAttackType	m_attack_type_prev	= EAttackType::EATKT_None;
+	EAttackStrength m_attack_strength	= EAttackStrength::EATKS_None;
+	EBattlePose	m_battle_pose		= EBattlePose::EBP_Unoccupied;
 #pragma endregion
 
 #pragma region Interaction
 	UPROPERTY(EditDefaultsOnly, Category = "Interaction")
-	USphereComponent* m_sphere_interaction;
+	USphereComponent* m_sphere_interaction = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
-	UPawnSensingComponent* m_pawn_sensing;
+	UPawnSensingComponent* m_pawn_sensing = nullptr;
 #pragma endregion
 
 #pragma region States
@@ -146,7 +144,7 @@ protected:
 	EDeathPose m_death_pose = EDeathPose::EDP_Alive;
 
 	UPROPERTY(EditInstanceOnly, Category = "States")
-	EEquipState	m_equip_state = EEquipState::EES_Unequipped;
+	EEquipState m_equip_state = EEquipState::EES_Unequipped;
 #pragma endregion
 
 #pragma region Weapon
@@ -156,13 +154,13 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
 	TSubclassOf<AWeapon_Actor> m_class_weapon_L;
 
-	AWeapon_Actor* m_equiped_weapon_R;
-	AWeapon_Actor* m_equiped_weapon_L;
+	AWeapon_Actor* m_equiped_weapon_R = nullptr;
+	AWeapon_Actor* m_equiped_weapon_L = nullptr;
 #pragma endregion
 
 #pragma region Attribute
 	UPROPERTY(VisibleAnywhere)
-	UAttributeComponent* m_attribute;
+	UAttributeComponent* m_attribute = nullptr;
 #pragma endregion
 
 #pragma region Sound
