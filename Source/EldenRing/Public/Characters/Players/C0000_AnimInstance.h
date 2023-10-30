@@ -140,47 +140,47 @@ public:
 
 public:
 	UPROPERTY(BlueprintReadOnly)
-	AC0000* m_character_C000 = nullptr;
+	AC0000* m_character_C000;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	UCharacterMovementComponent* m_movement_component = nullptr;
+	UCharacterMovementComponent* m_movement_component;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	float m_ground_speed = 0.f;
+	float m_ground_speed;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	FRotator m_lockon_rotation = FRotator::ZeroRotator;
+	FRotator m_lockon_rotation;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	bool m_is_falling = false;
+	bool m_is_falling;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	bool m_only_move_side = false;
+	bool m_only_move_side;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	bool m_is_jumping_move = false;
+	bool m_is_jumping_move;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	bool m_is_stop_move = false;
+	bool m_is_stop_move;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	bool m_is_front_or_right = false;
+	bool m_is_front_or_right;
 
 	UPROPERTY(BlueprintReadOnly, Category = Action)
-	bool m_is_guard = false;
+	bool m_is_guard;
 
 	UPROPERTY(BlueprintReadOnly, Category = Action)
-	bool m_is_blend_by_bone = false;
+	bool m_is_blend_by_bone;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Movement | Equip State")
 	EEquipState m_equip_state = EEquipState::EES_EquippedOneHandedWeapon;
 
 private:
-	FRotator	m_spine_rotation	= FRotator::ZeroRotator;
+	FRotator	m_spine_rotation;
 										
-	float		m_time_delta		= 0;
-	float		m_time_cur_input	= 0;
-	float		m_time_cur_sprint_turn	= 0;
+	float		m_time_delta;
+	float		m_time_cur_input;
+	float		m_time_cur_sprint_turn;
 
-	bool		m_enable_sprint_turn	= false;
+	bool		m_enable_sprint_turn;
 };
