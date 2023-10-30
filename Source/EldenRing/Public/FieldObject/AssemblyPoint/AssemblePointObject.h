@@ -25,13 +25,13 @@ public:
 	virtual void ResetPointObject();
 	virtual void UsePointObject(ANPC_Character* const npc);
 
-	FVector			GetActionLocation();
+	FVector		GetActionLocation();
 	const FString	GetInteractionSectionName();
 
-	FORCEINLINE const bool&						IsUsing()				{ return m_is_using; }
-	FORCEINLINE const EAssemblyPointObjectType& GetPointObjectType()	{ return m_point_object_type; }
-	FORCEINLINE const double&					GetTimeStartUsing()		{ return m_time_using_start;}
-	FORCEINLINE ANPC_Character* const			GetPointObjectUser()	{ return m_actor_rest; }
+	FORCEINLINE const bool&				IsUsing()		{ return m_is_using; }
+	FORCEINLINE const EAssemblyPointObjectType& 	GetPointObjectType()	{ return m_point_object_type; }
+	FORCEINLINE const double&			GetTimeStartUsing()	{ return m_time_using_start;}
+	FORCEINLINE ANPC_Character* const		GetPointObjectUser()	{ return m_actor_rest; }
 
 protected:
 	virtual void BeginPlay() override;
@@ -56,7 +56,7 @@ protected:
 	ANPC_Character* m_actor_rest;
 
 	AAssemblyPoint* m_assembly_point;
-	bool			m_is_using;
+	bool		m_is_using;
 
 	double m_time_using_start;
 };
