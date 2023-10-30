@@ -39,14 +39,14 @@ public:
 	virtual void	SetExecutionEnable(const bool& is_enable, AGameCharacter* const execution_target = nullptr);
 	virtual void	SetActiveLockOn(const bool& is_visible);
 	
-	virtual void	OnAttackDefended(const EAttackWeight& attack_weight) {};
-	virtual void	OnAttackBlocked(const EAttackWeight& attack_weight) {};
+	virtual void	OnAttackDefended(const EAttackWeight& attack_weight) = 0;
+	virtual void	OnAttackBlocked(const EAttackWeight& attack_weight) = 0;
+	virtual void	OnParryStart() = 0;
+	virtual void	OnParryEnd() = 0;
+	virtual void	OnReactEnd() = 0;
 	virtual void	OnTakeStunn();
 	virtual void	OnEndStunn();
-	virtual void	OnParryStart() {};
-	virtual void	OnParryEnd() {};
 	virtual void	OnTakeExecutionEnd();
-	virtual void	OnReactEnd() {};
 
 	virtual FVector	GetBoneLocation(const FName& bone_name);
 	FORCEINLINE EEquipState			GetEquipState()		{ return m_equip_state; }
