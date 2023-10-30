@@ -9,18 +9,17 @@ void UItemObject::SetItemProperties(FItemData* const item_data, TSubclassOf<AIte
 {
 	CHECK_INVALID(item_data)
 
-	m_item_data		= item_data;
+	m_item_data	= item_data;
 	m_item_class	= item_class;
 	m_is_rotated	= is_rotated;
-	m_slot_size		= m_item_data->SlotSize;
+	m_slot_size	= m_item_data->SlotSize;
 
-	m_icon			= LoadObject<UMaterialInterface>(nullptr, *item_data->IconPath);
+	m_icon		= LoadObject<UMaterialInterface>(nullptr, *item_data->IconPath);
 	m_icon_rotated	= LoadObject<UMaterialInterface>(nullptr, *item_data->IconPathRotated);
 }
 
 FIntPoint UItemObject::GetDimension()
 {
-	if (false == m_is_rotated)  { return m_slot_size; }
-
-	return FIntPoint(m_slot_size.Y, m_slot_size.X);
+	if (false == m_is_rotated)  return m_slot_size;
+	else 			    return FIntPoint(m_slot_size.Y, m_slot_size.X);
 }
