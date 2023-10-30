@@ -49,8 +49,6 @@ private:
 	UFUNCTION()
 	void OnUpdateRegenerateStat_Health(float curve_value);
 	UFUNCTION()
-	void OnUpdateRegenerateStat_Mana(float curve_value);
-	UFUNCTION()
 	void OnUpdateRegenerateStat_Stamina(float curve_value);
 
 private:
