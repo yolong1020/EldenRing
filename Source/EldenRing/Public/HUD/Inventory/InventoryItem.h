@@ -45,10 +45,10 @@ private:
 	UPROPERTY(BlueprintReadOnly, Category = "UI", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
 	UImage* ItemImage;
 	
-	float							m_tile_size;
-	FVector2D						m_slot_size;
-	UItemObject*					m_item_object;
+	float				m_tile_size;
+	FVector2D			m_slot_size;
+	UItemObject*			m_item_object;
 
 	TSubclassOf<UDragDropOperation> m_drag_drop_class;
-	UDragDropOperation*				m_widget_drag;
+	UDragDropOperation*		m_widget_drag;
 };
