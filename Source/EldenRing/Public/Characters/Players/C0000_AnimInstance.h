@@ -149,7 +149,7 @@ public:
 	float m_ground_speed = 0.f;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
-	FRotator m_lockon_rotation;
+	FRotator m_lockon_rotation = FRotator::ZeroRotator;
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
 	bool m_is_falling = false;
@@ -176,10 +176,10 @@ public:
 	EEquipState m_equip_state = EEquipState::EES_EquippedOneHandedWeapon;
 
 private:
-	FRotator	m_spine_rotation		= FRotator::ZeroRotator;
+	FRotator	m_spine_rotation	= FRotator::ZeroRotator;
 										
-	float		m_time_delta			= 0;
-	float		m_time_cur_input		= 0;
+	float		m_time_delta		= 0;
+	float		m_time_cur_input	= 0;
 	float		m_time_cur_sprint_turn	= 0;
 
 	bool		m_enable_sprint_turn	= false;
