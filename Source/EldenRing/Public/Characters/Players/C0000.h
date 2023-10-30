@@ -89,28 +89,28 @@ protected:
 	bool IsInViewport(const FVector& target_location);
 
 public:
-	FORCEINLINE EActionState				GetActionState()				{ return m_action_state; }
-	FORCEINLINE EEquipState					GetEquipState()					{ return m_equip_state; }
-	FORCEINLINE EJumpState					GetJumpState()					{ return m_jump_state; }
-	FORCEINLINE EGroundState				GetGroundState()				{ return m_ground_state; }
-	FORCEINLINE EGameDirection				GetCharacterDirection()			{ return m_game_direction; }
-	FORCEINLINE ELockOnState				GetLockOnState()				{ return m_lock_on_state; }
-	FORCEINLINE AActor*						GetTarget()						{ return m_actor_target; }
-	FORCEINLINE UInventoryComponent* const	GetInventoryComponent()			{ return m_inventory_component; }
-	FORCEINLINE bool						GetInputEnableMovement()		{ return m_enable_input_movement; }
-	FORCEINLINE bool						GetInputEnableAttackRotate()	{ return m_enable_input_attack_rotate; }
-	FORCEINLINE int32						GetTotalGold()					{ return m_total_gold; }
-	FORCEINLINE const EWeaponEquipHand&		GetSwapHand()					{ return m_swap_hand; }
-	FORCEINLINE const bool&					IsNotDamageMod()				{ return m_is_not_damage_mod; }
+	FORCEINLINE EActionState			GetActionState()		{ return m_action_state; }
+	FORCEINLINE EEquipState				GetEquipState()			{ return m_equip_state; }
+	FORCEINLINE EJumpState				GetJumpState()			{ return m_jump_state; }
+	FORCEINLINE EGroundState			GetGroundState()		{ return m_ground_state; }
+	FORCEINLINE EGameDirection			GetCharacterDirection()		{ return m_game_direction; }
+	FORCEINLINE ELockOnState			GetLockOnState()		{ return m_lock_on_state; }
+	FORCEINLINE AActor*				GetTarget()			{ return m_actor_target; }
+	FORCEINLINE UInventoryComponent* const		GetInventoryComponent()		{ return m_inventory_component; }
+	FORCEINLINE bool				GetInputEnableMovement()	{ return m_enable_input_movement; }
+	FORCEINLINE bool				GetInputEnableAttackRotate()	{ return m_enable_input_attack_rotate; }
+	FORCEINLINE int32				GetTotalGold()			{ return m_total_gold; }
+	FORCEINLINE const EWeaponEquipHand&		GetSwapHand()			{ return m_swap_hand; }
+	FORCEINLINE const bool&				IsNotDamageMod()		{ return m_is_not_damage_mod; }
 
-	FORCEINLINE void SetOverlappingItem(AItem* item)						{ m_overlapping_item			= item; }
-	FORCEINLINE void SetJumpStartLocation(const FVector& start_location)	{ m_location_jump_start			= start_location; }
-	FORCEINLINE void SetInputMovementEnable(const bool& enable)				{ m_enable_input_movement		= enable; }
+	FORCEINLINE void SetOverlappingItem(AItem* item)				{ m_overlapping_item		= item; }
+	FORCEINLINE void SetJumpStartLocation(const FVector& start_location)		{ m_location_jump_start		= start_location; }
+	FORCEINLINE void SetInputMovementEnable(const bool& enable)			{ m_enable_input_movement	= enable; }
 	FORCEINLINE void SetInputAttackRotateEnable(const bool& enable)			{ m_enable_input_attack_rotate	= enable; }
-	FORCEINLINE void SetLandingFinish()										{ m_jump_state					= EJumpState::EJS_Unoccupied; UE_LOG(LogTemp, Warning, TEXT("Jumpstate Unoccupied"));}
-	FORCEINLINE void SetActionUnoccupied()									{ m_action_state				= EActionState::EAS_Unoccupied; }
-	FORCEINLINE void SetAttackEnable(const bool& enable)					{ m_enable_attack				= enable; }
-	FORCEINLINE void SetShortAttackEnable(const bool& enable)				{ m_enable_attack_short			= enable; }
+	FORCEINLINE void SetLandingFinish()						{ m_jump_state			= EJumpState::EJS_Unoccupied; UE_LOG(LogTemp, Warning, TEXT("Jumpstate Unoccupied"));}
+	FORCEINLINE void SetActionUnoccupied()						{ m_action_state		= EActionState::EAS_Unoccupied; }
+	FORCEINLINE void SetAttackEnable(const bool& enable)				{ m_enable_attack		= enable; }
+	FORCEINLINE void SetShortAttackEnable(const bool& enable)			{ m_enable_attack_short		= enable; }
 
 	void EquipArmorFromInventory(UItemObject* const item_object);
 	void EquipWeaponFromInventory(UItemObject* const item_object, const bool& is_right_hand = true);
@@ -170,16 +170,16 @@ private:
 
 #pragma region Component
 	UPROPERTY(VisibleAnywhere)
-	USpringArmComponent*				m_spring_arm;
+	USpringArmComponent*		m_spring_arm;
 
 	UPROPERTY(VisibleAnywhere)
-	UCameraComponent*					m_view_camera;
+	UCameraComponent*		m_view_camera;
 
 	UPROPERTY(VisibleAnywhere)
-	USphereComponent*					m_sphere_detect;
+	USphereComponent*		m_sphere_detect;
 
-	UCharacterMovementComponent*		m_movement_component;
-	APlayerController*					m_player_controller;
+	UCharacterMovementComponent*	m_movement_component;
+	APlayerController*		m_player_controller;
 #pragma endregion
 
 #pragma region Camera
@@ -200,19 +200,19 @@ private:
 #pragma region Attack
 	FName			m_attack_name_prev;
 	EAttackType		m_attack_type_prev	= EAttackType::EATKT_None;
-	EAttackStrength m_attack_strength	= EAttackStrength::EATKS_None;
+	EAttackStrength 	m_attack_strength	= EAttackStrength::EATKS_None;
 	EBattlePose		m_battle_pose		= EBattlePose::EBP_Unoccupied;
 #pragma endregion
 
 #pragma region States
 	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	EActionState		m_action_state		= EActionState::EAS_Unoccupied;
-	EJumpState			m_jump_state		= EJumpState::EJS_Unoccupied;
+	EJumpState		m_jump_state		= EJumpState::EJS_Unoccupied;
 	EGroundState		m_ground_state		= EGroundState::EGS_Unoccupied;
 	ELockOnState		m_lock_on_state		= ELockOnState::ELOS_LockOff;
 	EDirectionState		m_direction_state	= EDirectionState::EDS_DirectionOff;
 	EGameDirection		m_game_direction	= EGameDirection::EGD_None;
-	EWeaponEquipHand	m_swap_hand			= EWeaponEquipHand::EWEH_Right;
+	EWeaponEquipHand	m_swap_hand		= EWeaponEquipHand::EWEH_Right;
 #pragma endregion
 
 #pragma region HUD
@@ -246,21 +246,21 @@ private:
 #pragma endregion
 
 #pragma region Values
-	bool	m_is_sprint						= false;
-	bool	m_is_guard;
-	bool	m_is_not_damage_mod;
-	bool	m_enable_sprint_turn;
-	bool	m_enable_attack;
-	bool	m_enable_attack_short;
-	bool	m_enable_input_movement			= false;
+	bool	m_is_sprint			= false;
+	bool	m_is_guard			= false;
+	bool	m_is_not_damage_mod		= false;
+	bool	m_enable_sprint_turn		= false;
+	bool	m_enable_attack			= false;
+	bool	m_enable_attack_short		= false;
+	bool	m_enable_input_movement		= false;
 	bool	m_enable_input_attack_rotate	= false;
 
-	float	m_spring_arm_length;
+	float	m_spring_arm_length 		= 0.f;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Gold Amount")
-	int32	m_total_gold;
+	int32	m_total_gold 			= 0;
 
-	int32	m_total_potion;
+	int32	m_total_potion 			= 0;
 	FVector	m_location_jump_start = FVector::ZeroVector;
 
 	TArray<TTuple<USkeletalMeshComponent*, UItemObject*>> m_equiped_item;
