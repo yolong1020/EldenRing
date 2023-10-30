@@ -45,6 +45,8 @@ public:
 	virtual void OnParryStart() override {};
 	virtual void OnParryEnd() override {};
 	virtual void OnReactEnd() override {};
+	virtual void OnAttackDefended(const EAttackWeight& attack_weight) override {};
+	virtual void OnAttackBlocked(const EAttackWeight& attack_weight) override {};
 	virtual void OnChangeVigilanceState(const EVigilanceState& state);
 	virtual void OnTurnEnd();
 	virtual void OnEndStunn();
