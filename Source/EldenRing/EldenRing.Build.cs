@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class Basic : ModuleRules
+public class EldenRing : ModuleRules
 {
-	public Basic(ReadOnlyTargetRules Target) : base(Target)
+	public EldenRing(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
