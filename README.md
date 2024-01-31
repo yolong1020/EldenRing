@@ -18,6 +18,9 @@ Technical Overview
 #### 1. GameCharacter
 * Init Default Component & Values
 * Death Process
+
+  https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L162-L168
+
   ```C++
   // ==========================================================
   // Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간 도출.
