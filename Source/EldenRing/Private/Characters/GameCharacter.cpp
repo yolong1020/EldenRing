@@ -282,19 +282,6 @@ void AGameCharacter::ChangeRootMotionMode(ERootMotionMode::Type mode)
 	GetCharacterMovement()->bAllowPhysicsRotationDuringAnimRootMotion = allow_physics_rotation;
 }
 
-void AGameCharacter::OnParryOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	CHECK_INVALID_PTR(OtherActor)
-
-	AMeleeAttack_Actor* weapon = Cast<AMeleeAttack_Actor>(OtherActor);
-	if (nullptr == weapon) return;
-
-	AGameCharacter* attacker = Cast<AGameCharacter>(weapon->GetOwner());
-	CHECK_INVALID_PTR(attacker)
-
-	if (GetOwner() == attacker) return;
-}
-
 void AGameCharacter::InExecutionOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	AGameCharacter*	executor = Cast<AGameCharacter>(OtherActor);
