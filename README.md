@@ -13,4 +13,5 @@ Video
 Technical Overview
 ------------------
 
-### Character
+### 1. Character
+
