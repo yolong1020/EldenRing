@@ -32,7 +32,7 @@ private:
 	float m_delay_time;
 
 	UPROPERTY()
-	TObjectPtr<class UObserverManager> m_observe_mgr;
+	TWeakObjectPtr<class UObserverManager> m_observe_mgr;
 
 	UPROPERTY()
 	TWeakObjectPtr<class UInteractionManager> m_interact_mgr;
