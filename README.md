@@ -97,10 +97,10 @@ Technical Overview
   // ================================
   void AGameCharacter::UninitAndDestroy()
   {
-	DetachFromControllerPendingDestroy();
-	SetActorHiddenInGame(true);
+  	DetachFromControllerPendingDestroy();
+  	SetActorHiddenInGame(true);
 
-	LifeSpanExpired();
+  	LifeSpanExpired();
   }
 
   // ==============================
@@ -108,9 +108,9 @@ Technical Overview
   // ==============================
   void AGameCharacter::Destroyed()
   {
-	Super::Destroyed();
+  	Super::Destroyed();
 
-	if (m_equiped_weapon_R) { m_equiped_weapon_R->Destroy(); }
+  	if (m_equiped_weapon_R) { m_equiped_weapon_R->Destroy(); }
 	if (m_equiped_weapon_L) { m_equiped_weapon_L->Destroy(); }
   }
   ```
