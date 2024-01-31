@@ -13,6 +13,7 @@
   https://github.com/yolong1020/EldenRing/blob/0f9888e552ddbf77796e6e03775caa458ebac7fe/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133
   ###### Step 03. Level의 Load 상태에 따른 캐릭터 시작 애니메이션 재생 및 Input 활성
   https://github.com/yolong1020/EldenRing/blob/bc151a656f7846c367529f4340f0c87f574dcde0/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1595-L1622
+  
 ---
 #### * Combat
   > HUD, Camera Timeline, Item 등 초기화.
