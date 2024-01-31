@@ -1,5 +1,5 @@
 ### Player
-  #### Init Player Settings
+#### * Init Player Settings
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
   https://github.com/yolong1020/EldenRing/blob/a021831dab5f79b7e6faff2f2ab6fc9c5b5b9216/Source/EldenRing/Private/Characters/Players/C0000.cpp#L136-L212
@@ -13,22 +13,22 @@
   ###### Step 03. Level의 Load 상태에 따른 캐릭터 시작 애니메이션 재생 및 Input 활성
   https://github.com/yolong1020/EldenRing/blob/bc151a656f7846c367529f4340f0c87f574dcde0/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1595-L1622
 
-* Combat
+#### * Combat
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
 
-* Movement
+#### * Movement
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
 
-* Potion Comsume
+#### * Potion Comsume
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
 
-* Item Storage
+#### * Item Storage
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
 
-* Item Trade
+#### * Item Trade
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
