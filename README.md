@@ -55,15 +55,15 @@ Technical Overview
   {
   	if (Controller)
   	{
-		Controller->SetIgnoreMoveInput(true);
-		Controller->SetIgnoreLookInput(true);
+			Controller->SetIgnoreMoveInput(true);
+			Controller->SetIgnoreLookInput(true);
   	}
 
   	UCharacterMovementComponent* MoveComp = Cast<UCharacterMovementComponent>(GetMovementComponent());
   	if (MoveComp)
   	{
-		MoveComp->StopActiveMovement();
-		MoveComp->DisableMovement();
+			MoveComp->StopActiveMovement();
+			MoveComp->DisableMovement();
  	}
 
   	UNiagaraSystem* particle_system = LoadObject<UNiagaraSystem>(nullptr, TEXT("/Script/Niagara.NiagaraSystem'/Game/Effects/Niagara/NS_FadeOut.NS_FadeOut'"));
