@@ -214,15 +214,7 @@ void AC0000::BeginPlay()
 void AC0000::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//FVector location = GetActorLocation();
-	//location.Z -= 90.f;
-	//
-	//FVector end_location = GetActorLocation() + GetActorForwardVector().GetSafeNormal2D() * 1;
-	//end_location.Z -= 90.f;
-	//
-	//UKismetSystemLibrary::DrawDebugLine(this, location, end_location, FColor::Red, 2.f, 2.f);
-	//UKismetSystemLibrary::DrawDebugSphere(this, GetActorLocation(), 2000, 12, FLinearColor::Green);
-	//
+	
 	m_tl_cam_focus.TickTimeline(DeltaTime);
 	m_tl_cam_execution_front.TickTimeline(DeltaTime);
 	m_tl_cam_execution_back.TickTimeline(DeltaTime);
