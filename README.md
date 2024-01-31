@@ -14,4 +14,4 @@ Technical Overview
 ------------------
 
 ### 1. Character
-
+![Alt text](/path/to/img.jpg)
