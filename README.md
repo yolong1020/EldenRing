@@ -19,8 +19,7 @@ Technical Overview
 * Init Default Component & Values
 * Death Process
   ```C++
-  void AGameCharacter::OnDeath(TWeakObjectPtr<UAnimMontage> Montage, const float& Duration)
-{
+  void AGameCharacter::OnDeath(TWeakObjectPtr<UAnimMontage> Montage, const float& Duration) {
 	m_mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
@@ -43,5 +42,5 @@ Technical Overview
 	}
 
 	FadeOutCharacter(fadeout_duration);
-}
+  }
   ```
