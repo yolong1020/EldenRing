@@ -6,4 +6,4 @@
 * Microsoft Visual Studio Community 2019 16.8.5
 * 2023.11.01 ~ 2024.01.27 (3개월)
 
-[![Video Label](http://img.youtube.com/vi/'https://youtu.be/ZO0a9uATi-o?si=DdQavzZpgpQHyozd'/0.jpg)](https://youtube/'https://youtu.be/ZO0a9uATi-o?si=DdQavzZpgpQHyozd')
+[![Video Label](http://img.youtube.com/vi/'ZO0a9uATi-o?si=DdQavzZpgpQHyozd'/0.jpg)](https://youtu.be/'ZO0a9uATi-o?si=DdQavzZpgpQHyozd')
