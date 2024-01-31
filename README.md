@@ -51,46 +51,46 @@ Technical Overview
   // ========
   // Step 02.
   // ========
-  void AGameCharacter::FadeOutCharacter(const float Duration) {
-  if (Controller)
+  void AGameCharacter::FadeOutCharacter(const float Duration)
   {
-	Controller->SetIgnoreMoveInput(true);
-	Controller->SetIgnoreLookInput(true);
-  }
+  	if (Controller)
+  	{
+		Controller->SetIgnoreMoveInput(true);
+		Controller->SetIgnoreLookInput(true);
+  	}
 
-  UCharacterMovementComponent* MoveComp = Cast<UCharacterMovementComponent>(GetMovementComponent());
-  if (MoveComp)
-  {
-	MoveComp->StopActiveMovement();
-	MoveComp->DisableMovement();
-  }
+  	UCharacterMovementComponent* MoveComp = Cast<UCharacterMovementComponent>(GetMovementComponent());
+  	if (MoveComp)
+  	{
+		MoveComp->StopActiveMovement();
+		MoveComp->DisableMovement();
+ 	}
 
-  UNiagaraSystem* particle_system = LoadObject<UNiagaraSystem>(nullptr, TEXT("/Script/Niagara.NiagaraSystem'/Game/Effects/Niagara/NS_FadeOut.NS_FadeOut'"));
-  CHECK_INVALID_PTR(particle_system)
+  	UNiagaraSystem* particle_system = LoadObject<UNiagaraSystem>(nullptr, TEXT("/Script/Niagara.NiagaraSystem'/Game/Effects/Niagara/NS_FadeOut.NS_FadeOut'"));
+  	CHECK_INVALID_PTR(particle_system)
 
-  UNiagaraComponent* particle_component = UNiagaraFunctionLibrary::SpawnSystemAttached(
-	particle_system,
-	RootComponent,
-	FName("Spine"),
-	FVector::ZeroVector,
-	FRotator::ZeroRotator,
-	EAttachLocation::SnapToTarget,
-	true
-  );
-  CHECK_INVALID_PTR(particle_component)
-  particle_component->OnSystemFinished.AddDynamic(this, &AGameCharacter::FinishFadeOut);
-  particle_component->SetVariableFloat(FName("Duration"), Duration);
+  	UNiagaraComponent* particle_component = UNiagaraFunctionLibrary::SpawnSystemAttached(
+		particle_system,
+		RootComponent,
+		FName("Spine"),
+		FVector::ZeroVector,
+		FRotator::ZeroRotator,
+		EAttachLocation::SnapToTarget,
+		true);
+  	CHECK_INVALID_PTR(particle_component)
+  	particle_component->OnSystemFinished.AddDynamic(this, &AGameCharacter::FinishFadeOut);
+  	particle_component->SetVariableFloat(FName("Duration"), Duration);
 
-  IItem_Interface* weapon_r = Cast<IItem_Interface>(m_equiped_weapon_R);
-  if (weapon_r) { weapon_r->FadeOutItem(Duration); }
+  	IItem_Interface* weapon_r = Cast<IItem_Interface>(m_equiped_weapon_R);
+  	if (weapon_r) { weapon_r->FadeOutItem(Duration); }
 
-  IItem_Interface* weapon_l = Cast<IItem_Interface>(m_equiped_weapon_L);
-  if (weapon_l) { weapon_l->FadeOutItem(Duration); }
+  	IItem_Interface* weapon_l = Cast<IItem_Interface>(m_equiped_weapon_L);
+  	if (weapon_l) { weapon_l->FadeOutItem(Duration); }
 
-  m_tl_fadeout.SetTimelineLength(Duration);
-  m_tl_fadeout.SetTimelineLengthMode(ETimelineLengthMode::TL_TimelineLength);
-  m_tl_fadeout.Stop();
-  m_tl_fadeout.PlayFromStart(); }
+  	m_tl_fadeout.SetTimelineLength(Duration);
+  	m_tl_fadeout.SetTimelineLengthMode(ETimelineLengthMode::TL_TimelineLength);
+  	m_tl_fadeout.Stop();
+  	m_tl_fadeout.PlayFromStart(); }
 
   // ========
   // Step 03.
