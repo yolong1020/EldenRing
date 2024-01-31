@@ -14,4 +14,4 @@ Technical Overview
 ------------------
 
 ### 1. Character
-![Alt text](/path/to/img.jpg)
+![Charactor](https://github.com/yolong1020/EldenRing/assets/87303898/63739cc3-0bff-4242-9309-f3c2f8cea049)
