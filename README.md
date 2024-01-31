@@ -19,9 +19,9 @@ Technical Overview
 * Init Default Component & Values
 * Death Process
   ```C++
-  // ========
-  // Step 01.
-  // ========
+  // ==========================================================
+  // Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간 도출.
+  // ==========================================================
   void AGameCharacter::OnDeath(TWeakObjectPtr<UAnimMontage> Montage, const float& Duration)
   {
   	m_mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
@@ -48,9 +48,9 @@ Technical Overview
 	FadeOutCharacter(fadeout_duration);
   }
 
-  // ========
-  // Step 02.
-  // ========
+  // =============================================================================
+  // Step 02. Controller 및 MovementComponent 비활성 후 캐릭터와 무기 Fade Out 진행.
+  // =============================================================================
   void AGameCharacter::FadeOutCharacter(const float Duration)
   {
   	if (Controller)
@@ -92,9 +92,9 @@ Technical Overview
   	m_tl_fadeout.Stop();
   	m_tl_fadeout.PlayFromStart(); }
 
-  // ========
-  // Step 03.
-  // ========
+  // ================================
+  // Step 03. 이펙트 연출 후 엑터 파괴
+  // ================================
   void AGameCharacter::UninitAndDestroy()
   {
 	DetachFromControllerPendingDestroy();
@@ -103,9 +103,9 @@ Technical Overview
 	LifeSpanExpired();
   }
 
-  // ========
-  // Step 04.
-  // ========
+  // =======================================
+  // Step 04. 엑터가 소유한 무기 및 Event 해제
+  // =======================================
   void AGameCharacter::Destroyed()
   {
 	Super::Destroyed();
