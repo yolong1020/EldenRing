@@ -45,7 +45,7 @@ Technical Overview
 			}
   	}
 
-	FadeOutCharacter(fadeout_duration);
+  	FadeOutCharacter(fadeout_duration);
   }
 
   // =============================================================================
