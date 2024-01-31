@@ -63,9 +63,6 @@ void UYouDied::EndDirecting()
 	action.Linkage = 0;
 	action.ExecutionFunction = FName("FilledBlackOut");
 	UKismetSystemLibrary::Delay(GetWorld(), m_delay_time, action);
-
-	// m_observe_mgr->TriggerEvent(EObserverEventType::EOET_EnemyFelled);
-	// m_interact_mgr->OpenInteractPopUp(EInteractPopupType::EIPT_ToBonefire, false);
 }
 
 void UYouDied::FilledBlackOut()
