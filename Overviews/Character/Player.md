@@ -1,4 +1,4 @@
-#### 1. GameCharacter
+#### Player
 * Init Player Settings
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
