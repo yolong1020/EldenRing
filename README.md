@@ -34,12 +34,12 @@ Technical Overview
   		TArray<FCompositeSection> sections = Montage->CompositeSections;
 			for (auto section : sections)
 			{
-			if (section.SectionName == m_section_name)
-			{
-				const UAnimSequenceBase* sequence = section.GetLinkedSequence();
-				fadeout_duration = sequence->GetPlayLength() - 0.2f;
-				break;
-			}
+				if (section.SectionName == m_section_name)
+				{
+					const UAnimSequenceBase* sequence = section.GetLinkedSequence();
+					fadeout_duration = sequence->GetPlayLength() - 0.2f;
+					break;
+				}
 			}
   	}
 
