@@ -30,11 +30,5 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	float m_delay_time;
-
-	UPROPERTY()
-	TWeakObjectPtr<class UObserverManager> m_observe_mgr;
-
-	UPROPERTY()
-	TWeakObjectPtr<class UInteractionManager> m_interact_mgr;
 };
 
