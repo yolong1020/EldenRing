@@ -1,7 +1,8 @@
-#### GameCharacter
-* Init Default Component & Values
+# GameCharacter
+#### * Init Default Component & Values
   > Mesh, Collision 등 Component 생성 및 초기화 과정
-* Death Process : 
+---
+#### * Death Process : 
   > 캐릭터 사망시 Component 처리와 이펙트 연출 과정
   ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간 도출.
   https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L199-L223
