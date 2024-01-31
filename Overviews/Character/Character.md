@@ -2,3 +2,6 @@
 #### [1. GameCharacter](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/GameCharacter.md)
 * Init Default Component & Values
   > Mesh, Collision 등 Component 생성 및 초기화 과정
+#### [2. Player](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/GameCharacter.md)
+* Init Default Component & Values
+  > Mesh, Collision 등 Component 생성 및 초기화 과정
