@@ -19,7 +19,9 @@ Technical Overview
 * Init Default Component & Values
 * Death Process
   ```C++
+  // ========
   // Step 01.
+  // ========
   void AGameCharacter::OnDeath(TWeakObjectPtr<UAnimMontage> Montage, const float& Duration)
   {
   	m_mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
@@ -46,7 +48,9 @@ Technical Overview
 	FadeOutCharacter(fadeout_duration);
   }
 
+  // ========
   // Step 02.
+  // ========
   void AGameCharacter::FadeOutCharacter(const float Duration) {
   if (Controller)
   {
@@ -88,7 +92,9 @@ Technical Overview
   m_tl_fadeout.Stop();
   m_tl_fadeout.PlayFromStart(); }
 
+  // ========
   // Step 03.
+  // ========
   void AGameCharacter::UninitAndDestroy()
   {
 	DetachFromControllerPendingDestroy();
@@ -97,7 +103,9 @@ Technical Overview
 	LifeSpanExpired();
   }
 
+  // ========
   // Step 04.
+  // ========
   void AGameCharacter::Destroyed()
   {
 	Super::Destroyed();
