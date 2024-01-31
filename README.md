@@ -64,7 +64,7 @@ Technical Overview
   	{
 			MoveComp->StopActiveMovement();
 			MoveComp->DisableMovement();
- 	}
+ 		}
 
   	UNiagaraSystem* particle_system = LoadObject<UNiagaraSystem>(nullptr, TEXT("/Script/Niagara.NiagaraSystem'/Game/Effects/Niagara/NS_FadeOut.NS_FadeOut'"));
   	CHECK_INVALID_PTR(particle_system)
