@@ -32,19 +32,19 @@ private:
 	TSubclassOf<UInventoryItem> m_widget_class;
 
 	UPROPERTY(meta = (AllowPrivateAccess = "true"))
-	UInventorySlotGrid* m_widget_slot_grid;
+	TObjectPtr<UInventorySlotGrid> m_widget_slot_grid;
 
 	UPROPERTY(meta = (AllowPrivateAccess = "true"))
-	UTradeInteractionGrid* m_widget_Interaction_grid;
+	TObjectPtr<UTradeInteractionGrid> m_widget_Interaction_grid;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Margin Setting", meta = (AllowPrivateAccess = "true"))
 	FMargin m_margin;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Title", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	UTextBlock* OwnerName;
+	TObjectPtr<UTextBlock> OwnerName;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Gold Setting", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	UTextBlock* GoldAmount;
+	TObjectPtr<UTextBlock> GoldAmount;
 
 	FInventoryTile m_start_tile_draged;
 };
