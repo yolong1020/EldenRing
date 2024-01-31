@@ -1,5 +1,5 @@
 #### Player
-### Init Player Settings
+  ### Init Player Settings
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
   https://github.com/yolong1020/EldenRing/blob/a021831dab5f79b7e6faff2f2ab6fc9c5b5b9216/Source/EldenRing/Private/Characters/Players/C0000.cpp#L136-L212
