@@ -25,13 +25,13 @@ protected:
 
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "HUD", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	UTutorialHUD* UIP_SlideTop;
+	TObjectPtr<class UTutorialHUD> UIP_SlideTop;
 
 	UPROPERTY(EditDefaultsOnly, Category = "HUD", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	UTutorialHUD* UIP_Slide_Mid;
+	TObjectPtr<class UTutorialHUD> UIP_Slide_Mid;
 
 	UPROPERTY(EditDefaultsOnly, Category = "HUD", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	UTutorialHUD* UIP_Slide_Bot;
+	TObjectPtr<class UTutorialHUD> UIP_Slide_Bot;
 
 	UPROPERTY()
 	TArray<FTutorialPersistentData> m_slides;
