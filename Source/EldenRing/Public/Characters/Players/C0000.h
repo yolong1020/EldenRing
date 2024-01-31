@@ -58,25 +58,25 @@ public:
 	virtual const bool IsCurrentActionState(const FString& action) const override final;
 	virtual const bool IsGuardState() const override final;
 
-	FORCEINLINE EActionState				GetActionState()				{ return m_action_state; }
-	FORCEINLINE EJumpState					GetJumpState()					{ return m_jump_state; }
-	FORCEINLINE EGroundState				GetGroundState()				{ return m_ground_state; }
-	FORCEINLINE EGameDirection				GetCharacterDirection()			{ return m_game_direction; }
-	FORCEINLINE ELockOnState				GetLockOnState()				{ return m_lock_on_state; }
-	FORCEINLINE AActor* const				GetTarget()						{ return m_actor_target; }
-	FORCEINLINE AVender*const				GetTradePartner()				{ return m_actor_vender; }
-	FORCEINLINE bool						GetInputEnableMovement()		{ return m_enable_input_movement; }
-	FORCEINLINE bool						GetInputEnableAttackRotate()	{ return m_enable_input_attack_rotate; }
-	FORCEINLINE const EWeaponEquipHand&		GetSwapHand()					{ return m_swap_hand; }
+	FORCEINLINE EActionState			GetActionState()		{ return m_action_state; }
+	FORCEINLINE EJumpState				GetJumpState()			{ return m_jump_state; }
+	FORCEINLINE EGroundState			GetGroundState()		{ return m_ground_state; }
+	FORCEINLINE EGameDirection			GetCharacterDirection()		{ return m_game_direction; }
+	FORCEINLINE ELockOnState			GetLockOnState()		{ return m_lock_on_state; }
+	FORCEINLINE AActor* const			GetTarget()			{ return m_actor_target; }
+	FORCEINLINE AVender*const			GetTradePartner()		{ return m_actor_vender; }
+	FORCEINLINE bool				GetInputEnableMovement()	{ return m_enable_input_movement; }
+	FORCEINLINE bool				GetInputEnableAttackRotate()	{ return m_enable_input_attack_rotate; }
+	FORCEINLINE const EWeaponEquipHand&		GetSwapHand()			{ return m_swap_hand; }
 				 
-	FORCEINLINE void SetOverlappingItem(AItem* item)							 { m_overlapping_item			= item; }
-	FORCEINLINE void SetJumpStartLocation(const FVector& start_location)		 { m_location_jump_start		= start_location; }
-	FORCEINLINE void SetInputMovementEnable(const bool& enable)					 { m_enable_input_movement		= enable; }
-	FORCEINLINE void SetInputAttackRotateEnable(const bool& enable)				 { m_enable_input_attack_rotate	= enable; }
-	FORCEINLINE void SetActionUnoccupied()										 { m_action_state				= EActionState::EAS_Unoccupied; }
-	FORCEINLINE void SetAttackEnable(const bool& enable)						 { m_enable_attack				= enable; }
-	FORCEINLINE void SetShortAttackEnable(const bool& enable)					 { m_enable_attack_short		= enable; }
-	FORCEINLINE void SetTradePartner(AVender* const vender)						 { m_actor_vender				= vender; }
+	FORCEINLINE void SetOverlappingItem(AItem* item)			{ m_overlapping_item		= item; }
+	FORCEINLINE void SetJumpStartLocation(const FVector& start_location)	{ m_location_jump_start		= start_location; }
+	FORCEINLINE void SetInputMovementEnable(const bool& enable)		{ m_enable_input_movement 	= enable; }
+	FORCEINLINE void SetInputAttackRotateEnable(const bool& enable)		{ m_enable_input_attack_rotate	= enable; }
+	FORCEINLINE void SetActionUnoccupied()					{ m_action_state 		= EActionState::EAS_Unoccupied; }
+	FORCEINLINE void SetAttackEnable(const bool& enable)			{ m_enable_attack		= enable; }
+	FORCEINLINE void SetShortAttackEnable(const bool& enable)		{ m_enable_attack_short		= enable; }
+	FORCEINLINE void SetTradePartner(AVender* const vender)			{ m_actor_vender		= vender; }
 
 protected:		 
 	virtual void BeginPlay() override;
@@ -243,7 +243,7 @@ private:
 #pragma region Attack
 	FName			m_attack_name_prev;
 	EAttackType		m_attack_type_prev	= EAttackType::EATKT_None;
-	EAttackStrength m_attack_strength	= EAttackStrength::EATKS_None;
+	EAttackStrength 	m_attack_strength	= EAttackStrength::EATKS_None;
 	EBattlePose		m_battle_pose		= EBattlePose::EBP_Unoccupied;
 #pragma endregion
 
@@ -254,12 +254,12 @@ private:
 #pragma region States
 	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	EActionState		m_action_state		= EActionState::EAS_Unoccupied;
-	EJumpState			m_jump_state		= EJumpState::EJS_Unoccupied;
+	EJumpState		m_jump_state		= EJumpState::EJS_Unoccupied;
 	EGroundState		m_ground_state		= EGroundState::EGS_Unoccupied;
 	ELockOnState		m_lock_on_state		= ELockOnState::ELOS_LockOff;
 	EDirectionState		m_direction_state	= EDirectionState::EDS_DirectionOff;
 	EGameDirection		m_game_direction	= EGameDirection::EGD_None;
-	EWeaponEquipHand	m_swap_hand			= EWeaponEquipHand::EWEH_Right;
+	EWeaponEquipHand	m_swap_hand		= EWeaponEquipHand::EWEH_Right;
 #pragma endregion
 
 #pragma region TimeLine
@@ -314,7 +314,7 @@ private:
 	UPROPERTY()
 	TWeakObjectPtr<class UInteractionManager>	m_interact_mgr;
 	UPROPERTY()
-	TWeakObjectPtr<class UUIManager>			m_ui_mgr;
+	TWeakObjectPtr<class UUIManager>		m_ui_mgr;
 #pragma endregion
 
 #pragma region Starter Items
