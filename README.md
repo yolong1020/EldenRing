@@ -14,5 +14,5 @@ Video
 Technical Overview
 ------------------
 
-### 1. Character(https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character.md)
+### 1. Character([https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character.md](https://github.com/yolong1020/EldenRing/blob/a6c9af7346830bc03fc633fd85aa6ca789bad9e6/Overviews/Character.md)https://github.com/yolong1020/EldenRing/blob/a6c9af7346830bc03fc633fd85aa6ca789bad9e6/Overviews/Character.md)
 
