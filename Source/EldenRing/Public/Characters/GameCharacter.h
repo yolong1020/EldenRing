@@ -38,36 +38,36 @@ public:
 	virtual void OnTakeExecutionEnd();
 	virtual void OnReactEnd() PURE_VIRTUAL(AGameCharacter::OnReactEnd, );
 
-	FORCEINLINE virtual void										AddIgnoreTargets(AActor* const Target) override	{ m_ignore_target.Add(Target); }
+	FORCEINLINE virtual void					AddIgnoreTargets(AActor* const Target) override	{ m_ignore_target.Add(Target); }
 	
-	virtual const bool												IsAttacking()								const PURE_VIRTUAL(AGameCharacter::IsAttacking, return false; );
-	virtual const bool												IsCurrentActionState(const FString& action) const PURE_VIRTUAL(AGameCharacter::IsCurrentActionState, return false; );
-	virtual const bool												IsGuardState()							    const PURE_VIRTUAL(AGameCharacter::IsGuardState, return false; );
-	FORCEINLINE virtual const bool									IsNotDamageMod() const override					{ return m_is_not_damage_mod; }
-	FORCEINLINE virtual const bool									IsHasTag(const FName& TagName) const override	{ return ActorHasTag(TagName); }
-	FORCEINLINE virtual const bool									IsShowingWeapon() const override final;
-	const bool														IsAlive() const;
+	virtual const bool						IsAttacking() const PURE_VIRTUAL(AGameCharacter::IsAttacking, return false; );
+	virtual const bool						IsCurrentActionState(const FString& action) const PURE_VIRTUAL(AGameCharacter::IsCurrentActionState, return false; );
+	virtual const bool						IsGuardState() const PURE_VIRTUAL(AGameCharacter::IsGuardState, return false; );
+	FORCEINLINE virtual const bool					IsNotDamageMod() const override			{ return m_is_not_damage_mod; }
+	FORCEINLINE virtual const bool					IsHasTag(const FName& TagName) const override	{ return ActorHasTag(TagName); }
+	FORCEINLINE virtual const bool					IsShowingWeapon() const override final;
+	const bool							IsAlive() const;
 	
-	virtual const FVector											GetBoneLocation(const FName& BoneName, const EBoneSpaces::Type& Space);
-	FORCEINLINE const FString&										GetUniqueName() const							{ return m_unique_name; }
-	FORCEINLINE virtual const TArray<AActor*>						GetIgnoreTargets() const override final			{ return m_ignore_target; }
-	FORCEINLINE virtual const int32									GetTotalGold() const override	final			{ return m_total_gold; }
-	FORCEINLINE USphereComponent* const								GetParrySphere()								{ return m_sphere_parry; }
-	FORCEINLINE const EDeathPose&									GetDeathPose()									{ return m_death_pose; }
-	FORCEINLINE const EBattlePose&									GetBattlePose()									{ return m_battle_pose; }
-	FORCEINLINE virtual const FTransform							GetStartTransform() const override final		{ return m_start_transform; }
-	FORCEINLINE virtual const uint8									GetWeaponEquipState() const override final		{ return (uint8)m_equip_state; }
-	FORCEINLINE virtual TSubclassOf<AGameCharacter>					GetClassType() const override final				{ return GetClass(); }
+	virtual const FVector						GetBoneLocation(const FName& BoneName, const EBoneSpaces::Type& Space);
+	FORCEINLINE const FString&					GetUniqueName() const				{ return m_unique_name; }
+	FORCEINLINE virtual const TArray<AActor*>			GetIgnoreTargets() const override final		{ return m_ignore_target; }
+	FORCEINLINE virtual const int32					GetTotalGold() const override	final		{ return m_total_gold; }
+	FORCEINLINE USphereComponent* const				GetParrySphere()				{ return m_sphere_parry; }
+	FORCEINLINE const EDeathPose&					GetDeathPose()					{ return m_death_pose; }
+	FORCEINLINE const EBattlePose&					GetBattlePose()					{ return m_battle_pose; }
+	FORCEINLINE virtual const FTransform				GetStartTransform() const override final	{ return m_start_transform; }
+	FORCEINLINE virtual const uint8					GetWeaponEquipState() const override final	{ return (uint8)m_equip_state; }
+	FORCEINLINE virtual TSubclassOf<AGameCharacter>			GetClassType() const override final		{ return GetClass(); }
 	FORCEINLINE virtual TArray<TSubclassOf<class AWeapon_Actor>>	GetWeaponClassTypes() const;
 	
-	FORCEINLINE void			SetGold(const int32& gold)													{ m_total_gold += gold; }
-	FORCEINLINE virtual void	SetDamageMod(const bool& IsNoDamage)										{ m_is_not_damage_mod = IsNoDamage; }
-	FORCEINLINE virtual void	SetStartTransform(const FTransform& Transform)								{ m_start_transform = Transform; }
-	FORCEINLINE virtual void	SetCharacterTransform(const FTransform& Transform) override final			{ SetActorTransform(Transform); m_start_transform = Transform; }
+	FORCEINLINE void		SetGold(const int32& gold)							{ m_total_gold += gold; }
+	FORCEINLINE virtual void	SetDamageMod(const bool& IsNoDamage)						{ m_is_not_damage_mod = IsNoDamage; }
+	FORCEINLINE virtual void	SetStartTransform(const FTransform& Transform)					{ m_start_transform = Transform; }
+	FORCEINLINE virtual void	SetCharacterTransform(const FTransform& Transform) override final		{ SetActorTransform(Transform); m_start_transform = Transform; }
 	FORCEINLINE virtual void	SetWeaponEquipState(const EEquipState& WeaponEquipState) override final		{ m_equip_state = WeaponEquipState; }
-	virtual void				SetWeaponCollision(ECollisionEnabled::Type type) PURE_VIRTUAL(AGameCharacter::SetWeaponCollision, );
-	virtual void				SetParryCollision(const ECollisionEnabled::Type& type);
-	virtual void				SetExecutionEnable(const bool& IsFront, const bool& is_enable, AGameCharacter* const execution_target = nullptr);
+	virtual void			SetWeaponCollision(ECollisionEnabled::Type type) PURE_VIRTUAL(AGameCharacter::SetWeaponCollision, );
+	virtual void			SetParryCollision(const ECollisionEnabled::Type& type);
+	virtual void			SetExecutionEnable(const bool& IsFront, const bool& is_enable, AGameCharacter* const execution_target = nullptr);
 
 protected:
 	virtual void BeginPlay() override;
@@ -88,8 +88,6 @@ protected:
 	UFUNCTION()
 	virtual void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted) {};
 
-	UFUNCTION()
-	virtual void OnParryOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
 	virtual void InExecutionOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
@@ -116,34 +114,34 @@ protected:
 	FName m_section_name;
 
 	UPROPERTY()
-	class UAnimInstance* m_anim_instance;
+	TObjectPtr<class UAnimInstance> m_anim_instance;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_death = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_death;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_attack = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_attack;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_potion_consume = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_potion_consume;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_turn = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_turn;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_blocked = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_blocked;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_guard = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_guard;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_stunn = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_stunn;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_execution = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_execution;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_take_execution = nullptr;
+	TObjectPtr<UAnimMontage> m_montage_take_execution;
 #pragma endregion
 
 #pragma region Combat
@@ -163,9 +161,9 @@ protected:
 	TObjectPtr<USphereComponent> m_sphere_execution_front;
 
 	UPROPERTY()
-	TArray<TObjectPtr<AActor>>	m_ignore_target;
+	TArray<TObjectPtr<AActor>> m_ignore_target;
 
-	TArray<bool>	m_is_enable_execution;
+	TArray<bool> m_is_enable_execution;
 
 	FName			m_attack_name_prev;
 	bool			m_attack_success;
@@ -173,16 +171,16 @@ protected:
 	int32			m_lockon_index;
 
 	EAttackType		m_attack_type_prev	= EAttackType::EATKT_None;
-	EAttackStrength m_attack_strength	= EAttackStrength::EATKS_None;
+	EAttackStrength 	m_attack_strength	= EAttackStrength::EATKS_None;
 	EBattlePose		m_battle_pose		= EBattlePose::EBP_Unoccupied;
 #pragma endregion
 
 #pragma region Interaction
 	UPROPERTY(EditDefaultsOnly, Category = "Interaction")
-	USphereComponent* m_sphere_interaction;
+	TObjectPtr<USphereComponent> m_sphere_interaction;
 
 	UPROPERTY(VisibleAnywhere)
-	UPawnSensingComponent* m_pawn_sensing;
+	TObjectPtr<UPawnSensingComponent> m_pawn_sensing;
 #pragma endregion
 
 #pragma region States
@@ -190,7 +188,7 @@ protected:
 	EDeathPose m_death_pose = EDeathPose::EDP_Alive;
 
 	UPROPERTY(EditInstanceOnly, Category = "States")
-	EEquipState	m_equip_state = EEquipState::EES_Unequipped;
+	EEquipState m_equip_state = EEquipState::EES_Unequipped;
 #pragma endregion
 
 #pragma region Weapon
@@ -218,7 +216,7 @@ protected:
 
 #pragma region Particle
 	UPROPERTY(EditAnywhere, Category = VisualEffects)
-	UParticleSystem* m_particle_hit = nullptr;
+	TObjectPtr<UParticleSystem> m_particle_hit;
 #pragma endregion
 
 #pragma region DeathFadeOut
