@@ -1,4 +1,4 @@
-#### 1. GameCharacter
+#### GameCharacter
 * Init Default Component & Values
   > Mesh, Collision 등 Component 생성 및 초기화 과정
 * Death Process : 
