@@ -25,38 +25,6 @@ public:
 		if (!m_event.IsValidIndex((int32)EventType)) return;
 
 		FDelegateHandle handle = m_event[(int32)EventType].AddUObject(Observer, Func);
-
-		// if (!m_event_handle.Find(Observer)) 
-		// {
-		// 	m_event_handle.Add(Observer, TArray<TArray<FDelegateHandle>>()); 
-		// 	m_event_handle[Observer].SetNum((int32)EObserverEventType::EOET_Max);
-		// }
-		// m_event_handle[Observer][(int32)EventType].Add(handle);
-	}
-
-	template<class T>
-	void UnregistObserverObject(T* const Observer)
-	{
-		// if (m_event_handle.Find(Observer))
-		// {
-		// 	for (int i = 0; i < m_event_handle[Observer].Num(); ++i)
-		// 	{
-		// 		for (const FDelegateHandle& handle : m_event_handle[Observer][i])
-		// 		{
-		// 			m_event[i].Remove(handle);
-		// 		}
-		// 	}
-		// 	m_event_handle.Remove(Observer);
-		// }
-		// 
-		// if (m_death_handle.Find(Observer))
-		// {
-		// 	for (const FDelegateHandle& handle : m_death_handle[Observer])
-		// 	{
-		// 		m_death_handle[Observer].Remove(handle);
-		// 	}
-		// 	m_death_handle.Remove(Observer);
-		// }
 	}
 
 	void UnregistObserver(const EObserverEventType& EventType)
@@ -73,12 +41,6 @@ public:
 			m_death_event.Add(Target, FObserverDeathDelegate());
 		}
 		FDelegateHandle handle = m_death_event[Target].AddUObject(Observer, Func);
-
-		// if (!m_death_handle.Find(Observer))
-		// {
-		// 	m_death_handle.Add(Observer, TArray<FDelegateHandle>());
-		// }
-		// m_death_handle[Observer].Add(handle);
 	}
 
 protected:
