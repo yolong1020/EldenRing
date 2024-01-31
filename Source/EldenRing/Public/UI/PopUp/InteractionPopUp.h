@@ -33,25 +33,25 @@ private:
 
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, category = "PopUp Setting", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	class UImage* Icon;
+	TObjectPtr<class UImage> Icon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, category = "PopUp Setting", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	class UTextBlock* Desc;
+	TObjectPtr<class UTextBlock> Desc;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess = "true"), Transient)
-	UWidgetAnimation* StartShowPopUp;
+	TObjectPtr<UWidgetAnimation> StartShowPopUp;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess = "true"), Transient)
-	UWidgetAnimation* StartHidePopUp;
+	TObjectPtr<UWidgetAnimation> StartHidePopUp;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "HUD", meta = (AllowPrivateAccess = "true"))
-	class UIconDataAsset* IconData;
+	TObjectPtr<class UIconDataAsset> IconData;
 
 	UPROPERTY()
-	class ULostGraceDiscovered* m_discovered;
+	TObjectPtr<class ULostGraceDiscovered> m_discovered;
 
 	UPROPERTY()
-	class UBoneFireMenu* m_bonefire_menu;
+	TObjectPtr<class UBoneFireMenu> m_bonefire_menu;
 
 	UPROPERTY()
 	TWeakObjectPtr<class UInteractionManager> m_interact_mgr;
