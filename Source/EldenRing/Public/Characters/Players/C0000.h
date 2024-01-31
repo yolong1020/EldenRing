@@ -39,7 +39,7 @@ public:
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;			 
 	void SetWeapon(const bool& IsRight, AWeapon_Actor* const Weapon);
 	
-	FORCEINLINE virtual class UGameHUDComponent* const				GetHUDComponent() const override final	{ return m_hud_component; };
+	FORCEINLINE virtual class UGameHUDComponent* const		GetHUDComponent() const override final	{ return m_hud_component; };
 	FORCEINLINE virtual const TObjectPtr<class APlayerController>	GetControllerComponent() override final { return Cast<APlayerController>(Controller); };
 
 	virtual void OnAttackDefended(const EAttackWeight& attack_weight) override final;
