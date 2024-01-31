@@ -103,22 +103,14 @@ Technical Overview
 	LifeSpanExpired();
   }
 
-  // =======================================
-  // Step 04. 엑터가 소유한 무기 및 Event 해제
-  // =======================================
+  // ==============================
+  // Step 04. 엑터가 소유한 무기 파괴
+  // ==============================
   void AGameCharacter::Destroyed()
   {
 	Super::Destroyed();
 
 	if (m_equiped_weapon_R) { m_equiped_weapon_R->Destroy(); }
 	if (m_equiped_weapon_L) { m_equiped_weapon_L->Destroy(); }
-
-	UGameInstance* instance = GetGameInstance();
-	if (!instance) return;
-
-	UObserverManager* observer_mgr = instance->GetSubsystem<UObserverManager>();
-	if (!observer_mgr) return;
-
-	observer_mgr->UnregistObserverObject(this);
   }
   ```
