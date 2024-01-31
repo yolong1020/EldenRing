@@ -51,5 +51,5 @@ public:
 	TMap<TObjectPtr<class AGameCharacter>, FObserverDeathDelegate> m_death_event;
 
 	TMap<TObjectPtr<AActor>, TArray<TArray<FDelegateHandle>>> m_event_handle;
-	TMap<TObjectPtr<AActor>, TArray<FDelegateHandle>>		  m_death_handle;
+	TMap<TObjectPtr<AActor>, TArray<FDelegateHandle>> m_death_handle;
 };
