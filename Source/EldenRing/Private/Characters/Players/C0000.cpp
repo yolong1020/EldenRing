@@ -46,9 +46,9 @@ AC0000::AC0000()
 {
  	PrimaryActorTick.bCanEverTick	= true;
 
-	bUseControllerRotationYaw		= false;
-	bUseControllerRotationPitch		= false;
-	bUseControllerRotationRoll		= false;
+	bUseControllerRotationYaw	= false;
+	bUseControllerRotationPitch	= false;
+	bUseControllerRotationRoll	= false;
 
 	//	Movement
 	m_movement_component = Cast<UCharacterMovementComponent>(GetCharacterMovement());
@@ -114,7 +114,7 @@ void AC0000::AdjustItemOption(const bool& IsEquip, const TObjectPtr<UItemObject>
 {
 	CHECK_INVALID_PTR(m_attribute)
 	if (IsEquip) { m_attribute->AddOffset(ItemObject); }
-	else		 { m_attribute->RemoveOffset(ItemObject); }
+	else	     { m_attribute->RemoveOffset(ItemObject); }
 
 	CHECK_INVALID_PTR(m_hud_component)
 	m_hud_component->UpdateStatusBar();
@@ -155,12 +155,12 @@ void AC0000::BeginPlay()
 	movement->SetMovementMode(EMovementMode::MOVE_Walking);
 	Tags.Add(FName("Player"));
 
-	m_overlapping_item		= nullptr;
-	m_enable_attack			= true;
+	m_overlapping_item	= nullptr;
+	m_enable_attack		= true;
 	m_enable_attack_short	= false;
 	m_enable_sprint_turn	= false;
-	m_is_not_damage_mod		= false;
-	m_cur_potion			= 3;
+	m_is_not_damage_mod	= false;
+	m_cur_potion		= 3;
 
 	m_spring_arm_length = m_spring_arm->TargetArmLength;
 
@@ -186,8 +186,7 @@ void AC0000::BeginPlay()
 	m_ui_mgr = instance->GetSubsystem<UUIManager>();
 	CHECK_INVALID_SMART_PTR(m_ui_mgr)
 
-	if (instance->IsNewGame()) { SetDefaultItems(); }
-	else					   { instance->LoadPlayer(this); }
+	instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
 
 	//	Camera Timeline
 	FOnTimelineFloat tl_focus_callback;
