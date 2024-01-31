@@ -26,13 +26,6 @@ void UEnemyFelled::NativeOnInitialized()
 	FWidgetAnimationDynamicEvent end_delegate;
 	end_delegate.BindDynamic(this, &UEnemyFelled::EndDirecting);
 	BindToAnimationFinished(ShowHideNotify, end_delegate);
-
-	UGameInstance* instance = UGameplayStatics::GetGameInstance(GetWorld());
-	CHECK_INVALID_PTR(instance)
-	m_observe_mgr = instance->GetSubsystem<UObserverManager>();
-	CHECK_INVALID_PTR(m_observe_mgr)
-	// m_interact_mgr = instance->GetSubsystem<UInteractionManager>();
-	// CHECK_INVALID_PTR(m_interact_mgr)
 }
 
 void UEnemyFelled::ShowDirecting()
@@ -53,6 +46,9 @@ void UEnemyFelled::EndDirecting()
 {
 	RemoveFromParent();
 
-	m_observe_mgr->TriggerEvent(EObserverEventType::EOET_EnemyFelled);
-	// m_interact_mgr->OpenInteractPopUp(EInteractPopupType::EIPT_ToBonefire, false);
+	UGameInstance* instance = UGameplayStatics::GetGameInstance(GetWorld());
+	CHECK_INVALID_PTR(instance)
+	observe_mgr = instance->GetSubsystem<UObserverManager>();
+	CHECK_INVALID_SMART_PTR(observe_mgr)
+	observe_mgr->TriggerEvent(EObserverEventType::EOET_EnemyFelled);
 }
