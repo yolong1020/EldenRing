@@ -7,8 +7,6 @@
 #include "Input/InputActionType.h"
 #include "TutorialCallout.generated.h"
 
-class UTutorialHUD;
-
 UCLASS()
 class ELDENRING_API UTutorialCallout : public UUserWidget
 {
@@ -23,5 +21,5 @@ public:
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "HUD", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UTutorialHUD> UIP_SlideTop;
+	TObjectPtr<class UTutorialHUD> UIP_SlideTop;
 };
