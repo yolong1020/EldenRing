@@ -32,15 +32,15 @@ Technical Overview
   	if (fadeout_duration == 0)
   	{
   		TArray<FCompositeSection> sections = Montage->CompositeSections;
-		for (auto section : sections)
-		{
+			for (auto section : sections)
+			{
 			if (section.SectionName == m_section_name)
 			{
 				const UAnimSequenceBase* sequence = section.GetLinkedSequence();
 				fadeout_duration = sequence->GetPlayLength() - 0.2f;
 				break;
 			}
-		}
+			}
   	}
 
 	FadeOutCharacter(fadeout_duration);
