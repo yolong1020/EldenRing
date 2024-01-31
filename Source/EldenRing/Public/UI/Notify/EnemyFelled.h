@@ -26,13 +26,13 @@ private:
 
 private:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess = "true"), Transient)
-	UWidgetAnimation* ShowHideNotify;
+	TObjectPtr<UWidgetAnimation> ShowHideNotify;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	float m_delay_time;
 
 	UPROPERTY()
-	class UObserverManager* m_observe_mgr;
+	TObjectPtr<class UObserverManager> m_observe_mgr;
 
 	UPROPERTY()
 	TWeakObjectPtr<class UInteractionManager> m_interact_mgr;
