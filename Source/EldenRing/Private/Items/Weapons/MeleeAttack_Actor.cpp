@@ -121,7 +121,7 @@ void AMeleeAttack_Actor::OnBoxOverlap(UPrimitiveComponent* OverlappedComponent, 
 	else
 	{
 		const FVector start = m_boxtrace_start->GetComponentLocation();
-		const FVector end	= m_boxtrace_end->GetComponentLocation();
+		const FVector end   = m_boxtrace_end->GetComponentLocation();
 
 		TArray<AActor*> actor_ignore;
 		actor_ignore.Add(this);
