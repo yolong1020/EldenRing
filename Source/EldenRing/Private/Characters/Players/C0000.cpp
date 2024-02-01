@@ -236,15 +236,15 @@ void AC0000::Landed(const FHitResult& Hit)
 {
 	Super::Landed(Hit);
 
-	m_jump_state = EJumpState::EJS_Unoccupied;
-	m_enable_attack = true;
-	m_enable_attack_short = true;
+	m_jump_state 		= EJumpState::EJS_Unoccupied;
+	m_enable_attack 	= true;
+	m_enable_attack_short 	= true;
 
 	if (m_action_state == EActionState::EAS_HitReact) return;
 
-	UAnimMontage*	montage			= m_montage_land;
-	float			speed_cur		= m_movement_component->Velocity.Size2D();
-	FString			section_name	= (150.f <= speed_cur) ? FString("Land_Front") : FString("Land_Standing");
+	UAnimMontage*	montage		= m_montage_land;
+	float		speed_cur	= m_movement_component->Velocity.Size2D();
+	FString		section_name	= (150.f <= speed_cur) ? FString("Land_Front") : FString("Land_Standing");
 
 	if (ELockOnState::ELOS_LockOn == m_lock_on_state)
 	{
@@ -277,39 +277,39 @@ void AC0000::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 {
 	CHECK_INVALID_PTR(m_anim_instance)
 
-	bool			is_need_blend			= true;
-	FString			hit_section_postfix		= "";
-	int32			selected_index			= 0;
+	bool	is_need_blend		= true;
+	FString	hit_section_postfix	= "";
+	int32	selected_index		= 0;
 
 	UAnimMontage*	montage_with_direction	= nullptr;
-	UAnimMontage*	montage_hit = nullptr;
+	UAnimMontage*	montage_hit 		= nullptr;
 
 	switch (attack_weight)
 	{
 	case EAttackWeight::EAW_Small:
 	{
-		hit_section_postfix		= FString("Small");
+		hit_section_postfix	= FString("Small");
 	}break;
 	case EAttackWeight::EAW_Medium:
 	{
-		hit_section_postfix		= FString("Medium");
-		montage_hit				= m_montage_hit_medium;
+		hit_section_postfix	= FString("Medium");
+		montage_hit		= m_montage_hit_medium;
 	} break;
 	case EAttackWeight::EAW_Heavy:
 	{
-		hit_section_postfix		= FString("Heavy");
+		hit_section_postfix	= FString("Heavy");
 		montage_with_direction	= nullptr;
 	} break;
 	case EAttackWeight::EAW_ExtraHeavy:
 	{
-		hit_section_postfix		= FString("ExtraHeavy");
+		hit_section_postfix	= FString("ExtraHeavy");
 		montage_with_direction	= nullptr;
 	} break;
 	case EAttackWeight::EAW_UltraHeavy:
 	{
-		hit_section_postfix		= FString("UltraHeavy");
+		hit_section_postfix	= FString("UltraHeavy");
 		montage_with_direction	= nullptr;
-		montage_hit				= m_montage_hit_ultra;
+		montage_hit		= m_montage_hit_ultra;
 	} break;
 	}
 	CHECK_INVALID_PTR(montage_hit)
@@ -325,7 +325,7 @@ void AC0000::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 
 	if (attack_weight != EAttackWeight::EAW_UltraHeavy)
 	{
-		selected_index		=  FMath::RandRange(1, montage_hit->GetNumSections() / 4);
+		selected_index	    =  FMath::RandRange(1, montage_hit->GetNumSections() / 4);
 		hit_section_postfix += (FString("_0") + FString::FromInt(selected_index));
 	}
 
@@ -344,16 +344,16 @@ void AC0000::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 		int32 index = instance->Montage->GetSectionIndex(FName(hit_section_postfix));
 		if (0 > index) continue;
 
-		FCompositeSection section		= instance->Montage->GetAnimCompositeSection(index);
-		int32			  segment_index = section.GetSegmentIndex();
+		FCompositeSection section	= instance->Montage->GetAnimCompositeSection(index);
+		int32		  segment_index = section.GetSegmentIndex();
 
 		if (false == instance->Montage->SlotAnimTracks.IsValidIndex(0)) continue;
 
 		FSlotAnimationTrack& default_slot = instance->Montage->SlotAnimTracks[0];
 		if (false == default_slot.AnimTrack.AnimSegments.IsValidIndex(segment_index)) continue;
 
-		FAnimSegment segment = default_slot.AnimTrack.AnimSegments[segment_index];
-		float		 length = segment.GetLength();
+		FAnimSegment 	segment = default_slot.AnimTrack.AnimSegments[segment_index];
+		float		length 	= segment.GetLength();
 
 		bool is_need_clear = (instance->Montage == montage_hit);
 		if (false == is_already_clear)
@@ -431,15 +431,15 @@ void AC0000::OnReactEnd()
 bool AC0000::IsInputPossible()
 {
 	return	m_action_state != EActionState::EAS_Equipping	 &&
-			m_action_state != EActionState::EAS_Execution	 &&
-			m_action_state != EActionState::EAS_Dodgeing	 &&
-			m_action_state != EActionState::EAS_Turning		 &&
-			m_action_state != EActionState::EAS_HitReact	 &&
-			m_action_state != EActionState::EAS_BlockReact	 &&
-			m_action_state != EActionState::EAS_GuardReact	 &&
-			m_action_state != EActionState::EAS_Knockbacking &&
-			m_action_state != EActionState::EAS_Parry		 &&
-			m_action_state != EActionState::EAS_Sit;
+		m_action_state != EActionState::EAS_Execution	 &&
+		m_action_state != EActionState::EAS_Dodgeing	 &&
+		m_action_state != EActionState::EAS_Turning	 &&
+		m_action_state != EActionState::EAS_HitReact	 &&
+		m_action_state != EActionState::EAS_BlockReact	 &&
+		m_action_state != EActionState::EAS_GuardReact	 &&
+		m_action_state != EActionState::EAS_Knockbacking &&
+		m_action_state != EActionState::EAS_Parry	 &&
+		m_action_state != EActionState::EAS_Sit;
 }
 
 void AC0000::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -547,10 +547,10 @@ void AC0000::OnAttackDefended(const EAttackWeight& attack_weight)
 	{
 		case EAttackWeight::EAW_Medium:		section_name = FName("Guard_Medium");	  break;
 		case EAttackWeight::EAW_Heavy:		section_name = FName("Guard_Heavy");	  break;
-		case EAttackWeight::EAW_ExtraHeavy: section_name = FName("Guard_ExtraHeavy"); break;
+		case EAttackWeight::EAW_ExtraHeavy: 	section_name = FName("Guard_ExtraHeavy"); break;
 		case EAttackWeight::EAW_UltraHeavy:	section_name = FName("Guard_ExtraHeavy"); break;
 		case EAttackWeight::EAW_Small:		section_name = FName("Guard_Medium");	  break;
-		case EAttackWeight::EAW_None: { return; }
+		case EAttackWeight::EAW_None: return;
 	}
 
 	m_action_state = EActionState::EAS_Knockbacking;
@@ -681,8 +681,8 @@ void AC0000::Movement(const EAxis::Type axis, const float& value)
 
 		if (m_actor_target && m_lock_on_state == ELockOnState::ELOS_LockOn)
 		{
-			FVector direction			= m_actor_target->GetActorLocation() - GetActorLocation();
-			FVector direction_rotated	= FRotationMatrix(direction.Rotation()).GetUnitAxis(axis);
+			FVector direction	  = m_actor_target->GetActorLocation() - GetActorLocation();
+			FVector direction_rotated = FRotationMatrix(direction.Rotation()).GetUnitAxis(axis);
 
 			m_movement_component->bOrientRotationToMovement = m_is_sprint;
 
@@ -739,14 +739,14 @@ void AC0000::Movement(const EAxis::Type axis, const float& value)
 			}
 
 			float percent = m_attribute->GetStaminaPercent();
-			if (1 == percent) { return; }
+			if (1 == percent) return;
 		}
 	}
 	else if (m_enable_input_movement)
 	{
 		StopAllMontage(0.5f);
-		m_action_state		= EActionState::EAS_Unoccupied;
-		m_attack_name_prev	= FName();
+		m_action_state	   = EActionState::EAS_Unoccupied;
+		m_attack_name_prev = FName();
 		m_movement_component->MaxWalkSpeed = 300.f;
 	}
 }
@@ -815,14 +815,14 @@ void AC0000::Interaction()
 
 void AC0000::Equip()
 {
-	if (false == IsInputPossible()) { return; }
+	if (false == IsInputPossible()) return;
 
 	const bool is_left	= m_player_controller->IsInputKeyDown(EKeys::Left);
 	const bool is_right	= m_player_controller->IsInputKeyDown(EKeys::Right);
 
 	CHECK_INVALID_PTR(m_montage_swap)
 	FString section_name = "Swap";
-	if		(is_left)	{ section_name += "_L"; m_swap_hand = EWeaponEquipHand::EWEH_Left; }
+	if	(is_left)	{ section_name += "_L"; m_swap_hand = EWeaponEquipHand::EWEH_Left; }
 	else if (is_right)	{ section_name += "_R"; m_swap_hand = EWeaponEquipHand::EWEH_Right; }
 
 	PlayMontageSection(m_montage_swap, FName(section_name));
@@ -830,7 +830,7 @@ void AC0000::Equip()
 	if (is_right)
 	{
 		bool is_using = m_equiped_weapon_R->IsUsingWeapon();
-		m_equip_state	= is_using ? EEquipState::EES_Unequipped : EEquipState::EES_EquippedOneHandedWeapon;
+		m_equip_state = is_using ? EEquipState::EES_Unequipped : EEquipState::EES_EquippedOneHandedWeapon;
 	}
 
 	m_action_state	= EActionState::EAS_Equipping;
@@ -838,24 +838,24 @@ void AC0000::Equip()
 
 void AC0000::Attack()
 {
-	if (IsInputPossible()	==	false						||
-		m_action_state		==	EActionState::EAS_Guarding	||
-		m_action_state		==  EActionState::EAS_Consume	||
-		m_jump_state		>   EJumpState::EJS_Unoccupied  ||
-		m_equip_state		==	EEquipState::EES_Unequipped	||
-		m_enable_attack		==	false						||
-		0 >= m_attribute->GetStaminaCurrent()				||
-		m_equiped_weapon_R	==	nullptr						||
-		m_equiped_weapon_R->IsUsingWeapon() == false) return;
+	if (IsInputPossible()		==  false				||
+	    m_action_state		==  EActionState::EAS_Guarding		||
+	    m_action_state		==  EActionState::EAS_Consume		||
+	    m_jump_state		>   EJumpState::EJS_Unoccupied  	||
+	    m_equip_state		==  EEquipState::EES_Unequipped		||
+	    m_enable_attack		==  false				||
+	    0 >= m_attribute->GetStaminaCurrent()				||
+	    m_equiped_weapon_R		==  nullptr				||
+	    m_equiped_weapon_R->IsUsingWeapon() == false) return;
 	
 	if (m_attack_name_prev.IsNone() &&
 		(m_is_enable_execution[(int32)EExecutionDirection::EED_Front] || 
-		m_is_enable_execution[(int32)EExecutionDirection::EED_Back])) 
+		 m_is_enable_execution[(int32)EExecutionDirection::EED_Back])) 
 	{
 		AGameCharacter* target = Cast<AGameCharacter>(m_actor_execution_target);
 		if (nullptr == target) return;
 
-		m_enable_attack			= false;
+		m_enable_attack		= false;
 		m_enable_input_movement = false;
 
 		EGameDirection dir = m_is_enable_execution[(int32)EExecutionDirection::EED_Front] ? EGameDirection::EGD_Front : EGameDirection::EGD_Back;
@@ -870,13 +870,13 @@ void AC0000::Attack()
 
 		m_tl_cam_focus.PlayFromStart();
 		if (dir == EGameDirection::EGD_Back) { m_tl_cam_execution_back.PlayFromStart(); }
-		else								 { m_tl_cam_execution_front.PlayFromStart(); }
+		else				     { m_tl_cam_execution_front.PlayFromStart(); }
 
 		target->TakeExecution(this, dir, m_equiped_weapon_R->GetWeaponDamage(EAttackType::EATKT_ParryAttack));
 
 		m_action_state		= EActionState::EAS_Execution;
 		m_direction_state	= EDirectionState::EDS_DirectionOn;
-		m_is_not_damage_mod = true;
+		m_is_not_damage_mod 	= true;
 	}
 	else
 	{
@@ -888,7 +888,7 @@ void AC0000::Attack()
 			m_action_state			= EActionState::EAS_Attacking;
 			m_attack_strength		= EAttackStrength::EATKS_Normal;
 			m_battle_pose			= EBattlePose::EBP_Attack;
-			m_enable_input_movement	= false;
+			m_enable_input_movement		= false;
 			m_enable_attack			= false;
 
 			m_attribute->ConsumeStamina(30);
@@ -908,35 +908,34 @@ void AC0000::Attack()
 				FString attack_name = m_attack_name_prev.ToString();
 				UE_LOG(LogTemp, Warning, TEXT("Prev Attack : %s"), *attack_name)
 
-				if		(attack_name.Contains("Attack_Strong_01"))	m_attack_name_prev = FName("Attack_Strong_02");
+				if	(attack_name.Contains("Attack_Strong_01"))	m_attack_name_prev = FName("Attack_Strong_02");
 				else if (attack_name.Contains("Attack_Strong_02"))	m_attack_name_prev = FName("Attack_Strong_01");
-				else												m_attack_name_prev = FName("Attack_Strong_01");
+				else							m_attack_name_prev = FName("Attack_Strong_01");
 
 				m_attack_strength = EAttackStrength::EATKS_Strong;
 				m_equiped_weapon_R->SetAttackWeight(m_equip_state, EAttackStrength::EATKS_Strong, EAttackType::EATKT_Attack);
 			}
 			else 
 			{
-				if		(FName("Attack_01") == m_attack_name_prev)	m_attack_name_prev = FName("Attack_02");
+				if	(FName("Attack_01") == m_attack_name_prev)	m_attack_name_prev = FName("Attack_02");
 				else if (FName("Attack_02") == m_attack_name_prev)	m_attack_name_prev = FName("Attack_03");
 				else if (FName("Attack_03") == m_attack_name_prev)	m_attack_name_prev = FName("Attack_04");
 				else if (FName("Attack_04") == m_attack_name_prev)	m_attack_name_prev = FName("Attack_05");
-				else												m_attack_name_prev = FName("Attack_01");
+				else							m_attack_name_prev = FName("Attack_01");
 
 				m_enable_attack_short	= false;
-				m_attack_strength		= EAttackStrength::EATKS_Normal;
+				m_attack_strength	= EAttackStrength::EATKS_Normal;
 				m_equiped_weapon_R->SetAttackWeight(m_equip_state, EAttackStrength::EATKS_Normal, EAttackType::EATKT_Attack);
 
 				m_attribute->ConsumeStamina(20);
 			}
 
-			m_attack_type_prev				= EAttackType::EATKT_Attack;
-			m_action_state					= EActionState::EAS_Attacking;
-			m_battle_pose					= EBattlePose::EBP_Attack;
-			m_enable_input_movement			= false;
-			m_enable_attack					= false;
-
-			m_enable_input_attack_rotate	= true;
+			m_attack_type_prev		= EAttackType::EATKT_Attack;
+			m_action_state			= EActionState::EAS_Attacking;
+			m_battle_pose			= EBattlePose::EBP_Attack;
+			m_enable_input_movement 	= false;
+			m_enable_attack			= false;
+			m_enable_input_attack_rotate 	= true;
 			m_movement_component->bAllowPhysicsRotationDuringAnimRootMotion = true;
 
 			PlayMontageSection(m_montage_attack, FName(m_attack_name_prev));
@@ -948,8 +947,8 @@ void AC0000::ShortAttack()
 {
 	if (m_enable_attack_short && !m_attack_name_prev.IsNone())
 	{
-		if		(FName("Attack_Strong_01") == m_attack_name_prev)	m_attack_name_prev = FName("Attack_Strong_01_Short");
-		else if (FName("Attack_Strong_02") == m_attack_name_prev)	m_attack_name_prev = FName("Attack_Strong_02_Short");
+		if	(FName("Attack_Strong_01") == m_attack_name_prev) m_attack_name_prev = FName("Attack_Strong_01_Short");
+		else if (FName("Attack_Strong_02") == m_attack_name_prev) m_attack_name_prev = FName("Attack_Strong_02_Short");
 
 		m_equiped_weapon_R->SetAttackWeight(m_equip_state, EAttackStrength::EATKS_Normal, EAttackType::EATKT_Attack);
 
@@ -1018,17 +1017,17 @@ void AC0000::LockOnTargetChange(float value)
 
 void AC0000::Dodge()
 {
-	if (!m_movement_component							||
-		false	== IsInputPossible()					||
-		m_action_state == EActionState::EAS_Consume		||
-		m_action_state == EActionState::EAS_Attacking	||
-		(0 >= m_attribute->GetStaminaCurrent())) return;
+	if (!m_movement_component				||
+	    false == IsInputPossible()				||
+	    m_action_state == EActionState::EAS_Consume		||
+	    m_action_state == EActionState::EAS_Attacking	||
+	    (0 >= m_attribute->GetStaminaCurrent())) return;
 
 	m_action_state = EActionState::EAS_Dodgeing;
 	m_ground_state = EGroundState::EGS_Unoccupied;
 
-	float		scale_x		 = 0;
-	float		scale_y		 = 0;
+	float		scale_x		= 0;
+	float		scale_y		= 0;
 	const bool	input_axis_x = IsInputKey(FName("MoveForward"), scale_x, true);
 	const bool	input_axis_y = IsInputKey(FName("MoveSide"), scale_y, true);
 
@@ -1039,7 +1038,7 @@ void AC0000::Dodge()
 		if (input_axis_x && scale_x < 0) section_name = FString("Dodge_Back");
 		else if (input_axis_y)
 		{
-			if		(scale_y > 0) section_name = FString("Dodge_Right");
+			if	(scale_y > 0) section_name = FString("Dodge_Right");
 			else if (scale_y < 0) section_name = FString("Dodge_Left");
 		}
 	}
@@ -1054,11 +1053,11 @@ void AC0000::Guard()
 	UE_LOG(LogTemp, Warning, TEXT("Guard"))
 	IWeapon_Interface* shield = Cast<IWeapon_Interface>(m_equiped_weapon_L);
 
-	if (IsInputPossible()	== false						||
-		m_action_state		== EActionState::EAS_Attacking  ||
-		m_action_state		== EActionState::EAS_Consume	||
-		m_jump_state		!= EJumpState::EJS_Unoccupied	||
-		!shield) return;
+	if (IsInputPossible()	== false			||
+	    m_action_state	== EActionState::EAS_Attacking  ||
+	    m_action_state	== EActionState::EAS_Consume	||
+	    m_jump_state	!= EJumpState::EJS_Unoccupied	||
+	    !shield) return;
 
 
 	CHECK_INVALID_SMART_PTR(m_player_controller)
@@ -1088,7 +1087,7 @@ void AC0000::Inventory()
 void AC0000::Parry()
 {
 	if (EActionState::EAS_Parry   == m_action_state || 
-		EActionState::EAS_Consume == m_action_state) return;
+	    EActionState::EAS_Consume == m_action_state) return;
 
 	IWeapon_Interface* shield = Cast<IWeapon_Interface>(m_equiped_weapon_L);
 	CHECK_INVALID_PTR(shield)
@@ -1102,7 +1101,7 @@ void AC0000::Parry()
 void AC0000::Consume()
 {
 	if (m_action_state != EActionState::EAS_Unoccupied ||
-		m_jump_state > EJumpState::EJS_Unoccupied) return;
+	    m_jump_state > EJumpState::EJS_Unoccupied) return;
 
 	UC0000_AnimInstance* anim_instance = Cast<UC0000_AnimInstance>(m_anim_instance);
 	CHECK_INVALID_PTR(anim_instance)
@@ -1123,12 +1122,12 @@ void AC0000::Consume()
 
 void AC0000::StartJump()
 {
-	if (EActionState::EAS_Attacking ==	m_action_state ||
-		EActionState::EAS_Equipping ==	m_action_state ||
-		EActionState::EAS_Dodgeing	==	m_action_state ||
-		EActionState::EAS_Turning	==	m_action_state ||
-		EActionState::EAS_Consume   ==  m_action_state ||
-		EJumpState::EJS_JumpStart	==	m_jump_state) return;
+	if (EActionState::EAS_Attacking ==  m_action_state ||
+	    EActionState::EAS_Equipping ==  m_action_state ||
+	    EActionState::EAS_Dodgeing  ==  m_action_state ||
+	    EActionState::EAS_Turning   ==  m_action_state ||
+	    EActionState::EAS_Consume   ==  m_action_state ||
+	    EJumpState::EJS_JumpStart   ==  m_jump_state) return;
 
 	if (!m_movement_component || !CanJump()) return;
 
@@ -1146,7 +1145,7 @@ void AC0000::StartJump()
 		}
 		else if (IsInputKey(FName("MoveSide"), scale, true))
 		{
-			if		(scale > 0)	section_name = FString("Jump_Right");
+			if	(scale > 0)	section_name = FString("Jump_Right");
 			else if (scale < 0)	section_name = FString("Jump_Left");
 		}
 	}
@@ -1223,7 +1222,7 @@ bool AC0000::IsInViewport(const FVector& target_location)
 	m_player_controller->GetViewportSize(viewport_x, viewport_y);
 
 	return ((location_viewport.X > 0 && location_viewport.Y > 0) &&
-			(location_viewport.X < viewport_x && location_viewport.Y < viewport_y));
+		(location_viewport.X < viewport_x && location_viewport.Y < viewport_y));
 }
 
 void AC0000::UninitAndDestroy()
@@ -1303,8 +1302,8 @@ void AC0000::Swap_Weapon(const EWeaponEquipHand& hand_type)
 
 void AC0000::GetJumpDirectionLength(const FVector& apex_location)
 {
-	const FVector direction		= apex_location - m_location_jump_start;
-	const double  length		= direction.Size2D();
+	const FVector direction	= apex_location - m_location_jump_start;
+	const double  length	= direction.Size2D();
 
 	AddMovementInput(direction, length, true);
 }
@@ -1343,11 +1342,10 @@ const bool AC0000::IsInputAxisActionKey()
 	
 	float scale;
 	if (IsInputKey(FName("MoveForward"), scale, true)	||
-		IsInputKey(FName("MoveSide"), scale, true)		||
-		IsInputKey(FName("Attack"), scale, false)		||
-		IsInputKey(FName("Jump"), scale, true)			||
-		IsInputKey(FName("Dodge"), scale, true))
-	{ return true; }
+	    IsInputKey(FName("MoveSide"), scale, true)		||
+	    IsInputKey(FName("Attack"), scale, false)		||
+	    IsInputKey(FName("Jump"), scale, true)		||
+	    IsInputKey(FName("Dodge"), scale, true)) return true;
 
 	return false;
 }
@@ -1388,7 +1386,7 @@ void AC0000::OnEndAttack()
 
 void AC0000::OnEndDirection()
 {
-	m_direction_state	= EDirectionState::EDS_DirectionOff;
+	m_direction_state   = EDirectionState::EDS_DirectionOff;
 	m_is_not_damage_mod = false;
 }
 
@@ -1404,7 +1402,7 @@ void AC0000::OnGuardEnd()
 
 void AC0000::OnStartKnockback()
 {
-	m_enable_input_movement			= false;
+	m_enable_input_movement		= false;
 	m_enable_input_attack_rotate	= false;
 
 	m_action_state = EActionState::EAS_Knockbacking;
@@ -1525,7 +1523,7 @@ void AC0000::CameraDirecting(const EERCameraDirect& type, const float& curve_val
 	FTimeline* timeline = nullptr;
 	switch (type)
 	{
-		case EERCameraDirect::ECD_Focus: timeline = &m_tl_cam_focus;			break;
+		case EERCameraDirect::ECD_Focus: timeline = &m_tl_cam_focus;		break;
 		case EERCameraDirect::ECD_Front: timeline = &m_tl_cam_execution_front;	break;
 		case EERCameraDirect::ECD_Back:  timeline = &m_tl_cam_execution_back;	break;
 	}
@@ -1555,8 +1553,6 @@ void AC0000::SetWeaponCollision(ECollisionEnabled::Type type)
 
 void AC0000::SetGroundUnoccupied()
 {
-	//UE_LOG(LogTemp, Warning, TEXT("SetGroundUnoccupied"))
-
 	m_ground_state = EGroundState::EGS_Unoccupied;
 
 	float percent = m_attribute->GetStaminaPercent();
