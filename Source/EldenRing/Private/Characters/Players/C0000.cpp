@@ -1050,7 +1050,6 @@ void AC0000::Dodge()
 
 void AC0000::Guard()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Guard"))
 	IWeapon_Interface* shield = Cast<IWeapon_Interface>(m_equiped_weapon_L);
 
 	if (IsInputPossible()	== false			||
