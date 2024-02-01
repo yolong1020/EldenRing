@@ -17,7 +17,8 @@
 ---
 #### * Combat
   > 조작에 따라 단일, 이전의 공격을 바탕으로 한 콤보 공격으로 구별됩니다. 그 외 방패를 통한 방어와 반격 기능을 제공합니다.
-  ###### [Step 01] 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
+  ###### [Step 01] 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행   
+  https://github.com/yolong1020/EldenRing/blob/4e07652fec8037129c94ac1eb022e142e030ac5f/Source/EldenRing/Private/Characters/Players/C0000.cpp#L883-L942
 ---
 #### * Movement
   > HUD, Camera Timeline, Item 등 초기화.
