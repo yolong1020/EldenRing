@@ -103,7 +103,7 @@ void AMeleeAttack_Actor::OnBoxOverlap(UPrimitiveComponent* OverlappedComponent, 
 		if (defender->GetClass() == attacker->GetClass()) return;
 
 		if (attacker->IsCurrentActionState(FString("Attacking")) &&
-			defender->IsGuardState())
+		    defender->IsGuardState())
 		{
 			m_ignore_actors.AddUnique(defender);
 
