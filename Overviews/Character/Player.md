@@ -5,8 +5,6 @@
   ###### [Step 01] 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
   https://github.com/yolong1020/EldenRing/blob/a021831dab5f79b7e6faff2f2ab6fc9c5b5b9216/Source/EldenRing/Private/Characters/Players/C0000.cpp#L136-L212
   </br>
-    </br>
-      </br>
   ###### [Step 02] 신규 게임 시작에 따른 Item 초기화
   ```C++
   /// [BeginPlay] 189
