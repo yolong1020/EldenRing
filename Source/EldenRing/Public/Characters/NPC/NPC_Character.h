@@ -47,9 +47,9 @@ public:
 	virtual void OnEndStunn();
 	virtual void OnDeathCompleted();
 	virtual void OnSwapWeaponR() {};
-	virtual void OnNextAttack() 									 PURE_VIRTUAL(ANPC_Character::OnNextAttack, );
-	virtual void OnEndAttack()  									 PURE_VIRTUAL(ANPC_Character::OnEndAttack, );
-	virtual void OnWatchingSwitch() 								 PURE_VIRTUAL(ANPC_Character::OnWatchingSwitch, );
+	virtual void OnNextAttack() 	PURE_VIRTUAL(ANPC_Character::OnNextAttack, );
+	virtual void OnEndAttack()  	PURE_VIRTUAL(ANPC_Character::OnEndAttack, );
+	virtual void OnWatchingSwitch() PURE_VIRTUAL(ANPC_Character::OnWatchingSwitch, );
 	virtual void OnRestingSwitch();
 	virtual void OnRestingEnd(const FString& section_name);
 	virtual void OnMoveCompleted(const FPathFollowingResult& Result) PURE_VIRTUAL(ANPC_Character::OnMoveCompleted, );
@@ -59,30 +59,30 @@ public:
 	virtual void MoveToAssemblePoint(AAssemblePointObject* const PointObject);
 	virtual void MoveToPatrolPoint();
 
-	FORCEINLINE virtual void			SuccessAttack()				override { m_attack_success = true; }
-	FORCEINLINE virtual const float		GetTrackingRadius()			override { return m_radius_tracking; }
+	FORCEINLINE virtual void		SuccessAttack()			override { m_attack_success = true; }
+	FORCEINLINE virtual const float		GetTrackingRadius()		override { return m_radius_tracking; }
 	FORCEINLINE virtual const float		GetConfrontingRadius()		override { return m_radius_confront; }
-	FORCEINLINE virtual const float		GetAttackRadius()			override { return m_radius_attack; }
-	FORCEINLINE virtual const uint8		GetActionState()			override { return (uint8)m_action_state; }
-	FORCEINLINE virtual const uint8		GetCombatAction()			override { return (uint8)m_action_combat; }
-	FORCEINLINE virtual const FVector	GetTargetLocation()			override { return m_actor_target.Get() ? m_actor_target->GetActorLocation() : FVector::ZeroVector; }
+	FORCEINLINE virtual const float		GetAttackRadius()		override { return m_radius_attack; }
+	FORCEINLINE virtual const uint8		GetActionState()		override { return (uint8)m_action_state; }
+	FORCEINLINE virtual const uint8		GetCombatAction()		override { return (uint8)m_action_combat; }
+	FORCEINLINE virtual const FVector	GetTargetLocation()		override { return m_actor_target.Get() ? m_actor_target->GetActorLocation() : FVector::ZeroVector; }
 	FORCEINLINE virtual const uint8		GetTargetDirectionFromNPC()	override;
 	
-	FORCEINLINE const EVigilanceState&			GetVigilanceState() const							{ return m_vigilance_state; }
-	FORCEINLINE const bool&						GetWatchingSwitch() const							{ return m_is_idle_to_watching; }
-	FORCEINLINE const bool&						GetRestingSwitch()  const							{ return m_is_resting; }
+	FORCEINLINE const EVigilanceState&					GetVigilanceState() const			{ return m_vigilance_state; }
+	FORCEINLINE const bool&							GetWatchingSwitch() const			{ return m_is_idle_to_watching; }
+	FORCEINLINE const bool&							GetRestingSwitch()  const			{ return m_is_resting; }
 
-	FORCEINLINE virtual const TArray<TObjectPtr<class APatrolPoint>> GetPatrolPoints() const override final { return m_targets_patrol; }
-	FORCEINLINE AAssemblyPoint*	const			GetAssemblyPoint()			const					{ return m_assembly_point; }
-	FORCEINLINE virtual const FString			GetAssemblyPointLabel()		const override final;
-	FORCEINLINE AAssemblePointObject* const		GetAssemblyPointObject()	const					{ return m_target_assembly; }
-	FORCEINLINE const bool&						IsPatrol()					const					{ return m_is_patrolling; }
-	FORCEINLINE const bool						IsInSight(AActor* target);
+	FORCEINLINE virtual const TArray<TObjectPtr<class APatrolPoint>> 	GetPatrolPoints() const override final  	{ return m_targets_patrol; }
+	FORCEINLINE AAssemblyPoint*	const					GetAssemblyPoint() const			{ return m_assembly_point; }
+	FORCEINLINE virtual const FString					GetAssemblyPointLabel()	const override final;
+	FORCEINLINE AAssemblePointObject* const					GetAssemblyPointObject() const			{ return m_target_assembly; }
+	FORCEINLINE const bool&							IsPatrol() const				{ return m_is_patrolling; }
+	FORCEINLINE const bool							IsInSight(AActor* target);
 
-	FORCEINLINE virtual const float				GetWaitTime_Min()			const override final	{ return m_time_wait_min; };
-	FORCEINLINE virtual const float				GetWaitTime_Max()			const override final	{ return m_time_wait_max; };
-	FORCEINLINE virtual const float				GetPatrolTime()				const override final	{ return m_time_patrol; };
-	FORCEINLINE virtual const float				GetKnowMissingTargetTime()	const override final	{ return m_sec_kwon_missing_target; };
+	FORCEINLINE virtual const float						GetWaitTime_Min() const override final		{ return m_time_wait_min; };
+	FORCEINLINE virtual const float						GetWaitTime_Max() const override final		{ return m_time_wait_max; };
+	FORCEINLINE virtual const float						GetPatrolTime()	  const override final		{ return m_time_patrol; };
+	FORCEINLINE virtual const float						GetKnowMissingTargetTime() const override final	{ return m_sec_kwon_missing_target; };
 	
 	FORCEINLINE virtual void SetNPCActionState(const EActionState_NPC& State) override final { m_action_state = State; }
 
@@ -102,9 +102,9 @@ protected:
 	bool EquipWeapon(const FName& socket_name, const EWeaponEquipHand& hand);
 
 	virtual void StartWatching();
-	virtual void StartConfront() 							PURE_VIRTUAL(ANPC_Character::StartConfront, );
-	virtual void StartCombat()   							PURE_VIRTUAL(ANPC_Character::StartCombat, );
-	virtual void StartAttack()   							PURE_VIRTUAL(ANPC_Character::StartAttack, );
+	virtual void StartConfront() PURE_VIRTUAL(ANPC_Character::StartConfront, );
+	virtual void StartCombat()   PURE_VIRTUAL(ANPC_Character::StartCombat, );
+	virtual void StartAttack()   PURE_VIRTUAL(ANPC_Character::StartAttack, );
 	virtual void StartTurn(const EGameDirection& direction) PURE_VIRTUAL(ANPC_Character::StartTurn, );
 	virtual void StartPatrol() override final;
 	virtual void ClearAllTimer();
@@ -134,24 +134,25 @@ protected:
 
 #pragma region Montage
 	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
-	UAnimMontage* m_montage_hit_medium;
+	TObjectPtr<UAnimMontage> m_montage_hit_medium;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
-	UAnimMontage* m_montage_hit_medium_direction;
+	TObjectPtr<UAnimMontage> m_montage_hit_medium_direction;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
-	UAnimMontage* m_montage_hit_heavy_direction;
+	TObjectPtr<UAnimMontage> m_montage_hit_heavy_direction;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
-	UAnimMontage* m_montage_hit_extra_heavy_direction;
+	TObjectPtr<UAnimMontage> m_montage_hit_extra_heavy_direction;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Hit Montages")
-	UAnimMontage* m_montage_hit_ultra_heavy_directiony;
+	TObjectPtr<UAnimMontage> m_montage_hit_ultra_heavy_directiony;
 
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_confront;
+	TObjectPtr<UAnimMontage> m_montage_confront;
+
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
-	UAnimMontage* m_montage_resting;
+	TObjectPtr<UAnimMontage> m_montage_resting;
 #pragma endregion
 
 #pragma region Navigation
@@ -189,7 +190,7 @@ protected:
 	float m_sec_kwon_missing_target;
 
 	UPROPERTY()
-	AAssemblePointObject* m_target_assembly;
+	TObjectPtr<AAssemblePointObject> m_target_assembly;
 
 	FRequestAllowUsing m_request_callback;
 
@@ -223,7 +224,7 @@ protected:
 
 #pragma region HUD
 	UPROPERTY(VisibleAnywhere)
-	UHealthBarComponent* m_widget_healthbar = nullptr;
+	TObjectPtr<UHealthBarComponent> m_widget_healthbar = nullptr;
 #pragma endregion
 
 #pragma region AssemblyPoint
