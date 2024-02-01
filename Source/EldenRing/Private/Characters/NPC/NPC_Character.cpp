@@ -156,33 +156,6 @@ void ANPC_Character::GameStartAction()
 	SetActorTransform(m_start_transform);
 }
 
-void ANPC_Character::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	// FVector position = GetActorLocation();
-	// position.Z -= 180.f;
-	// FVector forward_dir = position + GetActorForwardVector().GetSafeNormal2D() * 100;
-	// 
-	// UKismetSystemLibrary::DrawDebugLine(this, position, forward_dir, FColor::Purple, 0.5f, 2.f);
-	// 
-	// FTransform transform = GetActorTransform();
-	// transform.SetLocation(position);
-	// transform.SetRotation(FVector(0, 0, 90).Rotation().Quaternion());
-	// DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_tracking, 50, FColor::Red, false, 0.1);
-	// DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_attack, 50, FColor::Black, false, 0.1);
-	// DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_confront, 50, FColor::Blue, false, 0.1);
-
-	// if (nullptr != m_actor_target)
-	// {
-	// 	FVector target_position = m_actor_target->GetActorLocation();
-	// 
-	// 	FVector dir = (FVector(target_position.X, target_position.Y, position.Z) - position).GetSafeNormal();
-	// 
-	// 	UKismetSystemLibrary::DrawDebugArrow(this, position, position + dir * m_radius_tracking, 5.f, FColor::Red, 1.f);
-	// }
-}
-
 void ANPC_Character::Destroyed()
 {
 	Super::Destroyed();
