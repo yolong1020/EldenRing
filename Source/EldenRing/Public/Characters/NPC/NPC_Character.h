@@ -22,8 +22,6 @@ class ELDENRING_API ANPC_Character : public AGameCharacter, public INPC_Interfac
 
 public:
 	ANPC_Character();
-
-	virtual void Tick(float DeltaTime) override;
 	virtual void Destroyed() override;
 
 	virtual void EquipWeaponToStart() PURE_VIRTUAL(ANPC_Character::EquipWeaponToStart, );
