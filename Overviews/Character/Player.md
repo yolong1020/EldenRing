@@ -1,5 +1,5 @@
 # Player
-#### * Init Player Settings
+### * Init Player Settings
   > Level 상태에 따라서 HUD, Camera Timeline, 플레이에 필요한 Item 등 초기화합니다.    
 
   ###### [Step 01] 현재 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
