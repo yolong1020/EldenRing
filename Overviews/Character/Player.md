@@ -17,7 +17,7 @@
   https://github.com/yolong1020/EldenRing/blob/bc151a656f7846c367529f4340f0c87f574dcde0/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1595-L1622
   </br>
 ---
-#### * Combat
+### * Combat
   > 조작에 따라 단일, 이전의 공격을 바탕으로 한 콤보 공격으로 구별됩니다. 그 외 방패를 통한 방어와 반격 기능을 제공합니다.
 
   ###### [01] 전투 대상의 Execution Collision(Front / Back)에 Overlap 되면 플레이어는 처형 공격을 실행할 수 있습니다.
@@ -30,18 +30,18 @@
   https://github.com/yolong1020/EldenRing/blob/4070f5c523d417e907e46127052dd90aae241624/Source/EldenRing/Private/Items/Weapons/MeleeAttack_Actor.cpp#L72-L163
   </br>
 ---
-#### * Movement
+### * Movement
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
 ---
-#### * Potion Comsume
+### * Potion Comsume
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
 ---
-#### * Item Storage
+### * Item Storage
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
 ---
-#### * Item Trade
+### * Item Trade
   > HUD, Camera Timeline, Item 등 초기화.
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
