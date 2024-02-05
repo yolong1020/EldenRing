@@ -1,5 +1,5 @@
 # Inventory
-### * Item Storage
+### * Init Storage Widget
   > Item과 재화를 보관하며 필요에 따라 착용하거나 버릴 수 있습니다.
 
   ###### [Step 01] Inventory의 각 Widget들을 초기화합니다. (Slot count, Delegate, etc)
@@ -22,3 +22,6 @@
 
   ###### [Step 02] Inventory를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
   </br>
+
+### * Item Storage
+  > Item과 재화를 보관하며 필요에 따라 착용하거나 버릴 수 있습니다.
