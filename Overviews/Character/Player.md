@@ -67,8 +67,16 @@
 
 ---
 ### * Item Storage
-  > HUD, Camera Timeline, Item 등 초기화.
-  ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
+  > Item과 재화를 보관하며 필요에 따라 착용하거나 버릴 수 있습니다.
+
+  ###### [Step 01] Inventory를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
+  https://github.com/yolong1020/EldenRing/blob/808bb8d461a42c4bc8d677944969d10fdc64c29e/Source/EldenRing/Private/System/StorageManager.cpp#L23-L35
+  </br>
+
+  ###### [Step 02] Inventory를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
+  ![Charactor](https://github.com/yolong1020/EldenRing/assets/87303898/d96c0177-a018-45c0-b2e7-ec4400d4c0c4)
+  </br>
+    
 ---
 ### * Item Trade
   > HUD, Camera Timeline, Item 등 초기화.
