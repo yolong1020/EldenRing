@@ -1321,7 +1321,7 @@ const bool AC0000::IsInputKey(const FName& Input_name, float& scale, const bool&
 		TArray<FInputActionKeyMapping> action_keys = m_player_controller->PlayerInput->GetKeysForAction(Input_name);
 		for (const FInputActionKeyMapping& key : action_keys)
 		{
-			if (m_player_controller->IsInputKeyDown(key.Key)) { return true; }
+			if (m_player_controller->IsInputKeyDown(key.Key)) return true;
 		}
 	}
 
