@@ -679,25 +679,22 @@ void AC0000::Movement(const EAxis::Type axis, const float& value)
 
 		m_is_sprint = m_player_controller->IsInputKeyDown(EKeys::LeftShift) && (0 < m_attribute->GetStaminaCurrent());
 
+		FVector direction_rotated = FVector::ZeroVector;
 		if (m_actor_target && m_lock_on_state == ELockOnState::ELOS_LockOn)
 		{
-			FVector direction	  = m_actor_target->GetActorLocation() - GetActorLocation();
-			FVector direction_rotated = FRotationMatrix(direction.Rotation()).GetUnitAxis(axis);
+			FVector direction = m_actor_target->GetActorLocation() - GetActorLocation();
+			direction_rotated = FRotationMatrix(direction.Rotation()).GetUnitAxis(axis);
 
 			m_movement_component->bOrientRotationToMovement = m_is_sprint;
-
-			AddMovementInput(direction_rotated, value);
 		}
 		else
 		{
 			const FRotator control_rotation = GetControlRotation();
 			const FRotator Yaw_rotation(0.f, control_rotation.Yaw, 0.f);
-
-			const FVector direction_rotated = FRotationMatrix(Yaw_rotation).GetUnitAxis(axis);
-			AddMovementInput(direction_rotated, value, true);
+			direction_rotated = FRotationMatrix(Yaw_rotation).GetUnitAxis(axis);
 		}
+		AddMovementInput(direction_rotated, value, true);
 
-		//	Set Ground State
 		if (m_is_sprint && m_action_state != EActionState::EAS_Consume)
 		{
 			m_attribute->ConsumeStamina(0.1f);
@@ -706,15 +703,14 @@ void AC0000::Movement(const EAxis::Type axis, const float& value)
 			m_movement_component->MaxWalkSpeed = 600.f;
 
 			UC0000_AnimInstance* anim_instance = Cast<UC0000_AnimInstance>(m_anim_instance);
-			if (nullptr == anim_instance) return;
+			if (!anim_instance) return;
 
 			const FVector last_input = GetLastMovementInputVector().GetSafeNormal2D();
 			const FVector forward	 = GetActorForwardVector();
 
 			double Theta = FMath::RadiansToDegrees(FMath::Acos(FVector::DotProduct(forward, last_input)));
 
-			bool possible = anim_instance->IsEnableSprintTurn();
-			if (FMath::Abs(Theta) >= 135.f && possible)
+			if (FMath::Abs(Theta) >= 135.f && anim_instance->IsEnableSprintTurn())
 			{
 				PlayMontageSection(m_montage_ground, FName("Forward_Turn"));
 				m_action_state = EActionState::EAS_Turning;
@@ -737,16 +733,13 @@ void AC0000::Movement(const EAxis::Type axis, const float& value)
 				m_ground_state = EGroundState::EGS_Walk;
 				m_movement_component->MaxWalkSpeed = 150.f;
 			}
-
-			float percent = m_attribute->GetStaminaPercent();
-			if (1 == percent) return;
 		}
 	}
 	else if (m_enable_input_movement)
 	{
 		StopAllMontage(0.5f);
-		m_action_state	   = EActionState::EAS_Unoccupied;
-		m_attack_name_prev = FName();
+		m_action_state		= EActionState::EAS_Unoccupied;
+		m_attack_name_prev	= FName();
 		m_movement_component->MaxWalkSpeed = 300.f;
 	}
 }
