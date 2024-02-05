@@ -36,18 +36,17 @@
   
 ---
 ### * Movement
-  > HUD, Camera Timeline, Item 등 초기화.
-  ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
+  > 조작과 캐릭터의 현재 행동에 따라 전력질주, 뛰기, 걷기가 활성되며, 특정 조건에 해당하지 않는다면 회피와 점프 기능을 이용할 수 있습니다.
+  ###### [01] LockOn 상태와 전력질주 Input에 따라 전력질주, 뛰기, 걷기로 전/후, 좌/우 이동을 결정합니다.
   https://github.com/yolong1020/EldenRing/blob/6a40836945163b30e9dd8aaf3c548b9b92d56edd/Source/EldenRing/Private/Characters/Players/C0000.cpp#L661-L745
   </br>
-  ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
+  ###### [02] 특정 조건에 해당하지 않는 경우, 입력된 방향 혹은 캐릭터 후방으로 회피를 시도합니다. LockOn 상태에서는 목표 바라보며 회피를 시도합니다.
   https://github.com/yolong1020/EldenRing/blob/6a40836945163b30e9dd8aaf3c548b9b92d56edd/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1011-L1042
   </br>
-  ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
+  ###### [03] 특정 조건에 해당하지 않는 경우, 입력된 방향으로 도약을 시도합니다. Landed 호출을 통해 착지를 시도하며, 도약 중 피격을 받게되면 그 즉시 추락합니다.
   https://github.com/yolong1020/EldenRing/blob/6a40836945163b30e9dd8aaf3c548b9b92d56edd/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1115-L1148
-  </br>
-  ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
   https://github.com/yolong1020/EldenRing/blob/2f43079d34e3767f013851c836d4480db5fd268a/Source/EldenRing/Private/Characters/Players/C0000.cpp#L235-L274
+  https://github.com/yolong1020/EldenRing/blob/05121f2477a82426bed1d6281e809fd4ec7ab43b/Source/EldenRing/Private/Characters/Players/C0000.cpp#L470-L478
   </br>
     
 ---
