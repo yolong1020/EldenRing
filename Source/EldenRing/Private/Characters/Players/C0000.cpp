@@ -1099,16 +1099,18 @@ void AC0000::Consume()
 	CHECK_INVALID_PTR(anim_instance)
 
 	anim_instance->SetBlendPerBone(true);
-	m_action_state = EActionState::EAS_Consume;
-	m_swap_hand	   = EWeaponEquipHand::EWEH_Right;
+	m_action_state  = EActionState::EAS_Consume;
+	m_swap_hand	= EWeaponEquipHand::EWEH_Right;
 
 	FName section_name = (m_cur_potion > 0) ? FName("Consume_Start") : FName("Consume_Fail");
 	PlayMontageSection(m_montage_potion_consume, section_name);
 
-	double standard		 = m_cur_potion * 0.5;
-	m_cur_potion		 = (m_cur_potion > 0) ? (m_cur_potion - 1) : 0;
+	double standard	= m_cur_potion * 0.5;
+	m_cur_potion	= (m_cur_potion > 0) ? (m_cur_potion - 1) : 0;
+	
 	EPotionSizeType size = (m_cur_potion > (standard)) ? EPotionSizeType::EPST_Half : EPotionSizeType::EPST_Less;
-	if (m_cur_potion <= 0) { size = EPotionSizeType::EPST_Empty; }
+	if (m_cur_potion <= 0) size = EPotionSizeType::EPST_Empty;
+	
 	m_hud_component->SetQuickSlotItem(EQuickSlotType::EQST_Bottom, nullptr, size);
 }
 
