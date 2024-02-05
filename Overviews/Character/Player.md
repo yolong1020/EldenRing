@@ -32,12 +32,13 @@
   </br>
   ###### [04] 추가 공격 유효 프레임을 벗어나면 Montage - EndAttack이 호출되어 콤보, 공격 가능 상태, 캐릭터 행동 상태 등을 기본값으로 복구시킵니다.
   ![Charactor](https://github.com/yolong1020/EldenRing/assets/87303898/8a4bed56-27cc-47b6-b137-190c7f87a0f3)
-    https://github.com/yolong1020/EldenRing/blob/2f43079d34e3767f013851c836d4480db5fd268a/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1368-L1377
+  https://github.com/yolong1020/EldenRing/blob/2f43079d34e3767f013851c836d4480db5fd268a/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1368-L1377
   </br>
   
 ---
 ### * Movement
   > 조작과 캐릭터의 현재 행동에 따라 전력질주, 뛰기, 걷기가 활성되며, 특정 조건에 해당하지 않는다면 회피와 점프 기능을 이용할 수 있습니다.
+
   ###### [01] LockOn 상태와 전력질주 Input에 따라 전력질주, 뛰기, 걷기로 전/후, 좌/우 이동을 결정합니다.
   https://github.com/yolong1020/EldenRing/blob/6a40836945163b30e9dd8aaf3c548b9b92d56edd/Source/EldenRing/Private/Characters/Players/C0000.cpp#L661-L745
   </br>
@@ -52,8 +53,13 @@
     
 ---
 ### * Potion Comsume
-  > HUD, Camera Timeline, Item 등 초기화.
+  > 플레이어의 입력에 의해 현재 HP를 회복하는 기능입니다.</br>
+    회복 횟수에는 제한이 있으며, 모든 포션을 소모했을 경우 해당하는 애니메이션이 재생되고 HP는 회복되지 않습니다.</br>
+    또한 포션 복용 중 피격을 받게되면 소모된 포션은 복구되지 않고 HP 역시 회복되지 않습니다.
+
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
+  https://github.com/yolong1020/EldenRing/blob/1a8f4ec6559928de5514a7bfc880b2c52b592252/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1093-L1115
+  
 ---
 ### * Item Storage
   > HUD, Camera Timeline, Item 등 초기화.
