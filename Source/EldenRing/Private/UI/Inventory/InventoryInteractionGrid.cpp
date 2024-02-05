@@ -23,11 +23,11 @@
 
 void UInventoryInteractionGrid::InitInteractionGridWidget(const FMargin& margin)
 {
-	FIntVector2 board		= StorageBoardSize
-	FVector2D	widget_size = FVector2D(SizeBox->GetWidthOverride(), SizeBox->GetHeightOverride());
+	FIntVector2 board = StorageBoardSize
+	FVector2D widget_size = FVector2D(SizeBox->GetWidthOverride(), SizeBox->GetHeightOverride());
 
-	m_colum			= board.X;
-	m_tile_size		= widget_size.X / m_colum;
+	m_colum		= board.X;
+	m_tile_size	= widget_size.X / m_colum;
 	double w_space  = (widget_size.X - (m_tile_size * board.X)) / (board.X - 1);
 	double h_space  = (widget_size.Y - (m_tile_size * board.Y)) / (board.Y - 1);
 	m_space_size	= FVector2D(w_space, h_space);
@@ -65,8 +65,8 @@ void UInventoryInteractionGrid::RefreshGridWidget()
 		if (tile.X > 0) { position.X += (m_space_size.X * tile.X); }
 		if (tile.Y > 0) { position.Y += (m_space_size.Y * tile.Y); }
 
-		UPanelSlot*			panel_slot	= Canvas->AddChild(item_widget);
-		UCanvasPanelSlot*	canvas_slot	= Cast<UCanvasPanelSlot>(panel_slot);
+		UPanelSlot*	  panel_slot	= Canvas->AddChild(item_widget);
+		UCanvasPanelSlot* canvas_slot	= Cast<UCanvasPanelSlot>(panel_slot);
 
 		canvas_slot->SetSize(size);
 		canvas_slot->SetPosition(position);
@@ -106,7 +106,7 @@ int32 UInventoryInteractionGrid::NativePaint(const FPaintArgs& Args, const FGeom
 {
 	int32 result = Super::NativePaint(Args, AllottedGeometry, MyCullingRect, OutDrawElements, LayerId, InWidgetStyle, bParentEnabled);
 
-	FPaintContext paint_context	= FPaintContext(AllottedGeometry, MyCullingRect, OutDrawElements, LayerId, InWidgetStyle, bParentEnabled);
+	FPaintContext paint_context = FPaintContext(AllottedGeometry, MyCullingRect, OutDrawElements, LayerId, InWidgetStyle, bParentEnabled);
 
 	TArray<TObjectPtr<UItemObject>>* slots = m_storage_mgr->GetSlots();
 	if (slots == nullptr) return result;
@@ -158,7 +158,6 @@ bool UInventoryInteractionGrid::NativeOnDrop(const FGeometry& InGeometry, const 
 	}
 	else if (false == m_storage_mgr->TryAddItem(payload))
 	{
-		//	인벤토리 공간 부족
 		AERGameState* game_state = Cast<AERGameState>(UGameplayStatics::GetGameState(this));
 		game_state->SpawnItemFromObject(GetOwningPlayerPawn(), payload, true);
 	}
@@ -187,9 +186,9 @@ bool UInventoryInteractionGrid::NativeOnDragOver(const FGeometry& InGeometry, co
 	x = FMath::Clamp(x, 0, x);
 	y = FMath::Clamp(y, 0, y);
 
-	dimension			= UKismetMathLibrary::Divide_IntPointInt(FIntPoint(x, y), 2);
-	mouse_position		= UKismetMathLibrary::Divide_Vector2DFloat(mouse_position, m_tile_size);
-	FIntPoint tile_pos	= UKismetMathLibrary::Subtract_IntPointIntPoint(FIntPoint(mouse_position.X, mouse_position.Y), dimension);
+	dimension	   = UKismetMathLibrary::Divide_IntPointInt(FIntPoint(x, y), 2);
+	mouse_position	   = UKismetMathLibrary::Divide_Vector2DFloat(mouse_position, m_tile_size);
+	FIntPoint tile_pos = UKismetMathLibrary::Subtract_IntPointIntPoint(FIntPoint(mouse_position.X, mouse_position.Y), dimension);
 
 	m_start_tile_cursor = FInventoryTile(tile_pos.X, tile_pos.Y);
 
