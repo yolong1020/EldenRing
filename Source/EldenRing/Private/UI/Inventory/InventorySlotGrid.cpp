@@ -26,14 +26,6 @@ void UInventorySlotGrid::InitGridSlotWidget()
 	int32		gird_y		= int32(gird_x * 1.32);
 	m_border_size			= FVector2D(gird_x, gird_y);
 
-	// CHECK_INVALID_PTR(GridBorder)
-	// UCanvasPanelSlot* border_slot = UWidgetLayoutLibrary::SlotAsCanvasSlot(GridBorder);
-	// CHECK_INVALID_PTR(border_slot)
-	// border_slot->SetSize(m_border_size);
-	// border_slot->SetPosition(FVector2D(0, 0));
-
-	// m_border_position = border_slot->GetPosition();
-
 	CHECK_INVALID_PTR(GridBorder)
 	FMargin margin = GridBorder->GetPadding();
 	double	size   = ((gird_x - (margin.Left + margin.Right)) / m_size.X);
@@ -46,8 +38,8 @@ void UInventorySlotGrid::InitGridSlotWidget()
 			CHECK_INVALID_PTR(item_widget)
 			item_widget->InitSlotWidget(size);
 	
-			UPanelSlot*			panel_slot	= UniformGrid->AddChild(item_widget);
-			UUniformGridSlot*	grid_slot	= Cast<UUniformGridSlot>(panel_slot);
+			UPanelSlot*	  panel_slot = UniformGrid->AddChild(item_widget);
+			UUniformGridSlot* grid_slot  = Cast<UUniformGridSlot>(panel_slot);
 
 			grid_slot->SetColumn(idx_col);
 			grid_slot->SetRow(idx_row);
