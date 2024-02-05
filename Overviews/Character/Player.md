@@ -74,7 +74,7 @@
   </br>
 
   ###### [Step 02] Inventory를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/d96c0177-a018-45c0-b2e7-ec4400d4c0c4" width="50%" height="50%">
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/d96c0177-a018-45c0-b2e7-ec4400d4c0c4" width="40%" height="40%">
   </br>
     
 ---
