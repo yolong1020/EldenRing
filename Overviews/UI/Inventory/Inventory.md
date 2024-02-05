@@ -1,4 +1,4 @@
-
+# Inventory
 ### * Item Storage
   > Item과 재화를 보관하며 필요에 따라 착용하거나 버릴 수 있습니다.
 
