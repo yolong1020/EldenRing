@@ -5,7 +5,7 @@
   ###### [Step 01] 현재 Level의 플레이 가능 여부와 Load 상태에 따른 초기화를 진행합니다.
   https://github.com/yolong1020/EldenRing/blob/a021831dab5f79b7e6faff2f2ab6fc9c5b5b9216/Source/EldenRing/Private/Characters/Players/C0000.cpp#L136-L212
   </br>
-  ###### [Step 02] 신규 게임 시작에 따른 캐릭터 Item들을 초기화합니다.
+  ###### [Step 02] 'New Game' 혹은 'Load Game'에 따라 Item을 다르게 초기화합니다.
   ```C++
   /// [BeginPlay] 189
   instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
