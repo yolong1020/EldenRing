@@ -46,7 +46,10 @@
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
   https://github.com/yolong1020/EldenRing/blob/6a40836945163b30e9dd8aaf3c548b9b92d56edd/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1115-L1148
   </br>
-  
+  ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
+  https://github.com/yolong1020/EldenRing/blob/2f43079d34e3767f013851c836d4480db5fd268a/Source/EldenRing/Private/Characters/Players/C0000.cpp#L235-L274
+  </br>
+    
 ---
 ### * Potion Comsume
   > HUD, Camera Timeline, Item 등 초기화.
