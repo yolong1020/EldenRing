@@ -53,9 +53,9 @@
     
 ---
 ### * Potion Comsume
-  > 플레이어의 입력에 의해 현재 HP를 회복하는 기능입니다.</br>
+  > 플레이어의 입력으 현재 HP를 회복하는 기능입니다.</br>
     회복 횟수에는 제한이 있으며, 모든 포션을 소모했을 경우 해당하는 애니메이션이 재생되고 HP는 회복되지 않습니다.</br>
-    또한 포션 복용 중 피격을 받게되면 소모된 포션은 복구되지 않고 HP 역시 회복되지 않습니다.
+    또한, 포션 복용 중 피격을 받게 되면 소모된 포션은 복구되지 않고 HP 역시 회복되지 않습니다.
 
   ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
   https://github.com/yolong1020/EldenRing/blob/1a8f4ec6559928de5514a7bfc880b2c52b592252/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1093-L1115
