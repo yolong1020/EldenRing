@@ -82,8 +82,9 @@
   https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryInteractionGrid.cpp#L24-L39
   </br>
 
-  ###### [Step 02] Inventory를 열게되면 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다. 이후 InteractionGrid를 갱신하여 보관함에 존재하는 Item들을 Draw합니다.
+  ###### [Step 02] Inventory를 열게되면 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다. 이후 InteractionGrid를 갱신하여 보관함에 존재하는 Item들을 Canvas Slot에 포함시킵니다.
   https://github.com/yolong1020/EldenRing/blob/808bb8d461a42c4bc8d677944969d10fdc64c29e/Source/EldenRing/Private/System/StorageManager.cpp#L23-L35
+  https://github.com/yolong1020/EldenRing/blob/674fd8903ad223d87e64afd43a168944b8cececc/Source/EldenRing/Private/UI/Inventory/InventoryInteractionGrid.cpp#L41-L76
   </br>
 
   ###### [Step 02] Inventory를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
