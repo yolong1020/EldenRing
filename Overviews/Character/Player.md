@@ -75,6 +75,7 @@
   </br>
   
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/f37436e7-ffbe-409c-9bcd-98da953456e8" width="60%" height="60%">
+  
   ###### [Step 01 - 01] InventorySlotGrid는 화면에 출력될 보관함 칸 수를 담당하는 Widget입니다.
   https://github.com/yolong1020/EldenRing/blob/66be893c43cf52f5783ec93ff1e88fb007b92325/Source/EldenRing/Private/UI/Inventory/InventorySlotGrid.cpp#L20-L48
   
