@@ -64,8 +64,3 @@
   ![Charactor](https://github.com/yolong1020/EldenRing/assets/87303898/c808a976-430a-4f0d-9f2e-a1395a89f019)
   https://github.com/yolong1020/EldenRing/blob/1a8f4ec6559928de5514a7bfc880b2c52b592252/Source/EldenRing/Private/Characters/Players/C0000.cpp#L581-L592
   </br>
-
----
-### * Item Trade
-  > HUD, Camera Timeline, Item 등 초기화.
-  ###### Step 01. 현 Level의 플레이 가능 여부와 Load 상태에 따른 초기화 진행
