@@ -6,15 +6,14 @@
 
   ###### Trade Manager를 통하여 Trade의 각 위젯들을 초기화합니다. (Slot count, Delegate, etc)
   https://github.com/yolong1020/EldenRing/blob/9bc3b0f4022cdfa966450509556193acb8d53ced/Source/EldenRing/Private/System/TradeManager.cpp#L60-L100
-  https://github.com/yolong1020/EldenRing/blob/9bc3b0f4022cdfa966450509556193acb8d53ced/Source/EldenRing/Private/UI/Trade/TradeGrid.cpp#L17-L41
   </br>
   
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9ce08d3b-2510-45f5-8714-d2d688c06ce5" width="60%" height="60%">
   
-  ###### InventorySlotGrid는 화면에 출력될 보관함 슬롯을 담당하는 위젯입니다.
-  https://github.com/yolong1020/EldenRing/blob/66be893c43cf52f5783ec93ff1e88fb007b92325/Source/EldenRing/Private/UI/Inventory/InventorySlotGrid.cpp#L20-L48
-  ###### InventoryInteractionGrid는 실제 아이템과 보관함의 상호작용을 담당하는 위젯입니다.
-  https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryInteractionGrid.cpp#L24-L39
+  ###### TradeGrid는 화면에 출력될 보관함 슬롯을 담당하는 위젯입니다.
+  https://github.com/yolong1020/EldenRing/blob/16f8271c446ef841156cb116a36278ef2d22b4a0/Source/EldenRing/Private/UI/Trade/TradeGrid.cpp#L17-L41
+  ###### TradeInteractionGrid는 실제 아이템과 보관함의 상호작용을 담당하는 위젯입니다.
+  https://github.com/yolong1020/EldenRing/blob/16f8271c446ef841156cb116a36278ef2d22b4a0/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L28-L44
   </br>
   
 ---
