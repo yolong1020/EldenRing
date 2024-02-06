@@ -12,7 +12,7 @@
   https://github.com/yolong1020/EldenRing/blob/9f8fef7608cfddae2743db98a7142e9308236109/Source/EldenRing/Private/Items/Weapons/Weapon_Actor.cpp#L190-L202
   ###### [Step 02 - 03] 갑옷의 경우, UItemObject의 정보를 토대로 캐릭터의 일부 Material을 숨김 처리합니다.
   https://github.com/yolong1020/EldenRing/blob/f49792ab9b9dc99f1ca0b7278e9a456d946769f9/Source/EldenRing/Private/System/EquipmentManager.cpp#L226-L242
-  ###### [Step 02 - 04] PlayerHUD의 QuickSlot을 갱신합니다.
+  ###### [Step 02 - 04] 무기를 착용하였다면 PlayerHUD의 QuickSlot을 갱신합니다.
   https://github.com/yolong1020/EldenRing/blob/55e7ecacb75266760a2f1ac112eddb4c23ba78b1/Source/EldenRing/Private/HUD/Status/PlayerHUD.cpp#L97-L126
   </br> 
   ###### [Step 03] 아이템의 옵션을 캐릭터의 Attribute에 적용시킵니다.
