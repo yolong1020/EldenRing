@@ -42,7 +42,7 @@
   ###### [03] 특정 슬롯의 타일 위치를 확인 후 적재를 시도합니다.
   https://github.com/yolong1020/EldenRing/blob/88fb131d94fdb9e1bd3609f015b66e5eee64da4d/Source/EldenRing/Private/System/StorageManager.cpp#L159-L166
   </br>
-  ###### [04] 적재는 좌측 상단을 기준으로 시작되며, 기준으로부터 아이템 크기까지 각 슬롯에 해당하는 아이템의 포인터를 할당합니다. </br>만약 위젯이 노출 중에 있다면, 적재된 아이템이 노출될 수 있도록 InteractionGrid를 갱신합니다.
+  ###### [04] 적재는 좌측 상단을 기준으로 시작되며, 기준으로부터 아이템 크기까지 각 슬롯에 해당하는 아이템의 포인터를 할당합니다. </br>만약 위젯이 노출되고 있다면, 적재된 아이템이 노출될 수 있도록 InteractionGrid를 갱신합니다.
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e7857442-af04-49ef-a15a-7173275bc311" width="40%" height="40%">
   https://github.com/yolong1020/EldenRing/blob/88fb131d94fdb9e1bd3609f015b66e5eee64da4d/Source/EldenRing/Private/System/StorageManager.cpp#L198-L227
   </br>
@@ -51,7 +51,7 @@
 ### * Remove item to storage
   > 아이템을 착용하거나 필드에 버리는 경우, 보관함에서 해당 아이템을 제거합니다.
   
-  ###### 모든 슬롯을 순회하며 해당하는 아이템의 포인터를 제거해줍니다. </br>만약 위젯이 노출 중에 있다면, 적재된 아이템이 노출되지 않도록 InteractionGrid를 갱신합니다.
+  ###### 모든 슬롯을 순회하며 해당하는 아이템의 포인터를 제거해줍니다. </br>만약 위젯이 노출되고 있다면, 적재된 아이템이 노출되지 않도록 InteractionGrid를 갱신합니다.
   https://github.com/yolong1020/EldenRing/blob/345d258673e6c6e69667b41a85b8ae642f124db3/Source/EldenRing/Private/System/StorageManager.cpp#L229-L240
   </br>
   
