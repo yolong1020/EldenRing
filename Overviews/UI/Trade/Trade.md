@@ -1,4 +1,4 @@
-![Trade](https://github.com/yolong1020/EldenRing/assets/87303898/eabc3cfa-695d-4695-b852-332ed7646cd4)
+<img width="725" alt="image" src="https://github.com/yolong1020/EldenRing/assets/87303898/3a550ebf-7ea7-4588-b9c8-5ea88413f97b">![Trade](https://github.com/yolong1020/EldenRing/assets/87303898/eabc3cfa-695d-4695-b852-332ed7646cd4)
 
 # Trade
 ### * Init trade widget
@@ -8,7 +8,7 @@
   https://github.com/yolong1020/EldenRing/blob/9bc3b0f4022cdfa966450509556193acb8d53ced/Source/EldenRing/Private/System/TradeManager.cpp#L60-L100
   </br>
   
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9ce08d3b-2510-45f5-8714-d2d688c06ce5" width="60%" height="60%">
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/81a7d93d-a461-4bd2-abe2-18b2170fa505" width="60%" height="60%">
   
   ###### TradeGrid는 화면에 출력될 보관함 슬롯을 담당하는 위젯입니다.
   https://github.com/yolong1020/EldenRing/blob/16f8271c446ef841156cb116a36278ef2d22b4a0/Source/EldenRing/Private/UI/Trade/TradeGrid.cpp#L17-L41
