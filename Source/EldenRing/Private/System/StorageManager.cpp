@@ -159,8 +159,8 @@ bool UStorageManager::TryAddItemAtIndex(const TObjectPtr<UItemObject> ItemObject
 bool UStorageManager::TryAddItemAtTile(const TObjectPtr<UItemObject> ItemObject, const FInventoryTile& StartTile)
 {
 	int32 idx = TileToIndex(StartTile);
-	for (int i = 0; i < 2; ++i) {
-
+	for (int i = 0; i < 2; ++i) 
+	{
 		if (IsEmptyIndex(ItemObject, idx))
 		{
 			AddItem(ItemObject, idx);
