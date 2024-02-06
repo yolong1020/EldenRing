@@ -17,8 +17,8 @@
   </br>
   
 ---
-### * Open storage
-  > Storage Manager를 통하여 보관함을 활성화하며 활성되는 시점에서 보관된 Item들을 갱신합니다.
+### * Open trade
+  > Trade Manager를 통하여 거래창을 활성화하며 활성되는 시점에서 보관된 Item들을 갱신합니다.
 
   ###### [Step 01] Inventory를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
   https://github.com/yolong1020/EldenRing/blob/808bb8d461a42c4bc8d677944969d10fdc64c29e/Source/EldenRing/Private/System/StorageManager.cpp#L23-L35
