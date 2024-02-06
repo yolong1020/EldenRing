@@ -10,9 +10,9 @@
   
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/c8c9cb52-a810-4796-b3aa-d2649d55d505" width="60%" height="60%">
   
-  ###### TradeGrid는 화면에 출력될 보관함 슬롯을 담당하는 위젯입니다.
+  ###### TradeGrid는 화면에 출력될 각 캐릭터들의 보관함 슬롯을 담당하는 위젯입니다.
   https://github.com/yolong1020/EldenRing/blob/16f8271c446ef841156cb116a36278ef2d22b4a0/Source/EldenRing/Private/UI/Trade/TradeGrid.cpp#L17-L41
-  ###### TradeInteractionGrid는 실제 아이템과 보관함의 상호작용을 담당하는 위젯입니다.
+  ###### TradeInteractionGrid는 실제 아이템과 캐릭터들의 보관함 상호작용을 담당하는 위젯입니다.
   https://github.com/yolong1020/EldenRing/blob/16f8271c446ef841156cb116a36278ef2d22b4a0/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L28-L44
   </br>
   
