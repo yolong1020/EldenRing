@@ -1,4 +1,4 @@
-<img width="725" alt="image" src="https://github.com/yolong1020/EldenRing/assets/87303898/3a550ebf-7ea7-4588-b9c8-5ea88413f97b">![Trade](https://github.com/yolong1020/EldenRing/assets/87303898/eabc3cfa-695d-4695-b852-332ed7646cd4)
+![Trade](https://github.com/yolong1020/EldenRing/assets/87303898/eabc3cfa-695d-4695-b852-332ed7646cd4)
 
 # Trade
 ### * Init trade widget
