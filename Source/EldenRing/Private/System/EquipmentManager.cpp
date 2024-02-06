@@ -60,9 +60,9 @@ bool UEquipmentManager::TryEquipItem(const TObjectPtr<UItemObject> ItemObject, c
 
 bool UEquipmentManager::TryUnequipItem(const EEquipmentType& Type, const bool IsRight)
 {
-	if (Type == EEquipmentType::EET_None		||
-		Type == EEquipmentType::EET_Max			||
-		Type == EEquipmentType::EET_Consumable) return false;
+	if (Type == EEquipmentType::EET_None	||
+	    Type == EEquipmentType::EET_Max	||
+	    Type == EEquipmentType::EET_Consumable) return false;
 
 	TObjectPtr<UItemObject> item;
 	if (Type == EEquipmentType::EET_Weapon)
