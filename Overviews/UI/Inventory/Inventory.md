@@ -1,4 +1,4 @@
-# Inventory
+# Inventory - Storage
 ### * Init storage widget
   > Blueprint에서 설정한 Slot Count에 따라 보관함 슬롯 수를 설정하고 상호 작용을 위한 초기화 작업을 진행합니다.
 
