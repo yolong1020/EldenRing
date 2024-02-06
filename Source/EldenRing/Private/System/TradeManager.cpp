@@ -125,7 +125,7 @@ void UTradeManager::HideItemInfo()
 bool UTradeManager::TryUpdateStorage()
 {
 	if (m_update_player.IsBound() &&
-		m_update_vender.IsBound())
+	    m_update_vender.IsBound())
 	{
 		m_update_player.Execute();
 		m_update_vender.Execute();
