@@ -15,6 +15,7 @@
   https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryInteractionGrid.cpp#L24-L39
   </br>
 ---
+
 ### * Open storage
   > Storage Manager를 통하여 보관함을 활성화하며 활성되는 시점에서 보관된 Item들을 갱신합니다.
 
@@ -28,6 +29,7 @@
   https://github.com/yolong1020/EldenRing/blob/75633c135b4a24c70af3405552cb2083240139c8/Source/EldenRing/Private/UI/Inventory/InventoryItem.cpp#L218-L244
   </br>
 ---
+
 ### * Add item to storage
   > 아이템과 재화를 보관하며 필요에 따라 착용하거나 버릴 수 있습니다.
 
@@ -45,6 +47,7 @@
   https://github.com/yolong1020/EldenRing/blob/88fb131d94fdb9e1bd3609f015b66e5eee64da4d/Source/EldenRing/Private/System/StorageManager.cpp#L198-L227
   </br>
 ---
+
 ### * Remove item to storage
   > 아이템을 착용하거나 필드에 버리는 경우, 보관함에서 해당 아이템을 제거합니다.
   
