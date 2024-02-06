@@ -9,7 +9,7 @@
   https://github.com/yolong1020/EldenRing/blob/9bc3b0f4022cdfa966450509556193acb8d53ced/Source/EldenRing/Private/UI/Trade/TradeGrid.cpp#L17-L41
   </br>
   
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/f37436e7-ffbe-409c-9bcd-98da953456e8" width="60%" height="60%">
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9ce08d3b-2510-45f5-8714-d2d688c06ce5" width="60%" height="60%">
   
   ###### InventorySlotGrid는 화면에 출력될 보관함 슬롯을 담당하는 위젯입니다.
   https://github.com/yolong1020/EldenRing/blob/66be893c43cf52f5783ec93ff1e88fb007b92325/Source/EldenRing/Private/UI/Inventory/InventorySlotGrid.cpp#L20-L48
