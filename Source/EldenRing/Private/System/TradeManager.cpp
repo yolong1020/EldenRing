@@ -37,7 +37,8 @@ void UTradeManager::OpenTrade(const TObjectPtr<APlayerController>& Controller)
 	m_vender_slots.SetNum(m_colum * m_row, false);
 
 	TArray<TObjectPtr<UItemObject>>* items = m_vender->GetTradeItem();
-	for (int i = 0; i < items->Num(); ++i) {
+	for (int i = 0; i < items->Num(); ++i) 
+	{
 		TryAddItem(false, (*items)[i]);
 	}
 
