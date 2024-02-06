@@ -4,13 +4,17 @@
 
   ###### [Step 01] 착용하려는 아이템 유형과 좌/우 위치(무기 한정)를 확인하여 슬롯에 장착시킵니다.
   https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/System/EquipmentManager.cpp#L36-L59
-  https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/UI/Inventory/InventoryEquipSlot.cpp#L47-L62
+https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/UI/Inventory/InventoryEquipSlot.cpp#L47-L62
   </br>
-  ###### [Step 02] 아이템의 옵션을 Attribute에 적용시킵니다.
+  ###### [Step 02] 착용하려는 아이템의 매쉬를 캐릭터에 반영하며 PlayerHUD의 QuickSlot을 갱신합니다.
+  https://github.com/yolong1020/EldenRing/blob/55e7ecacb75266760a2f1ac112eddb4c23ba78b1/Source/EldenRing/Private/System/EquipmentManager.cpp#L180-L224
+  https://github.com/yolong1020/EldenRing/blob/55e7ecacb75266760a2f1ac112eddb4c23ba78b1/Source/EldenRing/Private/HUD/Status/PlayerHUD.cpp#L97-L126
+  </br> 
+  ###### [Step 03] 아이템의 옵션을 Attribute에 적용시킵니다.
   https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/Characters/Players/C0000.cpp#L113-L121
   https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/Characters/Component/AttributeComponent.cpp#L71-L86
   </br>
-  
+
 ---
 ### * Add item to storage
   > 아이템과 재화를 보관하며 필요에 따라 착용하거나 버릴 수 있습니다.
