@@ -190,7 +190,7 @@ void UEquipmentManager::UpdateMesh(const TObjectPtr<UItemObject> ItemObject, con
 		AWeapon_Actor* weapon = world->SpawnActor<AWeapon_Actor>(ItemObject->GetItemClass());
 		CHECK_INVALID_PTR(weapon)
 
-		FString		socket_name   = IsRight ? "R" : "L";
+		FString	    socket_name   = IsRight ? "R" : "L";
 		EWeaponType weapon_type   = weapon->GetWeaponType();
 
 		socket_name += ((EWeaponType::EWT_Shield == weapon_type) ? FString("_ShieldSocket") : FString("_WeaponSocket"));
@@ -216,7 +216,7 @@ void UEquipmentManager::UpdateMesh(const TObjectPtr<UItemObject> ItemObject, con
 		new_mesh_component->SetLeaderPoseComponent(mesh);
 		new_mesh_component->RegisterComponent();
 
-		m_equipments[int32(Type) - 1].Key	= new_mesh_component;
+		m_equipments[int32(Type) - 1].Key   = new_mesh_component;
 		m_equipments[int32(Type) - 1].Value = ItemObject;
 		
 		MeshActivate(ItemObject, false);
