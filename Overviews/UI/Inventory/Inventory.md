@@ -2,7 +2,7 @@
 ### * Init Storage Widget
   > Blueprint에서 설정한 Slot Count에 따라 보관함 칸 수를 설정하고 상호 작용을 위한 초기화 작업을 진행합니다.
 
-  ###### [Step 01] Inventory의 각 Widget들을 초기화합니다. (Slot count, Delegate, etc)
+  ###### [Step 01] Storage Manager를 통하여 Inventory의 각 Widget들을 초기화합니다. (Slot count, Delegate, etc)
   https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/System/StorageManager.cpp#L42-L85
   https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryGrid.cpp#L47-L66
   </br>
