@@ -1,6 +1,6 @@
 # Inventory
 ### * Init Storage Widget
-  > Item과 재화를 보관하며 필요에 따라 착용하거나 버릴 수 있습니다.
+  > Blueprint에서 설정한 Slot Count에 따라 보관함 칸 수를 설정하고 상호 작용을 위한 초기화 작업을 진행합니다.
 
   ###### [Step 01] Inventory의 각 Widget들을 초기화합니다. (Slot count, Delegate, etc)
   https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/System/StorageManager.cpp#L42-L85
