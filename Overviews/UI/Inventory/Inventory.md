@@ -26,3 +26,5 @@
   https://github.com/yolong1020/EldenRing/blob/674fd8903ad223d87e64afd43a168944b8cececc/Source/EldenRing/Private/UI/Inventory/InventoryInteractionGrid.cpp#L41-L76
   </br>
   
+  ###### [Step 03] Canvas Slot에 포함된 Item들은 Item 'UItemObject'의 정보를 토대로 텍스쳐 이미지와 크기를 갱신합니다.
+  https://github.com/yolong1020/EldenRing/blob/75633c135b4a24c70af3405552cb2083240139c8/Source/EldenRing/Private/UI/Inventory/InventoryItem.cpp#L218-L244
