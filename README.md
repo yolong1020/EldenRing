@@ -17,4 +17,4 @@ Technical Overview
 ### [1. Character](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/Character.md)
 - [1. GameCharacter](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/GameCharacter.md)
 - [2. Player](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/Player.md)
-### [2. Inventory](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/Character.md)
+### [2. UI](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/Character.md)
