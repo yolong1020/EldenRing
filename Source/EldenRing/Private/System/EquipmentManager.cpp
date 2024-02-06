@@ -39,13 +39,12 @@ bool UEquipmentManager::TryEquipItem(const TObjectPtr<UItemObject> ItemObject, c
 	{
 		case EEquipmentType::EET_None:
 		case EEquipmentType::EET_Max:
-		case EEquipmentType::EET_Consumable:
-			return false;
+		case EEquipmentType::EET_Consumable: return false;
 		default:
 		{
 			UInventoryEquipSlot* slot = nullptr;
 			if (Type == EEquipmentType::EET_Weapon) { slot = IsRight ? m_slots[(int32)Type - 1] : m_slots[(int32)Type]; }
-			else									{ slot = m_slots[(int32)Type - 1]; }
+			else					{ slot = m_slots[(int32)Type - 1]; }
 
 			if (slot == nullptr || !slot->IsEmpty()) return false;
 
