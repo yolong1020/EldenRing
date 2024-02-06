@@ -139,7 +139,7 @@ bool UStorageManager::TryAddItem(const TObjectPtr<UItemObject> ItemObject)
 			}
 		}
 
-		//	Rotate Item and Try Again
+		// Rotate Item and Try Again
 		ItemObject->RotateItemObject();
 	}
 
@@ -159,15 +159,9 @@ bool UStorageManager::TryAddItemAtIndex(const TObjectPtr<UItemObject> ItemObject
 bool UStorageManager::TryAddItemAtTile(const TObjectPtr<UItemObject> ItemObject, const FInventoryTile& StartTile)
 {
 	int32 idx = TileToIndex(StartTile);
-	for (int i = 0; i < 2; ++i) 
-	{
-		if (IsEmptyIndex(ItemObject, idx))
-		{
-			AddItem(ItemObject, idx);
-			return true;
-		}
-	}
-
+	if (!ItemObject || false == IsEmptyIndex(ItemObject, idx)) return false;
+	
+	AddItem(ItemObject, idx);
 	return false;
 }
 
@@ -185,7 +179,7 @@ void UStorageManager::Initialize(FSubsystemCollectionBase& Collection)
 
 	FIntVector2 size = StorageBoardSize
 	m_colum_count	= size.X;
-	m_row_count		= size.Y;
+	m_row_count	= size.Y;
 
 	m_slots.Reserve(m_colum_count * m_row_count);
 	m_slots.SetNum(m_colum_count * m_row_count, false);
@@ -205,10 +199,10 @@ void UStorageManager::AddItem(TObjectPtr<UItemObject> ItemObject, const int32& I
 {
 	CHECK_INVALID_PTR(m_widget_inventory)
 
-	const FIntPoint point		= ItemObject->GetDimension();
-	FInventoryTile  start_tile  = IndexToTile(Index);
+	const FIntPoint point	   = ItemObject->GetDimension();
+	FInventoryTile  start_tile = IndexToTile(Index);
 
-	int32			find_idx;
+	int32		find_idx;
 	FInventoryTile	check_tile;
 
 	int x_max = start_tile.X + (point.X - 1);
@@ -265,7 +259,7 @@ const int32 UStorageManager::HaveSpaceItem(const TObjectPtr<UItemObject> ItemObj
 			}
 		}
 
-		//	Rotate Item and Try Again
+		// Rotate Item and Try Again
 		ItemObject->RotateItemObject();
 	}
 
@@ -297,11 +291,11 @@ const bool UStorageManager::IsEmptyIndex(const TObjectPtr<UItemObject> ItemObjec
 			check_tile.X = x;
 			check_tile.Y = y;
 
-			//	Check tile range.
+			// Check tile range.
 			bool is_vaild_tile = (check_tile.X >= 0 && check_tile.Y >= 0 && check_tile.X < m_colum_count && check_tile.Y < m_row_count);
 			if (false == is_vaild_tile) return false;
 
-			//	Check index is invalid.
+			// Check index is invalid.
 			int32 find_idx = TileToIndex(check_tile);
 			if (false == m_slots.IsValidIndex(find_idx)) return false;
 
