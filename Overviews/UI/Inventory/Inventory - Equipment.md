@@ -28,13 +28,16 @@
   https://github.com/yolong1020/EldenRing/blob/9cb9d5313e1965c89f7e2fdd8e660c3f75f9a38d/Source/EldenRing/Private/System/EquipmentManager.cpp#L61-L93
   https://github.com/yolong1020/EldenRing/blob/07913ab06541dbf8959c6f1a4a7fc33016dc2247/Source/EldenRing/Private/UI/Inventory/InventoryEquipSlot.cpp#L64-L72
   </br>
-  ###### [02] 특정 슬롯의 인덱스를 확인 후 적재를 시도합니다.
-  https://github.com/yolong1020/EldenRing/blob/91a7a54264022be27051620a753d14886cf3f565/Source/EldenRing/Private/System/StorageManager.cpp#L151-L157
+  ###### [Step 02 - 02] 무기의 경우, 해제시킨 무기를 파괴하고 캐릭터가 보유한 무기 포인터를 제거한 뒤 PlayerHUD를 갱신시킵니다.
+  https://github.com/yolong1020/EldenRing/blob/687e1f73144e985e35ab330b625f68a243aa6e76/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1237-L1253
+  ###### [Step 02 - 03] 갑옷의 경우, 해제시킨 갑옷의 매쉬 컴포넌트를 해제하고 포인터를 제거한 뒤 매쉬를 갱신시킵니다.
+  `C++
+		m_equipments[int32(Type) - 1].Key->SetSkeletalMesh(nullptr);
+		m_equipments[int32(Type) - 1].Key->UnregisterComponent();
+		m_equipments[int32(Type) - 1].Key = nullptr;'
+  https://github.com/yolong1020/EldenRing/blob/687e1f73144e985e35ab330b625f68a243aa6e76/Source/EldenRing/Private/System/EquipmentManager.cpp#L226-L242
   </br>
-  ###### [03] 특정 슬롯의 타일 위치를 확인 후 적재를 시도합니다.
-  https://github.com/yolong1020/EldenRing/blob/88fb131d94fdb9e1bd3609f015b66e5eee64da4d/Source/EldenRing/Private/System/StorageManager.cpp#L159-L166
-  </br>
-  ###### [04] 적재는 좌측 상단을 기준으로 시작되며, 기준으로부터 아이템 크기까지 각 슬롯에 해당하는 아이템의 포인터를 할당합니다. </br>만약 위젯이 노출되고 있다면, 적재된 아이템이 노출될 수 있도록 InteractionGrid를 갱신합니다.
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e7857442-af04-49ef-a15a-7173275bc311" width="40%" height="40%">
-  https://github.com/yolong1020/EldenRing/blob/88fb131d94fdb9e1bd3609f015b66e5eee64da4d/Source/EldenRing/Private/System/StorageManager.cpp#L198-L227
-  </br>
+  ###### [Step 03] 아이템의 옵션을 캐릭터의 Attribute에 제시킵니다.
+  https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/Characters/Players/C0000.cpp#L113-L121
+  https://github.com/yolong1020/EldenRing/blob/687e1f73144e985e35ab330b625f68a243aa6e76/Source/EldenRing/Private/Characters/Component/AttributeComponent.cpp#L88-L102
+  </br> 
