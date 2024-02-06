@@ -2,9 +2,11 @@
 ### * Equip item
   > Equipment Manager를 통하여 Item을 캐릭터에게 착용시킵니다.
 
-  ###### [Step 01] 착용하려는 아이템 유형과 좌/우 위치(무기)를 확인하여 슬롯에 장착시키고 아이템의 옵션을 Attribute에 적용시킵니다.
+  ###### [Step 01] 착용하려는 아이템 유형과 좌/우 위치(무기 한정)를 확인하여 슬롯에 장착시킵니다.
   https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/System/EquipmentManager.cpp#L36-L59
   https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/UI/Inventory/InventoryEquipSlot.cpp#L47-L62
+  </br>
+  ###### [Step 02] 아이템의 옵션을 Attribute에 적용시킵니다.
   https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/Characters/Players/C0000.cpp#L113-L121
   https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/Characters/Component/AttributeComponent.cpp#L71-L86
   </br>
