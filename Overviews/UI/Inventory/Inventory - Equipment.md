@@ -24,8 +24,9 @@
 ### * Unequip item
   > Equipment Manager를 통하여 캐릭터에 착용된 Item을 해제시킵니다.
 
-  ###### [01] 특정 위치를 지정하지 않고 아이템을 적재할 경우, 순차적으로 적재가 가능한 위치를 탐색 후 적재합니다. 모든 슬롯을 순회함에도 적재가 불가능하다면 아이템을 회전시켜 한번 더 적재를 시도합니다.
+  ###### [01] 해제하려는 아이템 유형과 좌/우 위치(무기 한정)를 확인하여 슬롯에서 해제시킵니다.
   https://github.com/yolong1020/EldenRing/blob/9cb9d5313e1965c89f7e2fdd8e660c3f75f9a38d/Source/EldenRing/Private/System/EquipmentManager.cpp#L61-L93
+  https://github.com/yolong1020/EldenRing/blob/07913ab06541dbf8959c6f1a4a7fc33016dc2247/Source/EldenRing/Private/UI/Inventory/InventoryEquipSlot.cpp#L64-L72
   </br>
   ###### [02] 특정 슬롯의 인덱스를 확인 후 적재를 시도합니다.
   https://github.com/yolong1020/EldenRing/blob/91a7a54264022be27051620a753d14886cf3f565/Source/EldenRing/Private/System/StorageManager.cpp#L151-L157
