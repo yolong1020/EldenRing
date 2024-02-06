@@ -9,7 +9,7 @@
   
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/f37436e7-ffbe-409c-9bcd-98da953456e8" width="60%" height="60%">
   
-  ###### InventorySlotGrid는 화면에 출력될 보관함 슬롯 수를 담당하는 위젯입니다.
+  ###### InventorySlotGrid는 화면에 출력될 보관함 슬롯을 담당하는 위젯입니다.
   https://github.com/yolong1020/EldenRing/blob/66be893c43cf52f5783ec93ff1e88fb007b92325/Source/EldenRing/Private/UI/Inventory/InventorySlotGrid.cpp#L20-L48
   ###### InventoryInteractionGrid는 실제 아이템과 보관함의 상호작용을 담당하는 위젯입니다.
   https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryInteractionGrid.cpp#L24-L39
