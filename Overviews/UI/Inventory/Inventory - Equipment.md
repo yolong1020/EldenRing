@@ -30,7 +30,7 @@
   </br>
   ###### [Step 02 - 02] 무기의 경우, 해제시킨 무기를 파괴하고 캐릭터가 보유한 무기 포인터를 제거한 뒤 PlayerHUD를 갱신시킵니다.
   https://github.com/yolong1020/EldenRing/blob/687e1f73144e985e35ab330b625f68a243aa6e76/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1237-L1253
-  ###### [Step 02 - 03] 갑옷의 경우, 해제시킨 갑옷의 매쉬 컴포넌트를 해제하고 포인터를 제거한 뒤 매쉬를 갱신시킵니다.
+  ###### [Step 02 - 03] 갑옷의 경우, 해제시킨 갑옷의 매쉬 컴포넌트를 해제하고 포인터를 제거한 뒤 캐릭터의 Material들을 갱신시킵니다.
   ```C++
 	/// [UEquipmentManager::TryUnequipItem] 81
 	m_equipments[int32(Type) - 1].Key->SetSkeletalMesh(nullptr);
