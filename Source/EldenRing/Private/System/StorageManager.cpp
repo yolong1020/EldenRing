@@ -150,7 +150,7 @@ bool UStorageManager::TryAddItem(const TObjectPtr<UItemObject> ItemObject)
 
 bool UStorageManager::TryAddItemAtIndex(const TObjectPtr<UItemObject> ItemObject, const int32& Index)
 {
-	if (nullptr == ItemObject || false == IsEmptyIndex(ItemObject, Index)) return false;
+	if (!ItemObject || false == IsEmptyIndex(ItemObject, Index)) return false;
 
 	AddItem(ItemObject, Index);
 	return true;
