@@ -23,8 +23,8 @@
   ###### [Step 01] Trade를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
   https://github.com/yolong1020/EldenRing/blob/dcd26958cb061a08392d17ad0e40ba8278bde2e0/Source/EldenRing/Private/System/TradeManager.cpp#L18-L46
   </br>
-  ###### [Step 02] InteractionGrid를 갱신하여 보관함에 존재하는 아이템들을 Canvas Slot에 포함시킵니다.
-  https://github.com/yolong1020/EldenRing/blob/6a4796e43409e0447bb0f1ac6ca1c4b5603d8168/Source/EldenRing/Private/System/TradeManager.cpp#L125-L137
+  ###### [Step 02] TradeInteractionGrid를 갱신하여 각 캐릭터들의 보관함에 존재하는 아이템들을 Canvas Slot에 포함시킵니다.
+  https://github.com/yolong1020/EldenRing/blob/065770f13537e7d9442c659c0653f61069d1a681/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L46-L80
   </br>
   ###### [Step 03] Canvas Slot에 포함된 아이템들은 'UItemObject'의 정보를 토대로 텍스쳐 이미지와 크기를 갱신합니다.
   https://github.com/yolong1020/EldenRing/blob/75633c135b4a24c70af3405552cb2083240139c8/Source/EldenRing/Private/UI/Inventory/InventoryItem.cpp#L218-L244
