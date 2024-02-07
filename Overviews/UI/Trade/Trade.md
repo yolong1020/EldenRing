@@ -36,8 +36,7 @@
   > Vender NPC로부터 재화를 소모하여 아이템을 구매하거나 혹은 아이템을 판매하여 재화를 얻을 수 있습니다.
 
   ###### [01] 특정 위치를 지정하지 않고 아이템을 적재할 경우, 순차적으로 적재가 가능한 위치를 탐색 후 적재합니다. 모든 슬롯을 순회함에도 적재가 불가능하다면 아이템을 회전시켜 한번 더 적재를 시도합니다.
-  https://github.com/yolong1020/EldenRing/blob/91a7a54264022be27051620a753d14886cf3f565/Source/EldenRing/Private/System/StorageManager.cpp#L127-L149
-  </br>
+  https://github.com/yolong1020/EldenRing/blob/2c3e7d450dd827127f4ce4ad46fe18e74c02adc0/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L247-L259
   ###### [02] 특정 슬롯의 인덱스를 확인 후 적재를 시도합니다.
   https://github.com/yolong1020/EldenRing/blob/91a7a54264022be27051620a753d14886cf3f565/Source/EldenRing/Private/System/StorageManager.cpp#L151-L157
   </br>
