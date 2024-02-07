@@ -28,7 +28,7 @@
   https://github.com/yolong1020/EldenRing/blob/065770f13537e7d9442c659c0653f61069d1a681/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L46-L80
   </br>
   ###### [Step 03] Canvas Slot에 포함된 아이템들은 'UItemObject'의 정보를 토대로 텍스쳐 이미지와 크기를 갱신합니다.
-  https://github.com/yolong1020/EldenRing/blob/75633c135b4a24c70af3405552cb2083240139c8/Source/EldenRing/Private/UI/Inventory/InventoryItem.cpp#L218-L244
+  https://github.com/yolong1020/EldenRing/blob/2c3e7d450dd827127f4ce4ad46fe18e74c02adc0/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L247-L259
   </br>
   
 ---
