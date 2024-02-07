@@ -32,8 +32,8 @@
 void UTradeItem::InitItemWidget(const bool IsPlayer, const TObjectPtr<UItemObject> item_object, const float& tile_size)
 {
 	m_item_object	= item_object;
-	m_tile_size		= tile_size;
-	m_is_player		= IsPlayer;
+	m_tile_size	= tile_size;
+	m_is_player	= IsPlayer;
 
 	ItemRefresh();
 }
@@ -41,8 +41,8 @@ void UTradeItem::InitItemWidget(const bool IsPlayer, const TObjectPtr<UItemObjec
 void UTradeItem::InitItemWidget(const bool IsPlayer, const TObjectPtr<UItemObject> item_object, const float& tile_size, const FVector2D& custom_size)
 {
 	m_item_object	= item_object;
-	m_tile_size		= tile_size;
-	m_is_player		= IsPlayer;
+	m_tile_size	= tile_size;
+	m_is_player	= IsPlayer;
 
 	m_slot_size.Set(custom_size.X * m_tile_size, custom_size.Y * m_tile_size);
 	EquipedItemRefresh();
@@ -93,7 +93,7 @@ FReply UTradeItem::NativeOnMouseButtonDown(const FGeometry& InGeometry, const FP
 	if (EKeys::RightMouseButton == event_key)
 	{
 		EDragAndDropHUD current = m_item_object->GetCurrentHUD();
-		if		(current == EDragAndDropHUD::EDAD_Vender)	 { TradeProcess(true); }
+		if	(current == EDragAndDropHUD::EDAD_Vender)    { TradeProcess(true); }
 		else if (current == EDragAndDropHUD::EDAD_Inventory) { TradeProcess(false); }
 
 		m_trade_mgr->HideItemInfo();
@@ -159,7 +159,7 @@ void UTradeItem::NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerE
 {
 	Super::NativeOnMouseEnter(InGeometry, InMouseEvent);
 
-	FVector2D screen = FVector2D::ZeroVector;
+	FVector2D screen   = FVector2D::ZeroVector;
 	FVector2D viewport = FVector2D::ZeroVector;
 	USlateBlueprintLibrary::LocalToViewport(GetOwningPlayer(), InGeometry, FVector2D::ZeroVector, screen, viewport);
 
@@ -194,7 +194,7 @@ FReply UTradeItem::NativeOnKeyDown(const FGeometry& InGeometry, const FKeyEvent&
 			CHECK_INVALID_PTR_RetVal(slot)
 
 			const EEquipmentType slot_type = slot->GetSlotType();
-			const FString		 slot_name = slot->GetName();
+			const FString	     slot_name = slot->GetName();
 
 			if (false == slot->IsEmpty())
 			{
@@ -216,7 +216,7 @@ FReply UTradeItem::NativeOnKeyDown(const FGeometry& InGeometry, const FKeyEvent&
 			CHECK_INVALID_PTR_RetVal(slot)
 
 			const EEquipmentType slot_type = slot->GetSlotType();
-			const FString		 slot_name = slot->GetName();
+			const FString	     slot_name = slot->GetName();
 
 			if (false == slot->IsEmpty())
 			{
@@ -274,7 +274,7 @@ void UTradeItem::TradeProcess(const bool IsPurchase, const bool IsPurchaseEquip)
 	const FItemData* data = m_item_object->GetItemData();
 	CHECK_INVALID_PTR_RetVal(data)
 
-	AC0000*			player = GetOwningPlayerPawn<AC0000>();
+	AC0000*		player = GetOwningPlayerPawn<AC0000>();
 	AGameCharacter* vender = Cast<AGameCharacter>(m_trade_mgr->GetVender());
 
 	if (nullptr != data && player && vender)
