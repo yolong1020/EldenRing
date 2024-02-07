@@ -27,13 +27,13 @@
 
 void UTradeInteractionGrid::InitInteractionGridWidget(const bool IsPlayer, const FMargin& margin)
 {
-	m_is_player	= IsPlayer;
+	m_is_player = IsPlayer;
 
 	FIntVector2 board = StorageBoardSize;
-	FVector2D	widget_size = FVector2D(SizeBox->GetWidthOverride(), SizeBox->GetHeightOverride());
+	FVector2D widget_size = FVector2D(SizeBox->GetWidthOverride(), SizeBox->GetHeightOverride());
 
-	m_colum			= board.X;
-	m_tile_size		= widget_size.X / m_colum;
+	m_colum		= board.X;
+	m_tile_size	= widget_size.X / m_colum;
 	double w_space	= (widget_size.X - (m_tile_size * board.X)) / (board.X - 1);
 	double h_space	= (widget_size.Y - (m_tile_size * board.Y)) / (board.Y - 1);
 	m_space_size	= FVector2D(w_space, h_space);
@@ -69,8 +69,8 @@ void UTradeInteractionGrid::RefreshGridWidget()
 		if (tile.X > 0) { position.X += (m_space_size.X * tile.X); }
 		if (tile.Y > 0) { position.Y += (m_space_size.Y * tile.Y); }
 
-		UPanelSlot*			panel_slot  = Canvas->AddChild(item_widget);
-		UCanvasPanelSlot*	canvas_slot = Cast<UCanvasPanelSlot>(panel_slot);
+		UPanelSlot*	  panel_slot  = Canvas->AddChild(item_widget);
+		UCanvasPanelSlot* canvas_slot = Cast<UCanvasPanelSlot>(panel_slot);
 
 		canvas_slot->SetSize(size);
 		canvas_slot->SetPosition(position);
@@ -161,7 +161,7 @@ bool UTradeInteractionGrid::NativeOnDrop(const FGeometry& InGeometry, const FDra
 
 		FPopupActiveBtn Active;
 		Active.BindLambda([&, payload]()->void {
-				AC0000*			player  = GetOwningPlayerPawn<AC0000>();
+				AC0000*		player  = GetOwningPlayerPawn<AC0000>();
 				AGameCharacter* vender	= Cast<AGameCharacter>(m_trade_mgr->GetVender());
 
 				const FItemData* data = payload->GetItemData();
@@ -183,10 +183,8 @@ bool UTradeInteractionGrid::NativeOnDrop(const FGeometry& InGeometry, const FDra
 				}
 			});
 		FPopupCancelBtn Cancle;
-		Cancle.BindLambda([&, payload]()->void {
-				m_trade_mgr->TryAddItem(true, payload);
-			});
-
+		Cancle.BindLambda([&, payload]()->void { m_trade_mgr->TryAddItem(true, payload); });
+		
 		popup->UpdataTwoButtonForTrade(EPopupType::EPT_Sell, payload, Active, Cancle);
 	}
 	else if (m_trade_mgr->TryAddItemAtTile(m_is_player, payload, m_start_tile_cursor))
@@ -219,7 +217,7 @@ bool UTradeInteractionGrid::NativeOnDragOver(const FGeometry& InGeometry, const 
 	x = FMath::Clamp(x, 0, x);
 	y = FMath::Clamp(y, 0, y);
 
-	dimension			= UKismetMathLibrary::Divide_IntPointInt(FIntPoint(x, y), 2);
+	dimension		= UKismetMathLibrary::Divide_IntPointInt(FIntPoint(x, y), 2);
 	mouse_position		= UKismetMathLibrary::Divide_Vector2DFloat(mouse_position, m_tile_size);
 	FIntPoint tile_pos	= UKismetMathLibrary::Subtract_IntPointIntPoint(FIntPoint(mouse_position.X, mouse_position.Y), dimension);
 
