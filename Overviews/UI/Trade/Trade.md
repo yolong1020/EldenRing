@@ -2,7 +2,7 @@
 
 # Trade
 ### * Init trade widget
-  > Blueprint에서 설정한 Slot Count에 따라 보관함 슬롯 수를 설정하고 상호 작용을 위한 초기화 작업을 진행합니다.
+  > Blueprint에서 설정한 Slot Count에 따라 거래 보관함 슬롯 수를 설정하고 상호 작용을 위한 초기화 작업을 진행합니다.
 
   ###### Trade Manager를 통하여 Trade의 각 위젯들을 초기화합니다. (Slot count, Delegate, etc)
   https://github.com/yolong1020/EldenRing/blob/9bc3b0f4022cdfa966450509556193acb8d53ced/Source/EldenRing/Private/System/TradeManager.cpp#L60-L100
