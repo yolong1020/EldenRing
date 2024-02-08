@@ -37,6 +37,7 @@
 
   ###### [01] 마우스 Input에 의한 거래로 팝업없이 현재 아이템이 NPC 혹은 플레이어 것인지 확인 후 캐릭터별로 구매, 판매 기능이 수행됩니다.
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L88-L129
+  ###### [01] 마우스 Input에 의한 거래로 팝업없이 현재 아이템이 NPC 혹은 플레이어 것인지 확인 후 캐릭터별로 구매, 판매 기능이 수행됩니다.
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L184-L245
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L272-L319
   https://github.com/yolong1020/EldenRing/blob/decb4891e7cbb23ae9f938fd0b817115d63d86e1/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L145-L197
