@@ -35,8 +35,7 @@
 ### * Purchase & Sell Item
   > Vender NPC로부터 재화를 소모하여 아이템을 구매하거나 아이템을 판매하여 재화를 얻을 수 있습니다.
 
-  ###### [01] 마우스 Input에 의한 거래로 현재 아이템이 NPC 혹은 플레이어 것인지 확인 후 각 캐릭터 별로 구매, 판매 기능이 수행됩니다. </br>
-  마우스 Input은 빠른 거래 기능이기 때문에 별도의 팝업을 노출하지 않습니다.
+  ###### [01] 마우스 Input에 의한 거래로 현재 아이템이 NPC 혹은 플레이어 것인지 확인 후 각 캐릭터 별로 구매, 판매 기능이 수행됩니다. </br> 마우스 Input은 빠른 거래 기능이기 때문에 별도의 팝업을 노출하지 않습니다.
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L88-L129
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L184-L245
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L272-L319
