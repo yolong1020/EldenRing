@@ -277,7 +277,7 @@ void UTradeItem::TradeProcess(const bool IsPurchase, const bool IsPurchaseEquip)
 	AC0000*		player = GetOwningPlayerPawn<AC0000>();
 	AGameCharacter* vender = Cast<AGameCharacter>(m_trade_mgr->GetVender());
 
-	if (nullptr != data && player && vender)
+	if (data && player && vender)
 	{
 		if (IsPurchase)
 		{
@@ -295,18 +295,8 @@ void UTradeItem::TradeProcess(const bool IsPurchase, const bool IsPurchaseEquip)
 
 		m_trade_mgr->TryUpdateGold(true, player->GetTotalGold());
 		m_trade_mgr->TryUpdateGold(false, vender->GetTotalGold());
-
-		if (IsPurchase && IsPurchaseEquip)
-		{
-			m_trade_mgr->TryRemoveItem(!IsPurchase, m_item_object);
-		}
-		else
-		{
-			m_trade_mgr->TryAddItem(IsPurchase, m_item_object);
-			m_trade_mgr->TryRemoveItem(!IsPurchase, m_item_object);
-		}
-
-		RemoveFromParent();
+		m_trade_mgr->TryRemoveItem(!IsPurchase, m_item_object);
+		if (!IsPurchase || !IsPurchaseEquip) { m_trade_mgr->TryAddItem(IsPurchase, m_item_object); }
 
 		UERGameInstance* instance = Cast<UERGameInstance>(GetGameInstance());
 		CHECK_INVALID_PTR_RetVal(instance)
@@ -315,5 +305,7 @@ void UTradeItem::TradeProcess(const bool IsPurchase, const bool IsPurchaseEquip)
 		UObserverManager* observer_mgr = instance->GetSubsystem<UObserverManager>();
 		CHECK_INVALID_PTR_RetVal(observer_mgr)
 		observer_mgr->TriggerEvent(EObserverEventType::EOET_SaveData);
+		
+		RemoveFromParent();
 	}
 }
