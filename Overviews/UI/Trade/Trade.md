@@ -39,7 +39,7 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/c070af3b-3b30-40b8-a621-7022385dd62b" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/06255a66-19e5-476e-9327-0ed88479c5bc" width="49.5%" height="49.5%"></br>
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L88-L129
-  ###### [01 - 02] 마우스 Drag Drop에 의한 거래로 마우스 Input의 좌 클릭처럼 팝업이 활성되어 판매 거래가 진행됩니다.
+  ###### [01 - 02] 마우스 Drag Drop을 통한 거래로 마우스 Input 좌 클릭처럼 팝업이 활성되어 판매 거래가 진행됩니다.
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/7d62837f-9e3f-4038-928e-5eb6180df07f" width="49.5%" height="49.5%"></br>
   https://github.com/yolong1020/EldenRing/blob/decb4891e7cbb23ae9f938fd0b817115d63d86e1/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L145-L197
   ###### [02] 키보드 Input에 의한 거래로 플레이어가 아이템 구매 시 즉시 착용을 함께 수행합니다.</br>만약 아이템이 플레이어 소유라면 즉시 착용만 수행하게 됩니다.
