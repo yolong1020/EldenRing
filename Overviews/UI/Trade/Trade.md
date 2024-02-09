@@ -36,7 +36,7 @@
   > Vender NPC로부터 재화를 소모하여 아이템을 구매하거나 아이템을 판매하여 재화를 얻을 수 있습니다.
 
   ###### [01 - 01] 마우스 Input을 통한 거래로 우 클릭은 팝업없이 현재 아이템의 소유자를 확인 후 구매 / 판매 기능을 수행합니다.</br>좌 클릭의 경우 NPC 보관함에서 구매 팝업이 활성되며 거래가 진행됩니다.
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/c070af3b-3b30-40b8-a621-7022385dd62b" width="49.5%" height="49.5%">
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/c070af3b-3b30-40b8-a621-7022385dd62b" width="49.5%" height="49.5%">|
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/06255a66-19e5-476e-9327-0ed88479c5bc" width="49.5%" height="49.5%"></br>
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L88-L129
   ###### [01 - 02] 마우스 Drag Drop에 의한 거래로 마우스 Input의 좌 클릭처럼 팝업이 활성되어 판매 거래가 진행됩니다.
