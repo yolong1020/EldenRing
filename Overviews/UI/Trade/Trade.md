@@ -39,7 +39,8 @@
   <figure class="half">
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/06255a66-19e5-476e-9327-0ed88479c5bc" width="40%" height="40%" align="left">
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/06255a66-19e5-476e-9327-0ed88479c5bc" width="40%" height="40%" align="right">
-  </figure></br>
+  </figure>
+  </br>
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L88-L129
   ###### [01 - 02] 마우스 Drag Drop에 의한 거래로 마우스 Input의 좌 클릭처럼 팝업이 활성되어 판매 거래가 진행됩니다.
   https://github.com/yolong1020/EldenRing/blob/decb4891e7cbb23ae9f938fd0b817115d63d86e1/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L145-L197
