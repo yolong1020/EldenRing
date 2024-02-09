@@ -37,9 +37,9 @@
 
   ###### [01 - 01] 마우스 Input을 통한 거래로 우 클릭은 팝업없이 현재 아이템의 소유자를 확인 후 구매 또는 판매 기능을 수행합니다.</br>좌 클릭의 경우 NPC 보관함에서 구매 팝업이 활성되며 거래가 진행됩니다.
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L88-L129
-  ###### [01 - 02] 마우스 Drag Drop에 의한 거래로 마우스 Input의 좌 클릭처럼 판매 / 구매 팝업이 활성되어 거래가 진행됩니다.
+  ###### [01 - 02] 마우스 Drag Drop에 의한 거래로 마우스 Input의 좌 클릭처럼 팝업이 활성되어 판매 거래가 진행됩니다.
   https://github.com/yolong1020/EldenRing/blob/decb4891e7cbb23ae9f938fd0b817115d63d86e1/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L145-L197
-  ###### [02] 키보드 Input에 의한 거래로 마우스 Input과 다르게 플레이어가 아이템 구매 시 즉시 착용을 함께 수행합니다.</br>만약 아이템이 플레이어 소유라면 즉시 착용만 수행하게 됩니다.
+  ###### [02] 키보드 Input에 의한 거래로 플레이어가 아이템 구매 시 즉시 착용을 함께 수행합니다.</br>만약 아이템이 플레이어 소유라면 즉시 착용만 수행하게 됩니다.
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L184-L245
   
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L272-L319
