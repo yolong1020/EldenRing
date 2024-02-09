@@ -43,6 +43,7 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/7d62837f-9e3f-4038-928e-5eb6180df07f" width="49.5%" height="49.5%"></br>
   https://github.com/yolong1020/EldenRing/blob/decb4891e7cbb23ae9f938fd0b817115d63d86e1/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L145-L197
   ###### [02] 키보드 Input에 의한 거래로 플레이어가 아이템 구매 시 즉시 착용을 함께 수행합니다.</br>만약 아이템이 플레이어 소유라면 즉시 착용만 수행하게 됩니다.
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9cb8009e-e8e6-4251-a56c-df0e312db1ff" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/76c1d8a2-f5dd-40b7-9a1a-1a7d409a481d" width="49.5%" height="49.5%"></br>
   https://github.com/yolong1020/EldenRing/blob/117b7a1f1e985fdc4adfa030ed3973386def500b/Source/EldenRing/Private/UI/Trade/TradeItem.cpp#L184-L245
   </br>
