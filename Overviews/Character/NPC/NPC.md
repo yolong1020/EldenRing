@@ -34,7 +34,7 @@
 #### * Assembly Point
   > 캐릭터 에디터에서 설정된 정찰 시간 이후에 배정된 집결지에서 휴식을 취하며 타 NPC와 정찰을 교대합니다.
   </br>
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/fc8867e0-7fdc-4cdc-b3aa-c2f77dcb7669" width="49.5%" height="49.5%"></img>
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/40a91a11-3099-44c4-bbec-99b3f48f7f46" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/25a3b779-5c6a-4efc-a22b-b287428e12e5" width="49.5%" height="49.5%"> 
 
   ###### [Step 01] 에디터에서 Actor에 집결지를 등록시켰다면 정찰 이후 휴식을 요청할 수 있도록 Event를 등록합니다.
