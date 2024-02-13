@@ -1,6 +1,6 @@
 # Soldier of Godrick
 #### * Change Battle Mode
-  > 에디터에서 지정된 patrol Point들을 정찰 구역으로 설정하여 NPC가 순회 정찰을 진행합니다.
+  > 병사가 피격을 받거나 혹은 적을 발견했을시, 전투 태새로 변경합니다.
   </br>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e0b2874b-5ffb-4518-9a47-ce553fb4c4b7" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9b454323-8dab-439c-a768-69dcaf978844" width="49.5%" height="49.5%"> 
