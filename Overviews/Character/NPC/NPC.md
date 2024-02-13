@@ -1,6 +1,11 @@
 # NPC
 #### * Init Default Component & Values
   > Mesh, Collision 등 Component 생성 및 초기화입니다.
+  </br>
+  ###### Step 01. 
+  https://github.com/yolong1020/EldenRing/blob/e6bc14be5355ea76a3c64fa6c43ca390684d1d26/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L105-L130
+  
+  </br>
 ---
 #### * Death Process : 
   > 캐릭터 사망시 Component 처리와 이펙트 연출 과정입니다.
