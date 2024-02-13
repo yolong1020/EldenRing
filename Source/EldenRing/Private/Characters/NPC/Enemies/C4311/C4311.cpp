@@ -322,7 +322,7 @@ void AC4311::StartCombat()
 
 	m_is_resting    = false;
 	m_is_patrolling = false;
-	m_action_state = EActionState_NPC::EASN_Swap;
+	m_action_state  = EActionState_NPC::EASN_Swap;
 }
 
 void AC4311::StartAttack()
