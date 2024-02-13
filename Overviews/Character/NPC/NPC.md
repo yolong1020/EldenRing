@@ -18,8 +18,8 @@
 #### * Patrol
   > 캐
   </br>
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e8abfa97-d34c-4d93-8ef5-19489a25dca0" width="49.5%" height="49.5%"></img>
-  </br>
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e8abfa97-d34c-4d93-8ef5-19489a25dca0" width="49.5%" height="49.5%"> 
+
   ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간을 도출합니다.
   https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L199-L223
   </br>
