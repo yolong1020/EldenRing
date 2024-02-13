@@ -4,8 +4,6 @@
 
   ###### [Step 01] Health Bar와 PawnSensing Component, 그리고 Level의 로드 상태에 따라 Spawn 위치를 초기화합니다.
   https://github.com/yolong1020/EldenRing/blob/e6bc14be5355ea76a3c64fa6c43ca390684d1d26/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L105-L130
-  </br>
-  ###### [Step 02] 
   https://github.com/yolong1020/EldenRing/blob/6e79f5f9faabbc8e9469d0ce1b7bdebdd020a588/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L151-L154
   </br>
   ###### [Step 03 - 01] 
