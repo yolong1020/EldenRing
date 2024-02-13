@@ -117,7 +117,7 @@ float AC4311::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AC
 
 	if (EVigilanceState::EVS_Vigilance == m_vigilance_state)
 	{
-		// Å¸°Ù º¯°æ Á¶°Ç ÇÊ¿ä
+		// íƒ€ê²Ÿ ë³€ê²½ ì¡°ê±´ í•„ìš”
 		// m_actor_target = EventInstigator->GetPawn();
 
 
@@ -242,7 +242,7 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 
 void AC4311::PawnSeen(APawn* seen_pawn)
 {
-	/* if (¼¼·Â °Ë»ç) return; */
+	/* if (ì„¸ë ¥ ê²€ì‚¬) return; */
 
 	AGameCharacter* target = Cast<AGameCharacter>(seen_pawn);
 	if (!target || IsCantMoveState()) return;
@@ -262,7 +262,7 @@ void AC4311::PawnSeen(APawn* seen_pawn)
 	{
 		OnCheckMissingTarget();
 
-		// ¹üÀ§ ³»
+		// ë²”ìœ„ ë‚´
 		if (IsInTargetRange(m_actor_target, m_radius_tracking))
 		{
 			if (IsInTargetRange(m_actor_target, m_radius_confront) == false)
@@ -280,7 +280,7 @@ void AC4311::PawnSeen(APawn* seen_pawn)
 				GetWorldTimerManager().ClearTimer(m_timer_reserve_action);
 			}
 		}
-		// ¹üÀ§ ÀÌÅ»
+		// ë²”ìœ„ ì´íƒˆ
 		else
 		{
 			// FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
@@ -474,12 +474,7 @@ void AC4311::OnWatchingSwitch()
 		const float wait_sec = FMath::RandRange(m_time_wait_min, m_time_wait_max);
 		GetWorldTimerManager().SetTimer(m_timer_watching, this, &AC4311::OnWatchingFinished, wait_sec);
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%s OnWatchingSwitch -> MoveToPatrolPoint"), *m_unique_name)
-
-		MoveToPatrolPoint();
-	}
+	else { MoveToPatrolPoint(); }
 }
 
 void AC4311::OnTurnEnd()
@@ -753,9 +748,9 @@ void AC4311::OnNextAttack()
 		m_attack_strength > EAttackStrength::EATKS_Normal)
 		return;
 
-	// 1. °ø°İ ¼º°øÀÎ °æ¿ì
-	// 2. °ø°İ ¹üÀ§¿¡ ´ë»óÀÌ ÀÖ´Â °æ¿ì
-	// 3. ÇÑ¹ø ´õ °ø°İ or °ø°İ ÁßÁö
+	// 1. ê³µê²© ì„±ê³µì¸ ê²½ìš°
+	// 2. ê³µê²© ë²”ìœ„ì— ëŒ€ìƒì´ ìˆëŠ” ê²½ìš°
+	// 3. í•œë²ˆ ë” ê³µê²© or ê³µê²© ì¤‘ì§€
 	if (m_attack_success || IsInTargetRange(m_actor_target, m_radius_attack) || (1 == FMath::RandRange(0, 1)))
 	{
 		FName next_section = ChooseNextAttack();
@@ -778,8 +773,8 @@ void AC4311::OnNextAttack()
 		return;
 	}
 
-	//	2. °æ°è ÀÚ¼¼ - ¹æ¾î / ÀÏ¹İ
-	//		> ÇÃ·¹ÀÌ¾î Ã¼·Â¿¡ µû¶ó¼­ °ø°İÇü ¹æ¾îÇüÀ¸·Î ºĞ¸®ÇÑ´Ù.
+	//	2. ê²½ê³„ ìì„¸ - ë°©ì–´ / ì¼ë°˜
+	//		> í”Œë ˆì´ì–´ ì²´ë ¥ì— ë”°ë¼ì„œ ê³µê²©í˜• ë°©ì–´í˜•ìœ¼ë¡œ ë¶„ë¦¬í•œë‹¤.
 }
 
 void AC4311::OnEndAttack()
