@@ -9,6 +9,7 @@
   https://github.com/yolong1020/EldenRing/blob/2686a7b1ea622e62f955f1ed1d61de04e6048d58/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L243-L289
   https://github.com/yolong1020/EldenRing/blob/233c4f3a063e5d102b1eb215b4d19cca4fc687ae/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L314-L326
   https://github.com/yolong1020/EldenRing/blob/73244f3847390d239d978cd85bed74aa4f8cc33b/Source/EldenRing/Private/Characters/NPC/GameCharacter_AnimInstance.cpp#L117-L121
+  https://github.com/yolong1020/EldenRing/blob/ff8ab74441625804f894632f27d72827a478767a/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L665-L703
   </br>
 ---
 #### * Assembly Point
