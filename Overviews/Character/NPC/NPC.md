@@ -7,6 +7,9 @@
   ###### Step 02. 
   https://github.com/yolong1020/EldenRing/blob/ec2bd163de2ae2409d90b577fef49e66b5eb3700/Source/EldenRing/Public/GameBase/ERGameInstance.h#L35-L39
   </br>
+  ###### Step 03. 
+  https://github.com/yolong1020/EldenRing/blob/3e40e9ea14935ca05790f050c704db9ef6d152f8/Source/EldenRing/Private/Levels/GameField.cpp#L65-L108
+  </br>
 ---
 #### * Death Process : 
   > 캐릭터 사망시 Component 처리와 이펙트 연출 과정입니다.
