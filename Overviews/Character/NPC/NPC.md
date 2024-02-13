@@ -19,6 +19,7 @@
 
   ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간을 도출합니다.
   https://github.com/yolong1020/EldenRing/blob/9df4da650f57f5ce2e5188f5e43b8a6efd15b771/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L426-L438
+  https://github.com/yolong1020/EldenRing/blob/782c932b733fb24e3fea2aafafa5399941292032/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L301-L308
   </br>
 ---
 #### * Assemble Point
