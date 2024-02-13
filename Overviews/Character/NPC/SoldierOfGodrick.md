@@ -8,6 +8,7 @@
   ###### [Step 01] 에디터에서 설정한 정찰 시간만큼 타이머를 설정하고 캐릭터와 목적지 방향의 일치 여부에 따라 방향 전환 또는 전진을 진행합니다.
   https://github.com/yolong1020/EldenRing/blob/2686a7b1ea622e62f955f1ed1d61de04e6048d58/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L243-L289
   https://github.com/yolong1020/EldenRing/blob/233c4f3a063e5d102b1eb215b4d19cca4fc687ae/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L314-L326
+  https://github.com/yolong1020/EldenRing/blob/73244f3847390d239d978cd85bed74aa4f8cc33b/Source/EldenRing/Private/Characters/NPC/GameCharacter_AnimInstance.cpp#L117-L121
   </br>
 ---
 #### * Assembly Point
