@@ -55,6 +55,7 @@
   ###### [Step 04 - 03] 휴식을 예약한 NPC는 휴식처로 이동 진행과 상태를 변경합니다.
   https://github.com/yolong1020/EldenRing/blob/d10785f149dba33bd42fc35a94303d3e6a9a9410/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L280-L292
   </br>
-  ###### [Step 05] 휴식처에서 이용이 가능하다 판단이되면 집결지에 휴식처 사용 요청을 전달합니다.
-  https://github.com/yolong1020/EldenRing/blob/99ec7e873cf0fdcc9b40f3d243c9fbd3dc5e399e/Source/EldenRing/Private/FieldObject/AssemblyPoint/AssemblyPoint.cpp#L55-L70
+  ###### [Step 05] 휴식처에 도달하면 
+  https://github.com/yolong1020/EldenRing/blob/bf02f644eb1fa4c8f7d13f3891d9a7f980e9b794/Source/EldenRing/Private/FieldObject/AssemblyPoint/AssemblePointObject.cpp#L48-L63
+  https://github.com/yolong1020/EldenRing/blob/bf02f644eb1fa4c8f7d13f3891d9a7f980e9b794/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L461-L487
   </br>
