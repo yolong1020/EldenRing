@@ -18,7 +18,7 @@ DECLARE_MULTICAST_DELEGATE(FLevelLoadCompleteEvent);
 UENUM(BlueprintType)
 enum class ELevelLoadState : uint8
 {
-	ELLS_Start		UMETA(DisplayName = "Start"),
+	ELLS_Start	UMETA(DisplayName = "Start"),
 	ELLS_Loading	UMETA(DisplayName = "Loading"),
 	ELLS_Complete	UMETA(DisplayName = "Complete")
 };
@@ -59,8 +59,8 @@ public:
 
 	void ResetSaveData();
 
-	FORCEINLINE void SetAsNewGame(const bool IsNew)		{ m_is_new_game = IsNew; }
-	FORCEINLINE const bool IsNewGame()					{ return m_is_new_game; }
+	FORCEINLINE void SetAsNewGame(const bool IsNew)	{ m_is_new_game = IsNew; }
+	FORCEINLINE const bool IsNewGame()		{ return m_is_new_game; }
 
 private:
 	const TWeakObjectPtr<class UERSaveData> GetGameData();
@@ -69,6 +69,6 @@ private:
 
 	FLevelLoadCompleteEvent m_event;
 
-	ELevelLoadState m_load_state;
+	ELevelLoadState 	m_load_state;
 	bool			m_is_new_game;
 };
