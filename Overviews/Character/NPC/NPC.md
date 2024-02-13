@@ -21,28 +21,10 @@
   ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간을 도출합니다.
   https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L199-L223
   </br>
-  ###### Step 02. Controller 및 MovementComponent 비활성 후 캐릭터와 무기 Fade Out을 진행합니다.
-  https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L321-L362
-  </br>
-  ###### Step 03. 이펙트 연출 후 엑터를 파괴합니다.
-  https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L162-L168
-  </br>
-  ###### Step 04. 엑터가 소유한 무기를 파괴합니다.
-  https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L177-L191
-  </br>
 ---
 #### * Assemble Point
   > 캐릭터 사망시 Component 처리와 이펙트 연출 과정입니다.
   
   ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간을 도출합니다.
   https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L199-L223
-  </br>
-  ###### Step 02. Controller 및 MovementComponent 비활성 후 캐릭터와 무기 Fade Out을 진행합니다.
-  https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L321-L362
-  </br>
-  ###### Step 03. 이펙트 연출 후 엑터를 파괴합니다.
-  https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L162-L168
-  </br>
-  ###### Step 04. 엑터가 소유한 무기를 파괴합니다.
-  https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L177-L191
   </br>
