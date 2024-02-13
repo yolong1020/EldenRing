@@ -287,14 +287,8 @@ void ANPC_Character::MoveToAssemblePoint(AAssemblePointObject* const PointObject
 
 	FVector dest = PointObject->GetActionLocation();
 	EGameDirection	direction = FCommonFunctions::FindDirection(this, dest);
-	if (direction == EGameDirection::EGD_Front)
-	{
-		MoveToLocation(dest, 0, false);
-	}
-	else if (direction != EGameDirection::EGD_None)
-	{
-		StartTurn(direction);
-	}
+	if      (direction == EGameDirection::EGD_Front) { MoveToLocation(dest, 0, false); }
+	else if (direction != EGameDirection::EGD_None)  { StartTurn(direction); }
 }
 
 void ANPC_Character::MoveToPatrolPoint()
