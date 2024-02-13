@@ -37,6 +37,9 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/fc8867e0-7fdc-4cdc-b3aa-c2f77dcb7669" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/25a3b779-5c6a-4efc-a22b-b287428e12e5" width="49.5%" height="49.5%"> 
 
-  ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간을 도출합니다.
-  https://github.com/yolong1020/EldenRing/blob/c53f020d33f9d04b90e30f01418c4b8a379f6536/Source/EldenRing/Private/Characters/GameCharacter.cpp#L199-L223
+  ###### Step 01. 초기화를 진행할때 에디터에서 Actor에 집결지를 등록시켰다면 정찰 이후 휴식을 요청하도록 Event를 등록합니.
+  https://github.com/yolong1020/EldenRing/blob/6506fdbd5ceb2d4ac179de25628c3aefc26d5c90/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L93-L96
+  https://github.com/yolong1020/EldenRing/blob/6506fdbd5ceb2d4ac179de25628c3aefc26d5c90/Source/EldenRing/Private/FieldObject/AssemblyPoint/AssemblyPoint.cpp#L76-L92
   </br>
+
+  https://github.com/yolong1020/EldenRing/blob/6506fdbd5ceb2d4ac179de25628c3aefc26d5c90/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L42-L54
