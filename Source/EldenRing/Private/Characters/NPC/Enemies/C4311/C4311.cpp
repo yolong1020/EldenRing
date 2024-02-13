@@ -784,7 +784,6 @@ void AC4311::OnReactEnd()
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("OnReactEnd : StartTurn"));
 		StartTurn(direction);
 	}
 }
