@@ -41,6 +41,10 @@
   https://github.com/yolong1020/EldenRing/blob/6506fdbd5ceb2d4ac179de25628c3aefc26d5c90/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L93-L96
   https://github.com/yolong1020/EldenRing/blob/6506fdbd5ceb2d4ac179de25628c3aefc26d5c90/Source/EldenRing/Private/FieldObject/AssemblyPoint/AssemblyPoint.cpp#L76-L92
   </br>
-  ###### [Step 01] 정찰 중 타이머가 종료되면 소속된 집결지에 휴식을 요청합니다.
+  ###### [Step 02] 정찰 중 타이머가 종료되면 소속된 집결지에 휴식을 요청합니다.
   https://github.com/yolong1020/EldenRing/blob/36045d4e07d39f0f9d77df92cd67cdad0a472381/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L98-L102
   https://github.com/yolong1020/EldenRing/blob/0ab9d78cbdc2e640e78fec7b6f2f88c9b0b30b2d/Source/EldenRing/Private/FieldObject/AssemblyPoint/AssemblyPoint.cpp#L47-L53
+  </br>
+  ###### [Step 03] 집결지에 연결된 휴식처는 예약되거나 사용중인 상태를 확인하고 집결지에 Callback을 보내거나 혹은 대기합니다.
+  https://github.com/yolong1020/EldenRing/blob/d7daa2f1c786f453d7356ce52d4ccedaeb59806f/Source/EldenRing/Private/FieldObject/AssemblyPoint/AssemblePointObject.cpp#L65-L83
+  </br>
