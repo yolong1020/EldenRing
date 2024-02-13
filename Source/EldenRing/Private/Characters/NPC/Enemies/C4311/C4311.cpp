@@ -141,9 +141,9 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 {
 	CHECK_INVALID_PTR(m_anim_instance)
 
-	bool			is_need_blend			= true;
-	FString			hit_section_postfix		= "";
-	int32			selected_index			= 0;
+	bool		is_need_blend		= true;
+	FString		hit_section_postfix	= "";
+	int32		selected_index		= 0;
 
 	UAnimMontage*	montage_with_direction	= nullptr;
 	UAnimMontage*	montage_no_direction	= nullptr;
@@ -152,11 +152,11 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 	{
 		case EAttackWeight::EAW_Small:
 		{
-			hit_section_postfix		= FString("Small");
+			hit_section_postfix	= FString("Small");
 		}break;
 		case EAttackWeight::EAW_Medium:
 		{
-			hit_section_postfix		= FString("Medium");
+			hit_section_postfix	= FString("Medium");
 			montage_no_direction	= m_montage_hit_medium;
 			montage_with_direction	= m_montage_hit_medium_direction;
 		} break;
@@ -164,7 +164,7 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 		case EAttackWeight::EAW_ExtraHeavy:
 		case EAttackWeight::EAW_UltraHeavy: 
 		{
-			hit_section_postfix		= FString("UltraHeavy");
+			hit_section_postfix	= FString("UltraHeavy");
 			montage_with_direction	= nullptr;
 
 			PlayMontageSection(m_montage_hit_ultra_heavy_directiony, FName(hit_section_postfix));
@@ -184,13 +184,13 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 		selected_index = FMath::RandRange(0, montage_no_direction->GetNumSections() - 1);
 		switch (hit_direction)
 		{
-			case EGameDirection::EGD_Back:	hit_section_postfix	+= FString("_Back");  break;
-			case EGameDirection::EGD_Left:	hit_section_postfix	+= FString("_Left");  break;
-			case EGameDirection::EGD_Right:	hit_section_postfix	+= FString("_Right"); break;
+			case EGameDirection::EGD_Back:	hit_section_postfix += FString("_Back");  break;
+			case EGameDirection::EGD_Left:	hit_section_postfix += FString("_Left");  break;
+			case EGameDirection::EGD_Right:	hit_section_postfix += FString("_Right"); break;
 			case EGameDirection::EGD_Front: 
 			{
-				is_need_blend		= false;
-				selected_index		= FMath::RandRange(1, montage_no_direction->GetNumSections());
+				is_need_blend	    = false;
+				selected_index	    = FMath::RandRange(1, montage_no_direction->GetNumSections());
 				hit_section_postfix += (FString("_0") + FString::FromInt(selected_index));
 			} break;
 			default: return;
@@ -209,23 +209,23 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 		bool is_already_clear = false;
 		for (FAnimMontageInstance* instance : m_anim_instance->MontageInstances)
 		{
-			if (false	== instance->bPlaying	||
-				nullptr == instance->Montage	||
-				false	== instance->Montage->GetFName().ToString().Contains("AM_HitReact")) { continue; }
+			if (false   == instance->bPlaying  ||
+			    nullptr == instance->Montage   ||
+			    false   == instance->Montage->GetFName().ToString().Contains("AM_HitReact")) continue;
 
 			int32 index = instance->Montage->GetSectionIndex(FName(hit_section_postfix));
-			if (0 > index) { continue; }
+			if (0 > index) continue;
 
-			FCompositeSection section		= instance->Montage->GetAnimCompositeSection(index);
-			int32			  segment_index = section.GetSegmentIndex();
+			FCompositeSection section	= instance->Montage->GetAnimCompositeSection(index);
+			int32		  segment_index = section.GetSegmentIndex();
 
-			if (false == instance->Montage->SlotAnimTracks.IsValidIndex(0)) { continue; }
+			if (false == instance->Montage->SlotAnimTracks.IsValidIndex(0)) continue;
 
 			FSlotAnimationTrack& default_slot = instance->Montage->SlotAnimTracks[0];
-			if (false == default_slot.AnimTrack.AnimSegments.IsValidIndex(segment_index)) { continue; }
+			if (false == default_slot.AnimTrack.AnimSegments.IsValidIndex(segment_index)) continue;
 
 			FAnimSegment segment = default_slot.AnimTrack.AnimSegments[segment_index];
-			float		 length	 = segment.GetLength();
+			float	     length  = segment.GetLength();
 
 			bool is_need_clear = (hit_direction == EGameDirection::EGD_Front) ? (instance->Montage == montage_no_direction) : (instance->Montage == montage_with_direction);
 			if (false == is_already_clear && is_need_clear)
@@ -265,7 +265,7 @@ void AC4311::PawnSeen(APawn* seen_pawn)
 			if (IsInTargetRange(m_actor_target, m_radius_confront) == false)
 			{
 				if (m_action_state != EActionState_NPC::EASN_Attacking &&
-					m_action_state != EActionState_NPC::EASN_TakeExecution)
+				    m_action_state != EActionState_NPC::EASN_TakeExecution)
 				{
 					ChangeRootMotionMode(ERootMotionMode::RootMotionFromEverything);
 					MoveToTarget(m_actor_target, m_radius_attack * 0.5);
@@ -344,19 +344,18 @@ void AC4311::StartAttack()
 	FString section_name = "";
 	if (m_attack_strength != EAttackStrength::EATKS_Normal) { 
 		if ((FMath::Rand() % 100) > 50) { section_name = FString("Strong_Attack_"); }
-		else							{ section_name = FString("Dash_Attack"); }
+		else				{ section_name = FString("Dash_Attack"); }
 	}
 	else { section_name = FString("Attack_"); }
 
 	if (section_name != FString("Dash_Attack")) {
 		if ((FMath::Rand() % 100) > 50) { section_name += FString("01"); }
-		else							{ section_name += FString("02"); }
+		else				{ section_name += FString("02"); }
 	}
 
 	CHECK_INVALID_PTR(m_equiped_weapon_R)
 	m_equiped_weapon_R->SetAttackWeight(m_equip_state, m_attack_strength, m_attack_type_prev);
 
-	//UE_LOG(LogTemp, Warning, TEXT("Play Montage : Start Attack"));
 	PlayMontageSection(m_montage_attack, FName(section_name));
 
 	m_attack_name_prev = FName(section_name);
@@ -376,14 +375,12 @@ void AC4311::StartTurn(const EGameDirection& direction)
 	FString post_fix = FString();
 	switch (direction)
 	{
-		case EGameDirection::EGD_Back:	post_fix = FString("Back"); break;
-		case EGameDirection::EGD_Left:	post_fix = FString("Left"); break;
+		case EGameDirection::EGD_Back:	post_fix = FString("Back");  break;
+		case EGameDirection::EGD_Left:	post_fix = FString("Left");  break;
 		case EGameDirection::EGD_Right: post_fix = FString("Right"); break;
 	}
 
 	PlayMontageSection(m_montage_turn, FName(pre_fix + post_fix));
-
-	// m_action_state = EActionState_NPC::EASN_Turn;
 }
 
 void AC4311::StartConfront()
@@ -431,7 +428,6 @@ void AC4311::OnCheckMissingTarget()
 {
 	if (IsInSight(m_actor_target))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("OnCheckMissingTarget : Catch Target"));
 		GetWorldTimerManager().SetTimer(m_timer_sight, this, &AC4311::OnCheckMissingTarget, m_sec_kwon_missing_target);
 	}
 	else if (IsInTargetRange(m_actor_target, m_radius_tracking))
@@ -446,7 +442,6 @@ void AC4311::OnCheckMissingTarget()
 	}
 	else if (false == IsInTargetRange(m_actor_target, m_radius_tracking))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("OnCheckMissingTarget : Missing Target"));
 		GetWorldTimerManager().ClearTimer(m_timer_sight);
 		FinishVigilance();
 	}
@@ -614,11 +609,11 @@ void AC4311::FinishVigilance()
 
 const bool AC4311::IsCantMoveState()
 {
-	return (m_action_state == EActionState_NPC::EASN_HitReact ||
-			m_action_state == EActionState_NPC::EASN_GuardReact ||
-			m_action_state == EActionState_NPC::EASN_Swap ||
-			m_action_state == EActionState_NPC::EASN_TakeExecution ||
-			m_action_state == EActionState_NPC::EASN_Stunning ||
+	return (m_action_state == EActionState_NPC::EASN_HitReact 		||
+			m_action_state == EActionState_NPC::EASN_GuardReact 	||
+			m_action_state == EActionState_NPC::EASN_Swap 		||
+			m_action_state == EActionState_NPC::EASN_TakeExecution 	||
+			m_action_state == EActionState_NPC::EASN_Stunning 	||
 			m_death_pose   != EDeathPose::EDP_Alive);
 }
 
