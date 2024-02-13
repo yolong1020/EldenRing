@@ -17,8 +17,10 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/40e9e4ee-a3ad-4f68-8f2e-2b401f9d0a03" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e8abfa97-d34c-4d93-8ef5-19489a25dca0" width="49.5%" height="49.5%"> 
 
-  ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간을 도출합니다.
+  ###### [Step 01] 에디터에서 설정한 정찰 시간만큼 타이머를 설정하고 목적지까지 이동을 실행합니다.
   https://github.com/yolong1020/EldenRing/blob/9df4da650f57f5ce2e5188f5e43b8a6efd15b771/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L426-L438
+  </br>
+  ###### [Step 02 - 01] 
   https://github.com/yolong1020/EldenRing/blob/782c932b733fb24e3fea2aafafa5399941292032/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L301-L308
   </br>
 ---
