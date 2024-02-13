@@ -50,14 +50,14 @@ void AAssemblePointObject::OnSphereOverlap(UPrimitiveComponent* OverlappedCompon
 	ANPC_Character*	  npc	 = Cast<ANPC_Character>(OtherActor);
 	USphereComponent* sphere = Cast<USphereComponent>(OtherComp);
 
-	if (!npc || !sphere	|| sphere->GetFName() != FName("Interaction Sphere")) return;
+	if (!npc || !sphere || sphere->GetFName() != FName("Interaction Sphere")) return;
 
 	bool result = npc->InAssmeblyPointAction();
 	if (result)
 	{
 		m_time_using_start = GetWorld()->TimeSeconds;
-		m_is_using		= true;
-		m_is_reserved	= false;
+		m_is_using	   = true;
+		m_is_reserved	   = false;
 		m_sphere_action->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 }
