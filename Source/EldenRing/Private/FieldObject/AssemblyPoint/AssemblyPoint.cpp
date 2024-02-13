@@ -46,8 +46,6 @@ void AAssemblyPoint::BeginPlay()
 
 void AAssemblyPoint::ReservateRest(ANPC_Character* const NewMember)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%s Reservate Rest"), *NewMember->GetUniqueName())
-
 	if (m_request_list.Contains(NewMember)) return;
 
 	m_request_list.Add(NewMember);
