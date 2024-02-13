@@ -665,7 +665,7 @@ void AC4311::OnSwapWeaponR()
 void AC4311::OnChangeVigilanceState(const EVigilanceState& state)
 {
 	m_action_state = (m_action_state == EActionState_NPC::EASN_Swap) ? EActionState_NPC::EASN_Unoccupied : m_action_state;
-	if (IsCantMoveState()) { return; }
+	if (IsCantMoveState()) return;
 
 	Super::OnChangeVigilanceState(state);
 
@@ -685,10 +685,6 @@ void AC4311::OnChangeVigilanceState(const EVigilanceState& state)
 	}
 	else if (EVigilanceState::EVS_Vigilance == state)
 	{
-		// Chase or Shot
-		//FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-		//UE_LOG(LogTemp, Warning, TEXT("OnChangeVigilanceState State : %s"), *state);
-
 		CHECK_INVALID_PTR(m_widget_healthbar)
 		m_widget_healthbar->SetVisibility(true);
 
@@ -697,17 +693,12 @@ void AC4311::OnChangeVigilanceState(const EVigilanceState& state)
 		if (direction == EGameDirection::EGD_Front)
 		{
 			 m_action_state = EActionState_NPC::EASN_Chasing;
-
 			 MoveToTarget(m_actor_target, m_radius_attack * 0.5);
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("OnChangeVigilanceState : StartTurn"));
 			StartTurn(direction);
 		}
-
-		//m_action_state = EActionState_NPC::EASN_Chasing;
-		//MoveToTarget(m_actor_target);
 	}
 }
 
