@@ -27,7 +27,7 @@
   https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/GameCharacter_AnimInstance.cpp#L153-L168
   </br>
   ###### [Step 03] 각 자식 클래스에서 목적지에 도달했을 때, 처리할 행동들을 결정해줍니다. (ex : C4311)
-  https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L726-L748
+  https://github.com/yolong1020/EldenRing/blob/3dfcb18ab1d642012182c9589f30a13c399d12cc/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L721-L735
   https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L305-L319
   
 ---
