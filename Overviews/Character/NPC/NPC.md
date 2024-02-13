@@ -14,7 +14,7 @@
 #### * Patrol
   > 캐
   </br>
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e2aaa8a9-4ee1-43a1-af13-6a39abf77d50" width="49.5%" height="49.5%"></img>
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/1cb844b6-5d7c-415e-a5c0-50fb1ad47579" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e8abfa97-d34c-4d93-8ef5-19489a25dca0" width="49.5%" height="49.5%"> 
 
   ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간을 도출합니다.
