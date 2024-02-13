@@ -300,21 +300,11 @@ void ANPC_Character::MoveToAssemblePoint(AAssemblePointObject* const PointObject
 
 void ANPC_Character::MoveToPatrolPoint()
 {
-	FVector target = m_target_patrol->GetActorLocation();
-
 	m_action_state = EActionState_NPC::EASN_Patrolling;
 
-	EGameDirection direction = FCommonFunctions::FindDirection(this, target);
-	if (direction == EGameDirection::EGD_Front)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%s MoveToPatrolPoint -> MoveToLocation"), *m_unique_name)
-		MoveToLocation(target, -1.f);
-	}
-	else if (direction != EGameDirection::EGD_None)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%s MoveToPatrolPoint -> StartTurn"), *m_unique_name)
-		StartTurn(direction);
-	}
+	EGameDirection direction = FCommonFunctions::FindDirection(this, m_target_patrol->GetActorLocation());
+	if      (direction == EGameDirection::EGD_Front) { MoveToLocation(target, -1.f); }
+	else if (direction != EGameDirection::EGD_None)  { StartTurn(direction); }
 }
 
 const uint8 ANPC_Character::GetTargetDirectionFromNPC()
