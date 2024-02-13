@@ -431,15 +431,9 @@ void ANPC_Character::StartPatrol()
 	m_is_patrolling = true;
 	m_is_resting	= false;
 
-	// TDelegate patrol_delegate = FTimerDelegate::CreateLambda([&]()->void {
-	// 	GetWorldTimerManager().ClearTimer(m_timer_patrol);
-	// 	if (m_request_callback.IsBound()) m_request_callback.Broadcast();
-	// 	});
-
 	GetWorldTimerManager().ClearTimer(m_timer_patrol);
 	GetWorldTimerManager().SetTimer(m_timer_patrol, this, &ANPC_Character::StartPatrolTimer, m_time_patrol, false);
-
-	UE_LOG(LogTemp, Warning, TEXT("%s StartPatrol -> MoveToPatrolPoint"), *m_unique_name)
+	
 	MoveToPatrolPoint();
 }
 
