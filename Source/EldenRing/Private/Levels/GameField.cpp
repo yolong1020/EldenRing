@@ -76,7 +76,7 @@ void AGameField::StartStage()
 		}
 	}
 
-	USoundBase* sound =	LoadObject<USoundBase>(nullptr, TEXT("SoundWave'/Game/EldenRing/Sounds/BackgroundMusic/Field.Field'"));
+	USoundBase* sound = LoadObject<USoundBase>(nullptr, TEXT("SoundWave'/Game/EldenRing/Sounds/BackgroundMusic/Field.Field'"));
 	CHECK_INVALID_PTR(sound)
 	m_sound_mgr->PlayStageBGM(sound);
 
