@@ -399,7 +399,6 @@ void ANPC_Character::OnRestingSwitch()
 
 void ANPC_Character::OnRestingEnd(const FString& section_name)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%s OnRestingEnd"), *GetUniqueName())
 	GetCapsuleComponent()->SetCanEverAffectNavigation(false);
 
 	m_is_resting		= false;
