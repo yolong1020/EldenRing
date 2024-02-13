@@ -64,7 +64,6 @@ void AAssemblePointObject::OnSphereOverlap(UPrimitiveComponent* OverlappedCompon
 
 void AAssemblePointObject::ReportUsingTime()
 {
-	// UE_LOG(LogTemp, Warning, TEXT("%s Reservate Rest"), *NewMember->GetUniqueName())
 	if (false == m_is_using && false == m_is_reserved)
 	{
 		m_report_callback.Execute(this);
@@ -78,7 +77,7 @@ void AAssemblePointObject::ReportUsingTime()
 		return;
 	}
 
-	m_latent.UUID = FGuid::NewGuid().A;
+	m_latent.UUID     = FGuid::NewGuid().A;
 	double delay_time = abs(m_time_limit - total_using);
 	UKismetSystemLibrary::Delay(GetWorld(), delay_time, m_latent);
 }
