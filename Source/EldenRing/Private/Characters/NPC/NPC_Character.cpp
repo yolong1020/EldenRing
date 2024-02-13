@@ -97,7 +97,6 @@ void ANPC_Character::RegisteAssemblyPointMember()
 
 void ANPC_Character::StartPatrolTimer()
 {
-	UE_LOG(LogTemp, Warning, TEXT("%s Patrol Timer is Over"), *m_unique_name)
 	GetWorldTimerManager().ClearTimer(m_timer_patrol);
 	if (m_request_callback.IsBound()) m_request_callback.Broadcast();
 }
