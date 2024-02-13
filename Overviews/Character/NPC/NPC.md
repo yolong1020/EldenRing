@@ -23,7 +23,6 @@
   </br>
   ###### [Step 02 - 01] 전진하는 경우, AI Controller - MoveToLocation을 실행합니다.
   https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L525-L542
-  </br>
   ###### [Step 02 - 02] 방향 전환을 한 경우, 모션이 끝나는 시점에서 Anim Notify에 의해 OnTurnEnd()을 호출 후 목적지까지 전진을 실행합니다.
   https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/GameCharacter_AnimInstance.cpp#L153-L168
   </br>
