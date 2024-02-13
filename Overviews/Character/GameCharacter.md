@@ -2,7 +2,7 @@
 #### * Init Default Component & Values
   > Mesh, Collision 등 Component 생성 및 초기화입니다.
 ---
-#### * Death Process : 
+#### * Death Process
   > 캐릭터 사망시 Component 처리와 이펙트 연출 과정입니다.
   </br>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/a01165f9-5743-49bb-881b-fe81aeae8808" width="49.5%" height="49.5%"></img>
