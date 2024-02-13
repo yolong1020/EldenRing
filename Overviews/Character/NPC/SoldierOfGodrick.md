@@ -6,8 +6,7 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e8abfa97-d34c-4d93-8ef5-19489a25dca0" width="49.5%" height="49.5%"> 
 
   ###### [Step 01] 에디터에서 설정한 정찰 시간만큼 타이머를 설정하고 캐릭터와 목적지 방향의 일치 여부에 따라 방향 전환 또는 전진을 진행합니다.
-  https://github.com/yolong1020/EldenRing/blob/9df4da650f57f5ce2e5188f5e43b8a6efd15b771/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L426-L438
-  https://github.com/yolong1020/EldenRing/blob/782c932b733fb24e3fea2aafafa5399941292032/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L301-L308
+  https://github.com/yolong1020/EldenRing/blob/6b03a9c948cb44434094bf2bfad1cb60ef269961/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L243-L296
   </br>
   ###### [Step 02 - 01] 전진하는 경우, AI Controller - MoveToLocation을 실행합니다.
   https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L525-L542
