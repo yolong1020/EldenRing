@@ -12,7 +12,7 @@
   </br>
 ---
 #### * Patrol
-  > 캐
+  > 에디터에서 지정된 patrol Point들을 정찰 구역으로 설정하여 NPC가 순회 정찰을 진행합니다.
   </br>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/40e9e4ee-a3ad-4f68-8f2e-2b401f9d0a03" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e8abfa97-d34c-4d93-8ef5-19489a25dca0" width="49.5%" height="49.5%"> 
