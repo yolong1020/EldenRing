@@ -20,7 +20,7 @@
   ###### [Step 01] 에디터에서 설정한 정찰 시간만큼 타이머를 설정하고 목적지까지 이동을 실행합니다.
   https://github.com/yolong1020/EldenRing/blob/9df4da650f57f5ce2e5188f5e43b8a6efd15b771/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L426-L438
   </br>
-  ###### [Step 02 - 01] 
+  ###### [Step 02 - 01] 캐릭터와 목적지의 방향에 따라 회전 또는 전진 모션 재생을 결정합니다.
   https://github.com/yolong1020/EldenRing/blob/782c932b733fb24e3fea2aafafa5399941292032/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L301-L308
   </br>
 ---
