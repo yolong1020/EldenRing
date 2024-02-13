@@ -16,7 +16,7 @@ AAssemblyPoint::AAssemblyPoint()
 {
  	PrimaryActorTick.bCanEverTick = true;
 
-	m_mesh			= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
+	m_mesh		= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
 	RootComponent	= m_mesh;
 
 	m_fire_particle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Fire Particle Component"));
@@ -57,8 +57,6 @@ void AAssemblyPoint::ReservateRest(ANPC_Character* const NewMember)
 void AAssemblyPoint::PermissionUsing(AAssemblePointObject* const PointObject)
 {
 	CHECK_INVALID_PTR(PointObject)
-	UE_LOG(LogTemp, Warning, TEXT("%s PermissionUsing"), *PointObject->GetUniqueName())
-
 	if (m_request_list.IsEmpty()) return;
 	
 	ANPC_Character* npc = PointObject->GetPointObjectUser();
