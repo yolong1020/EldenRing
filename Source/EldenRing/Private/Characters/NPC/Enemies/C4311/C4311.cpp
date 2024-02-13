@@ -724,20 +724,12 @@ void AC4311::OnMoveCompleted(const FPathFollowingResult& Result)
 	{
 		case EActionState_NPC::EASN_Patrolling:
 			{
-				UE_LOG(LogTemp, Warning, TEXT("%s OnMoveCompleted -> StartWatching"), *m_unique_name)
 				m_action_state = EActionState_NPC::EASN_Unoccupied;
-
-				if (IsInTargetRange(m_target_patrol, m_radius_patrol))
-				{
-					StartWatching();
-				}
+				if (IsInTargetRange(m_target_patrol, m_radius_patrol)) { StartWatching(); }
 			} break;
 		case EActionState_NPC::EASN_Chasing:
 			{
-				if (IsInTargetRange(m_actor_target, m_radius_attack))
-				{
-					StartAttack();
-				}
+				if (IsInTargetRange(m_actor_target, m_radius_attack)) { StartAttack(); }
 			} break;
 	}
 }
