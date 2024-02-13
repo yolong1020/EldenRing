@@ -118,10 +118,7 @@ void ANPC_Character::BeginPlay()
 	CHECK_INVALID_PTR(m_pawn_sensing)
 	m_pawn_sensing->OnSeePawn.AddDynamic(this, &ANPC_Character::PawnSeen);
 
-	if (!ActorHasTag(FName("Boss")))
-	{
-		RegisteAssemblyPointMember();
-	}
+	if (!ActorHasTag(FName("Boss"))) { RegisteAssemblyPointMember(); }
 
 	UERGameInstance* instance = Cast<UERGameInstance>(GetGameInstance());
 	CHECK_INVALID_PTR(instance)
