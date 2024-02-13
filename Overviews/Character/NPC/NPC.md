@@ -43,3 +43,4 @@
   </br>
   ###### [Step 01] 정찰 중 타이머가 종료되면 소속된 집결지에 휴식을 요청합니다.
   https://github.com/yolong1020/EldenRing/blob/36045d4e07d39f0f9d77df92cd67cdad0a472381/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L98-L102
+  https://github.com/yolong1020/EldenRing/blob/16d540529929adfd3e86c06d1f8bfd8c566c878e/Source/EldenRing/Private/FieldObject/AssemblyPoint/AssemblyPoint.cpp#L47-L55
