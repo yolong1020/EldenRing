@@ -84,9 +84,9 @@ void ANPC_Character::SetAssemblyPoint(const FString& AssemblyPoint)
 
 void ANPC_Character::SetTimeValues(const float& WaitTimeMin, const float& WaitTimeMax, const float& PatrolTime, const float& KnowMissingTarget)
 {
-	m_time_wait_min				= WaitTimeMin;
-	m_time_wait_max				= WaitTimeMax;
-	m_time_patrol				= PatrolTime;
+	m_time_wait_min			= WaitTimeMin;
+	m_time_wait_max			= WaitTimeMax;
+	m_time_patrol			= PatrolTime;
 	m_sec_kwon_missing_target	= KnowMissingTarget;
 }
 
@@ -239,7 +239,7 @@ void ANPC_Character::SetBlindPawn(const bool& is_blind)
 	CHECK_INVALID_PTR(m_pawn_sensing)
 
 	if (is_blind)	{ m_pawn_sensing->OnSeePawn.RemoveDynamic(this, &ANPC_Character::PawnSeen); }
-	else			{ m_pawn_sensing->OnSeePawn.AddDynamic(this, &ANPC_Character::PawnSeen); }
+	else		{ m_pawn_sensing->OnSeePawn.AddDynamic(this, &ANPC_Character::PawnSeen); }
 }
 
 bool ANPC_Character::EquipWeapon(const FName& socket_name, const EWeaponEquipHand& hand)
@@ -247,7 +247,7 @@ bool ANPC_Character::EquipWeapon(const FName& socket_name, const EWeaponEquipHan
 	UWorld* world = GetWorld();
 	if (nullptr == world) return false;
 
-	TObjectPtr<AWeapon_Actor>&  weapon		= hand == EWeaponEquipHand::EWEH_Right ? m_equiped_weapon_R : m_equiped_weapon_L;
+	TObjectPtr<AWeapon_Actor>&  weapon	= hand == EWeaponEquipHand::EWEH_Right ? m_equiped_weapon_R : m_equiped_weapon_L;
 	TSubclassOf<AWeapon_Actor> weapon_class	= hand == EWeaponEquipHand::EWEH_Right ? m_class_weapon_R : m_class_weapon_L;
 	if (!weapon && weapon_class)
 	{
@@ -387,7 +387,7 @@ bool ANPC_Character::IsNeedChangeDeath(const EGameDirection& direction)
 
 	FName section_name;
 	if (direction == EGameDirection::EGD_Front) { section_name = FName("TakeExecution_Death_Front"); m_death_pose = EDeathPose::EDP_Death_Front; }
-	else										{ section_name = FName("TakeExecution_Death_Back");  m_death_pose = EDeathPose::EDP_Death_Back;}
+	else					    { section_name = FName("TakeExecution_Death_Back");  m_death_pose = EDeathPose::EDP_Death_Back; }
 	
 	PlayMontageSection(m_montage_take_execution, section_name);
 	OnDeath(m_montage_take_execution);
