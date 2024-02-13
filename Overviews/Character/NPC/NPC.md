@@ -34,6 +34,7 @@
 #### * Assemble Point
   > 캐릭터 에디터에서 설정된 정찰 시간 이후에 배정된 집결지에서 휴식을 취하며 타 NPC와 정찰을 교대합니다.
   </br>
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/fc8867e0-7fdc-4cdc-b3aa-c2f77dcb7669" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/25a3b779-5c6a-4efc-a22b-b287428e12e5" width="49.5%" height="49.5%"> 
 
   ###### Step 01. 콜리전 비활성화 및 재생된 Montage Section 시간을 도출합니다.
