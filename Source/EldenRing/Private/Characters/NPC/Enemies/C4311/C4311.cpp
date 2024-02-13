@@ -242,8 +242,6 @@ void AC4311::HitReact(const EGameDirection& hit_direction, const EAttackWeight& 
 
 void AC4311::PawnSeen(APawn* seen_pawn)
 {
-	/* if (세력 검사) return; */
-
 	AGameCharacter* target = Cast<AGameCharacter>(seen_pawn);
 	if (!target || IsCantMoveState()) return;
 
@@ -262,7 +260,6 @@ void AC4311::PawnSeen(APawn* seen_pawn)
 	{
 		OnCheckMissingTarget();
 
-		// 범위 내
 		if (IsInTargetRange(m_actor_target, m_radius_tracking))
 		{
 			if (IsInTargetRange(m_actor_target, m_radius_confront) == false)
@@ -280,14 +277,10 @@ void AC4311::PawnSeen(APawn* seen_pawn)
 				GetWorldTimerManager().ClearTimer(m_timer_reserve_action);
 			}
 		}
-		// 범위 이탈
 		else
 		{
-			// FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-			// UE_LOG(LogTemp, Warning, TEXT("Out Tracking PawnSeen State : %s"), *state);
-
 			if (m_action_state != EActionState_NPC::EASN_Attacking &&
-				m_action_state != EActionState_NPC::EASN_TakeExecution)
+			    m_action_state != EActionState_NPC::EASN_TakeExecution)
 			{
 				FinishVigilance();
 			}
