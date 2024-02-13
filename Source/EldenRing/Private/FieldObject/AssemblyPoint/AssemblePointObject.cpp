@@ -113,7 +113,7 @@ void AAssemblePointObject::InitCallback(const FReportUsingPointObject& Callback)
 void AAssemblePointObject::ResetPointObject()
 {
 	m_time_using_start	= 0;
-	m_is_using			= false;
+	m_is_using		= false;
 	m_is_reserved		= false;
 	m_sphere_action->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 }
