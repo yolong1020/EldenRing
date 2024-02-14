@@ -1,6 +1,6 @@
 # Tree Guard
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>
-### * Init Tree Guard Settings
+#### * Init Tree Guard Settings
   > Tree Guard의 블랙보드와 몸통 Collision, 전투 모션 데이터 등을 초기화합니다.
   </br>
   https://github.com/yolong1020/EldenRing/blob/d5f795bbce272476ba0d7c9afb9bfc4c067c4ecb/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L29-L45
