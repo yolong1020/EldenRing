@@ -718,8 +718,7 @@ void AC4311::OnMoveCompleted(const FPathFollowingResult& Result)
 void AC4311::OnNextAttack()
 {
 	if (m_attack_type_prev > EAttackType::EATKT_Attack ||
-		m_attack_strength > EAttackStrength::EATKS_Normal)
-		return;
+	    m_attack_strength > EAttackStrength::EATKS_Normal) return;
 
 	// 1. 공격 성공인 경우
 	// 2. 공격 범위에 대상이 있는 경우
@@ -736,18 +735,13 @@ void AC4311::OnNextAttack()
 		CHECK_INVALID_PTR(m_anim_instance)
 		m_anim_instance->SetRootMotionMode(ERootMotionMode::RootMotionFromEverything);
 		GetCharacterMovement()->bAllowPhysicsRotationDuringAnimRootMotion = true;
-
 		MoveToTarget(m_actor_target);
 
 		m_equiped_weapon_R->SetAttackWeight(m_equip_state, m_attack_strength, m_attack_type_prev);
 
-		//UE_LOG(LogTemp, Warning, TEXT("Play Montage : Next Attack"));
 		PlayMontageSection(m_montage_attack, next_section);
 		return;
 	}
-
-	//	2. 경계 자세 - 방어 / 일반
-	//		> 플레이어 체력에 따라서 공격형 방어형으로 분리한다.
 }
 
 void AC4311::OnEndAttack()
