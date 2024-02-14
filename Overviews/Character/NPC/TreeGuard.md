@@ -16,7 +16,7 @@
   https://github.com/yolong1020/EldenRing/blob/d5f795bbce272476ba0d7c9afb9bfc4c067c4ecb/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L316-L331
   https://github.com/yolong1020/EldenRing/blob/b2d30cab3821d6cc6ff444f5d95f6c6165250bd9/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L350-L366
   </br>
-  ###### [Step 02] Target과 Acting BlackBoard 값이 변경됨에 따라 Select next action Task를 통해 차기 행동을 결정합니다.
+  ###### [Step 02] Target과 Acting 블랙보드가 변경됨에 따라 Select next action Task를 통해 차기 행동을 결정합니다.
   https://github.com/yolong1020/EldenRing/blob/af11b727778d31fb7a56716f8ce201783cca885c/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Tasks/BTTask_SelectNextAction.cpp#L18-L73
   </br>
   ###### [Step 03] 차기 공격이 불가능하거나 중지됐다면, 공격을 종료하고 현재 병사의 상태와 적의 범위 내 위치를 확인하여 다음 행동을 결정합니다.
