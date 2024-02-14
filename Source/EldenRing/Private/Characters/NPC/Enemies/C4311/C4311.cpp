@@ -746,16 +746,9 @@ void AC4311::OnEndAttack()
 	{
 		FinishVigilance();
 	}
-	else if (m_action_state != EActionState_NPC::EASN_Chasing)
+	else if (m_action_state != EActionState_NPC::EASN_Chasing && IsInTargetRange(m_actor_target, m_radius_tracking))
 	{
-		// FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-		// UE_LOG(LogTemp, Warning, TEXT("OnEndAttack StartConfront State : %s"), *state);
-
-		if (IsInTargetRange(m_actor_target, m_radius_tracking))
-		{
-			//UE_LOG(LogTemp, Warning, TEXT("OnEndAttack : StartConfront"));
-			StartConfront();
-		}
+		StartConfront();
 	}
 }
 
