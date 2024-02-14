@@ -184,7 +184,7 @@ void AC3251::GetHit(const EGameDirection& Dir, const FVector& ImpactPoint, const
 		m_widget_bossbar->HideBossHealthBar();
 	}
 
-	if (m_sound_hit)	{ UGameplayStatics::PlaySoundAtLocation(this, m_sound_hit, ImpactPoint); }
+	if (m_sound_hit)    { UGameplayStatics::PlaySoundAtLocation(this, m_sound_hit, ImpactPoint); }
 	if (m_particle_hit) { UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), m_particle_hit, ImpactPoint); }
 }
 
@@ -245,10 +245,8 @@ void AC3251::OnEndMove()
 void AC3251::OnInputCombo()
 {
 	if (false == m_controller->GetBlackboardComponent()->GetValueAsBool(BBKEY_COMBOBOUND) ||
-		EGameDirection::EGD_Left != FCommonFunctions::FindDirection(this, m_actor_target->GetActorLocation()) ||
-		false == HasDerivedAttack()) return;
-
-	UE_LOG(LogTemp, Warning, TEXT("======== Input Combo ========"))
+	    false == HasDerivedAttack() ||
+	    EGameDirection::EGD_Left != FCommonFunctions::FindDirection(this, m_actor_target->GetActorLocation())) return;
 
 	m_animation_callback.ExecuteIfBound();
 }
@@ -555,13 +553,12 @@ void AC3251::AfterTargetDeath(TObjectPtr<class AGameCharacter> Target)
 	if (m_combat_list.IsEmpty())
 	{
 		FLatentActionInfo callback;
-		callback.UUID = FGuid::NewGuid().A;
-		callback.CallbackTarget = this;
-		callback.Linkage = 0;
-		callback.ExecutionFunction = FName("IdleMode");
+		callback.UUID 			= FGuid::NewGuid().A;
+		callback.CallbackTarget 	= this;
+		callback.Linkage 		= 0;
+		callback.ExecutionFunction 	= FName("IdleMode");
 
-		float duration = WaitAfterPlayerDeath;
-		duration = (float)FMath::RandRange(1.f, duration);
+		float duration = (float)FMath::RandRange(1.f, WaitAfterPlayerDeath);
 		UKismetSystemLibrary::Delay(this, duration, callback);
 	}
 }
