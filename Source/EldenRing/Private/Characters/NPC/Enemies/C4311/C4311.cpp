@@ -737,7 +737,6 @@ void AC4311::OnNextAttack()
 		m_equiped_weapon_R->SetAttackWeight(m_equip_state, m_attack_strength, m_attack_type_prev);
 
 		PlayMontageSection(m_montage_attack, next_section);
-		return;
 	}
 }
 
