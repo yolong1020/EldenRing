@@ -29,8 +29,6 @@ bool UBTDecorator_AttackRange::CalculateRawConditionValue(UBehaviorTreeComponent
 	float tracking_radius = npc_interface->GetTrackingRadius();
 	float attack_radius = npc_interface->GetAttackRadius();
 	ECombatAction_NPC type = (ECombatAction_NPC)OwnerComp.GetBlackboardComponent()->GetValueAsEnum(BBKEY_ACTIONTYPE);
-	//OwnerComp.GetBlackboardComponent()->SetValueAsBool(BBKEY_DASHBOUND, len <= tracking_radius);
-	//OwnerComp.GetBlackboardComponent()->SetValueAsBool(BBKEY_CLOSEBOUND, len <= attack_radius);
 
 	return type == ECombatAction_NPC::ECAN_SingleAttack;
 }
