@@ -387,9 +387,7 @@ void AC4311::StartTurn(const EGameDirection& direction)
 
 void AC4311::StartConfront()
 {
-	if (nullptr == m_actor_target) return;
-
-	if (m_action_state == EActionState_NPC::EASN_HitReact) { return; }
+	if (!m_actor_target || m_action_state == EActionState_NPC::EASN_HitReact) return;
 
 	m_action_state	= EActionState_NPC::EASN_Confronting;
 	if (Cast<AShield_Actor>(m_equiped_weapon_L)) 
