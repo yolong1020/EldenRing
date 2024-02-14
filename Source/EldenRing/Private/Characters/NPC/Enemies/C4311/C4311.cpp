@@ -534,52 +534,41 @@ FName AC4311::ChooseNextAttack()
 
 void AC4311::ChooseNextAction()
 {
-	if (m_death_pose != EDeathPose::EDP_Alive || IsCantMoveState()) { return; }
+	if (m_death_pose != EDeathPose::EDP_Alive || IsCantMoveState()) return;
 
 	if (m_action_state != EActionState_NPC::EASN_Chasing)
+	{
 		m_action_state = ((FMath::Rand() % 100) > 40) ? EActionState_NPC::EASN_Attacking : EActionState_NPC::EASN_Confronting;
-
+	}
+	
 	switch (m_action_state)
 	{
-		case EActionState_NPC::EASN_Attacking:
-		{
-			StartAttack();
-		}
-		break;
+		case EActionState_NPC::EASN_Attacking: { StartAttack(); break; }
 		case EActionState_NPC::EASN_Confronting:
 		{
 			if (IsInTargetRange(m_actor_target, m_radius_tracking))
 			{
 				if (IsInTargetRange(m_actor_target, m_radius_confront) == false)
 				{
-					FString state = StaticEnum<EActionState_NPC>()->GetNameStringByValue(int64(m_action_state));
-					//UE_LOG(LogTemp, Warning, TEXT("ChooseNextAction State : %s"), *state);
+					GetWorldTimerManager().ClearTimer(m_timer_reserve_action);
 					
-					if (m_action_state != EActionState_NPC::EASN_Attacking/*&&
-						m_action_state != EActionState_NPC::EASN_HitReact &&
-						m_action_state != EActionState_NPC::EASN_TakeExecution*/)
+					if (m_action_state != EActionState_NPC::EASN_Attacking)
 					{
 						ChangeRootMotionMode(ERootMotionMode::RootMotionFromEverything);
 						MoveToTarget(m_actor_target);
 					}
 
 					m_action_state = EActionState_NPC::EASN_Chasing;
-
-					GetWorldTimerManager().ClearTimer(m_timer_reserve_action);
 				}
-				else
-				{
-					//UE_LOG(LogTemp, Warning, TEXT("ChooseNextAction : StartConfront"));
-					StartConfront();
-				}
+				else { StartConfront(); }
 			}
 			else
 			{
 				m_action_state = EActionState_NPC::EASN_Unoccupied;
 
-				if (m_action_state != EActionState_NPC::EASN_Attacking &&
-					m_action_state != EActionState_NPC::EASN_HitReact &&
-					m_action_state != EActionState_NPC::EASN_TakeExecution)
+				if (m_action_state != EActionState_NPC::EASN_Attacking  &&
+				    m_action_state != EActionState_NPC::EASN_HitReact   &&
+				    m_action_state != EActionState_NPC::EASN_TakeExecution)
 				{
 					FinishVigilance();
 				}
