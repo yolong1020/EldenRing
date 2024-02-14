@@ -1,4 +1,6 @@
 # Tree Guard
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>
+
 #### * Change Battle Mode
   > 정찰 혹은 휴식 중 전투 상황이 발생하면 NPC가 전투 태세로 전환합니다.
   </br>
