@@ -18,9 +18,9 @@ void UGameCharacter_AnimInstance::NativeInitializeAnimation()
 	m_npc = Cast<ANPC_Character>(TryGetPawnOwner());
 	if (!m_npc) return;
 
-	m_npc_movement		 = m_npc->GetCharacterMovement();
+	m_npc_movement	     = m_npc->GetCharacterMovement();
 	m_is_blend_per_bone  = false;
-	m_hit_cycle_type	 = EHitCycleType::EHCT_None;
+	m_hit_cycle_type     = EHitCycleType::EHCT_None;
 }
 
 void UGameCharacter_AnimInstance::NativeUpdateAnimation(float delta)
@@ -47,17 +47,17 @@ void UGameCharacter_AnimInstance::NativeUpdateAnimation(float delta)
 
 void UGameCharacter_AnimInstance::SetHitReactProperties(const bool& is_need_blend, const int32& animation_index, const EAttackWeight& attack_weight, const EHitCycleType& cycle_type)
 {
-	m_is_blend_per_bone		= is_need_blend;
+	m_is_blend_per_bone	= is_need_blend;
 	m_hit_animation_index	= animation_index;
-	m_hit_attack_weight		= attack_weight;
-	m_hit_cycle_type		= cycle_type;
+	m_hit_attack_weight	= attack_weight;
+	m_hit_cycle_type	= cycle_type;
 }
 
 void UGameCharacter_AnimInstance::RestTransformFix(const float& delta)
 {
 	CHECK_INVALID_PTR(m_npc)
 
-	AAssemblyPoint*			assembly_point	= m_npc->GetAssemblyPoint();
+	AAssemblyPoint*		assembly_point	= m_npc->GetAssemblyPoint();
 	AAssemblePointObject*	point_object	= m_npc->GetAssemblyPointObject();
 
 	if (!assembly_point || !point_object) return;
@@ -65,8 +65,8 @@ void UGameCharacter_AnimInstance::RestTransformFix(const float& delta)
 
 	if (EActionState_NPC::EASN_Resting == m_action_state)
 	{
-		FVector actor_location			 = m_npc->GetActorLocation();
-		FVector assemble_location		 = assembly_point->GetActorLocation();
+		FVector actor_location		 = m_npc->GetActorLocation();
+		FVector assemble_location	 = assembly_point->GetActorLocation();
 		FVector assemble_offset_location = FVector(assemble_location.X, assemble_location.Y, actor_location.Z);
 		FVector point_object_location	 = point_object->GetActorLocation();
 		FVector point_offset_location	 = FVector(point_object_location.X, point_object_location.Y, actor_location.Z);
