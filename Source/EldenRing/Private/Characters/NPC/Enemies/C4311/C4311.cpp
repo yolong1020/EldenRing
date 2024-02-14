@@ -342,13 +342,15 @@ void AC4311::StartAttack()
 	m_attack_type_prev	= EAttackType::EATKT_Attack;
 
 	FString section_name = "";
-	if (m_attack_strength != EAttackStrength::EATKS_Normal) { 
+	if (m_attack_strength != EAttackStrength::EATKS_Normal) 
+	{ 
 		if ((FMath::Rand() % 100) > 50) { section_name = FString("Strong_Attack_"); }
 		else				{ section_name = FString("Dash_Attack"); }
 	}
 	else { section_name = FString("Attack_"); }
 
-	if (section_name != FString("Dash_Attack")) {
+	if (section_name != FString("Dash_Attack")) 
+	{
 		if ((FMath::Rand() % 100) > 50) { section_name += FString("01"); }
 		else				{ section_name += FString("02"); }
 	}
@@ -609,12 +611,12 @@ void AC4311::FinishVigilance()
 
 const bool AC4311::IsCantMoveState()
 {
-	return (m_action_state == EActionState_NPC::EASN_HitReact 		||
-			m_action_state == EActionState_NPC::EASN_GuardReact 	||
-			m_action_state == EActionState_NPC::EASN_Swap 		||
-			m_action_state == EActionState_NPC::EASN_TakeExecution 	||
-			m_action_state == EActionState_NPC::EASN_Stunning 	||
-			m_death_pose   != EDeathPose::EDP_Alive);
+	return (m_action_state == EActionState_NPC::EASN_HitReact 	||
+		m_action_state == EActionState_NPC::EASN_GuardReact 	||
+		m_action_state == EActionState_NPC::EASN_Swap 		||
+		m_action_state == EActionState_NPC::EASN_TakeExecution 	||
+		m_action_state == EActionState_NPC::EASN_Stunning 	||
+		m_death_pose   != EDeathPose::EDP_Alive);
 }
 
 void AC4311::AfterTargetDeath(TObjectPtr<AGameCharacter> Target)
@@ -631,9 +633,9 @@ void AC4311::AfterTargetDeath(TObjectPtr<AGameCharacter> Target)
 	{
 		FLatentActionInfo callback;
 		callback.UUID			= FGuid::NewGuid().A;
-		callback.CallbackTarget = this;
+		callback.CallbackTarget 	= this;
 		callback.Linkage		= 0;
-		callback.ExecutionFunction = FName("FinishVigilance");
+		callback.ExecutionFunction 	= FName("FinishVigilance");
 
 		float duration = WaitAfterPlayerDeath;
 		duration = (float)FMath::RandRange(1.f, duration);
@@ -796,10 +798,10 @@ void AC4311::OnAttackDefended(const EAttackWeight& attack_weight)
 	switch (attack_weight)
 	{
 		case EAttackWeight::EAW_Small:
-		case EAttackWeight::EAW_Medium:		section_name = FName("Guard_Medium");	  break;
-		case EAttackWeight::EAW_Heavy:		section_name = FName("Guard_Heavy");	  break;
+		case EAttackWeight::EAW_Medium:	    section_name = FName("Guard_Medium");	break;
+		case EAttackWeight::EAW_Heavy:	    section_name = FName("Guard_Heavy");	break;
 		case EAttackWeight::EAW_ExtraHeavy:
-		case EAttackWeight::EAW_UltraHeavy: section_name = FName("Guard_ExtraHeavy"); break;
+		case EAttackWeight::EAW_UltraHeavy: section_name = FName("Guard_ExtraHeavy");	break;
 		default: return;
 	}
 
