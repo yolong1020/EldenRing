@@ -1,6 +1,10 @@
 # Tree Guard
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>
 
+### * Init Player Settings
+  > Level 상태에 따라서 HUD, Camera Timeline, 플레이에 필요한 Item 등 초기화합니다.
+
+
 #### * Change
   > 정찰 혹은 휴식 중 전투 상황이 발생하면 NPC가 전투 태세로 전환합니다.
   </br>
