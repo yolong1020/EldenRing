@@ -23,7 +23,6 @@ EBTNodeResult::Type UBTTask_SelectNextAction::ExecuteTask(UBehaviorTreeComponent
 	bool is_acting = OwnerComp.GetBlackboardComponent()->GetValueAsBool(BBKEY_ACTING);
 	if (is_acting) return EBTNodeResult::Failed;
 
-	bool is_in_dash   = OwnerComp.GetBlackboardComponent()->GetValueAsBool(BBKEY_DASHBOUND);
 	bool is_in_single = OwnerComp.GetBlackboardComponent()->GetValueAsBool(BBKEY_SINGLEBOUND);
 	bool is_in_combo  = OwnerComp.GetBlackboardComponent()->GetValueAsBool(BBKEY_COMBOBOUND);
 
@@ -33,18 +32,13 @@ EBTNodeResult::Type UBTTask_SelectNextAction::ExecuteTask(UBehaviorTreeComponent
 	if (action == ECombatAction_NPC::ECAN_End) action = ECombatAction_NPC::ECAN_DashAttack;
 	else
 	{
-		FName section_name = npc_interface->GetCurrentActionID();
-		UE_LOG(LogTemp, Warning, TEXT("-> Current Action Name : %s"), *section_name.ToString());
-		FString state = StaticEnum<ECombatAction_NPC>()->GetNameStringByValue(int64(action));
-		UE_LOG(LogTemp, Warning, TEXT("-> Before Combo Action : %s"), *state);
-
 		if (action == ECombatAction_NPC::ECAN_MoveAction)
 		{
 			if (is_in_single) { action = ECombatAction_NPC::ECAN_SingleAttack; }
 			else 
 			{
 				if (dir == EGameDirection::EGD_Front) action = ECombatAction_NPC::ECAN_DashAttack;
-				else								  action = ECombatAction_NPC::ECAN_MoveAction;
+				else				      action = ECombatAction_NPC::ECAN_MoveAction;
 			}
 		}
 		else
@@ -62,21 +56,16 @@ EBTNodeResult::Type UBTTask_SelectNextAction::ExecuteTask(UBehaviorTreeComponent
 				}
 			}
 			else if (is_in_single && dir != EGameDirection::EGD_Back) 
-			{ 
+			{
 				action = ECombatAction_NPC::ECAN_SingleAttack; 
 			}
 			else
 			{
-				FString st = StaticEnum<ECombatAction_NPC>()->GetNameStringByValue(int64(action));
-
 				action = ECombatAction_NPC::ECAN_MoveAction; 
 			}
 		}
 	}
-
-	FString state = StaticEnum<ECombatAction_NPC>()->GetNameStringByValue(int64(action));
-	UE_LOG(LogTemp, Warning, TEXT("Lets Do : %s"), *state);
-
+	
 	OwnerComp.GetBlackboardComponent()->SetValueAsEnum(BBKEY_ACTIONTYPE, (uint8)action);
 	OwnerComp.GetBlackboardComponent()->SetValueAsBool(BBKEY_ACTING, true);
 
