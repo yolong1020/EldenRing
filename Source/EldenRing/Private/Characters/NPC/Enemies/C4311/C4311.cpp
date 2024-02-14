@@ -720,9 +720,6 @@ void AC4311::OnNextAttack()
 	if (m_attack_type_prev > EAttackType::EATKT_Attack ||
 	    m_attack_strength > EAttackStrength::EATKS_Normal) return;
 
-	// 1. 공격 성공인 경우
-	// 2. 공격 범위에 대상이 있는 경우
-	// 3. 한번 더 공격 or 공격 중지
 	if (m_attack_success || IsInTargetRange(m_actor_target, m_radius_attack) || (1 == FMath::RandRange(0, 1)))
 	{
 		FName next_section = ChooseNextAttack();
