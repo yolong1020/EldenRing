@@ -5,10 +5,10 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e0b2874b-5ffb-4518-9a47-ce553fb4c4b7" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9b454323-8dab-439c-a768-69dcaf978844" width="49.5%" height="49.5%"> 
 
-  ###### [Step 01] 비전투 상황에서 적(플레이어)이 PawnSeen에 감지되거나 피격을 받게되면 전투 태세로 전환합니다.
+  ###### [Step 01 - 01] 비전투 상황에서 적(플레이어)이 PawnSeen에 감지되면 전투 태세로 전환합니다.
   https://github.com/yolong1020/EldenRing/blob/954786d152d35815853399236b731258e0fe9d88/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L243-L258
+  ###### [Step 01 - 02] 비전투 상황에서 적(플레이어)에게 피격받게되면 피격 모션을 재생한 뒤 전투 태세로 전환합니다.
   https://github.com/yolong1020/EldenRing/blob/954786d152d35815853399236b731258e0fe9d88/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L65-L86
-  ###### [Step 02] 비전투 상황에서 적(플레이어)으로부터 피격을 받게될 경우, 전투 태세로 전환합니다.
   https://github.com/yolong1020/EldenRing/blob/954786d152d35815853399236b731258e0fe9d88/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L770-L789
   </br>
   ###### [Step 02] 에디터에서 설정한 정찰 시간만큼 타이머를 설정하고 캐릭터와 목적지 방향의 일치 여부에 따라 방향 전환 또는 전진을 진행합니다.
