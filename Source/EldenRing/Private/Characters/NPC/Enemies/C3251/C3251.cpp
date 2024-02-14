@@ -351,7 +351,7 @@ void AC3251::OnMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 
 void AC3251::StartCombat()
 {
-	if (m_vigilance_state == EVigilanceState::EVS_Vigilance/* || IsCantMoveState()*/) return;
+	if (m_vigilance_state == EVigilanceState::EVS_Vigilance) return;
 
 	m_widget_bossbar->ShowBossHealthBar();
 	PlayMontageSection(m_montage_on_battle, FName("3013"));
