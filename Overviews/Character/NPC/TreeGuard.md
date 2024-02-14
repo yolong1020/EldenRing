@@ -10,10 +10,10 @@
 #### * Combat
   > 전투 태세에 돌입하면 추격을 진행한 후 일반 공격, 강 공격, 대쉬 공격 중 선택하여 공격을 시도합니다. 이후 이전 공격에 따라 차기 공격을 이어서 전개합니다.
   </br>
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/09dbc467-6faf-44e5-a86f-23624dfdca80" width="49.5%" height="49.5%"></img>
-
   ###### [Step 01] 적이 Pawn Seen에 의해 목격되면 보스 전투가 시작됩니다.
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/09dbc467-6faf-44e5-a86f-23624dfdca80" width="49.5%" height="49.5%"></img>
   https://github.com/yolong1020/EldenRing/blob/d5f795bbce272476ba0d7c9afb9bfc4c067c4ecb/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L316-L331
+  https://github.com/yolong1020/EldenRing/blob/a5455bfdda8acc41876678487b29fe6ab15f5433/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L352-L368
   </br>
   ###### [Step 02] Anim Notify - OnNextAttack 호출로 차기 공격이 가능하다면 3가지 조건(1. 이전 공격이 성공한 경우 / 2.공격 범위에 대상이 있는 경우 / 3. 무작위 추가 공격)을 확인합니다. 만약 하나라도 해당하게 된다면 다음 공격을 이어 진행합니다.
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/a1fce18b-87c9-4e06-b9de-3e4ef4a5c019"></img>
