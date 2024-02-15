@@ -7,13 +7,13 @@
 
 
 ## Behavior Tree
-###### 전
+###### 플레이어를 감지하면 공격 범위와 현재 Action 실행 유무로 공격과 이동을 결정하도록 노드를 구성하였습니다.
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>   
 </br>
 
 
 ## Detect Bound
-###### 캐릭터를 중심으로 3개의 영역을 통해 추격과 공격, 기동으로 연계하는 Service입니다. 
+###### 캐릭터를 중심으로 3개의 영역을 통해 적을 감지하여 추격과 공격, 기동으로 연계하는 Service입니다. 
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b" width="49.5%" height="49.5%"></img>   
   https://github.com/yolong1020/EldenRing/blob/2fb19a7c590b8cb05dd116ac91068cc81dbf7f1a/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Services/BTService_Detect.cpp#L17-L33
   
