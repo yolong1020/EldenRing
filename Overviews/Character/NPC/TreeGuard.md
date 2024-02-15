@@ -46,10 +46,12 @@
      https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L514-L522
      
      1. ###### 돌진 공격은 현재 전투 페이즈에 따라 선택의 폭을 달리하고, 선택된 Action ID에 명시된 Attack Weight로 공격 강도를 설정합니다.
+        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9f81b25b-29b8-4a42-90ab-617582b72f48" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L368-L389
-     2. ###### 단일 공격은 자신으로부터 적의 위치에 따라 공격 방법을 다르게 전개하며, 적이 후방에 있다면 공격을 취소하고 차기 Action을 Task에서 선택하도록 합니다.</br>만약 적의 위치가 차기 Action의 Action Bound에 만족하지 않는다면 이 역시 공격을 취소하도록 합니다.  
+     3. ###### 단일 공격은 자신으로부터 적의 위치에 따라 공격 방법을 다르게 전개하며, 적이 후방에 있다면 공격을 취소하고 차기 Action을 Task에서 선택하도록 합니다.</br>만약 적의 위치가 차기 Action의 Action Bound에 만족하지 않는다면 이 역시 공격을 취소하도록 합니다.
+        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9f81b25b-29b8-4a42-90ab-617582b72f48" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/81b539b61a82d83bdfb7b2efb76a33a464785c8d/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L391-L458
-     3. ###### 콤보 공격은 이전 Action ID를 통해 파생되는 공격을 확인하여 무작위로 선정한 Action의 공격 방향이 적과 일치하면 공격을 실행하고 그렇지 않다면 공격을 취소합니다.
+     5. ###### 콤보 공격은 이전 Action ID를 통해 파생되는 공격을 확인하여 무작위로 선정한 Action의 공격 방향이 적과 일치하면 공격을 실행하고 그렇지 않다면 공격을 취소합니다.
         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/467894cc-b5dc-4a5c-8a54-c1c43af0819d" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L460-L499 </br>
 
