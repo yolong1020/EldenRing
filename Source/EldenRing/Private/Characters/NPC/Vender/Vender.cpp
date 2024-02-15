@@ -77,7 +77,6 @@ void AVender::BeginPlay()
 
 	m_interact_mgr = instance->GetSubsystem<UInteractionManager>();
 	CHECK_INVALID_SMART_PTR(m_interact_mgr)
-
 	m_trade_mgr = instance->GetSubsystem<UTradeManager>();
 	CHECK_INVALID_SMART_PTR(m_trade_mgr)
 
@@ -104,7 +103,7 @@ void AVender::BeginPlay()
 				FString path = "WidgetBlueprint \'" + data->BluePrintPath + "\'";
 
 				if (data->EquipmentType == EEquipmentType::EET_Weapon) { type = LoadClass<AWeapon_Actor>(nullptr, *path); }
-				else												   { type = LoadClass<AEquipment>(nullptr, *path); }
+				else						       { type = LoadClass<AEquipment>(nullptr, *path); }
 
 				TObjectPtr<UItemObject> obj = NewObject<UItemObject>();
 				obj->SetItemProperties(name, *data, type, false);
