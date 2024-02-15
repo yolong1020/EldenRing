@@ -16,7 +16,9 @@
 ###### 전
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b" width="49.5%" height="49.5%"></img>   
 </br>
-
+  - ###### Red   : 
+  - ###### Blue  :
+  - ###### Black : 
 
 ## Init Tree Guard Settings
 ###### Tree Guard의 블랙보드와 몸통 Collision, Action 데이터 등을 초기화합니다.
