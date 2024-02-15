@@ -7,6 +7,12 @@
 </br>
 
 
+## Init Vender Settings
+###### 상인의 Interaction Collision, Observer Event, 판매 물품 등을 초기화합니다.
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/1e557d19-af9d-4e0b-be3f-c78c477171be" width="49.5%" height="49.5%"></img>
+  https://github.com/yolong1020/EldenRing/blob/9bbdd3573ed007ca5d21635021f044b7a39776d4/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L46-L115 </br>
+
+
 ## Change Battle Mode
 ###### 정찰 혹은 휴식 중 전투 상황이 발생하면 NPC가 전투 태세로 전환합니다.  
 </br>
