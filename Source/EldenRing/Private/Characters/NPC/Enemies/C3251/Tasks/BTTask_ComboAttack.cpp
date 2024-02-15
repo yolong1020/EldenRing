@@ -16,6 +16,8 @@ UBTTask_ComboAttack::UBTTask_ComboAttack()
 
 EBTNodeResult::Type UBTTask_ComboAttack::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
+	Super::ExecuteTask(OwnerComp, NodeMemory);
+	
 	INPC_Interfaces* npc_interface = Cast<INPC_Interfaces>(OwnerComp.GetAIOwner()->GetPawn());
 	if (!npc_interface) return EBTNodeResult::Failed;
 
