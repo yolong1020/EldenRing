@@ -40,6 +40,6 @@
 	    m_equipments[int32(Type) - 1].Key = nullptr;
         ```
         https://github.com/yolong1020/EldenRing/blob/687e1f73144e985e35ab330b625f68a243aa6e76/Source/EldenRing/Private/System/EquipmentManager.cpp#L226-L242 </br>
-  3. ###### 아이템의 옵션을 캐릭터의 Attribute에 제시킵니다.
+  3. ###### 아이템의 옵션을 캐릭터의 Attribute에서 제외시킵니다.
      https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/Characters/Players/C0000.cpp#L113-L121
      https://github.com/yolong1020/EldenRing/blob/687e1f73144e985e35ab330b625f68a243aa6e76/Source/EldenRing/Private/Characters/Component/AttributeComponent.cpp#L88-L102 </br> 
