@@ -461,19 +461,19 @@ void AC3251::TryComboAttack()
 {
 	m_controller_ai->StopMovement();
 
-	EGameDirection			direction		= FCommonFunctions::FindDirection(this, m_actor_target->GetActorLocation());
+	EGameDirection		direction	= FCommonFunctions::FindDirection(this, m_actor_target->GetActorLocation());
 	FNPC_CombatActionData*	derived_attack	= m_actions->FindRow<FNPC_CombatActionData>(prv_attack_section, prv_attack_section.ToString());
 	CHECK_INVALID_PTR(derived_attack)
 
-	int32 count	= derived_attack->DerivedAttack.Num();
+	int32 count = derived_attack->DerivedAttack.Num();
 	int idx = (count == 1) ? 0 : FMath::RandRange(0, count - 1);
 
 	FName section = derived_attack->DerivedAttack[idx];
 	FNPC_CombatActionData* cur_attack = m_actions->FindRow<FNPC_CombatActionData>(section, section.ToString());
 	CHECK_INVALID_PTR(cur_attack)
 
-	m_action_combat		= cur_attack->CombatActionType;
-	prv_attack_section	= section;
+	m_action_combat	   = cur_attack->CombatActionType;
+	prv_attack_section = section;
 
 	UAnimMontage* montage = nullptr;
 	switch (direction)
