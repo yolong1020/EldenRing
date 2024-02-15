@@ -15,7 +15,8 @@
 
 
 ## Interaction
-###### Interaction Collision을 통해 대화 및 거래를 진행합니다.</br>
+###### Interaction Collision을 통해 대화 및 거래를 진행합니다.   
+</br>
 
   1. ###### NPC와 상호 작용을 위한 Popup UI를 활성화합니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/6efc4ede-907a-4875-8b25-da10796d3b4a" width="49.5%" height="49.5%"></img>
