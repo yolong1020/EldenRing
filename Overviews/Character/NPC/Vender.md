@@ -41,7 +41,8 @@
         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/7d8503c8-55ca-4466-b824-d71b7ef88f61" width="49.5%" height="49.5%"></img>
         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/2185ea4f-27c2-4f8b-a0fb-4e8bd68fdb94" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/7454685f6f5655769f78f88afbd5babf3fad7702/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L62-L97 </br>
-     
+
+  4. ###### 사용자 조작으로 다이얼로그가 업데이트되면 
      
 ## Detect Bound
 ###### 캐릭터를 중심으로 3개의 영역을 통해 적을 감지하여 추격과 공격, 대치 상황을 결정합니다.
