@@ -35,9 +35,9 @@
      2. ###### 갑옷의 경우, 해제시킨 갑옷의 매쉬 컴포넌트를 해제하고 포인터를 제거한 뒤 캐릭터의 Material들을 갱신시킵니다.
         ```C++
         /// [UEquipmentManager::TryUnequipItem] 81
-	m_equipments[int32(Type) - 1].Key->SetSkeletalMesh(nullptr);
-	m_equipments[int32(Type) - 1].Key->UnregisterComponent();
-	m_equipments[int32(Type) - 1].Key = nullptr;
+	    m_equipments[int32(Type) - 1].Key->SetSkeletalMesh(nullptr);
+	    m_equipments[int32(Type) - 1].Key->UnregisterComponent();
+	    m_equipments[int32(Type) - 1].Key = nullptr;
         ```
         https://github.com/yolong1020/EldenRing/blob/687e1f73144e985e35ab330b625f68a243aa6e76/Source/EldenRing/Private/System/EquipmentManager.cpp#L226-L242 </br>
   3. ###### 아이템의 옵션을 캐릭터의 Attribute에 제시킵니다.
