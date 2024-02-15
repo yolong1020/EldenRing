@@ -17,9 +17,9 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b" width="49.5%" height="49.5%"></img>   
   https://github.com/yolong1020/EldenRing/blob/2fb19a7c590b8cb05dd116ac91068cc81dbf7f1a/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Services/BTService_Detect.cpp#L17-L33
   
-  - ###### Red   : 
-  - ###### Blue  :
-  - ###### Black : </br>
+  - ###### Red   : 범위 내에 적이 위치한다면 돌진 공격이 가능하며 범위를 벗어나는 순간 추격이 시작됩니다.
+  - ###### Blue  : 범위 내에 적이 위치한다면 단일 공격을 실행할 수 있습니다.
+  - ###### Black : 범위 내에 적이 위치한다면 단일 공격과 콤보 공격을 실행할 수 있습니다.</br>
 
 
 ## Init Tree Guard Settings
