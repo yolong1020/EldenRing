@@ -3,15 +3,15 @@
 [1. Init Vender Settings](#Init-Vender-Settings)   
 [2. Interaction](#Interaction)   
 [3. Trade](#Trade)   
-[4. Confront](#Confront)   
+[4. Observer Event](#Observer-Event)   
 </br>
 
 
 ## Init Vender Settings
 ###### 상인의 Interaction Collision, Observer Event, 판매 물품 등을 초기화합니다.   
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/dfe59b0a-b98f-4906-bba8-4e8223f5d269" width="49.5%" height="49.5%"></img>
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9f752ea2-e3f4-4309-b036-6d80032d9c9e" width="49.5%" height="49.5%"></img>
-  https://github.com/yolong1020/EldenRing/blob/9bbdd3573ed007ca5d21635021f044b7a39776d4/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L46-L115 </br>
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/dfe59b0a-b98f-4906-bba8-4e8223f5d269" width="49.5%" height="49.5%"></img>
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/9f752ea2-e3f4-4309-b036-6d80032d9c9e" width="49.5%" height="49.5%"></img>
+https://github.com/yolong1020/EldenRing/blob/9bbdd3573ed007ca5d21635021f044b7a39776d4/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L46-L115 </br>
 
 
 ## Interaction
@@ -50,9 +50,18 @@
      https://github.com/yolong1020/EldenRing/blob/79a67115117f06931986e3c4eb5f9c3bfc287220/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L188-L201
      https://github.com/yolong1020/EldenRing/blob/f00b6884414a0925be8a92609950e9f87d553c32/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L51-L74
      https://github.com/yolong1020/EldenRing/blob/acee9a4b3f1c631e0e61c76854ab00efe662585a/Source/EldenRing/Private/UI/PopUp/SelectionPopUp.cpp#L56-L86 </br>
+
      
 ## Trade
-###### Trade Manager를 통해 거래창을 활성화하고 NPC가 가진 판매 물품들을 UI에 등록합니다.
+###### Trade Manager를 통해 거래창을 활성화하고 상인이 가진 판매 물품들을 UI에 등록합니다.
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/993eee19-f933-416c-81b1-2566d4fdc047" width="49.5%" height="49.5%"></img>   
 https://github.com/yolong1020/EldenRing/blob/ed11ad611e3bb18e52de447d6298a00c52477770/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L203-L214
 https://github.com/yolong1020/EldenRing/blob/ed11ad611e3bb18e52de447d6298a00c52477770/Source/EldenRing/Private/System/TradeManager.cpp#L18-L46 </br>
+
+
+## Observer Event
+###### 특정 상황에 대해 등록된 Observer Event를 통하여 상인의 위치와 마지막 다이얼로그를 변경합니다.
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/dfe59b0a-b98f-4906-bba8-4e8223f5d269" width="49.5%" height="49.5%"></img>
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/9f752ea2-e3f4-4309-b036-6d80032d9c9e" width="49.5%" height="49.5%"></img>
+https://github.com/yolong1020/EldenRing/blob/dabd8129d746f36959fbded0c68a4d6e132cfec6/Source/EldenRing/Private/FieldObject/Interactable/Bonefire.cpp#L50-L71
+https://github.com/yolong1020/EldenRing/blob/800d0838f0fd4e904f75e179c47b8c0c04dd9e1f/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L197-L215 </br>
