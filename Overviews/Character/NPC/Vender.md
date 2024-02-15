@@ -25,7 +25,7 @@
      https://github.com/yolong1020/EldenRing/blob/fcfc4de0477e09a17c3777194dfb107fd6432348/Source/EldenRing/Private/UI/PopUp/InteractionPopUp.cpp#L22-L61 </br>
   2. ###### 사용자 조작이 감지되면 상인에게 등록된 연출 카메라로 전환을 실행 후 다이얼로그를 활성화합니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9c573ec3-36d4-4a66-8731-ca63ba4789d0" width="49.5%" height="49.5%"></img>
-     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/905ecb30-ab7d-41e7-a224-3fc5ba8f397f" width="49.5%" height="49.5%"></img>
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/a52f015d-b491-4b1e-a8c0-30b303e7bc5b" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/6b38e1c98a77f94b902d5b61e34b656e4f60da7f/Source/EldenRing/Private/UI/PopUp/InteractionPopUp.cpp#L99-L112
      https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L112-L136
 
@@ -37,6 +37,7 @@
 
   3.
      1. ###### 상대 캐릭터가 무기를 손에 착용 중이라면 NPC는 위협받는 상황의 다이얼로그를 출력합니다.
+        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/905ecb30-ab7d-41e7-a224-3fc5ba8f397f" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/7454685f6f5655769f78f88afbd5babf3fad7702/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L62-L97 </br>
      2. ###### 상대 캐릭터가 무기를 손에 착용 중이라면 NPC는 위협받는 상황의 다이얼로그를 출력합니다.
      
