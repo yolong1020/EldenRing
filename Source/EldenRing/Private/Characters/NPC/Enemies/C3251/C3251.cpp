@@ -105,7 +105,7 @@ void AC3251::BeginPlay()
 	for (auto action : all_action)
 	{
 		if (action->CombatActionType == ECombatAction_NPC::ECAN_SingleAttack &&
-			action->DerivedAttack.IsEmpty() == false) { actions.Add(action->ActionID, action); }
+		    action->DerivedAttack.IsEmpty() == false) { actions.Add(action->ActionID, action); }
 	}
 	for (uint8 i = (uint8)EGameDirection::EGD_Front; i <= (uint8)EGameDirection::EGD_Right; ++i)
 	{
