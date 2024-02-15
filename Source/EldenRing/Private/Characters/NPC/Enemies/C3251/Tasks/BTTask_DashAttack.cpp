@@ -19,8 +19,7 @@ EBTNodeResult::Type UBTTask_DashAttack::ExecuteTask(UBehaviorTreeComponent& Owne
 	if (!npc_interface) return EBTNodeResult::Failed;
 
 	FDoAfterEndAnimation callback;
-	callback.BindLambda([&]()->void { 
-		UE_LOG(LogTemp, Warning, TEXT("Call Dash Finished"))
+	callback.BindLambda([&]()->void {
 		FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded); 
 		OwnerComp.GetBlackboardComponent()->SetValueAsBool(BBKEY_ACTING, false);
 		});
