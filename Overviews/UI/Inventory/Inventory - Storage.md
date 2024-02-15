@@ -6,16 +6,16 @@
 ## Init storage widget
 ###### Blueprint에서 설정한 Slot Count에 따라 보관함 슬롯 수를 설정하고 상호 작용을 위한 초기화 작업을 진행합니다.
 
-  ###### Storage Manager를 통하여 Inventory의 각 위젯들을 초기화합니다. (Slot count, Delegate, etc)
-     https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/System/StorageManager.cpp#L42-L85
-     https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryGrid.cpp#L47-L66 </br>
+###### Storage Manager를 통하여 Inventory의 각 위젯들을 초기화합니다. (Slot count, Delegate, etc)
+https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/System/StorageManager.cpp#L42-L85
+https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryGrid.cpp#L47-L66 </br>
   
-     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/f37436e7-ffbe-409c-9bcd-98da953456e8" width="60%" height="60%">
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/f37436e7-ffbe-409c-9bcd-98da953456e8" width="60%" height="60%">
   
-   - ###### InventorySlotGrid는 화면에 출력될 보관함 슬롯을 담당하는 위젯입니다.
-     https://github.com/yolong1020/EldenRing/blob/66be893c43cf52f5783ec93ff1e88fb007b92325/Source/EldenRing/Private/UI/Inventory/InventorySlotGrid.cpp#L20-L48
-   - ###### InventoryInteractionGrid는 실제 아이템과 보관함의 상호작용을 담당하는 위젯입니다.
-     https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryInteractionGrid.cpp#L24-L39 </br>
+- ###### InventorySlotGrid는 화면에 출력될 보관함 슬롯을 담당하는 위젯입니다.
+  https://github.com/yolong1020/EldenRing/blob/66be893c43cf52f5783ec93ff1e88fb007b92325/Source/EldenRing/Private/UI/Inventory/InventorySlotGrid.cpp#L20-L48
+- ###### InventoryInteractionGrid는 실제 아이템과 보관함의 상호작용을 담당하는 위젯입니다.
+  https://github.com/yolong1020/EldenRing/blob/d8a4482dee125ba06ce66e03dfea90628b27c71f/Source/EldenRing/Private/UI/Inventory/InventoryInteractionGrid.cpp#L24-L39 </br>
 
   
 ## Open storage
