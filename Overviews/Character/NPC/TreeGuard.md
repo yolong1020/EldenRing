@@ -19,7 +19,7 @@
 </br>
   
   1. 적이 Pawn Seen에 의해 목격되면 보스 전투가 시작됩니다.
-     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/09dbc467-6faf-44e5-a86f-23624dfdca80" width="49.5%" height="49.5%"></br>
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/09dbc467-6faf-44e5-a86f-23624dfdca80" width="49.5%" height="49.5%">
   
      https://github.com/yolong1020/EldenRing/blob/d5f795bbce272476ba0d7c9afb9bfc4c067c4ecb/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L316-L331
      https://github.com/yolong1020/EldenRing/blob/b2d30cab3821d6cc6ff444f5d95f6c6165250bd9/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L350-L366 </br>
