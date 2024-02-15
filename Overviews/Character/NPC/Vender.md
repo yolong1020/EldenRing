@@ -19,6 +19,7 @@
 </br>
 
   1. ###### NPC와 상호 작용을 위한 Popup UI를 활성화합니다.
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/6efc4ede-907a-4875-8b25-da10796d3b4a" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/76c15adfad13dc543afc0a4e612eebef0dde77ae/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L222-L233
      https://github.com/yolong1020/EldenRing/blob/fcfc4de0477e09a17c3777194dfb107fd6432348/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L26-L42
      https://github.com/yolong1020/EldenRing/blob/fcfc4de0477e09a17c3777194dfb107fd6432348/Source/EldenRing/Private/UI/PopUp/InteractionPopUp.cpp#L22-L61 </br>
@@ -29,7 +30,7 @@
      1. ###### StartCommunicate는 NPC와 대화만 가능한 상호 작용 UI를 활성합니다.
         https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L77-L92
         
-     3. ###### StartOptionCommunicate는 NPC와 대화뿐만 아니라 거래가 가능한 상호 작용 UI를 활성합니다.
+     2. ###### StartOptionCommunicate는 NPC와 대화뿐만 아니라 거래가 가능한 상호 작용 UI를 활성합니다.
         https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L94-L110
 
 ## Detect Bound
