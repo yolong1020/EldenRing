@@ -37,3 +37,5 @@
 
   3. ###### 공격 외 Moving Action은 적으로부터 거리를 두거나 적과 방향을 일치시키는데 사용하는 Action입니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/854285d1-3257-4671-8374-97cb2278bc77" width="49.5%" height="49.5%"></img>
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b32b0f69-bda6-4357-bbf1-f05180317567" width="49.5%" height="49.5%"></img>
+     
