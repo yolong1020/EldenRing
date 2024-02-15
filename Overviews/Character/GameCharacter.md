@@ -1,11 +1,6 @@
 # GameCharacter
 ###### ACharacter를 상속한 게임 내 모든 캐릭터들의 최상위 Base Class이며, 캐릭터의 초기화, 사망, Setter, Getter와 같은 공통 기능들을 제공합니다.
-[Google](http://www.google.com "구글")
-[Naver](http://www.naver.com "네이버")
-[Github](http://www.github.com "깃허브")
-구글 www.google.com; 꺽쇠없음
-네이버 <www.naver.com>; 꺽쇠있음
-My mail <jinkyukim.dev@gmail.com>
+
 [1. Init Default Component & Values](#init-default-component-&-values)
 [2. Death Process](#death-process)
 </br>
