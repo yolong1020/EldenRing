@@ -29,10 +29,10 @@
      https://github.com/yolong1020/EldenRing/blob/6b38e1c98a77f94b902d5b61e34b656e4f60da7f/Source/EldenRing/Private/UI/PopUp/InteractionPopUp.cpp#L99-L112
      https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L112-L136
 
-     1. ###### StartCommunicate는 NPC와 대화만 가능한 상호 작용 UI를 활성합니다.
+     1. ###### StartCommunicate는 오직 NPC와 대화만을 시작하기 위한 함수입니다.
         https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L77-L92
         
-     2. ###### StartOptionCommunicate는 NPC와 대화뿐만 아니라 거래가 가능한 상호 작용 UI를 활성합니다.
+     2. ###### StartOptionCommunicate는 NPC와 대화뿐만 아니라 여러 기능이 포함된 상호 작용을 시작하기 위한 함수입니다.
         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e2b25780-a6f4-477b-bb0f-0145871bb102" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L94-L110
 
