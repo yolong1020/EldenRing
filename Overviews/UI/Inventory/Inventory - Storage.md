@@ -24,6 +24,8 @@
   
 ## Open storage
 ###### Storage Manager를 통하여 보관함을 활성화하며 활성되는 시점에서 보관된 Item들을 갱신합니다.
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/e5fb100b-1e9f-4d51-a1c5-86108ecea6ae" width="49.5%" height="49.5%"></img>   
+</br>
 
   1. ###### Inventory를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
      https://github.com/yolong1020/EldenRing/blob/808bb8d461a42c4bc8d677944969d10fdc64c29e/Source/EldenRing/Private/System/StorageManager.cpp#L23-L35 </br>
