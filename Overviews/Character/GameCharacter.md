@@ -10,6 +10,7 @@
 
 ## Death Process
 ###### 캐릭터 사망시 Component 처리와 이펙트 연출 과정입니다.
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/467bd7d2-00b7-4ae9-8d56-89c00ca0d035" width="49.5%" height="49.5%"></img>
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/a01165f9-5743-49bb-881b-fe81aeae8808" width="49.5%" height="49.5%"></img>   
 </br>
 
