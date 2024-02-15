@@ -13,7 +13,7 @@
 
 
 ## Detect Bound
-###### 캐릭터를 중심으로 3개의 영역을 통해 추격 혹은 공격과 기동으로 연계하는 Service입니다. 
+###### 캐릭터를 중심으로 3개의 영역을 통해 추격과 공격, 기동으로 연계하는 Service입니다. 
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b" width="49.5%" height="49.5%"></img>   
   https://github.com/yolong1020/EldenRing/blob/2fb19a7c590b8cb05dd116ac91068cc81dbf7f1a/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Services/BTService_Detect.cpp#L17-L33
   
