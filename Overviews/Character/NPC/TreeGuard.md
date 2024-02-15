@@ -14,7 +14,7 @@
 
 
 ## Combat
-###### 전투 태세에 돌입하면 추격을 진행한 후 일반 공격, 강 공격, 돌 공격 중 선택하여 공격을 시도합니다.</br>각 공격은 고유한 Action ID로 구분되며 파생되는 Action들과 Action 유형, 방향, 공격 범위 등의 데이터를 지니고 있습니다.</br>이 데이터를 통해 적과 자신의 방향에 따라 다양한 공격을 시도하고 현재 Action으로부터 콤보 공격으로 이어갈 수 있습니다.
+###### 전투 태세에 돌입하면 추격을 진행한 후 일반 공격, 강 공격, 돌진 공격 중 선택하여 공격을 시도합니다.</br>각 공격은 고유한 Action ID로 구분되며 파생되는 Action들과 Action 유형, 방향, 공격 범위 등의 데이터를 지니고 있습니다.</br>이 데이터를 통해 적과 자신의 방향에 따라 다양한 공격을 시도하고 현재 Action으로부터 콤보 공격으로 이어갈 수 있습니다.
 
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/888feca3-8cec-4f47-9f10-c76d3c9058c7"></img>   
     
@@ -29,11 +29,11 @@
      https://github.com/yolong1020/EldenRing/blob/af11b727778d31fb7a56716f8ce201783cca885c/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Tasks/BTTask_SelectNextAction.cpp#L18-L73
      https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L514-L522
      
-     1. ###### 대쉬 공격은 현재 전투 페이즈에 따라 선택의 폭을 달리하고, 선택된 Action ID에 명시된 Attack Weight로 공격 강도를 설정합니다.
+     1. ###### 돌진 공격은 현재 전투 페이즈에 따라 선택의 폭을 달리하고, 선택된 Action ID에 명시된 Attack Weight로 공격 강도를 설정합니다.
         https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L368-L389
      2. ###### 단일 공격은 자신으로부터 적의 위치에 따라 공격 방법을 다르게 전개하며, 적이 후방에 있다면 공격을 취소하고 차기 Action을 Task에서 선택하도록 합니다.</br>만약 적의 위치가 차기 Action의 Action Bound에 만족하지 않는다면 이 역시 공격을 취소하도록 합니다.  
         https://github.com/yolong1020/EldenRing/blob/81b539b61a82d83bdfb7b2efb76a33a464785c8d/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L391-L458
-     3. ###### 콤보 공격은
+     3. ###### 콤보 공격은 이전 Action ID를 통해 파생되는 공격을 확인하여 무작위로 선정한 Action의 공격 방향이 적과 일치하면 공격을 실행하고 그렇지 않다면 공격을 취소합니다.
         https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L460-L499 </br>
 
 ## Confront
