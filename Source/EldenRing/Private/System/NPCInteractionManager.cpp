@@ -55,11 +55,10 @@ void UInteractionManager::OpenSelect(const uint8& FirstType, const uint8& Second
 	const UEnum* enum_type = StaticEnum<ESelectPopupButtonType>();
 	CHECK_INVALID_PTR(enum_type)
 
-	if (!enum_type->IsValidEnumValue(static_cast<int64>(FirstType)) || 
-		!enum_type->IsValidEnumValue(static_cast<int64>(SecondType)))
-
-	if ((ESelectPopupButtonType)FirstType  == ESelectPopupButtonType::ESPBT_Max || 
-		(ESelectPopupButtonType)SecondType == ESelectPopupButtonType::ESPBT_Max) return;
+	if (!enum_type->IsValidEnumValue(static_cast<int64>(FirstType))		    ||
+	    !enum_type->IsValidEnumValue(static_cast<int64>(SecondType))	    ||
+	    (ESelectPopupButtonType)FirstType  == ESelectPopupButtonType::ESPBT_Max || 
+	    (ESelectPopupButtonType)SecondType == ESelectPopupButtonType::ESPBT_Max) return;
 
 	if (!m_selection_popup)
 	{
