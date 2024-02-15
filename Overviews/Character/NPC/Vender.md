@@ -18,9 +18,10 @@
 ###### Interaction Collision을 통해 대화 및 거래를 진행합니다. 
 </br>
 
-  1. ###### 전투 상황에 돌입하면 보유한 무기를 꺼내며 전투를 준비합니다.
+  1. ###### NPC와 상호 작용을 위한 Popup UI를 활성화합니다.
      https://github.com/yolong1020/EldenRing/blob/76c15adfad13dc543afc0a4e612eebef0dde77ae/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L222-L233 </br>
-
+     https://github.com/yolong1020/EldenRing/blob/fcfc4de0477e09a17c3777194dfb107fd6432348/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L26-L42
+     https://github.com/yolong1020/EldenRing/blob/fcfc4de0477e09a17c3777194dfb107fd6432348/Source/EldenRing/Private/UI/PopUp/InteractionPopUp.cpp#L22-L61
 
 ## Detect Bound
 ###### 캐릭터를 중심으로 3개의 영역을 통해 적을 감지하여 추격과 공격, 대치 상황을 결정합니다.
