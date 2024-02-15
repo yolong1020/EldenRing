@@ -15,6 +15,8 @@ UBTTask_DashAttack::UBTTask_DashAttack()
 
 EBTNodeResult::Type UBTTask_DashAttack::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
+	Super::ExecuteTask(OwnerComp, NodeMemory);
+	
 	INPC_Interfaces* npc_interface = Cast<INPC_Interfaces>(OwnerComp.GetAIOwner()->GetPawn());
 	if (!npc_interface) return EBTNodeResult::Failed;
 
