@@ -14,10 +14,10 @@
 https://github.com/yolong1020/EldenRing/blob/a021831dab5f79b7e6faff2f2ab6fc9c5b5b9216/Source/EldenRing/Private/Characters/Players/C0000.cpp#L136-L212 </br>
 
 2. 'New Game' 혹은 'Load Game'에 따라 Item을 다르게 초기화합니다.
-```C++
-/// [BeginPlay] 189
-instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
-```
+   ```C++
+   /// [BeginPlay] 189
+   instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
+   ```
 https://github.com/yolong1020/EldenRing/blob/bc151a656f7846c367529f4340f0c87f574dcde0/Source/EldenRing/Private/Characters/Players/C0000.cpp#L78-L111
 https://github.com/yolong1020/EldenRing/blob/0f9888e552ddbf77796e6e03775caa458ebac7fe/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133 </br>
 
