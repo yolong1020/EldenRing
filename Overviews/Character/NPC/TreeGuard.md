@@ -19,7 +19,7 @@
   1. ###### 적이 Pawn Seen에 의해 목격되면 보스 전투가 시작됩니다.</br>
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/09dbc467-6faf-44e5-a86f-23624dfdca80" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/d5f795bbce272476ba0d7c9afb9bfc4c067c4ecb/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L316-L331
-     https://github.com/yolong1020/EldenRing/blob/b2d30cab3821d6cc6ff444f5d95f6c6165250bd9/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L350-L366
+     https://github.com/yolong1020/EldenRing/blob/b2d30cab3821d6cc6ff444f5d95f6c6165250bd9/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L350-L366 </br>
      
   3. ###### Target과 Acting 블랙보드가 변경됨에 따라 Select next action을 통해 차기 행동을 결정합니다.</br>공격은 단일 공격과 콤보 공격 그리고 대쉬 공격으로 파생되며, 각 공격마다 콤보 공격으로 파생 여부가 다르게 설정되어 있습니다.</br>
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/00718d63-6e6d-4337-b0aa-e345ec5a5fd7" width="49.5%" height="49.5%"></img>
