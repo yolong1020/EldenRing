@@ -1,7 +1,7 @@
 # Tree Guard
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>
-[1. Init Default Component & Values](#Init-Default-Component--Values)   
-[2. Patrol](#Patrol)   
+[1. Init Tree Guard Settings](#Init-Tree-Guard-Settings)   
+[2. Combat](#Combat)   
 [3. Assembly Point](#Assembly-Point)   
 </br>
 
