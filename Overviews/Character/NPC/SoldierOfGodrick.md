@@ -1,7 +1,8 @@
 # Soldier of Godrick
 [1. Change Battle Mode](#Change-Battle-Mode)   
-[2. Combat](#Combat)   
-[3. Confront](#Confront)   
+[2. Detect Bound](#Detect-Bound)   
+[3. Combat](#Combat)   
+[4. Confront](#Confront)   
 </br>
 
 
@@ -26,7 +27,7 @@
 
 ## Detect Bound
 ###### 캐릭터를 중심으로 3개의 영역을 통해 적을 감지하여 추격과 공격, 경계를 결정합니다.
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b" width="49.5%" height="49.5%"></img>   
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/56efd8a8-b65f-4cc3-97b6-87934c75724a" width="49.5%" height="49.5%"></img>   
   
   - ###### Red   : 범위 내에 적이 위치한다면 돌진 공격이 가능하며 범위를 벗어나는 순간 추격이 시작됩니다.
   - ###### Blue  : 범위 내에 적이 위치한다면 단일 공격을 실행할 수 있습니다.
