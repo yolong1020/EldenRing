@@ -15,7 +15,7 @@
 
 ## Combat
 ###### 전투 태세에 돌입하면 추격을 진행한 후 일반 공격, 강 공격, 대쉬 공격 중 선택하여 공격을 시도합니다.</br>이후 이전 공격에 따라 차기 공격을 이어서 전개합니다.
-<img src="https://github.com/yolong1020/EldenRing/assets/87303898/e73c97ba-ac30-4e54-9001-1cfa633f3d00" width="49.5%" height="49.5%"></img>
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/e73c97ba-ac30-4e54-9001-1cfa633f3d00" width="49.5%" height="49.5%"></img>   
 </br>
     
   1. ###### 적이 Pawn Seen에 의해 목격되면 보스 전투가 시작됩니다.</br>
