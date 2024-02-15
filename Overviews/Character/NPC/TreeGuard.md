@@ -41,7 +41,7 @@
      
   2. ###### Target과 Acting 블랙보드가 변경됨에 따라 Task - Select next action을 통해 차기 행동을 결정합니다.</br>만약 이전 시도한 공격이 파생되는 Derived Attack을 가지고 있다면 해당 Action들을 통해 콤보를 전개할 수 있습니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/77072f13-da55-45f0-85d0-d9e18481d5b7" width="49.5%" height="49.5%"></img>
-     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/467894cc-b5dc-4a5c-8a54-c1c43af0819d" width="49.5%" height="49.5%"></img>
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/01aeedd5-16c8-4d34-aafa-ee87775125c3" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/af11b727778d31fb7a56716f8ce201783cca885c/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Tasks/BTTask_SelectNextAction.cpp#L18-L73
      https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L514-L522
      
@@ -50,6 +50,7 @@
      2. ###### 단일 공격은 자신으로부터 적의 위치에 따라 공격 방법을 다르게 전개하며, 적이 후방에 있다면 공격을 취소하고 차기 Action을 Task에서 선택하도록 합니다.</br>만약 적의 위치가 차기 Action의 Action Bound에 만족하지 않는다면 이 역시 공격을 취소하도록 합니다.  
         https://github.com/yolong1020/EldenRing/blob/81b539b61a82d83bdfb7b2efb76a33a464785c8d/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L391-L458
      3. ###### 콤보 공격은 이전 Action ID를 통해 파생되는 공격을 확인하여 무작위로 선정한 Action의 공격 방향이 적과 일치하면 공격을 실행하고 그렇지 않다면 공격을 취소합니다.
+        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/467894cc-b5dc-4a5c-8a54-c1c43af0819d" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L460-L499 </br>
 
   3. ###### 공격 외 Moving Action은 적으로부터 거리를 두거나 방향을 일치시키는데 사용하는 Action입니다.
