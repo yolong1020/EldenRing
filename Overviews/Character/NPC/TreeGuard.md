@@ -2,7 +2,6 @@
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>
 [1. Init Tree Guard Settings](#Init-Tree-Guard-Settings)   
 [2. Combat](#Combat)   
-[3. Assembly Point](#Assembly-Point)   
 </br>
 
 
@@ -36,4 +35,5 @@
      3. ###### 콤보 공격은 이전 Action ID를 통해 파생되는 공격을 확인하여 무작위로 선정한 Action의 공격 방향이 적과 일치하면 공격을 실행하고 그렇지 않다면 공격을 취소합니다.
         https://github.com/yolong1020/EldenRing/blob/b1b47bfa08a3ea2424d944f71bf9af1667e910d3/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L460-L499 </br>
 
-  3. ###### 공격 외 Moving Action은 적으로부터 거리를 두거나 적과 방향을 일치시키는데 사용하는 Action입니다.</br>
+  3. ###### 공격 외 Moving Action은 적으로부터 거리를 두거나 적과 방향을 일치시키는데 사용하는 Action입니다.
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/854285d1-3257-4671-8374-97cb2278bc77" width="49.5%" height="49.5%"></img>
