@@ -33,7 +33,6 @@
         https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L77-L92
         
      2. ###### StartOptionCommunicate는 NPC와 대화뿐만 아니라 여러 기능이 포함된 상호 작용을 시작하기 위한 함수입니다.
-        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e2b25780-a6f4-477b-bb0f-0145871bb102" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L94-L110
 
   3. ###### 상대 캐릭터가 무기를 손에 착용 중이라면 NPC는 위협받는 상황의 다이얼로그를 출력합니다.</br>무기를 착용하지 않았다면 마지막 다이얼로그를 기점으로 대화가 진행됩니다.
@@ -47,6 +46,7 @@
      https://github.com/yolong1020/EldenRing/blob/79a67115117f06931986e3c4eb5f9c3bfc287220/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L133-L162 </br>
 
   5. ###### 다이얼로그 데이터에 Button Type이 명시되었고 Event Function으로 SelectOption이 있는 경우라면 Select Popup을 활성하고 각 버튼에 기능을 바인딩합니다.
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e2b25780-a6f4-477b-bb0f-0145871bb102" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/79a67115117f06931986e3c4eb5f9c3bfc287220/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L188-L201
      https://github.com/yolong1020/EldenRing/blob/f00b6884414a0925be8a92609950e9f87d553c32/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L51-L74
      https://github.com/yolong1020/EldenRing/blob/acee9a4b3f1c631e0e61c76854ab00efe662585a/Source/EldenRing/Private/UI/PopUp/SelectionPopUp.cpp#L56-L86 </br>
