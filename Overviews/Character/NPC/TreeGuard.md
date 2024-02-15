@@ -14,7 +14,9 @@
 
 ## Detect Bound
 ###### 전
-<img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b" width="49.5%" height="49.5%"></img>   
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b" width="49.5%" height="49.5%"></img>   
+  https://github.com/yolong1020/EldenRing/blob/2fb19a7c590b8cb05dd116ac91068cc81dbf7f1a/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Services/BTService_Detect.cpp#L17-L33
+  
   - ###### Red   : 
   - ###### Blue  :
   - ###### Black : </br>
