@@ -46,7 +46,10 @@
      https://github.com/yolong1020/EldenRing/blob/79a67115117f06931986e3c4eb5f9c3bfc287220/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L39-L60
      https://github.com/yolong1020/EldenRing/blob/79a67115117f06931986e3c4eb5f9c3bfc287220/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L133-L162 </br>
 
-  5. ###### 다이얼로그 데이터에 Button Type이 명시된 경우라면 Select Popup을 활성하고 각 버튼에 기능을 바인딩합니다.
+  5. ###### 다이얼로그 데이터에 Button Type이 명시되었고 Event Function으로 SelectOption이 있는 경우라면 Select Popup을 활성하고 각 버튼에 기능을 바인딩합니다.
+     https://github.com/yolong1020/EldenRing/blob/79a67115117f06931986e3c4eb5f9c3bfc287220/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L188-L201
+     https://github.com/yolong1020/EldenRing/blob/3acd2e08bed06621ec79356ca7d40b89d1500422/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L51-L75
+     https://github.com/yolong1020/EldenRing/blob/f00b6884414a0925be8a92609950e9f87d553c32/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L51-L74
      
 ## Detect Bound
 ###### 캐릭터를 중심으로 3개의 영역을 통해 적을 감지하여 추격과 공격, 대치 상황을 결정합니다.
