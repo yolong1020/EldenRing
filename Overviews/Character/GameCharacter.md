@@ -3,7 +3,8 @@
 </br>
 
 #### * Init Default Component & Values
-  ###### Mesh, Collision 등 Component 생성 및 초기화를 진행합니다.
+###### Mesh, Collision 등 Component 생성 및 초기화를 진행합니다.
+</br>
 ---
 #### * Death Process
   > 캐릭터 사망시 Component 처리와 이펙트 연출 과정입니다.
