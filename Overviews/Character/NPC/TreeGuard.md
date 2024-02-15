@@ -14,7 +14,7 @@
 
 ## Detect Bound
 ###### 전
-<img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>   
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b"></img>   
 </br>
 
 
