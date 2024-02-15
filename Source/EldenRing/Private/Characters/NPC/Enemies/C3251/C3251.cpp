@@ -414,8 +414,8 @@ void AC3251::TrySingleAttack()
 		for (FNPC_CombatActionData* const data : m_combo_singles[(uint8)direction - 1])
 		{
 			if ((data->ActionBound == ECombatBound::ECB_Confront && is_in_single) ||
-				(data->ActionBound == ECombatBound::ECB_Attack && is_in_combo))
-				enable_actions.Add(data);
+			    (data->ActionBound == ECombatBound::ECB_Attack && is_in_combo))
+			     enable_actions.Add(data);
 		}
 	}
 	else
