@@ -1,4 +1,6 @@
 # NPC
+###### Player를 제외한 모든 캐릭터들의 Base Class이며, 특정 오브젝트를 집결지로 등록하고 에디터에서 정해진 정찰 지점들을 순회하는 정찰 기능을 포함하고 있습니다.</br>일반(Repose) / 경계(Vigilance) 상황을 구분하며, Health Bar Widget을 제공합니다.
+
 #### * Init Default Component & Values
   > NPC에 해당하는 모든 캐릭터의 Component와 초기값을 설정합니다.
 
