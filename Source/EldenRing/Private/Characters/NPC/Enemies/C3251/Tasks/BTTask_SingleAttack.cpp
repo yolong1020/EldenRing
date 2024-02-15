@@ -20,10 +20,8 @@ EBTNodeResult::Type UBTTask_SingleAttack::ExecuteTask(UBehaviorTreeComponent& Ow
 	INPC_Interfaces* npc_interface = Cast<INPC_Interfaces>(OwnerComp.GetAIOwner()->GetPawn());
 	if (!npc_interface) return EBTNodeResult::Failed;
 
-	UE_LOG(LogTemp, Warning, TEXT("Try SingleAttack"))
 	FDoAfterEndAnimation callback;
 	callback.BindLambda([&]()->void { 
-		UE_LOG(LogTemp, Warning, TEXT("SingleAttack Finished"))
 		FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded); 
 		OwnerComp.GetBlackboardComponent()->SetValueAsBool(BBKEY_ACTING, false);
 		OwnerComp.GetBlackboardComponent()->SetValueAsBool(BBKEY_SINGLECOMBO, false);
