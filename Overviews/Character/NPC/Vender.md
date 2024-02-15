@@ -8,30 +8,18 @@
 
 
 ## Init Vender Settings
-###### 상인의 Interaction Collision, Observer Event, 판매 물품 등을 초기화합니다.
+###### 상인의 Interaction Collision, Observer Event, 판매 물품 등을 초기화합니다.   
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/dfe59b0a-b98f-4906-bba8-4e8223f5d269" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9f752ea2-e3f4-4309-b036-6d80032d9c9e" width="49.5%" height="49.5%"></img>
   https://github.com/yolong1020/EldenRing/blob/9bbdd3573ed007ca5d21635021f044b7a39776d4/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L46-L115 </br>
 
 
-## Change Battle Mode
-###### 정찰 혹은 휴식 중 전투 상황이 발생하면 NPC가 전투 태세로 전환합니다.  
+## Interaction
+###### Interaction Collision을 통해 대화 및 거래를 진행합니다. 
 </br>
 
-  1.
-     1. ###### 비전투 상황에서 적(플레이어)이 PawnSeen에 감지되면 전투 태세로 전환합니다.
-        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e0b2874b-5ffb-4518-9a47-ce553fb4c4b7" width="49.5%" height="49.5%"></img>
-        https://github.com/yolong1020/EldenRing/blob/954786d152d35815853399236b731258e0fe9d88/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L243-L258 </br>
-     3. ###### 비전투 상황에서 적(플레이어)에게 피격받게 되면 피격 동작을 재생한 뒤 전투 태세로 전환합니다.
-        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9b454323-8dab-439c-a768-69dcaf978844" width="49.5%" height="49.5%"></img>
-        https://github.com/yolong1020/EldenRing/blob/954786d152d35815853399236b731258e0fe9d88/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L65-L86
-        https://github.com/yolong1020/EldenRing/blob/954786d152d35815853399236b731258e0fe9d88/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L770-L789 </br>
-  2. ###### 전투 상황에 돌입하면 보유한 무기를 꺼내며 전투를 준비합니다.
-     https://github.com/yolong1020/EldenRing/blob/233c4f3a063e5d102b1eb215b4d19cca4fc687ae/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L314-L326 </br>
-  3. ###### Anim Notify의 호출로 전투 준비가 마무리되면 목표와 방향을 확인한 후 돌격하거나 혹은 방향 전환을 시도합니다.
-     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/a834a35b-8d8d-4612-97fb-565b1ef47b85"></img>
-     https://github.com/yolong1020/EldenRing/blob/73244f3847390d239d978cd85bed74aa4f8cc33b/Source/EldenRing/Private/Characters/NPC/GameCharacter_AnimInstance.cpp#L117-L121
-     https://github.com/yolong1020/EldenRing/blob/ff8ab74441625804f894632f27d72827a478767a/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L665-L703 </br>
+  1. ###### 전투 상황에 돌입하면 보유한 무기를 꺼내며 전투를 준비합니다.
+     https://github.com/yolong1020/EldenRing/blob/76c15adfad13dc543afc0a4e612eebef0dde77ae/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L222-L233 </br>
 
 
 ## Detect Bound
