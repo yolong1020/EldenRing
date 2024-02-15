@@ -1,7 +1,7 @@
 # GameCharacter
 ###### ACharacter를 상속한 게임 내 모든 캐릭터들의 최상위 Base Class이며, 캐릭터의 초기화, 사망, Setter, Getter와 같은 공통 기능들을 제공합니다.
 
-[1. Init Default Component & Values](#init-default-component-&-values)
+[1. Init Default Component & Values](#init-default-component-&-values)   
 [2. Death Process](#death-process)
 </br>
 
