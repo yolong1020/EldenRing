@@ -37,12 +37,14 @@
         https://github.com/yolong1020/EldenRing/blob/06d5ac00a61008476953dfcb67f150318bbdba29/Source/EldenRing/Private/System/NPCInteractionManager.cpp#L94-L110
 
   3. ###### 상대 캐릭터가 무기를 손에 착용 중이라면 NPC는 위협받는 상황의 다이얼로그를 출력합니다.</br>무기를 착용하지 않았다면 마지막 다이얼로그를 기점으로 대화가 진행됩니다.
-        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/ccf07354-3210-4566-a590-28fa1327a9ea"></img>
-        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/7d8503c8-55ca-4466-b824-d71b7ef88f61" width="49.5%" height="49.5%"></img>
-        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/2185ea4f-27c2-4f8b-a0fb-4e8bd68fdb94" width="49.5%" height="49.5%"></img>
-        https://github.com/yolong1020/EldenRing/blob/7454685f6f5655769f78f88afbd5babf3fad7702/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L62-L97 </br>
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/7d8503c8-55ca-4466-b824-d71b7ef88f61" width="49.5%" height="49.5%"></img>
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/2185ea4f-27c2-4f8b-a0fb-4e8bd68fdb94" width="49.5%" height="49.5%"></img>
+     https://github.com/yolong1020/EldenRing/blob/7454685f6f5655769f78f88afbd5babf3fad7702/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L62-L97 </br>
 
-  4. ###### 사용자 조작으로 다이얼로그가 업데이트되면 
+  4. ###### 사용자 조작으로 다이얼로그가 업데이트되면 현재 다이얼로그에 명시된 Options로부터 테이블에서 차기 다이얼로그를 찾아 대화를 갱신합니다.
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/ccf07354-3210-4566-a590-28fa1327a9ea"></img>
+     https://github.com/yolong1020/EldenRing/blob/79a67115117f06931986e3c4eb5f9c3bfc287220/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L39-L60
+     https://github.com/yolong1020/EldenRing/blob/79a67115117f06931986e3c4eb5f9c3bfc287220/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L133-L162 </br>
      
 ## Detect Bound
 ###### 캐릭터를 중심으로 3개의 영역을 통해 적을 감지하여 추격과 공격, 대치 상황을 결정합니다.
