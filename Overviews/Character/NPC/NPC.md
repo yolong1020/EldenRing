@@ -17,7 +17,6 @@
      2. Level의 로드가 완료되지 않았다면, Level의 로드 완료 시점에 호출될 Event로 등록해줍니다.
      https://github.com/yolong1020/EldenRing/blob/ec2bd163de2ae2409d90b577fef49e66b5eb3700/Source/EldenRing/Public/GameBase/ERGameInstance.h#L35-L39
      https://github.com/yolong1020/EldenRing/blob/3e40e9ea14935ca05790f050c704db9ef6d152f8/Source/EldenRing/Private/Levels/GameField.cpp#L65-L108 </br>
----
 
 
 ## Patrol
@@ -26,20 +25,18 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/40e9e4ee-a3ad-4f68-8f2e-2b401f9d0a03" width="49.5%" height="49.5%"></img>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e8abfa97-d34c-4d93-8ef5-19489a25dca0" width="49.5%" height="49.5%"> 
 
-  ###### [Step 01] 에디터에서 설정한 정찰 시간만큼 타이머를 설정하고 캐릭터와 목적지 방향의 일치 여부에 따라 방향 전환 또는 전진을 진행합니다.
+  1. 에디터에서 설정한 정찰 시간만큼 타이머를 설정하고 캐릭터와 목적지 방향의 일치 여부에 따라 방향 전환 또는 전진을 진행합니다.
   https://github.com/yolong1020/EldenRing/blob/9df4da650f57f5ce2e5188f5e43b8a6efd15b771/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L426-L438
   https://github.com/yolong1020/EldenRing/blob/782c932b733fb24e3fea2aafafa5399941292032/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L301-L308
   </br>
-  ###### [Step 02 - 01] 전진하는 경우, AI Controller - MoveToLocation을 실행합니다.
-  https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L525-L542
-  ###### [Step 02 - 02] 방향 전환을 한 경우, 모션이 끝나는 시점에서 Anim Notify에 의해 OnTurnEnd()을 호출 후 목적지까지 전진을 실행합니다.
-  https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/GameCharacter_AnimInstance.cpp#L153-L168
-  </br>
-  ###### [Step 03] 각 자식 클래스에서 목적지에 도달했을 때, 처리할 행동들을 결정해줍니다. (ex : C4311)
+  2.
+     1. 전진하는 경우, AI Controller - MoveToLocation을 실행합니다.
+     https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L525-L542
+     2. 방향 전환을 한 경우, 모션이 끝나는 시점에서 Anim Notify에 의해 OnTurnEnd()을 호출 후 목적지까지 전진을 실행합니다.
+     https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/GameCharacter_AnimInstance.cpp#L153-L168 </br>
+  3. 각 자식 클래스에서 목적지에 도달했을 때, 처리할 행동들을 결정해줍니다. (ex : C4311)
   https://github.com/yolong1020/EldenRing/blob/3dfcb18ab1d642012182c9589f30a13c399d12cc/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L721-L735
-  https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L305-L319
-  </br>
----
+  https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L305-L319 </br>
 
 
 ## Assembly Point
