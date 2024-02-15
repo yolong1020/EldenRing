@@ -1,7 +1,12 @@
 # NPC
 ###### Player를 제외한 모든 캐릭터들의 Base Class이며, 특정 오브젝트를 집결지로 등록하고 에디터에서 정해진 정찰 지점들을 순회하는 정찰 기능을 포함하고 있습니다.</br>일반(Repose) / 경계(Vigilance) 상황을 구분하며, Health Bar Widget을 제공합니다.
+[1. Init Default Component & Values](#Init-Default-Component-&-Values)   
+[2. Patrol](#Patrol)   
+[3. Assembly Point](#Assembly-Point)   
+</br>
 
-#### * Init Default Component & Values
+
+## Init Default Component & Values
   > NPC에 해당하는 모든 캐릭터의 Component와 초기값을 설정합니다.
 
   ###### [Step 01 - 01] Health Bar와 PawnSensing Component, 그리고 Level의 로드 상태에 따라 Spawn 위치를 초기화합니다.
@@ -13,7 +18,9 @@
   https://github.com/yolong1020/EldenRing/blob/3e40e9ea14935ca05790f050c704db9ef6d152f8/Source/EldenRing/Private/Levels/GameField.cpp#L65-L108
   </br>
 ---
-#### * Patrol
+
+
+## Patrol
   > 에디터에서 지정된 patrol Point들을 정찰 구역으로 설정하여 NPC가 순회 정찰을 진행합니다.
   </br>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/40e9e4ee-a3ad-4f68-8f2e-2b401f9d0a03" width="49.5%" height="49.5%"></img>
@@ -33,7 +40,9 @@
   https://github.com/yolong1020/EldenRing/blob/5a8b244925fe1a501707bdec3c12b2b2de467878/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L305-L319
   </br>
 ---
-#### * Assembly Point
+
+
+## Assembly Point
   > 캐릭터 에디터에서 설정된 정찰 시간 이후에 배정된 집결지에서 휴식을 취하며 타 NPC와 정찰을 교대합니다.
   </br>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/40a91a11-3099-44c4-bbec-99b3f48f7f46" width="49.5%" height="49.5%"></img>
