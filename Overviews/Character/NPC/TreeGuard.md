@@ -27,6 +27,7 @@
      1. Target과 Acting 블랙보드가 변경됨에 따라 Select next action을 통해 차기 행동을 결정합니다.
         https://github.com/yolong1020/EldenRing/blob/af11b727778d31fb7a56716f8ce201783cca885c/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Tasks/BTTask_SelectNextAction.cpp#L18-L73 </br>
      2. 공격은 단일 공격과 콤보 공격 그리고 대쉬 공격으로 파생되며, 각 공격마다 콤보 공격으로 파생 여부가 다르게 설정되어 있습니다.
+        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/00718d63-6e6d-4337-b0aa-e345ec5a5fd7" width="49.5%" height="49.5%"></img>
         https://github.com/yolong1020/EldenRing/blob/d44c1adb3ed052a712606a23e5945b0cf78561ee/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L743-L753 </br>
 
 
