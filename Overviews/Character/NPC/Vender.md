@@ -52,7 +52,7 @@ https://github.com/yolong1020/EldenRing/blob/9bbdd3573ed007ca5d21635021f044b7a39
 
      
 ## Trade
-###### Trade Manager를 통해 거래창을 활성화하고 상인이 가진 판매 물품들을 UI에 등록합니다.
+###### Trade Manager를 통해 거래창을 활성화하고 상인이 가진 판매 물품들을 UI에 등록합니다.</br>[Trade에 대한 상세 설명은 이곳을 클릭해주세요.](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Trade/Trade.md)
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/993eee19-f933-416c-81b1-2566d4fdc047" width="49.5%" height="49.5%"></img>   
 https://github.com/yolong1020/EldenRing/blob/ed11ad611e3bb18e52de447d6298a00c52477770/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L203-L214
 https://github.com/yolong1020/EldenRing/blob/ed11ad611e3bb18e52de447d6298a00c52477770/Source/EldenRing/Private/System/TradeManager.cpp#L18-L46 </br>
