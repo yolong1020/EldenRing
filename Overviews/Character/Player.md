@@ -10,7 +10,7 @@
 ###### Level 상태에 따라서 HUD, Camera Timeline, 플레이에 필요한 Item 등 초기화합니다.
 </br>
 
-1. 현재 Level의 플레이 가능 여부와 Load 상태에 따른 초기화를 진행합니다.
+1. 현재 Level의 플레이 가능 여부와 Load 상태에 따른 초기화를 진행합니다.   
 https://github.com/yolong1020/EldenRing/blob/a021831dab5f79b7e6faff2f2ab6fc9c5b5b9216/Source/EldenRing/Private/Characters/Players/C0000.cpp#L136-L212 </br>
 
 2. 'New Game' 혹은 'Load Game'에 따라 Item을 다르게 초기화합니다.
