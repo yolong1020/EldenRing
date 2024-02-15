@@ -24,6 +24,16 @@
      https://github.com/yolong1020/EldenRing/blob/ff8ab74441625804f894632f27d72827a478767a/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L665-L703 </br>
 
 
+## Detect Bound
+###### 캐릭터를 중심으로 3개의 영역을 통해 적을 감지하여 추격과 공격, 경계를 결정합니다.
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b020d7bd-eff3-433c-8039-ef7906b0c69b" width="49.5%" height="49.5%"></img>   
+  
+  - ###### Red   : 범위 내에 적이 위치한다면 돌진 공격이 가능하며 범위를 벗어나는 순간 추격이 시작됩니다.
+  - ###### Blue  : 범위 내에 적이 위치한다면 단일 공격을 실행할 수 있습니다.
+  - ###### Black : 범위 내에 적이 위치한다면 단일 공격과 콤보 공격을 실행할 수 있습니다.
+</br>
+
+
 ## Combat
 ###### 전투 태세에 돌입하면 추격을 진행한 후 일반 공격, 강 공격, 대쉬 공격 중 선택하여 공격을 시도합니다. 이후 이전 공격에 따라 차기 공격을 이어서 전개합니다.
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/69093a96-9670-496f-a775-234e8d35a1be" width="49.5%" height="49.5%"></img>
