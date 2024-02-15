@@ -1,8 +1,8 @@
 # Inventory - Equipment
 ###### 획득한 아이템을 캐릭터에게 장착, 해제시켜 Attribute에 반영하는 기능을 제공합니다. 무기의 경우 HUD의 Quick Slot에 노출됩니다.
 
-### * Equip item
-  > Equipment Manager를 통하여 Item을 캐릭터에게 착용시킵니다.
+## Equip item
+###### Equipment Manager를 통하여 Item을 캐릭터에게 착용시킵니다.
 
   ###### [Step 01] 착용하려는 아이템 유형과 좌/우 위치(무기 한정)를 확인하여 슬롯에 장착시킵니다.
   https://github.com/yolong1020/EldenRing/blob/7e6dee018db108b2a9c756429f89ef9cc52c282b/Source/EldenRing/Private/System/EquipmentManager.cpp#L36-L59
