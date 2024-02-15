@@ -51,6 +51,8 @@
 
 ## Remove item to storage
 ###### 아이템을 착용하거나 필드에 버리는 경우, 보관함에서 해당 아이템을 제거합니다.
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/0c3c8a58-7018-4cdd-979b-c83948dc3028" width="49.5%" height="49.5%"></img>   
+</br>
   
   - ###### 모든 슬롯을 순회하며 해당하는 아이템의 포인터를 제거해줍니다. </br>만약 위젯이 노출되고 있다면, 적재된 아이템이 노출되지 않도록 InteractionGrid를 갱신합니다.
     https://github.com/yolong1020/EldenRing/blob/345d258673e6c6e69667b41a85b8ae642f124db3/Source/EldenRing/Private/System/StorageManager.cpp#L229-L240 </br>
