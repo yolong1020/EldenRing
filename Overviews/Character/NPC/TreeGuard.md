@@ -21,11 +21,13 @@
      https://github.com/yolong1020/EldenRing/blob/d5f795bbce272476ba0d7c9afb9bfc4c067c4ecb/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L316-L331
      https://github.com/yolong1020/EldenRing/blob/b2d30cab3821d6cc6ff444f5d95f6c6165250bd9/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/C3251.cpp#L350-L366 </br>
      
-  3. ###### Target과 Acting 블랙보드가 변경됨에 따라 Select next action을 통해 차기 행동을 결정합니다.</br>공격은 단일 공격과 콤보 공격 그리고 대쉬 공격으로 파생되며, 각 공격마다 콤보 공격으로 파생 여부가 다르게 설정되어 있습니다.</br>
+  2. ###### Target과 Acting 블랙보드가 변경됨에 따라 Select next action을 통해 차기 행동을 결정합니다.</br>공격은 단일 공격과 콤보 공격 그리고 대쉬 공격으로 파생되며, 각 공격마다 콤보 공격으로 파생 여부가 다르게 설정되어 있습니다.</br>
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/77072f13-da55-45f0-85d0-d9e18481d5b7" width="49.5%" height="49.5%"></img>
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/467894cc-b5dc-4a5c-8a54-c1c43af0819d" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/af11b727778d31fb7a56716f8ce201783cca885c/Source/EldenRing/Private/Characters/NPC/Enemies/C3251/Tasks/BTTask_SelectNextAction.cpp#L18-L73 </br>
-
+     1. ###### 대쉬 공격은
+     2. ###### 단일 공격은
+     3. ###### 콤보 공격은
 
 ## Confront
 ###### 대치 태세에 돌입하면 앞 / 뒤 / 좌 / 우 방향으로 움직이며 적을 주시합니다.</br>이때 적이 속한 영역(추격 / 경계 / 공격)이 변경되거나 무작위로 차기 행동이 공격으로 결정되면 Combat 과정이 실행됩니다. 
