@@ -10,7 +10,7 @@
 ###### Level 상태에 따라서 HUD, Camera Timeline, 플레이에 필요한 Item 등 초기화합니다.
 </br>
 
-1. 현재 Level의 플레이 가능 여부와 Load 상태에 따른 초기화를 진행합니다.   
+1. 현재 Level의 플레이 가능 여부와 Load 상태에 따른 초기화를 진행합니다.
    https://github.com/yolong1020/EldenRing/blob/a021831dab5f79b7e6faff2f2ab6fc9c5b5b9216/Source/EldenRing/Private/Characters/Players/C0000.cpp#L136-L212 </br>
 
 2. 'New Game' 혹은 'Load Game'에 따라 Item을 다르게 초기화합니다.
@@ -22,7 +22,7 @@
    https://github.com/yolong1020/EldenRing/blob/0f9888e552ddbf77796e6e03775caa458ebac7fe/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133 </br>
 
 3. Level의 Load 상태에 따른 캐릭터 시작 애니메이션 재생 및 Input을 활성합니다.
-https://github.com/yolong1020/EldenRing/blob/bc151a656f7846c367529f4340f0c87f574dcde0/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1595-L1622 </br>
+   https://github.com/yolong1020/EldenRing/blob/bc151a656f7846c367529f4340f0c87f574dcde0/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1595-L1622 </br>
   
 ---
 ## Combat
