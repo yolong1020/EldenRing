@@ -53,6 +53,6 @@
      
 ## Trade
 ###### Trade Manager를 통해 거래창을 활성화하고 NPC가 가진 판매 물품들을 UI에 등록합니다.
-<img src="https://github.com/yolong1020/EldenRing/assets/87303898/56efd8a8-b65f-4cc3-97b6-87934c75724a" width="49.5%" height="49.5%"></img>   
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/49fee288-fa04-4909-b37f-2756165da7e6" width="49.5%" height="49.5%"></img>   
 https://github.com/yolong1020/EldenRing/blob/ed11ad611e3bb18e52de447d6298a00c52477770/Source/EldenRing/Private/UI/Communicate/CommunicateCallOut.cpp#L203-L214
 https://github.com/yolong1020/EldenRing/blob/ed11ad611e3bb18e52de447d6298a00c52477770/Source/EldenRing/Private/System/TradeManager.cpp#L18-L46 </br>
