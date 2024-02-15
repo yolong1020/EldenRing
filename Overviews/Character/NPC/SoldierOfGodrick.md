@@ -1,4 +1,10 @@
 # Soldier of Godrick
+[1. Change Battle Mode](#Change-Battle-Mode)   
+[2. Combat](#Combat)   
+[3. Confront](#Confront)   
+</br>
+
+
 ## Change Battle Mode
 ###### 정찰 혹은 휴식 중 전투 상황이 발생하면 NPC가 전투 태세로 전환합니다.
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e0b2874b-5ffb-4518-9a47-ce553fb4c4b7" width="49.5%" height="49.5%"></img>
@@ -19,7 +25,7 @@
   https://github.com/yolong1020/EldenRing/blob/ff8ab74441625804f894632f27d72827a478767a/Source/EldenRing/Private/Characters/NPC/Enemies/C4311/C4311.cpp#L665-L703
   </br>
 ---
-#### * Combat
+## Combat
   > 전투 태세에 돌입하면 추격을 진행한 후 일반 공격, 강 공격, 대쉬 공격 중 선택하여 공격을 시도합니다. 이후 이전 공격에 따라 차기 공격을 이어서 전개합니다.
   </br>
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/69093a96-9670-496f-a775-234e8d35a1be" width="49.5%" height="49.5%"></img>
