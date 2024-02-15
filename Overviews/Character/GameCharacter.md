@@ -2,12 +2,12 @@
 ###### ACharacter를 상속한 게임 내 모든 캐릭터들의 최상위 Base Class이며, 캐릭터의 초기화, 사망, Setter, Getter와 같은 공통 기능들을 제공합니다.</br></br>
 
 ---
-### Init Default Component & Values
+## Init Default Component & Values
 ###### Mesh, Collision 등 Component 생성 및 초기화를 진행합니다.
 </br>
 
 ---
-### Death Process
+## Death Process
 ###### 캐릭터 사망시 Component 처리와 이펙트 연출 과정입니다.
 </br>
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/a01165f9-5743-49bb-881b-fe81aeae8808" width="49.5%" height="49.5%"></img>
