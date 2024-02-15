@@ -1,7 +1,20 @@
 # Tree Guard
+[1. Behavior Tree](#Behavior-Tree)   
+[2. Detect Bound](#Detect-Bound)   
+[3. Init Tree Guard Settings](#Init-Tree-Guard-Settings)   
+[4. Combat](#Combat)   
+</br>
+
+
+## Behavior Tree
+###### 전
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>
-[1. Init Tree Guard Settings](#Init-Tree-Guard-Settings)   
-[2. Combat](#Combat)   
+</br>
+
+
+## Detect Bound
+###### 전
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/95c304ff-a756-47a0-8e9c-7d9f399f5720"></img>
 </br>
 
 
