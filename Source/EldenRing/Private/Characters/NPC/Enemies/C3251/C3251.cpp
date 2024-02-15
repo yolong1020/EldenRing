@@ -426,8 +426,8 @@ void AC3251::TrySingleAttack()
 			if (!action_info) continue;
 
 			if ((action_info->ActionBound == ECombatBound::ECB_Confront && is_in_single) || 
-				(action_info->ActionBound == ECombatBound::ECB_Attack && is_in_combo)) 
-				enable_actions.Add(action_info);
+			    (action_info->ActionBound == ECombatBound::ECB_Attack && is_in_combo)) 
+			     enable_actions.Add(action_info);
 		}
 	}
 
