@@ -9,7 +9,8 @@
 
 ## Init Vender Settings
 ###### 상인의 Interaction Collision, Observer Event, 판매 물품 등을 초기화합니다.
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/1e557d19-af9d-4e0b-be3f-c78c477171be" width="49.5%" height="49.5%"></img>
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/dfe59b0a-b98f-4906-bba8-4e8223f5d269" width="49.5%" height="49.5%"></img>
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/9f752ea2-e3f4-4309-b036-6d80032d9c9e" width="49.5%" height="49.5%"></img>
   https://github.com/yolong1020/EldenRing/blob/9bbdd3573ed007ca5d21635021f044b7a39776d4/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L46-L115 </br>
 
 
