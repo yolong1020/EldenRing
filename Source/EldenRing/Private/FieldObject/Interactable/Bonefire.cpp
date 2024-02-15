@@ -52,9 +52,9 @@ void ABonefire::DoFirstInteract()
 	m_is_first = false;
 
 	FLatentActionInfo callback;
-	callback.UUID			= FGuid::NewGuid().A;
-	callback.CallbackTarget = this;
-	callback.Linkage		= 0;
+	callback.UUID		   = FGuid::NewGuid().A;
+	callback.CallbackTarget    = this;
+	callback.Linkage	   = 0;
 	callback.ExecutionFunction = FName("ToggleImpactFX");
 
 	UKismetSystemLibrary::Delay(GetWorld(), 1.4f, callback);
