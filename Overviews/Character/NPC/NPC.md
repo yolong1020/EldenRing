@@ -7,8 +7,7 @@
 
 
 ## Init Default Component & Values
-  ###### NPC에 해당하는 모든 캐릭터의 Component와 초기값을 설정합니다.
-  </br>
+###### NPC에 해당하는 모든 캐릭터의 Component와 초기값을 설정합니다.
 
   1.
      1. ###### Health Bar와 PawnSensing Component, 그리고 Level의 로드 상태에 따라 Spawn 위치를 초기화합니다.
