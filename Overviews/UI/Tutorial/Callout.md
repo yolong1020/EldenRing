@@ -1,4 +1,6 @@
 # Callout
+<img width="962" alt="image" src="https://github.com/yolong1020/EldenRing/assets/87303898/1900ad25-252d-4830-b0f7-adba3508fedf">
+
 [1. Init trade widget](#Init-trade-widget)   
 [2. Open trade](#Open-trade)   
 [3. Purchase & Sell Item](#purchase--sell-item)   
