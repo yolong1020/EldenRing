@@ -65,7 +65,7 @@ private:
 	TObjectPtr<class USubNotify> m_sub_notify;
 
 	UPROPERTY()
-	TObjectPtr<class UTutorialPersistent> m_tutorial_group;
+	TObjectPtr<class UTutorialGroupCall> m_tutorial_group;
 
 	UPROPERTY()
 	TArray<TWeakObjectPtr<class UUserWidget>> m_container;
