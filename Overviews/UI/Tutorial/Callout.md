@@ -1,7 +1,6 @@
 # Callout
 [1. Init tutorial](#Init-tutorial)   
-[2. Open trade](#Open-trade)   
-[3. Purchase & Sell Item](#purchase--sell-item)   
+[2. Open by VolumeBox](#Open-by-VolumeBox)   
 </br>
 
 
@@ -48,7 +47,7 @@
      https://github.com/yolong1020/EldenRing/blob/aa4a37dbb8b0598e6af7a4e16b9aac586ddf1ab8/Source/EldenRing/Private/UI/Tutorial/TutorialHUD.cpp#L19-L36 </br>
 
 
-## Open trade
+## Open by VolumeBox
 ###### Trade Manager를 통하여 거래창을 활성화하며 활성되는 시점에서 보관된 Item들을 갱신합니다.
 
   1. ###### Trade를 활성화하며 동시에 'Esc' 입력시 최상위 UI 판별을 위해 UI Manager에 등록해줍니다.
