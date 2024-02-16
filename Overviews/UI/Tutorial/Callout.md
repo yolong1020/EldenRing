@@ -12,7 +12,14 @@
 
 - ###### T
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/1900ad25-252d-4830-b0f7-adba3508fedf" width="49.5%" height="49.5%"></br>
-  https://github.com/yolong1020/EldenRing/blob/923edcec6840de011a514f9d695daa7c1bfb142c/Source/EldenRing/Private/System/UIManager.cpp#L161-L167 </br>
+  https://github.com/yolong1020/EldenRing/blob/923edcec6840de011a514f9d695daa7c1bfb142c/Source/EldenRing/Private/System/UIManager.cpp#L161-L167
+  ```C++
+  /// [UEquipmentManager::TryUnequipItem] 81
+	m_equipments[int32(Type) - 1].Key->SetSkeletalMesh(nullptr);
+	m_equipments[int32(Type) - 1].Key->UnregisterComponent();
+	m_equipments[int32(Type) - 1].Key = nullptr;
+  ```
+  </br>
 - ###### T
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e60e4b7e-3bfb-46fc-b7bd-a5048bb759e2" width="49.5%" height="49.5%"></br>
   https://github.com/yolong1020/EldenRing/blob/ede3beb90bdd83522042c45519b1ba995fa21a15/Source/EldenRing/Private/System/UIManager.cpp#L147-L152 </br>
