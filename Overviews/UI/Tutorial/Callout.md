@@ -9,7 +9,7 @@
 
 ## Init tutorial input data
 ###### B
-<img src="https://github.com/yolong1020/EldenRing/assets/87303898/48002333-ce16-4759-bd36-5059f068b0a4" width="60%" height="60%">
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/48002333-ce16-4759-bd36-5059f068b0a4" width="50%" height="50%">
 </br>
 
 - ###### T
