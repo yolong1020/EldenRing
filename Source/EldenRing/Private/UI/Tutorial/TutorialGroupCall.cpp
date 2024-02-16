@@ -9,12 +9,12 @@
 #include "Macro/BasicMacro.h"
 #include "Macro/DebugMacros.h"
 
-const bool UTutorialPersistent::IsActivated() const
+const bool UTutorialGroupCall::IsActivated() const
 {
 	return (UIP_SlideTop->IsActived() || UIP_Slide_Mid->IsActived() || UIP_Slide_Bot->IsActived());
 }
 
-void UTutorialPersistent::Show(const TArray<FTutorialPersistentData>& Slides)
+void UTutorialGroupCall::Show(const TArray<FTutorialPersistentData>& Slides)
 {
 	m_slides.Empty(3);
 
@@ -52,7 +52,7 @@ void UTutorialPersistent::Show(const TArray<FTutorialPersistentData>& Slides)
 	time_mgr.SetTimer(m_timer, this, &UTutorialPersistent::Hide, duration);
 }
 
-void UTutorialPersistent::Hide()
+void UTutorialGroupCall::Hide()
 {
 	if (m_slides.IsEmpty()) return;
 
@@ -78,7 +78,7 @@ void UTutorialPersistent::Hide()
 	m_slides.Empty();
 }
 
-void UTutorialPersistent::NativeConstruct()
+void UTutorialGroupCall::NativeConstruct()
 {
 	Super::NativeConstruct();
 
