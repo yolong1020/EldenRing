@@ -16,8 +16,6 @@
 
 void AGameField::LoadedLevel()
 {
-	LoadNavDataLayer();
-
 	GetWorldTimerManager().ClearTimer(timer_start);
 	GetWorldTimerManager().SetTimer(timer_start, this, &AGameField::StartStage, 6.f);
 }
