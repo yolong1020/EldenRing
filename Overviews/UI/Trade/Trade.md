@@ -1,6 +1,11 @@
 ![Trade](https://github.com/yolong1020/EldenRing/assets/87303898/eabc3cfa-695d-4695-b852-332ed7646cd4)
 
 # Trade
+[1. Init trade widget](#Init-trade-widget)   
+[2. Open trade](#Open-trade)   
+[3. Purchase & Sell Item](#OPurchase-&-Sell-Item)   
+</br>
+
 ## Init trade widget
 ###### Blueprint에서 설정한 Slot Count에 따라 거래 보관함 슬롯 수를 설정하고 상호 작용을 위한 초기화 작업을 진행합니다.
 
