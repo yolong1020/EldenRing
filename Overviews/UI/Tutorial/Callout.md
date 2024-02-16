@@ -1,12 +1,12 @@
 # Callout
-[1. Init trade widget](#Init-trade-widget)   
+[1. Init tutorial](#Init-tutorial)   
 [2. Open trade](#Open-trade)   
 [3. Purchase & Sell Item](#purchase--sell-item)   
 </br>
 
 
-## Init tutorial input data
-###### 튜토리얼로 노출될 텍스트와 안내하고자 하는 Action, 입력할 key를 데이터로 생성합니다.
+## Init tutorial
+###### 노출될 튜토리얼 팝업을 데이터로 보관하고 필요에 따라 텍스트와 Action, 지연시간을 설정하여 Callout과 Group Callout 중 선택하여 호출합니다.
 
   1. ###### 튜토리얼로 노출될 텍스트와 안내하고자 하는 Action, 입력할 key를 데이터로 생성합니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/48002333-ce16-4759-bd36-5059f068b0a4" width="50%" height="50%">
