@@ -25,9 +25,9 @@ Technical Overview
    - [GameCharacter](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/GameCharacter.md)
      - [Player](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/Player.md)
      - [NPC](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/NPC.md)
-       - [Vender](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/Vender.md)
-       - [Soldier of Godrick](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/SoldierOfGodrick.md)
-       - [Tree Guard](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/TreeGuard.md)
+       1. [Vender](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/Vender.md)
+       2. [Soldier of Godrick](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/SoldierOfGodrick.md)
+       3. [Tree Guard](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/TreeGuard.md)
 
 2. ### UI
    - [Inventory](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Inventory/Inventory.md)
