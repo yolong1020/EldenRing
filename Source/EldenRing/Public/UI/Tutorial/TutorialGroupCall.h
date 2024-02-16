@@ -10,7 +10,7 @@
 #include "TutorialPersistent.generated.h"
 
 UCLASS()
-class ELDENRING_API UTutorialPersistent : public UUserWidget
+class ELDENRING_API UTutorialGroupCall : public UUserWidget
 {
 	GENERATED_BODY()
 	
