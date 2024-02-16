@@ -1,6 +1,4 @@
 # Callout
-<img width="962" alt="image" src="https://github.com/yolong1020/EldenRing/assets/87303898/1900ad25-252d-4830-b0f7-adba3508fedf">
-
 [1. Init trade widget](#Init-trade-widget)   
 [2. Open trade](#Open-trade)   
 [3. Purchase & Sell Item](#purchase--sell-item)   
@@ -14,8 +12,8 @@
 
 - ###### T
   https://github.com/yolong1020/EldenRing/blob/923edcec6840de011a514f9d695daa7c1bfb142c/Source/EldenRing/Private/System/UIManager.cpp#L161-L167 </br>
-  
-  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/c8c9cb52-a810-4796-b3aa-d2649d55d505" width="60%" height="60%">
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/1900ad25-252d-4830-b0f7-adba3508fedf" width="49.5%" height="49.5%"></img>
+  <img src="https://github.com/yolong1020/EldenRing/assets/87303898/06255a66-19e5-476e-9327-0ed88479c5bc" width="49.5%" height="49.5%"></br>
   
 - ###### T
   https://github.com/yolong1020/EldenRing/blob/16f8271c446ef841156cb116a36278ef2d22b4a0/Source/EldenRing/Private/UI/Trade/TradeGrid.cpp#L17-L41
