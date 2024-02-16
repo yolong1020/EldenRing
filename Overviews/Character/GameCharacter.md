@@ -1,5 +1,6 @@
 # GameCharacter
 ###### ACharacter를 상속한 게임 내 모든 캐릭터들의 최상위 Base Class이며, 캐릭터의 초기화, 사망, Setter, Getter와 같은 공통 기능들을 제공합니다.
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/63739cc3-0bff-4242-9309-f3c2f8cea049"></img>
 [1. Init Default Component & Values](#Init-Default-Component--Values)   
 [2. Death Process](#Death-Process)   
 </br>
