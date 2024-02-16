@@ -33,3 +33,4 @@ Technical Overview
 ### UI
 - [Inventory](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Inventory/Inventory.md)
 - [Trade](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Trade/Trade.md)
+- [Tutorial](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Tutorial/Tutorial.md)
