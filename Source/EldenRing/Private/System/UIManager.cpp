@@ -237,7 +237,7 @@ void UUIManager::CreatePopUp()
 
 void UUIManager::CreateTutorialGroupCall()
 {
-	UClass* widget_class = LoadClass<UTutorialPersistent>(nullptr, TEXT("WidgetBlueprint'/Game/Blueprint/UI/Tutorial/WBP_TutorialPersistent.WBP_TutorialPersistent_C'"));
+	UClass* widget_class = LoadClass<UTutorialPersistent>(nullptr, TEXT("WidgetBlueprint'/Game/Blueprint/UI/Tutorial/WBP_TutorialGroupCallout.WBP_TutorialGroupCallout_C'"));
 	CHECK_INVALID_PTR(widget_class)
 	m_tutorial_group = CreateWidget<UTutorialPersistent>(GetWorld(), widget_class);
 	CHECK_INVALID_PTR(m_tutorial_group)
