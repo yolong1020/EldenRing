@@ -24,8 +24,6 @@ void AGameField::LoadedLevel()
 
 void AGameField::BeginPlay()
 {
-	UE_LOG(LogTemp, Warning, TEXT("[GameField BeginPlay]"))
-
 	Super::BeginPlay();
 	m_is_play = true;
 
@@ -48,11 +46,8 @@ void AGameField::BeginPlay()
 			CHECK_INVALID_PTR(ui_mgr);
 
 			FAfterHideBlackOutFunc hide_callback;
-			hide_callback.BindLambda([&]()->void { 
-				LoadDataLayer();
-			});
+			hide_callback.BindLambda([&]()->void { LoadDataLayer(); });
 			ui_mgr->HideBlackOut(hide_callback);
-
 		});
 	ui_mgr->ShowBlackOut(show_callback);
 
