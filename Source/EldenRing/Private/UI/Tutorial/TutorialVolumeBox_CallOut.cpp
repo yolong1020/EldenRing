@@ -27,15 +27,15 @@ void ATutorialVolumeBox_CallOut::SetCallOut(const TArray<FTutorialPersistentData
 	}
 
 	UI_CTA_TEXT_1	= FText::FromName(CallOuts[0].Name);
-	m_action		= CallOuts[0].Action;
-	bIsLargeKey		= CallOuts[0].IsLargeKey;
+	m_action	= CallOuts[0].Action;
+	bIsLargeKey	= CallOuts[0].IsLargeKey;
 }
 
 void ATutorialVolumeBox_CallOut::ReadyUp()
 {
 	FLatentActionInfo action;
-	action.CallbackTarget = this;
-	action.Linkage = 0;
+	action.CallbackTarget    = this;
+	action.Linkage 		 = 0;
 	action.ExecutionFunction = FName("ClearCallOut");
 
 	float duration = TutorialNotifyDuration;
