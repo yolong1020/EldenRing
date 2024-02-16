@@ -94,10 +94,10 @@ void UUIManager::OpenExitPopUp(const TWeakObjectPtr<APlayerController>& Controll
 			OpenSubNotify(FText::FromString(TEXT("10초 뒤 게임이 종료됩니다.")));
 
 			FLatentActionInfo callback;
-			callback.CallbackTarget = this;
+			callback.CallbackTarget    = this;
 			callback.ExecutionFunction = FName("ExitPopUpAction");
-			callback.Linkage = 0;
-			callback.UUID = FGuid::NewGuid().A;
+			callback.Linkage 	   = 0;
+			callback.UUID 		   = FGuid::NewGuid().A;
 			UKismetSystemLibrary::Delay(this, 10.f, callback);
 
 			UWidgetBlueprintLibrary::SetInputMode_GameOnly(Controller.Get());
@@ -160,7 +160,7 @@ void UUIManager::CloseTutorialGroupCall()
 
 void UUIManager::OpenTutorialCallout(const FName& Name, const EInputActionType& Type, const bool IsLargeKey, const float& Duration)
 {
-	if (!m_callout)					{ CreateTutorialCallout(); }
+	if (!m_callout)			{ CreateTutorialCallout(); }
 	if (!m_callout->IsInViewport()) { m_callout->AddToViewport(); }
 
 	m_callout->OriginalSetUp(Name, Type, IsLargeKey, Duration);
