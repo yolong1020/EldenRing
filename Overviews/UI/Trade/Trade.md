@@ -3,7 +3,7 @@
 # Trade
 [1. Init trade widget](#Init-trade-widget)   
 [2. Open trade](#Open-trade)   
-[3. Purchase & Sell Item](#OPurchase-&-Sell-Item)   
+[3. Purchase & Sell Item](#OPurchase--Sell-Item)   
 </br>
 
 ## Init trade widget
