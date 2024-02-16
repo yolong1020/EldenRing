@@ -19,17 +19,17 @@
      https://github.com/yolong1020/EldenRing/blob/adec67bd5096a1d3cb514c26fcbd2cacbd72ac66/Source/EldenRing/Private/Levels/GameField.cpp#L58-L101
      https://github.com/yolong1020/EldenRing/blob/022c9b492339c4f6fc691983b4580ca716efd9b6/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L19-L23
      </br>
-
+     ```C++
+     ///  [AC0000::BeginPlay] 210
+     const bool load_complete = instance->IsLevelLoadComplete();
+     load_complete ? GameStartAction() : instance->AddEventLevelLoadComplete(this, &AC0000::GameStartAction);
+     ```
   3.
      - ###### C
        <img src="https://github.com/yolong1020/EldenRing/assets/87303898/1900ad25-252d-4830-b0f7-adba3508fedf" width="49.5%" height="49.5%"></br>
        ```C++
-       ///  [AC0000::GetHit] 491
-       float percent = m_attribute->GetHealthPercent();
-       if (percent < 0.5 && false == m_ui_mgr->IsActiveCallout(FName("Potion")))
-       {
-	     m_ui_mgr->OpenTutorialCallout(FName("Potion"), EInputActionType::EIAT_Potion, false);
-       }
+       const bool load_complete = instance->IsLevelLoadComplete();
+       load_complete ? GameStartAction() : instance->AddEventLevelLoadComplete(this, &AC0000::GameStartAction);
        ```
        https://github.com/yolong1020/EldenRing/blob/923edcec6840de011a514f9d695daa7c1bfb142c/Source/EldenRing/Private/System/UIManager.cpp#L161-L167
        https://github.com/yolong1020/EldenRing/blob/159c4f8797d3484c2aedf8094cba9c9dcca11b96/Source/EldenRing/Private/UI/Tutorial/TutorialCallout.cpp#L22-L28 </br>
