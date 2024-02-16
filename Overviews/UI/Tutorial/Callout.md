@@ -7,8 +7,10 @@
 </br>
 
 
-## Init trade widget
+## Init tutorial input data
 ###### B
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/48002333-ce16-4759-bd36-5059f068b0a4" width="60%" height="60%">
+</br>
 
 - ###### T
   https://github.com/yolong1020/EldenRing/blob/923edcec6840de011a514f9d695daa7c1bfb142c/Source/EldenRing/Private/System/UIManager.cpp#L161-L167 </br>
