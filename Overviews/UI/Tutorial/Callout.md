@@ -10,9 +10,8 @@
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/48002333-ce16-4759-bd36-5059f068b0a4" width="50%" height="50%">
 </br>
 
-- ###### 하나의 Action을 안내할때 사용하며 텍스트와 Input Action Enum을 인자로 전달합니다.
+- ###### Callout : 하나의 Action을 안내할때 사용하며 텍스트와 Input Action Enum을 인자로 전달합니다.
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/1900ad25-252d-4830-b0f7-adba3508fedf" width="49.5%" height="49.5%"></br>
-  https://github.com/yolong1020/EldenRing/blob/923edcec6840de011a514f9d695daa7c1bfb142c/Source/EldenRing/Private/System/UIManager.cpp#L161-L167
   ```C++
   ///  [AC0000::GetHit] 491
   float percent = m_attribute->GetHealthPercent();
@@ -21,10 +20,10 @@
 	m_ui_mgr->OpenTutorialCallout(FName("Potion"), EInputActionType::EIAT_Potion, false);
   }
   ```
+  https://github.com/yolong1020/EldenRing/blob/923edcec6840de011a514f9d695daa7c1bfb142c/Source/EldenRing/Private/System/UIManager.cpp#L161-L167
   </br>
-- ###### 둘 이상의 Action을 안내할때 사용하며 최대 3개까지 안내가 가능합니다.
+- ###### Group Callout : 둘 이상의 Action을 안내할때 사용하며 최대 3개까지 안내가 가능합니다.
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e60e4b7e-3bfb-46fc-b7bd-a5048bb759e2" width="49.5%" height="49.5%"></br>
-  https://github.com/yolong1020/EldenRing/blob/ede3beb90bdd83522042c45519b1ba995fa21a15/Source/EldenRing/Private/System/UIManager.cpp#L147-L152
   ```C++
   ///  [AGameField::StartStage] 96
   TArray<FTutorialPersistentData> datas;
@@ -37,6 +36,7 @@
 	
   ui_mgr->OpenTutorialGroupCall(datas);
   ```
+  https://github.com/yolong1020/EldenRing/blob/ede3beb90bdd83522042c45519b1ba995fa21a15/Source/EldenRing/Private/System/UIManager.cpp#L147-L152
   </br>
 
 
