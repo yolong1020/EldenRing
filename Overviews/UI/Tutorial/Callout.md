@@ -24,7 +24,7 @@
   </br>
 - ###### 둘 이상의 Action을 안내할때 사용하며 최대 3개까지 안내가 가능합니다.
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/e60e4b7e-3bfb-46fc-b7bd-a5048bb759e2" width="49.5%" height="49.5%"></br>
-  https://github.com/yolong1020/EldenRing/blob/ede3beb90bdd83522042c45519b1ba995fa21a15/Source/EldenRing/Private/System/UIManager.cpp#L147-L152 </br>
+  https://github.com/yolong1020/EldenRing/blob/ede3beb90bdd83522042c45519b1ba995fa21a15/Source/EldenRing/Private/System/UIManager.cpp#L147-L152
   ```C++
   ///  [AGameField::StartStage] 96
   TArray<FTutorialPersistentData> datas;
@@ -37,8 +37,7 @@
 	
   ui_mgr->OpenTutorialGroupCall(datas);
   ```
-- ###### T
-  https://github.com/yolong1020/EldenRing/blob/16f8271c446ef841156cb116a36278ef2d22b4a0/Source/EldenRing/Private/UI/Trade/TradeInteractionGrid.cpp#L28-L44 </br>
+  </br>
 
 
 ## Open trade
