@@ -24,7 +24,7 @@ void ATutorialVolumeBox_GroupCall::ReadyUp()
 {
 	FLatentActionInfo action;
 	action.CallbackTarget	 = this;
-	action.Linkage			 = 0;
+	action.Linkage		 = 0;
 	action.ExecutionFunction = FName("ClearGroupCall");
 
 	float duration = TutorialNotifyDuration;
