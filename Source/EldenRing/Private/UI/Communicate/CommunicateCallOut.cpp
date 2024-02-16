@@ -225,10 +225,10 @@ void UCommunicateCallOut::OpenSwapTutorial()
 	m_ui_mgr->CloseAllTutorial();
 
 	FTimerHandle timer;
-	TDelegate lockon_delegate = FTimerDelegate::CreateLambda([&]()->void {
+	TDelegate swap_delegate = FTimerDelegate::CreateLambda([&]()->void {
 		m_ui_mgr->OpenTutorialCallout(FName("Swap"), EInputActionType::EIAT_Swap, true);
 		});
-	GetWorld()->GetTimerManager().SetTimer(timer, lockon_delegate, 1, false);
+	GetWorld()->GetTimerManager().SetTimer(timer, swap_delegate, 1, false);
 }
 
 void UCommunicateCallOut::SaveGameData()
