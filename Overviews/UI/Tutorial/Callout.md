@@ -14,12 +14,12 @@
   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/1900ad25-252d-4830-b0f7-adba3508fedf" width="49.5%" height="49.5%"></br>
   https://github.com/yolong1020/EldenRing/blob/923edcec6840de011a514f9d695daa7c1bfb142c/Source/EldenRing/Private/System/UIManager.cpp#L161-L167
   ```C++
-        ///  [AC0000::GetHit] 491
-	float percent = m_attribute->GetHealthPercent();
-	if (percent < 0.5 && false == m_ui_mgr->IsActiveCallout(FName("Potion")))
-	{
-		m_ui_mgr->OpenTutorialCallout(FName("Potion"), EInputActionType::EIAT_Potion, false);
-	}
+  ///  [AC0000::GetHit] 491
+  float percent = m_attribute->GetHealthPercent();
+  if (percent < 0.5 && false == m_ui_mgr->IsActiveCallout(FName("Potion")))
+  {
+	m_ui_mgr->OpenTutorialCallout(FName("Potion"), EInputActionType::EIAT_Potion, false);
+  }
   ```
   </br>
 - ###### T
