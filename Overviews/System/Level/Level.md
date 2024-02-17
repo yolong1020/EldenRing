@@ -40,7 +40,7 @@
      </br>
 
 
-## Restart Level
+## Restart Game
 ###### 플레이어가 사망 후 게임을 다시 시작하도록 
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/865ae562-b195-4e21-afd6-a75187b99103" width="49.5%" height="49.5%"></br>
 
