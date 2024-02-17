@@ -1,5 +1,5 @@
 # Save & Load
-[1. Init tutorial](#Init-tutorial)   
+[1. Open Game Level](#Open-Game-Level)   
 [2. Open by VolumeBox](#Open-by-VolumeBox)   
 </br>
 
