@@ -25,11 +25,11 @@
         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/7ceb9279-1d30-48ab-a11f-f12c6b784413" width="49.5%" height="49.5%"></img>
         </br>
 
-  3. ###### 로딩 상황을 UI에 갱신하다가 로딩이 완료되면 Fade out 연출과 함께 게임을 시작할 Timer를 준비합니다.
+  3. ###### Loading UI는 진행 상황을 갱신하고 완료되면 Fade out 연출과 함께 비활성화 시킵니다. 이후 게임을 시작할 Timer를 준비합니다.
      https://github.com/yolong1020/EldenRing/blob/46dcac86b62ef35ece11449933ad06c8def74194/Source/EldenRing/Private/UI/Loading/Loading.cpp#L26-L72
      https://github.com/yolong1020/EldenRing/blob/adec67bd5096a1d3cb514c26fcbd2cacbd72ac66/Source/EldenRing/Private/Levels/GameField.cpp#L17-L21 </br>
 
-  4. ###### 타이머 설정 시간 이후 플레이어를 필드에 소환하고 만약 신규 게임이 아니라면, 별도로 저장된 오브젝트들을 소환하도록 합니다.</br>이후 Level Load Complete Event를 호출하여 각 오브젝트들이 필요한 설정들을 갱신하도록 합니다.
+  4. ###### 타이머 설정 시간 이후 플레이어를 필드에 소환하고 만약 신규 게임이 아니라면, 저장된 오브젝트들을 소환하도록 합니다.</br>이후 Level Load Complete Event를 호출하여 각 오브젝트들이 필요한 설정들을 진행할 수 있도록 합니다.
      https://github.com/yolong1020/EldenRing/blob/adec67bd5096a1d3cb514c26fcbd2cacbd72ac66/Source/EldenRing/Private/Levels/GameField.cpp#L58-L101
      https://github.com/yolong1020/EldenRing/blob/022c9b492339c4f6fc691983b4580ca716efd9b6/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L19-L23
      ```C++
