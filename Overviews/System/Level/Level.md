@@ -21,7 +21,7 @@
         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/b327af62-7bcc-4477-a596-86dd4cc9b93e" width="49.5%" height="49.5%"></img>
      2. ###### DefaultObject는 최초 게임을 실행했을 때, 플레이어를 제외한 모든 게임 오브젝트들이 속한 Data Layer입니다.
         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/6e3e2dbf-ba72-4477-aa4b-50f12958bf88" width="49.5%" height="49.5%"></img>
-     3. ###### FieldObjectData는 저장된 게임을 실행했을 때, 플레이어와 NPC, 파괴 가능한 오브젝트를 제외한 모든 것이 담긴 Data Layer입니다.</br>NPC와 파괴 가능한 오브젝트는 별도로 필드에 소환되며, 이들의 정찰지, 집결지와 같은 데이터들을 고유 이름으로 저장되었기 때문에 FieldObjectData에서 같은 이름을 가진 데이터를 찾아 바인딩합니다.
+     3. ###### FieldObjectData는 저장된 게임을 실행했을 때, 플레이어와 NPC, 항아리 오브젝트를 제외한 모든 것이 담긴 Data Layer입니다.</br>NPC와 항아리 오브젝트는 별도로 필드에 소환되며, 정찰지, 집결지 데이터 등은 고유 이름으로 저장되었기 때문에 FieldObjectData에서 같은 이름을 가진 데이터를 찾아 바인딩하게 됩니다.
         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/7ceb9279-1d30-48ab-a11f-f12c6b784413" width="49.5%" height="49.5%"></img>
         </br>
 
