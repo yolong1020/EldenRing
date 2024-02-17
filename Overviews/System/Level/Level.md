@@ -5,7 +5,7 @@
 
 
 ## Open Game Level
-###### .
+###### 클라이언트를 실행하여 게임 필드에 진입할때 신규 게임의 유무에 따라 Data Layer를 다르게 불러와 게임을 설정합니다. 
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/743546f9-9289-4582-8b8f-83112424e151" width="49.5%" height="49.5%"></br>
 
   1. ###### Menu Button에 바인딩 된 기능으로 화면을 Fade out으로 전환합니다. 이때 Fade out이 완전히 이뤄지면 GameInstance를 통해 Level을 이전합니다.
@@ -41,4 +41,7 @@
 
 
 ## Restart Level
-###### .
+###### 플레이어가 사망 후 게임을 다시 시작하도록 
+
+  1. ###### Menu Button에 바인딩 된 기능으로 화면을 Fade out으로 전환합니다. 이때 Fade out이 완전히 이뤄지면 GameInstance를 통해 Level을 이전합니다.
+     https://github.com/yolong1020/EldenRing/blob/39634ee819d0714303cc4d5af97fa5f35337fb3d/Source/EldenRing/Private/UI/Button/MenuButton.cpp#L105-L135
