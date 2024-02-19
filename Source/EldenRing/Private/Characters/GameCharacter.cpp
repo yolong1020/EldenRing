@@ -45,7 +45,7 @@ AGameCharacter::AGameCharacter()
 	movement_component->bAllowPhysicsRotationDuringAnimRootMotion = true;
 
 	bUseControllerRotationYaw	= false;
-	bUseControllerRotationPitch = false;
+	bUseControllerRotationPitch 	= false;
 	bUseControllerRotationRoll	= false;
 
 	//	Attribute
