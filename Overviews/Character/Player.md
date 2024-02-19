@@ -33,13 +33,15 @@
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/756587c1-8e98-4d55-8af8-9722951918be" width="49.5%" height="49.5%"></img>   
 </br>
 
-   1. ###### 
-      https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L954-L984 </br>
-   2. ###### 
-      https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L986-L1009 </br>
+   1. ###### 키 입력을 통해 Lock On을 활성하면 Collision이 활성되면서 
+      https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L954-L984
+      https://github.com/yolong1020/EldenRing/blob/0b1ea10f68d000574508785aae7ef1f5adac72a2/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1152-L1179
+      https://github.com/yolong1020/EldenRing/blob/0b1ea10f68d000574508785aae7ef1f5adac72a2/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1614-L1621 </br>
    3. ###### 
+      https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L986-L1009 </br>
+   4. ###### 
       https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/System/UIManager.cpp#L196-L207 </br>
-   4. ######
+   5. ######
       https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/HUD/LockOn/LockOn.cpp#L12-L27 </br>
 
 
