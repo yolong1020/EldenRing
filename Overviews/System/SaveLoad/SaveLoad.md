@@ -103,4 +103,8 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
       1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L149-L210 </br>
       1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
-         https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L212-L224
+         https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L226-L261
+      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+         https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L277-L312
+      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+         https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L328-L365
