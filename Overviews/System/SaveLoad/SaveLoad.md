@@ -59,7 +59,7 @@ https://github.com/yolong1020/EldenRing/blob/0c22ea3db091b70ce347e421ef1c6525da4
    1. ###### VolumeBox 같은 튜토리얼 오브젝트들은 위치, 클래스 유형, Callout Popup 정보들을 저장합니다.
       https://github.com/yolong1020/EldenRing/blob/acb23901afdb98a9a45e08a03bb9b3be3107b887/Source/EldenRing/Private/UI/Tutorial/TutorialVolumeBox_CallOut.cpp#L65-L71
       https://github.com/yolong1020/EldenRing/blob/22eac6ed928320a3710896509221d9f466ecedcf/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L314-L326
-      https://github.com/yolong1020/EldenRing/blob/dad6afdf1baa07093f377a3671635032093c8114/Source/EldenRing/Private/GameData/ERSaveData.cpp#L115-L124
+      https://github.com/yolong1020/EldenRing/blob/dad6afdf1baa07093f377a3671635032093c8114/Source/EldenRing/Private/GameData/ERSaveData.cpp#L115-L124 </br>
       
      
 ## Restart Game
