@@ -28,11 +28,12 @@
 
 
 ## Save Objects
-###### 플
+###### 플레이어를 제외한 필드에 존재하는 오브젝트들은 Observer에 'EOET_SaveData'로 등록된 이벤트에 의해 저장되며, 중복 저장을 방지하게 위해 이벤트 호출 전 반드시 초기화 과정을 거칩니다.
 ```C++
-///  [AC0000::BeginPlay] 210
-const bool load_complete = instance->IsLevelLoadComplete();
-load_complete ? GameStartAction() : instance->AddEventLevelLoadComplete(this, &AC0000::GameStartAction);
+UObserverManager* observer_mgr = instance->GetSubsystem<UObserverManager>();
+CHECK_INVALID_PTR(observer_mgr)
+
+observer_mgr->TriggerEvent(EObserverEventType::EOET_SaveData);
 ```
 </br>
 
