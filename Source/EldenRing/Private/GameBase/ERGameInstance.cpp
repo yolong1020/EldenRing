@@ -177,8 +177,8 @@ void UERGameInstance::LoadNPC()
 #if WITH_EDITOR
 			character->SetFolderPath(is_vender ? FName("Vender") : FName("Enemy"));
 #endif
-			IGameCharacter_Interface*	character_interface = Cast<IGameCharacter_Interface>(character);
-			INPC_Interfaces*			npc_interface		= Cast<INPC_Interfaces>(character);
+			IGameCharacter_Interface*  character_interface = Cast<IGameCharacter_Interface>(character);
+			INPC_Interfaces*	   npc_interface       = Cast<INPC_Interfaces>(character);
 			CHECK_INVALID_PTR(character_interface)
 			CHECK_INVALID_PTR(npc_interface)
 
