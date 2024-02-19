@@ -22,6 +22,7 @@
    https://github.com/yolong1020/EldenRing/blob/0f9888e552ddbf77796e6e03775caa458ebac7fe/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133 </br>
 
 4. ###### Level의 Load 상태에 따른 캐릭터 시작 애니메이션 재생 및 Input을 활성합니다.
+   <img src="https://github.com/yolong1020/EldenRing/assets/87303898/04e4f6de-3d92-4d66-a744-ab2061494a0f" width="49.5%" height="49.5%"></img>
    https://github.com/yolong1020/EldenRing/blob/bc151a656f7846c367529f4340f0c87f574dcde0/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1595-L1622 </br>
 
 
