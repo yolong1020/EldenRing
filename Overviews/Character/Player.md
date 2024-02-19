@@ -28,7 +28,7 @@
 
 ## Combat
 ###### 조작에 따라 단일, 이전의 공격을 바탕으로 한 콤보 공격으로 구별됩니다. 그 외 방패를 통한 방어와 반격 기능을 제공합니다.
-<img src="https://github.com/yolong1020/EldenRing/assets/87303898/a0c6171a-8fd2-4d7a-a4e3-f48deecae369" width="49.5%" height="49.5%"></img>
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/a0c6171a-8fd2-4d7a-a4e3-f48deecae369" width="49.5%" height="49.5%"></img>   
 </br>
 
   1. ###### 전투 대상의 Execution Collision(Front / Back)에 Overlap 되면 플레이어는 처형 공격을 실행할 수 있습니다.
