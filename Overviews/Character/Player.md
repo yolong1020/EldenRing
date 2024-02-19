@@ -52,7 +52,7 @@
 
   1. ###### LockOn 상태와 전력질주 Input에 따라 전력질주, 뛰기, 걷기로 전/후, 좌/우 이동을 결정합니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/c8b1d5bb-6250-43a0-bfc0-8f9114b81d08" width="49.5%" height="49.5%"></img>
-     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/ccf2f20f-fef1-45e9-8478-536c65fd7428" width="49.5%" height="49.5%"></img>  
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/413f7ab8-55b9-4e18-9a9d-cba08c4ff348" width="49.5%" height="49.5%"></img>  
      https://github.com/yolong1020/EldenRing/blob/6a40836945163b30e9dd8aaf3c548b9b92d56edd/Source/EldenRing/Private/Characters/Players/C0000.cpp#L661-L745 </br>
   2. ###### 특정 조건에 해당하지 않는 경우, 입력된 방향 혹은 캐릭터 후방으로 회피를 시도합니다.</br>LockOn 상태에서는 목표 바라보며 회피를 시도합니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/c6226863-2773-4e7d-ad63-5404d6aed113" width="49.5%" height="49.5%"></img>
