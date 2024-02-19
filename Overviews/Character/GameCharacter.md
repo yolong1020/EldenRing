@@ -7,6 +7,7 @@
 
 ## Init Default Component & Values
 ###### Mesh, Collision 등 Component 생성 및 초기화를 진행합니다.
+https://github.com/yolong1020/EldenRing/blob/950ee49b7ccfe5641f6d3f72a9011447d7e19e05/Source/EldenRing/Private/Characters/GameCharacter.cpp#L85-L160
 </br>
 
 ## Death Process
