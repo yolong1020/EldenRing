@@ -101,7 +101,7 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
       https://github.com/yolong1020/EldenRing/blob/a0d7366564eba9f62fe294702066f0320fe39bcd/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L44-L50 </br>
 
       1. ###### Spawn 후 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
-         https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L149-L210 </br>
+         https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L149-L210
       1. ###### Spawn 후 위치, 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L226-L261
       1. ###### Spawn 후 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
