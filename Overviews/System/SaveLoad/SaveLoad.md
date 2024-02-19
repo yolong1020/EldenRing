@@ -97,14 +97,14 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
       2. ###### 플레이어 사망에 의한 불러오기 :</br>플레이어 캐릭터의 사망 연출이 종료되면 GameMode에 게임 재시작을 요청하고 필드의 오브젝트들을 불러옵니다.
          https://github.com/yolong1020/EldenRing/blob/099acb762a396881c10e7f615b94861e4ecfad93/Source/EldenRing/Private/GameBase/ERGameMode.cpp#L71-L90 </br>
 
-   2. ###### L
+   2. ###### 필드에 이미 각 항목별로 오브젝트가 존재하는 경우, 해당 항목에 속한 오브젝트를 모두 파괴하고 불러온 데이터에 따라 다시 Spawn하여 초기화를 진행합니다. 
       https://github.com/yolong1020/EldenRing/blob/a0d7366564eba9f62fe294702066f0320fe39bcd/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L44-L50 </br>
 
-      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+      1. ###### Spawn 후 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L149-L210 </br>
-      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+      1. ###### Spawn 후 위치, 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L226-L261
-      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+      1. ###### Spawn 후 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L277-L312
-      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+      1. ###### Spawn 후 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L328-L365
