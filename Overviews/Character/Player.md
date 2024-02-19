@@ -64,7 +64,7 @@
 ###### 플레이어의 입력으 현재 HP를 회복하는 기능입니다.</br>회복 횟수에는 제한이 있으며, 모든 포션을 소모했을 경우 해당하는 애니메이션이 재생되고 HP는 회복되지 않습니다.</br>또한, 포션 복용 중 피격을 받게 되면 소모된 포션은 복구되지 않고 HP 역시 회복되지 않습니다.
 
   1. ###### 캐릭터의 하반신은 Input에 따라 움직일 수 있도록 척추를 기준으로 Blend를 실행하고 잔여 포션 수에 따라 애니메이션을 결정합니다.
-     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/21199819-2cd4-41e6-986b-ab250d340baa"></img>
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/21199819-2cd4-41e6-986b-ab250d340baa" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/1a8f4ec6559928de5514a7bfc880b2c52b592252/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1093-L1115 </br>
   2. ###### 애니메이션 재생 후 성공적으로 Montage - OnSuccessConsume이 호출되면 Attribute와 HUD의 HP 정보를 갱신합니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/c808a976-430a-4f0d-9f2e-a1395a89f019"></img>
