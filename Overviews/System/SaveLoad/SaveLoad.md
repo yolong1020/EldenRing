@@ -10,7 +10,7 @@
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/d7634f0b-4989-4d5a-b8c0-9f540a5aeb98" width="49.5%" height="49.5%"></img>
 </br>
 
-  1. ###### 게임 종료에 의한 저장
+  - ###### 게임 종료에 의한 저장 : 게임을 종료할때, 팝업에 바인딩 된 기능을 이용하게 게임을 저장합니다.
      https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/Characters/Players/C0000.cpp#L769-L776
      https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/System/UIManager.cpp#L78-L116
 
