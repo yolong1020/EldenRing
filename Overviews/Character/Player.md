@@ -29,6 +29,8 @@
 
 ## Lock On
 ###### Level 상태에 따라서 HUD, Camera Timeline, 플레이에 필요한 Item 등 초기화합니다.
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/756587c1-8e98-4d55-8af8-9722951918be" width="49.5%" height="49.5%"></img>
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/5b8bd512-a506-474c-9d4c-b640a083e471" width="49.5%" height="49.5%"></img>   
 
 
 ## Combat
