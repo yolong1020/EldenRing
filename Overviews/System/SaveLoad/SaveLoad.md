@@ -1,38 +1,37 @@
 # Save & Load
-[1. Open Game Level](#Open-Game-Level)   
+[1. Save Player](#Save-Player)   
 [2. Open by VolumeBox](#Open-by-VolumeBox)   
 </br>
 
 
 ## Save Player
-###### 게임을 종료하거나 체크 포인트 활성 및 아이템 거래 상황에서 저장이 발생됩니다.
+###### 게임을 종료하거나 체크 포인트 활성 및 아이템 거래, 사망 상황에서 저장이 발생됩니다.
 
-  1.
-       1. ###### 게임 종료에 의한 저장 : 게임을 종료할때, 팝업에 바인딩 된 기능을 이용하게 게임을 저장합니다.
-          <img src="https://github.com/yolong1020/EldenRing/assets/87303898/508aa5db-3251-4e37-8720-ef8ab9de7901" width="49.5%" height="49.5%"></img>   
-          </br>
-          https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/Characters/Players/C0000.cpp#L769-L776
-          https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/System/UIManager.cpp#L78-L116 </br>
-       2. ###### 체크 포인트에 의한 저장 : 화톳불 상호 작용으로 체크 포인트 기능이 작동되어 게임을 저장합니다.
-          <img src="https://github.com/yolong1020/EldenRing/assets/87303898/d7634f0b-4989-4d5a-b8c0-9f540a5aeb98" width="49.5%" height="49.5%"></img>   
-          </br>
-          https://github.com/yolong1020/EldenRing/blob/3578ea4734424524193e99ac7fe3af6e40049190/Source/EldenRing/Private/UI/PopUp/InteractionPopUp.cpp#L115-L138
-          https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1412-L1416
-          https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1424-L1431
-          https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1556-L1583 </br>
+   1.
+      1. ###### 게임 종료에 의한 저장 : 게임을 종료할때, 팝업에 바인딩 된 기능을 이용하게 게임을 저장합니다.
+         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/508aa5db-3251-4e37-8720-ef8ab9de7901" width="49.5%" height="49.5%"></img>   
+         </br>
+         https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/Characters/Players/C0000.cpp#L769-L776
+         https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/System/UIManager.cpp#L78-L116 </br>
+      2. ###### 체크 포인트에 의한 저장 : 화톳불 상호 작용으로 체크 포인트 기능이 작동되어 게임을 저장합니다.
+         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/d7634f0b-4989-4d5a-b8c0-9f540a5aeb98" width="49.5%" height="49.5%"></img>   
+         </br>
+         https://github.com/yolong1020/EldenRing/blob/3578ea4734424524193e99ac7fe3af6e40049190/Source/EldenRing/Private/UI/PopUp/InteractionPopUp.cpp#L115-L138
+         https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1412-L1416
+         https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1424-L1431
+         https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1556-L1583 </br>
 
-     
- 2. ###### USaveGame을 상속받은 UERSaveData에 플레이어에 관련된 모든 데이터들을 저장합니다.
-    https://github.com/yolong1020/EldenRing/blob/0c22ea3db091b70ce347e421ef1c6525da478d41/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L52-L73
-    https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L11-L21
-    https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L23-L37 </br>
-
+   2. ###### USaveGame을 상속받은 UERSaveData에 플레이어에 관련된 모든 데이터들을 저장합니다.
+      https://github.com/yolong1020/EldenRing/blob/0c22ea3db091b70ce347e421ef1c6525da478d41/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L52-L73
+      https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L11-L21
+      https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L23-L37 </br>
 
 
+## Save Objects
+###### 플
 
-
-     1. ###### M
-        https://github.com/yolong1020/EldenRing/blob/7c8cb11b863f77a81832c7ce84a4fd738bd3ddea/Source/EldenRing/Private/FieldObject/Interactable/Bonefire.cpp#L50-L71
+   1. ###### M
+      https://github.com/yolong1020/EldenRing/blob/7c8cb11b863f77a81832c7ce84a4fd738bd3ddea/Source/EldenRing/Private/FieldObject/Interactable/Bonefire.cpp#L50-L71
         
         https://github.com/yolong1020/EldenRing/blob/cbf78c1d5f11228634889b1c6f8319e61af4c5a2/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L447-L455
         https://github.com/yolong1020/EldenRing/blob/22eac6ed928320a3710896509221d9f466ecedcf/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L135-L147
