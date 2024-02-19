@@ -33,6 +33,8 @@
         https://github.com/yolong1020/EldenRing/blob/5de49fcb150304115303472db0b75118350dd4e6/Source/EldenRing/Private/GameData/ERSaveData.cpp#L95-L103
      1. ###### M
         https://github.com/yolong1020/EldenRing/blob/acb23901afdb98a9a45e08a03bb9b3be3107b887/Source/EldenRing/Private/UI/Tutorial/TutorialVolumeBox_CallOut.cpp#L65-L71
+        https://github.com/yolong1020/EldenRing/blob/22eac6ed928320a3710896509221d9f466ecedcf/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L314-L326
+        https://github.com/yolong1020/EldenRing/blob/dad6afdf1baa07093f377a3671635032093c8114/Source/EldenRing/Private/GameData/ERSaveData.cpp#L115-L124
 
 
 ## Restart Game
