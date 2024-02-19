@@ -43,14 +43,14 @@ void UERSaveData::SetNpcObject(const TScriptInterface<INPC_Interfaces>& NPC_Inte
 	const bool is_boss = character_interface->IsHasTag(FName("Boss"));
 
 	FGameObjectSaveData npc_data;
-	npc_data.Transform			= character_interface->GetStartTransform();
-	npc_data.ClassType			= character_interface->GetClassType();
+	npc_data.Transform		= character_interface->GetStartTransform();
+	npc_data.ClassType		= character_interface->GetClassType();
 	npc_data.WeaponClassTypes	= character_interface->GetWeaponClassTypes();
 	npc_data.WeaponEquipState	= character_interface->GetWeaponEquipState();
 
-	if		(is_boss)										 npc_data.ActionState = (uint8)EActionState_NPC::EASN_Unoccupied;
+	if	(is_boss)					 npc_data.ActionState = (uint8)EActionState_NPC::EASN_Unoccupied;
 	else if (character_interface->IsHasTag(FName("Vender"))) npc_data.ActionState = NPC_Interface->GetActionState();
-	else													 npc_data.ActionState = (uint8)EActionState_NPC::EASN_Patrolling;
+	else							 npc_data.ActionState = (uint8)EActionState_NPC::EASN_Patrolling;
 
 	const TArray<TObjectPtr<APatrolPoint>> points = NPC_Interface->GetPatrolPoints();
 	for (APatrolPoint* const point : points)
@@ -58,17 +58,17 @@ void UERSaveData::SetNpcObject(const TScriptInterface<INPC_Interfaces>& NPC_Inte
 		npc_data.PatrolPoints.Add(point->GetUniqueName());
 	}
 
-	npc_data.AssemblyPointLabel		= NPC_Interface->GetAssemblyPointLabel();
-	npc_data.WaitTime_Min			= NPC_Interface->GetWaitTime_Min();
-	npc_data.WaitTime_Max			= NPC_Interface->GetWaitTime_Max();
-	npc_data.PatrolTime				= NPC_Interface->GetPatrolTime();
+	npc_data.AssemblyPointLabel	= NPC_Interface->GetAssemblyPointLabel();
+	npc_data.WaitTime_Min		= NPC_Interface->GetWaitTime_Min();
+	npc_data.WaitTime_Max		= NPC_Interface->GetWaitTime_Max();
+	npc_data.PatrolTime		= NPC_Interface->GetPatrolTime();
 	npc_data.KnowMissingTargetTime	= NPC_Interface->GetKnowMissingTargetTime();
 
 	IInteractor_Interface*	interactor_interface = Cast<IInteractor_Interface>(NPC_Interface.GetObject());
-	IVender_Interface*		vender_interface	 = Cast<IVender_Interface>(NPC_Interface.GetObject());
+	IVender_Interface*	vender_interface     = Cast<IVender_Interface>(NPC_Interface.GetObject());
 	if (interactor_interface && vender_interface)
 	{
-		npc_data.OptionKey		  = interactor_interface->GetOptionKey();
+		npc_data.OptionKey	  = interactor_interface->GetOptionKey();
 		npc_data.CurrentDialouge  = vender_interface->GetDialouge();
 		npc_data.CommunicateIndex = vender_interface->GetCommunicateIndex();
 		npc_data.CameraNames	  = vender_interface->GetCameras();
@@ -115,8 +115,8 @@ void UERSaveData::SetInteractObject(const TScriptInterface<IInteractor_Interface
 void UERSaveData::SetTutorialObject(const TScriptInterface<ITutorial_Interface>& Tutorial_Interface)
 {
 	FGameTutorialSaveData tutorial_data;
-	tutorial_data.Transform		= Tutorial_Interface->GetObjectTransform();
-	tutorial_data.ClassType		= Tutorial_Interface->GetClassType();
+	tutorial_data.Transform	    = Tutorial_Interface->GetObjectTransform();
+	tutorial_data.ClassType	    = Tutorial_Interface->GetClassType();
 	tutorial_data.TutorialDatas = Tutorial_Interface->GetCallOuts();
 
 	m_tutorial_objects.Add(tutorial_data);
