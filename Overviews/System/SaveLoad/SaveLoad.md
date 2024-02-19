@@ -29,6 +29,11 @@
 
 ## Save Objects
 ###### 플
+```C++
+///  [AC0000::BeginPlay] 210
+const bool load_complete = instance->IsLevelLoadComplete();
+load_complete ? GameStartAction() : instance->AddEventLevelLoadComplete(this, &AC0000::GameStartAction);
+```
 
    1. ###### M
       https://github.com/yolong1020/EldenRing/blob/7c8cb11b863f77a81832c7ce84a4fd738bd3ddea/Source/EldenRing/Private/FieldObject/Interactable/Bonefire.cpp#L50-L71
