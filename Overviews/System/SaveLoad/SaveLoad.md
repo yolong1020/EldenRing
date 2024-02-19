@@ -12,7 +12,7 @@
      https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/Characters/Players/C0000.cpp#L769-L776
      https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/System/UIManager.cpp#L78-L116
 
-     1. ###### 데이터 중복을 방지하기 위해 슬롯의 저장된 데이터를 모두 삭제시킵니다.
+     1. ###### 데이터 중복을 방지하기 위해 플레이어를 제외한 슬롯의 모든 데이터를 삭제합니다.
         https://github.com/yolong1020/EldenRing/blob/0c22ea3db091b70ce347e421ef1c6525da478d41/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L367-L383
      1. ###### 플레이어 저장
         https://github.com/yolong1020/EldenRing/blob/0c22ea3db091b70ce347e421ef1c6525da478d41/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L52-L73
