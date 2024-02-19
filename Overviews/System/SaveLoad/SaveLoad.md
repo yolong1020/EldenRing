@@ -22,7 +22,7 @@
           https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1556-L1583 </br>
 
      
- 2. ###### 플레이어 저장
+ 2. ###### USaveGame을 상속받은 UERSaveData에 플레이어에 관련된 모든 데이터들을 저장합니다.
     https://github.com/yolong1020/EldenRing/blob/0c22ea3db091b70ce347e421ef1c6525da478d41/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L52-L73
     https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L11-L21
     https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L23-L37 </br>
