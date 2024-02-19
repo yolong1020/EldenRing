@@ -100,11 +100,11 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
    2. ###### 필드에 이미 각 항목별로 오브젝트가 존재하는 경우, 해당 항목에 속한 오브젝트를 모두 파괴하고 불러온 데이터에 따라 다시 Spawn하여 초기화를 진행합니다. 
       https://github.com/yolong1020/EldenRing/blob/a0d7366564eba9f62fe294702066f0320fe39bcd/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L44-L50 </br>
 
-      1. ###### Spawn 후 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+      1. ###### NPC는 Spawn 후 위치, 행동, 무기와 정찰, 집결지를 초기화하며 상인 여부에 따라 거래 아이템과 다이얼로그, 연출 카메라를 추가로 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L149-L210
-      1. ###### Spawn 후 위치, 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+      1. ###### 항아리, 정찰지와 같은 Field Object는 Spawn 후 위치 정보만 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L226-L261
-      1. ###### Spawn 후 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+      1. ###### 화톳불이나 상인과 같은 상호작용이 가능한 오브젝트는 Spawn 후 최초 상호작용 여부를 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L277-L312
-      1. ###### Spawn 후 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
+      1. ###### 튜토리얼 오브젝트는 위치와 안내할 데이터를 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L328-L365
