@@ -40,7 +40,7 @@ observer_mgr->TriggerEvent(EObserverEventType::EOET_SaveData);
 ```
 </br>
 
-   1. ###### M
+   1. ###### NPC들은 Event가 발생할때 
       https://github.com/yolong1020/EldenRing/blob/7c8cb11b863f77a81832c7ce84a4fd738bd3ddea/Source/EldenRing/Private/FieldObject/Interactable/Bonefire.cpp#L50-L71
         
         https://github.com/yolong1020/EldenRing/blob/cbf78c1d5f11228634889b1c6f8319e61af4c5a2/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L447-L455
