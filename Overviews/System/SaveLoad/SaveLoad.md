@@ -1,6 +1,7 @@
 # Save & Load
 [1. Save Player](#Save-Player)   
 [2. Save Objects](#Save-Objects)   
+[2. Load Player](#Load-Player)   
 </br>
 
 
@@ -85,8 +86,8 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
       https://github.com/yolong1020/EldenRing/blob/64f315c377d4aab7c93b16c3b7e04cd8962d87ec/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133 </br>
       
      
-## Restart Game
-###### 플레이어가 사망 후 게임을 다시 시작하도록 
+## Load Objects
+###### 메인 타이틀에서 'Load Game' 버튼에 의한 게임 시작과 플레이어 사망 후 게임을 재시작할 때, 저장된 오브젝트 정보를 불러옵니다.
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/865ae562-b195-4e21-afd6-a75187b99103" width="49.5%" height="49.5%"></br>
 
   1. ###### GameCharacter의 사망 연출이 종료되면 GameMode에 게임 재시작을 요청합니다.
