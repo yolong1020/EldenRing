@@ -41,7 +41,7 @@ observer_mgr->TriggerEvent(EObserverEventType::EOET_SaveData);
 ```
 https://github.com/yolong1020/EldenRing/blob/0c22ea3db091b70ce347e421ef1c6525da478d41/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L367-L383 </br>
 
-   1. ###### NPC들은 Event에 SaveCharacterData를 바인딩하여 캐릭터의 위치, 클래스 유형, 무기 정보, 행동, 정찰 등을 공통적으로 저장합니다.</br>만약 상인 유형이라면, 다이얼로그와 연출 카메라, 이동 장소 및 판매 아이템을 추가로 저장합니다.
+   1. ###### NPC들은 Event에 SaveCharacterData를 바인딩하여 캐릭터의 위치, 클래스 유형, 무기 정보, 행동, 정찰 등을 기본으로 저장합니다.</br>만약 상인 유형이라면, 다이얼로그와 연출 카메라, 이동 장소 및 판매 아이템을 추가로 저장합니다.
       https://github.com/yolong1020/EldenRing/blob/cbf78c1d5f11228634889b1c6f8319e61af4c5a2/Source/EldenRing/Private/Characters/NPC/NPC_Character.cpp#L447-L455
       https://github.com/yolong1020/EldenRing/blob/22eac6ed928320a3710896509221d9f466ecedcf/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L135-L147
       https://github.com/yolong1020/EldenRing/blob/997399c5544718c3393739593c7cc748d3c1a46e/Source/EldenRing/Private/GameData/ERSaveData.cpp#L39-L93 </br>
