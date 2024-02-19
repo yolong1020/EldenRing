@@ -80,7 +80,8 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
          https://github.com/yolong1020/EldenRing/blob/2e31075e7eb907ff42a181d5348179df51fadf97/Source/EldenRing/Private/Characters/Players/C0000.cpp#L400-L415
          https://github.com/yolong1020/EldenRing/blob/2e31075e7eb907ff42a181d5348179df51fadf97/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1222-L1229
          https://github.com/yolong1020/EldenRing/blob/a0d7366564eba9f62fe294702066f0320fe39bcd/Source/EldenRing/Private/GameBase/ERGameMode.cpp#L71-L90 </br>
-   2. ###### 착용중인 아이템과 보관된 아이템들의 UItemObject를 생성하고 검증 후 각 분류에 맞게 위치시킵니다.
+         
+   2. ###### 플레이어를 마지막에 저장된 위치로 이동키고 착용중인 아이템과 보관된 아이템들의 UItemObject를 생성, 검증 후 각 분류에 맞게 위치시킵니다.
       https://github.com/yolong1020/EldenRing/blob/64f315c377d4aab7c93b16c3b7e04cd8962d87ec/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133 </br>
       
      
