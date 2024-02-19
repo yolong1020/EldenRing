@@ -25,6 +25,7 @@
    2. ###### USaveGame을 상속받은 UERSaveData에 플레이어에 관련된 모든 데이터들을 저장합니다.
       https://github.com/yolong1020/EldenRing/blob/0c22ea3db091b70ce347e421ef1c6525da478d41/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L52-L73
       https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L11-L21
+      https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L23-L37
       https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L23-L37 </br>
 
 
@@ -81,8 +82,7 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
          https://github.com/yolong1020/EldenRing/blob/2e31075e7eb907ff42a181d5348179df51fadf97/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1222-L1229
          https://github.com/yolong1020/EldenRing/blob/a0d7366564eba9f62fe294702066f0320fe39bcd/Source/EldenRing/Private/GameBase/ERGameMode.cpp#L71-L90 </br>
    2. ###### U
-      https://github.com/yolong1020/EldenRing/blob/64f315c377d4aab7c93b16c3b7e04cd8962d87ec/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133
-      https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L23-L37 </br>
+      https://github.com/yolong1020/EldenRing/blob/64f315c377d4aab7c93b16c3b7e04cd8962d87ec/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133 </br>
       
      
 ## Restart Game
