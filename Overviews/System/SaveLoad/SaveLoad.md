@@ -73,13 +73,13 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
       1. ###### Load Game에 의한 불러오기 :</br>NewGame을 제외한 ERGameInstance의 'm_is_new_game' 변수는 항시 false 상태이며,</br>NewGame에서도 사망에 의한 재시작은 변수를 false로 변경하기 때문에 플레이어 캐릭터 초기화 시 저장된 정보를 불러오게 됩니다.
          <img src="https://github.com/yolong1020/EldenRing/assets/87303898/508aa5db-3251-4e37-8720-ef8ab9de7901" width="49.5%" height="49.5%"></img>   
          </br>
-         https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/System/UIManager.cpp#L78-L116 </br>
          
-      2. ###### 플레이어 사망에 의한 불러오기 : 
+      2. ###### 플레이어 사망에 의한 불러오기 :</br>캐릭터의 사망 연출이 종료되면 GameMode에 게임 재시작을 요청합니다.
          <img src="https://github.com/yolong1020/EldenRing/assets/87303898/865ae562-b195-4e21-afd6-a75187b99103" width="49.5%" height="49.5%"></img>   
          </br>
-         https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1556-L1583
-         https://github.com/yolong1020/EldenRing/blob/64f315c377d4aab7c93b16c3b7e04cd8962d87ec/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L75-L133 </br>
+         https://github.com/yolong1020/EldenRing/blob/2e31075e7eb907ff42a181d5348179df51fadf97/Source/EldenRing/Private/Characters/Players/C0000.cpp#L400-L415
+         https://github.com/yolong1020/EldenRing/blob/2e31075e7eb907ff42a181d5348179df51fadf97/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1222-L1229
+         https://github.com/yolong1020/EldenRing/blob/a0d7366564eba9f62fe294702066f0320fe39bcd/Source/EldenRing/Private/GameBase/ERGameMode.cpp#L71-L90 </br>
    2. ###### U
       https://github.com/yolong1020/EldenRing/blob/6571361fd2e65f39c1565b26b5093ed459994600/Source/EldenRing/Private/GameData/ERSaveData.cpp#L23-L37 </br>
       
