@@ -26,6 +26,7 @@
      1. ###### M
         https://github.com/yolong1020/EldenRing/blob/f3a58f08e48bff30bf54832873d9287e74cc7bf1/Source/EldenRing/Private/Characters/NPC/Vender/Vender.cpp#L245-L253
         https://github.com/yolong1020/EldenRing/blob/22eac6ed928320a3710896509221d9f466ecedcf/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L263-L275
+        https://github.com/yolong1020/EldenRing/blob/1e2d77207e761592951b82b53947498560068d82/Source/EldenRing/Private/GameData/ERSaveData.cpp#L105-L113
      1. ###### M
         https://github.com/yolong1020/EldenRing/blob/9707e8b6c5dccdd2145024019270f3c4906f2124/Source/EldenRing/Private/FieldObject/FieldObject.cpp#L22-L28
      1. ###### M
