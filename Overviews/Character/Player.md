@@ -37,11 +37,10 @@
       https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L954-L984
       https://github.com/yolong1020/EldenRing/blob/0b1ea10f68d000574508785aae7ef1f5adac72a2/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1152-L1179
       https://github.com/yolong1020/EldenRing/blob/0b1ea10f68d000574508785aae7ef1f5adac72a2/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1614-L1621 </br>
-   3. ###### 
+   2. ###### 하나 이상의 적들이 Collision에 감지된 경우 컨테이너에 적들의 포인터가 적재되며, 입력을 통해 다른 적으로 포커싱을 이동시킵니다.
       https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L986-L1009 </br>
-   4. ###### 
+   3. ###### 활성된 UI는 적의 척추 위치를 추적하며 화면에서 Draw되게 됩니다.
       https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/System/UIManager.cpp#L196-L207 </br>
-   5. ######
       https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/HUD/LockOn/LockOn.cpp#L12-L27 </br>
 
 
