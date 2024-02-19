@@ -4,7 +4,7 @@
 </br>
 
 
-## Save Game
+## Save Player
 ###### 게임을 종료하거나 체크 포인트 활성 및 아이템 거래 상황에서 저장이 발생됩니다.
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/508aa5db-3251-4e37-8720-ef8ab9de7901" width="49.5%" height="49.5%"></img>
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/d7634f0b-4989-4d5a-b8c0-9f540a5aeb98" width="49.5%" height="49.5%"></img>
