@@ -38,10 +38,11 @@
   2. ###### 전력 질주와 점프, 일반 상태 그리고 강공격 Input 입력 여부에 따라 서로 다른 공격이 전개됩니다.
      <img src="https://github.com/yolong1020/EldenRing/assets/87303898/d7dd26b7-1240-458f-9f78-146763bf7085" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/4e07652fec8037129c94ac1eb022e142e030ac5f/Source/EldenRing/Private/Characters/Players/C0000.cpp#L883-L942 </br>
-  3. ###### Weapon_Actor의 Collision과 충돌한 대상이 캐릭터인지 방어자의 Parry Collision, 방패의 Collision인지에 따라 피격 결과를 적용시킵니다.
+  3. ###### Weapon_Actor의 Collision과 충돌한 대상이 캐릭터인지 방어자의 Parry Collision, 방패의 Collision인지에 따라 피격 결과를 적용시킵니다.</br>만약 Weapon_Actor가 Parry Collision과 충돌했다면, 사용자를 기절 상태로 변경시킵니다.
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/2860b4e7-a969-4b94-b501-5cf7975cc48c" width="49.5%" height="49.5%"></img>
      https://github.com/yolong1020/EldenRing/blob/4070f5c523d417e907e46127052dd90aae241624/Source/EldenRing/Private/Items/Weapons/MeleeAttack_Actor.cpp#L72-L163 </br>
   4. ###### 추가 공격 유효 프레임을 벗어나면 Montage - EndAttack이 호출되어 콤보, 공격 가능 상태, 캐릭터 행동 상태 등을 기본값으로 복구시킵니다.
-     ![Charactor](https://github.com/yolong1020/EldenRing/assets/87303898/8a4bed56-27cc-47b6-b137-190c7f87a0f3)
+     <img src="https://github.com/yolong1020/EldenRing/assets/87303898/8a4bed56-27cc-47b6-b137-190c7f87a0f3"></img>
      https://github.com/yolong1020/EldenRing/blob/2f43079d34e3767f013851c836d4480db5fd268a/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1368-L1377 </br>
 
 
