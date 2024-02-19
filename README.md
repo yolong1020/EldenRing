@@ -9,7 +9,7 @@ EldenRing Project
 
 Video
 ----------
-###### HDR이 적용된 2K 인코딩 영상입니다. 하단의 썸네일에서 영상을 확인할 수 있습니다.
+###### HDR이 적용된 2K 인코딩 영상입니다. 하단 썸네일에서 영상을 확인할 수 있습니다.
 * CPU : Ryzen 7 5800X
 * GPU : RTX 3080TI
 * RAM : 32gb Ram
