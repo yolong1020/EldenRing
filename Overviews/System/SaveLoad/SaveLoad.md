@@ -13,7 +13,7 @@
   - ###### 게임 종료에 의한 저장 : 게임을 종료할때, 팝업에 바인딩 된 기능을 이용하게 게임을 저장합니다.
     https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/Characters/Players/C0000.cpp#L769-L776
     https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/System/UIManager.cpp#L78-L116 </br>
-  - ###### 체크 포인트에 의한 저장 : 화톳불에 상호 작용으로 체크 포인트 기능이 작동되어 게임을 저장합니다.
+  - ###### 체크 포인트에 의한 저장 : 화톳불 상호 작용으로 체크 포인트 기능이 작동되어 게임을 저장합니다.
     https://github.com/yolong1020/EldenRing/blob/3578ea4734424524193e99ac7fe3af6e40049190/Source/EldenRing/Private/UI/PopUp/InteractionPopUp.cpp#L115-L138
     https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1412-L1416
     https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1424-L1431
