@@ -28,7 +28,7 @@
 
 
 ## Save Objects
-###### 플레이어를 제외한 필드에 존재하는 오브젝트들은 Observer에 'EOET_SaveData'로 등록된 이벤트에 의해 저장되며, 중복 저장을 방지하게 위해 이벤트 호출 전 반드시 초기화 과정을 거칩니다.
+###### 플레이어를 제외한 필드에 존재하는 오브젝트들은 Observer Manager에 'EOET_SaveData'로 등록된 이벤트에 의해 저장되며,</br>중복 저장을 방지하게 위해 이벤트 호출 전 반드시 초기화 과정을 거칩니다.
 ```C++
 UERGameInstance* instance = Cast<UERGameInstance>(GetGameInstance()); 
 CHECK_INVALID_PTR(instance) 
