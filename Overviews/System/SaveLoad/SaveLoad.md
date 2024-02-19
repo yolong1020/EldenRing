@@ -100,6 +100,6 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
    2. ###### Load Game에 의한 불러오기 :</br>NewGame이 아닌 경우 FieldObject Data Layer를 불러와 별도로 오브젝트들을 생성합니다.
       https://github.com/yolong1020/EldenRing/blob/a0d7366564eba9f62fe294702066f0320fe39bcd/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L44-L50
 
-      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 생성 및 
+      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다. 이후 불러온 데이터를 순회하며 Spawn 및 위치, 행동, 상인 여부에 따른 설정 등을 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L149-L210
      
