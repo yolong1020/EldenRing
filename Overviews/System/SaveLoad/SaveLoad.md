@@ -70,7 +70,7 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
 ```
 
    1.
-      1. ###### Load Game에 의한 불러오기 : 
+      1. ###### Load Game에 의한 불러오기 : NewGame을 제외한 ERGameInstance의 'm_is_new_game' 변수는 항시 false 상태이며,</br>NewGame에서 사망에 의한 재시작에서 변수는 false로 변경되기 때문에 플레이어 캐릭터 초기화 시 저장된 정보를 로드하게 됩니다.
          <img src="https://github.com/yolong1020/EldenRing/assets/87303898/508aa5db-3251-4e37-8720-ef8ab9de7901" width="49.5%" height="49.5%"></img>   
          </br>
          https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/System/UIManager.cpp#L78-L116 </br>
