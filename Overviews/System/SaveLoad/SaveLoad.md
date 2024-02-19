@@ -1,6 +1,6 @@
 # Save & Load
 [1. Save Player](#Save-Player)   
-[2. Open by VolumeBox](#Open-by-VolumeBox)   
+[2. Save Objects](#Save-Objects)   
 </br>
 
 
