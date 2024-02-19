@@ -97,6 +97,9 @@ instance->IsNewGame() ? SetDefaultItems() : instance->LoadPlayer(this);
       2. ###### 플레이어 사망에 의한 불러오기 :</br>플레이어 캐릭터의 사망 연출이 종료되면 GameMode에 게임 재시작을 요청하고 필드의 오브젝트들을 불러옵니다.
          https://github.com/yolong1020/EldenRing/blob/099acb762a396881c10e7f615b94861e4ecfad93/Source/EldenRing/Private/GameBase/ERGameMode.cpp#L71-L90 </br>
 
-   1. ###### Load Game에 의한 불러오기 :</br>NewGame이 아닌 경우 FieldObject Data Layer를 불러와 별도로 오브젝트들을 생성합니다.
+   2. ###### Load Game에 의한 불러오기 :</br>NewGame이 아닌 경우 FieldObject Data Layer를 불러와 별도로 오브젝트들을 생성합니다.
       https://github.com/yolong1020/EldenRing/blob/a0d7366564eba9f62fe294702066f0320fe39bcd/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L44-L50
+
+      1. ###### 필드에 이미 NPC가 존재하는 경우, 해당 NPC들을 모두 파괴합니다.
+         https://github.com/yolong1020/EldenRing/blob/a595cea3153c037ce10390a86ac9ac7f5d812d20/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L149-L210
      
