@@ -151,11 +151,11 @@ void UERGameInstance::LoadNPC()
 	UWorld* world = GetWorld();
 	CHECK_INVALID_PTR(world)
 
-	TArray<AActor*> monsters;
-	UGameplayStatics::GetAllActorsWithTag(this, FName("NPC"), monsters);
-	for (AActor* const monster : monsters)
+	TArray<AActor*> npcs;
+	UGameplayStatics::GetAllActorsWithTag(this, FName("NPC"), npcs);
+	for (AActor* const npc : npcs)
 	{ 
-		monster->LifeSpanExpired();
+		npc->LifeSpanExpired();
 	}
 
 	if (UGameplayStatics::DoesSaveGameExist(FString("SavedGame"), 0))
