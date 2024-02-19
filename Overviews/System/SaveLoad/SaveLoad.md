@@ -6,7 +6,9 @@
 
 ## Save Game
 ###### 게임을 종료하거나 체크 포인트 활성 및 아이템 거래 상황에서 저장이 발생됩니다.
-<img src="https://github.com/yolong1020/EldenRing/assets/87303898/508aa5db-3251-4e37-8720-ef8ab9de7901" width="49.5%" height="49.5%"></br>
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/508aa5db-3251-4e37-8720-ef8ab9de7901" width="49.5%" height="49.5%"></img>
+<img src="https://github.com/yolong1020/EldenRing/assets/87303898/d7634f0b-4989-4d5a-b8c0-9f540a5aeb98" width="49.5%" height="49.5%"></img>
+</br>
 
   1. ###### Menu Button에 바인딩 된 기능으로 화면을 Fade out으로 전환합니다. 이때 Fade out이 완전히 이뤄지면 GameInstance를 통해 Level을 이전합니다.
      https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/Characters/Players/C0000.cpp#L769-L776
