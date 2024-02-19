@@ -28,14 +28,19 @@
 
 
 ## Lock On
-###### Level 상태에 따라서 HUD, Camera Timeline, 플레이에 필요한 Item 등 초기화합니다.
+###### 뷰포트 내에 적이 존재하고 Collision 범위에 들어오면 적을 포커싱하여 전투를 진행할 수 있습니다.
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/5b8bd512-a506-474c-9d4c-b640a083e471" width="49.5%" height="49.5%"></img>
 <img src="https://github.com/yolong1020/EldenRing/assets/87303898/756587c1-8e98-4d55-8af8-9722951918be" width="49.5%" height="49.5%"></img>   
+</br>
 
-https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L954-L984
-https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L986-L1009
-https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/System/UIManager.cpp#L196-L207
-https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/HUD/LockOn/LockOn.cpp#L12-L27
+   1. ###### 
+      https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L954-L984 </br>
+   2. ###### 
+      https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/Characters/Players/C0000.cpp#L986-L1009 </br>
+   3. ###### 
+      https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/System/UIManager.cpp#L196-L207 </br>
+   4. ######
+      https://github.com/yolong1020/EldenRing/blob/bffd81e510eca5529be087329825bcd068424a52/Source/EldenRing/Private/HUD/LockOn/LockOn.cpp#L12-L27 </br>
 
 
 ## Combat
