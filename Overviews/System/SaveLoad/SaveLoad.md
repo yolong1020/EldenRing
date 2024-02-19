@@ -2,7 +2,7 @@
 [1. Save Player](#Save-Player)   
 [2. Save Objects](#Save-Objects)   
 [3. Load Player](#Load-Player)   
-[4. Load-Objects](#Load-Objects)   
+[4. Load Objects](#Load-Objects)   
 </br>
 
 
