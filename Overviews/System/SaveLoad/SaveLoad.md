@@ -15,6 +15,8 @@
     https://github.com/yolong1020/EldenRing/blob/64d9445ed597ada15df737bc3a3a037e8492297e/Source/EldenRing/Private/System/UIManager.cpp#L78-L116 </br>
   - ###### 체크 포인트에 의한 저장 : 
     https://github.com/yolong1020/EldenRing/blob/7c8cb11b863f77a81832c7ce84a4fd738bd3ddea/Source/EldenRing/Private/FieldObject/Interactable/Bonefire.cpp#L50-L71
+    https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1412-L1416
+    https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1424-L1431
     https://github.com/yolong1020/EldenRing/blob/73825fa184b635dea13c29460bc5894efc84ecbe/Source/EldenRing/Private/Characters/Players/C0000.cpp#L1556-L1583
 
   2. ###### 데이터 중복을 방지하기 위해 플레이어를 제외한 슬롯의 모든 데이터를 삭제합니다.
