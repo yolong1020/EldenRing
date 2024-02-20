@@ -31,7 +31,7 @@
       - Inventory
         - [Equipment](https://github.com/yolong1020/EldenRing/blob/main/README.md#inventory---equipment)
         - [Storage](https://github.com/yolong1020/EldenRing/blob/main/README.md#inventory---storage)
-      - [Trade](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Trade/Trade.md)
+      - [Trade](https://github.com/yolong1020/EldenRing/blob/main/README.md#trade-1)
       - [Tutorial](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Tutorial/Tutorial.md)
 
    3. #### System
