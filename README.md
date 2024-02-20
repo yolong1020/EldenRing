@@ -308,7 +308,7 @@
    ### Soldier of Godrick
    [1. Change Battle Mode](#Change-Battle-Mode)   
    [2. Detect Bound](#Detect-Bound)   
-   [3. Combat](#Combat)   
+   [3. Combat](#combat-1)   
    [4. Confront](#Confront)   
    </br>
 
