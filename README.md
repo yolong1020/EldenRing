@@ -725,7 +725,6 @@
       load_complete ? GameStartAction() : instance->AddEventLevelLoadComplete(this, &AC0000::GameStartAction);
       ```   
       
-   </br>
    ---
    </br>
 
