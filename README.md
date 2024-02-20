@@ -21,7 +21,7 @@
 
    1. #### Character
       - [GameCharacter](https://github.com/yolong1020/EldenRing/blob/main/README.md#gamecharacter)
-         - [Player](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/Player.md)
+         - [Player](https://github.com/yolong1020/EldenRing/blob/main/README.md#player)
          - [NPC](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/NPC.md)
            1. [Vender](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/Vender.md)
            2. [Soldier of Godrick](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/SoldierOfGodrick.md)
