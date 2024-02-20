@@ -20,7 +20,7 @@
 ###### 하위 링크들에서 각각의 기능들을 어떻게 구현했는가에 관해 확인할 수 있습니다.
 
    1. #### Character
-      - [GameCharacter](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/GameCharacter.md)
+      - [GameCharacter](https://github.com/yolong1020/EldenRing/blob/main/README.md#gamecharacter)
          - [Player](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/Player.md)
          - [NPC](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/NPC.md)
            1. [Vender](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/Vender.md)
