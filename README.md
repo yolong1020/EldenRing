@@ -32,7 +32,7 @@
         - [Equipment](https://github.com/yolong1020/EldenRing/blob/main/README.md#inventory---equipment)
         - [Storage](https://github.com/yolong1020/EldenRing/blob/main/README.md#inventory---storage)
       - [Trade](https://github.com/yolong1020/EldenRing/blob/main/README.md#trade-1)
-      - [Tutorial](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Tutorial/Tutorial.md)
+      - [Tutorial](https://github.com/yolong1020/EldenRing/blob/main/README.md#tutorial)
 
    3. #### System
       - [Level](https://github.com/yolong1020/EldenRing/blob/main/README.md#level)
