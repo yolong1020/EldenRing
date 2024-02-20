@@ -28,7 +28,8 @@
            3. [Tree Guard](https://github.com/yolong1020/EldenRing/blob/main/README.md#tree-guard)
 
    2. #### UI
-      - [Inventory](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Inventory/Inventory.md)
+      - [Inventory]()
+        - [Equipment](https://github.com/yolong1020/EldenRing/blob/main/README.md#inventory---equipment)
       - [Trade](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Trade/Trade.md)
       - [Tutorial](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Tutorial/Tutorial.md)
 
