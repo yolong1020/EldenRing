@@ -803,8 +803,7 @@
    ```
 
    1.
-      1. ###### Load Game에 의한 불러오기 :</br>NewGame을 제외한 ERGameInstance의 'm_is_new_game' 변수는 항시 false 상태이며,</br>New Game도 사망에 의한 재시작은 변수를 false로 변경하기 때문에 플레이어 캐릭터 초기화 시 저장된 정보를 불러오게 됩니다.
-         <img src="https://github.com/yolong1020/EldenRing/assets/87303898/508aa5db-3251-4e37-8720-ef8ab9de7901" width="49.5%" height="49.5%"></img>   
+      1. ###### Load Game에 의한 불러오기 :</br>NewGame을 제외한 ERGameInstance의 'm_is_new_game' 변수는 항시 false 상태이며,</br>New Game도 사망에 의한 재시작은 변수를 false로 변경하기 때문에 플레이어 캐릭터 초기화 시 저장된 정보를 불러오게 됩니다. 
          </br>
          
       2. ###### 플레이어 사망에 의한 불러오기 :</br>캐릭터의 사망 연출이 종료되면 GameMode에 게임 재시작을 요청하고 캐릭터를 다시 초기화하며 저장된 정보를 불러오게 됩니다.
