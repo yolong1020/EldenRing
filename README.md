@@ -25,7 +25,7 @@
          - [NPC](https://github.com/yolong1020/EldenRing/blob/main/README.md#npc)
            1. [Vender](https://github.com/yolong1020/EldenRing/blob/main/README.md#vender)
            2. [Soldier of Godrick](https://github.com/yolong1020/EldenRing/blob/main/README.md#soldier-of-godrick)
-           3. [Tree Guard](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/TreeGuard.md)
+           3. [Tree Guard](https://github.com/yolong1020/EldenRing/blob/main/README.md#tree-guard)
 
    2. #### UI
       - [Inventory](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Inventory/Inventory.md)
