@@ -445,7 +445,7 @@
    [1. Behavior Tree](#Behavior-Tree)   
    [2. Detect Bound](#Detect-Bound)   
    [3. Init Tree Guard Settings](#Init-Tree-Guard-Settings)   
-   [4. Combat](#Combat)   
+   [4. Combat](#combat-3)   
    </br>
 
 
