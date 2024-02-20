@@ -375,7 +375,7 @@
 
    ### Tree Guard
    [1. Behavior Tree](#Behavior-Tree)   
-   [2. Detect Bound](#Detect-Bound)   
+   [2. Detect Bound](#https://github.com/yolong1020/EldenRing/blob/main/README.md#detect-bound-1)   
    [3. Init Tree Guard Settings](#Init-Tree-Guard-Settings)   
    [4. Combat](#combat-3)   
    </br>
