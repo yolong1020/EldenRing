@@ -22,7 +22,7 @@
 
 ### Index
 
-   1. ### Character
+   1. #### Character
       - [GameCharacter](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/GameCharacter.md)
          - [Player](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/Player.md)
          - [NPC](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/NPC.md)
@@ -30,11 +30,11 @@
            2. [Soldier of Godrick](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/SoldierOfGodrick.md)
            3. [Tree Guard](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/TreeGuard.md)
 
-   2. ### UI
+   2. #### UI
       - [Inventory](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Inventory/Inventory.md)
       - [Trade](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Trade/Trade.md)
       - [Tutorial](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Tutorial/Tutorial.md)
 
-   3. ### System
+   3. #### System
       - [Level](https://github.com/yolong1020/EldenRing/blob/main/Overviews/System/Level/Level.md)
       - [Save & Load](https://github.com/yolong1020/EldenRing/blob/main/Overviews/System/SaveLoad/SaveLoad.md)
