@@ -33,7 +33,7 @@
       - [Tutorial](https://github.com/yolong1020/EldenRing/blob/main/Overviews/UI/Tutorial/Tutorial.md)
 
    3. #### System
-      - [Level](https://github.com/yolong1020/EldenRing/blob/main/Overviews/System/Level/Level.md)
+      - [Level](https://github.com/yolong1020/EldenRing/blob/main/README.md#level)
       - [Save & Load](https://github.com/yolong1020/EldenRing/blob/main/Overviews/System/SaveLoad/SaveLoad.md)   
    </br>
    
