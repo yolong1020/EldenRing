@@ -724,9 +724,9 @@
       const bool load_complete = instance->IsLevelLoadComplete();
       load_complete ? GameStartAction() : instance->AddEventLevelLoadComplete(this, &AC0000::GameStartAction);
       ```   
-</br>
----
-</br>
+   </br>   
+   ---
+   </br>
 
    ### Save & Load
    [1. Save Player](#Save-Player)   
