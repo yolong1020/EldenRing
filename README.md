@@ -23,7 +23,7 @@
       - [GameCharacter](https://github.com/yolong1020/EldenRing/blob/main/README.md#gamecharacter)
          - [Player](https://github.com/yolong1020/EldenRing/blob/main/README.md#player)
          - [NPC](https://github.com/yolong1020/EldenRing/blob/main/README.md#npc)
-           1. [Vender](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/Vender.md)
+           1. [Vender](https://github.com/yolong1020/EldenRing/blob/main/README.md#vender)
            2. [Soldier of Godrick](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/SoldierOfGodrick.md)
            3. [Tree Guard](https://github.com/yolong1020/EldenRing/blob/main/Overviews/Character/NPC/TreeGuard.md)
 
