@@ -377,7 +377,7 @@
    [1. Behavior Tree](#Behavior-Tree)   
    [2. Detect Bound](#detect-bound-1)   
    [3. Init Tree Guard Settings](#Init-Tree-Guard-Settings)   
-   [4. Combat](#combat-3)   
+   [4. Combat](#combat-2)   
    </br>
 
 
