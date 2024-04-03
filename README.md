@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="LINK_TO_YOUR_HTML_PAGE">
+    <a href="https://github.com/yolong1020/EldenRing/blob/main/README.md#technical-overview">
         <img src="https://img.shields.io/badge/Go_to_Top-Click_here-ff69b4.svg" alt="Top Button">
     </a>
 </div>
