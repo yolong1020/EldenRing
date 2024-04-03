@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://github.com/yolong1020/EldenRing/blob/main/README.md#technical-overview">
-        <img src="https://img.shields.io/badge/Go_to_Top-Click_here-ff69b4.svg" alt="Top Button">
+        <img src="https://img.shields.io/badge/Go_to_Top-2069EA.svg" alt="Top Button">
     </a>
 </div>
 
