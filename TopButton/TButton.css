@@ -1,23 +1,26 @@
+/* Enable smooth scrolling */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Style the button */
-#scrollToTopBtn {
-    position: fixed; /* Fixed position */
-    bottom: 20px; /* Place the button at the bottom */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: red; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    transition: opacity 0.3s; /* Add transition for smooth fade in/out */
-}
+.top-link {
+  transition:       all .25s ease-in-out;
+  position:         fixed;
+  bottom:           0;
+  right:            0;
+  display:          inline-flex;
+  color:            #000000;
 
-#scrollToTopBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
-}
-
-#scrollToTopBtn.hidden {
-    opacity: 0; /* Hide the button by default */
+  cursor:           pointer;
+  align-items:      center;
+  justify-content:  center;
+  margin:           0 2em 2em 0;
+  border-radius:    50%;
+  padding:          .25em;
+  width:            1em;
+  height:           1em;
+  background-color: #F8F8F8;
 }
