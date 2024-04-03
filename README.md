@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My README</title>
     <link rel="stylesheet" href="TopButton/TButton.css"> <!-- CSS 파일을 연결 -->
 </head>
 <body>
-</body>
-</html>
+
 <!-- HTML 끝 -->
 # EldenRing Project
 ###### 포토폴리오 목적으로 엘든링의 내용들을 재해석하여 제작한 데모 프로젝트입니다. 
@@ -852,3 +850,5 @@
       1. ###### 튜토리얼 오브젝트는 위치와 안내할 데이터를 초기화합니다.
          https://github.com/yolong1020/EldenRing/blob/a3077be327f39c03df390dafddecd977e72c0488/Source/EldenRing/Private/GameBase/ERGameInstance.cpp#L328-L365
 
+</body>
+</html>
