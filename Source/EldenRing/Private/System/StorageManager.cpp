@@ -201,7 +201,9 @@ void UStorageManager::AddItem(TObjectPtr<UItemObject> ItemObject, const int32& I
 
 	const FIntPoint point	   = ItemObject->GetDimension();
 	FInventoryTile  start_tile = IndexToTile(Index);
-
+	ItemObject->SetCurrentHUD(EDragAndDropHUD::EDAD_Inventory);
+	ItemObject->SetLastInventoryLocation(start_tile);
+	
 	int32		find_idx;
 	FInventoryTile	check_tile;
 
@@ -216,9 +218,6 @@ void UStorageManager::AddItem(TObjectPtr<UItemObject> ItemObject, const int32& I
 			check_tile.Y = y;
 
 			find_idx = TileToIndex(check_tile);
-
-			ItemObject->SetCurrentHUD(EDragAndDropHUD::EDAD_Inventory);
-			ItemObject->SetLastInventoryLocation(start_tile);
 			m_slots[find_idx] = ItemObject;
 		}
 	}
