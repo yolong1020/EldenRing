@@ -13,10 +13,11 @@
 * GPU : RTX 3080TI
 * RAM : 32gb Ram
 
-* [Summary Video : ](https://youtu.be/kAqA3xcEXxg)
-* [Full Video : ](https://youtu.be/ZO0a9uATi-o)
 [![Video Label](http://img.youtube.com/vi/ZO0a9uATi-o/0.jpg)](https://youtu.be/ZO0a9uATi-o)   
 </br>
+* [Summary Video : ](https://youtu.be/kAqA3xcEXxg)
+* [Full Video : ](https://youtu.be/ZO0a9uATi-o)
+
 
 ## Technical Overview
 ###### 하위 링크들에서 각각의 기능들을 어떻게 구현했는가에 관해 확인할 수 있습니다.
