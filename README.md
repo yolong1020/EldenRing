@@ -12,11 +12,11 @@
 * CPU : Ryzen 7 5800X
 * GPU : RTX 3080TI
 * RAM : 32gb Ram
+* [Summary Video](https://youtu.be/kAqA3xcEXxg)
+* [Full Video](https://youtu.be/ZO0a9uATi-o)
 
 [![Video Label](http://img.youtube.com/vi/ZO0a9uATi-o/0.jpg)](https://youtu.be/ZO0a9uATi-o)   
 </br>
-* [Summary Video : ](https://youtu.be/kAqA3xcEXxg)
-* [Full Video : ](https://youtu.be/ZO0a9uATi-o)
 
 
 ## Technical Overview
