@@ -14,7 +14,7 @@
 * RAM : 32gb Ram
 
 [![Video Label](http://img.youtube.com/vi/ZO0a9uATi-o/0.jpg)](https://youtu.be/ZO0a9uATi-o)   
-* [Summary Video](https://youtu.be/kAqA3xcEXxg)</br>
+* [Summary Video](https://youtu.be/3JyzDx_mY1A)</br>
 * [Full Video](https://youtu.be/ZO0a9uATi-o)
 </br>
 
