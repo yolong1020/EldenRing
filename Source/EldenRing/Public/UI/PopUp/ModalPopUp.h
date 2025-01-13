@@ -31,16 +31,16 @@ private:
 
 private:
 	UPROPERTY(BlueprintReadOnly, Category = "UI Widget", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UTextBlock> ModalTitle;
+	UTextBlock* ModalTitle;
 
 	UPROPERTY(BlueprintReadOnly, Category = "UI Widget", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UButton> ButtonConfirm;
+	UButton* ButtonConfirm;
 
 	UPROPERTY(BlueprintReadOnly, Category = "UI Widget", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UButton> ButtonCancel;
+	UButton* ButtonCancel;
 
 	UPROPERTY(BlueprintReadOnly, Category = "UI Widget", meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UInputCounter> InputCounter;
+	UInputCounter* InputCounter;
 
 	UPROPERTY()
 	TWeakObjectPtr<class UStorageManager> m_storage_mgr;

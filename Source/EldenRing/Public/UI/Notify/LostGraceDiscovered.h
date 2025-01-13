@@ -26,7 +26,7 @@ private:
 	
 private:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess = "true"), Transient)
-	TObjectPtr<UWidgetAnimation> ShowHideNotify;
+	UWidgetAnimation* ShowHideNotify;
 
 	UPROPERTY()
 	TWeakObjectPtr<APlayerController> m_controller;

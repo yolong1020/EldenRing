@@ -105,7 +105,7 @@ void AC3251::BeginPlay()
 	for (auto action : all_action)
 	{
 		if (action->CombatActionType == ECombatAction_NPC::ECAN_SingleAttack &&
-		    action->DerivedAttack.IsEmpty() == false) { actions.Add(action->ActionID, action); }
+			action->DerivedAttack.IsEmpty() == false) { actions.Add(action->ActionID, action); }
 	}
 	for (uint8 i = (uint8)EGameDirection::EGD_Front; i <= (uint8)EGameDirection::EGD_Right; ++i)
 	{
@@ -184,7 +184,7 @@ void AC3251::GetHit(const EGameDirection& Dir, const FVector& ImpactPoint, const
 		m_widget_bossbar->HideBossHealthBar();
 	}
 
-	if (m_sound_hit)    { UGameplayStatics::PlaySoundAtLocation(this, m_sound_hit, ImpactPoint); }
+	if (m_sound_hit)	{ UGameplayStatics::PlaySoundAtLocation(this, m_sound_hit, ImpactPoint); }
 	if (m_particle_hit) { UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), m_particle_hit, ImpactPoint); }
 }
 
@@ -245,8 +245,10 @@ void AC3251::OnEndMove()
 void AC3251::OnInputCombo()
 {
 	if (false == m_controller->GetBlackboardComponent()->GetValueAsBool(BBKEY_COMBOBOUND) ||
-	    false == HasDerivedAttack() ||
-	    EGameDirection::EGD_Left != FCommonFunctions::FindDirection(this, m_actor_target->GetActorLocation())) return;
+		EGameDirection::EGD_Left != FCommonFunctions::FindDirection(this, m_actor_target->GetActorLocation()) ||
+		false == HasDerivedAttack()) return;
+
+	UE_LOG(LogTemp, Warning, TEXT("======== Input Combo ========"))
 
 	m_animation_callback.ExecuteIfBound();
 }
@@ -349,7 +351,7 @@ void AC3251::OnMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 
 void AC3251::StartCombat()
 {
-	if (m_vigilance_state == EVigilanceState::EVS_Vigilance) return;
+	if (m_vigilance_state == EVigilanceState::EVS_Vigilance/* || IsCantMoveState()*/) return;
 
 	m_widget_bossbar->ShowBossHealthBar();
 	PlayMontageSection(m_montage_on_battle, FName("3013"));
@@ -414,8 +416,8 @@ void AC3251::TrySingleAttack()
 		for (FNPC_CombatActionData* const data : m_combo_singles[(uint8)direction - 1])
 		{
 			if ((data->ActionBound == ECombatBound::ECB_Confront && is_in_single) ||
-			    (data->ActionBound == ECombatBound::ECB_Attack && is_in_combo))
-			     enable_actions.Add(data);
+				(data->ActionBound == ECombatBound::ECB_Attack && is_in_combo))
+				enable_actions.Add(data);
 		}
 	}
 	else
@@ -426,8 +428,8 @@ void AC3251::TrySingleAttack()
 			if (!action_info) continue;
 
 			if ((action_info->ActionBound == ECombatBound::ECB_Confront && is_in_single) || 
-			    (action_info->ActionBound == ECombatBound::ECB_Attack && is_in_combo)) 
-			     enable_actions.Add(action_info);
+				(action_info->ActionBound == ECombatBound::ECB_Attack && is_in_combo)) 
+				enable_actions.Add(action_info);
 		}
 	}
 
@@ -461,19 +463,19 @@ void AC3251::TryComboAttack()
 {
 	m_controller_ai->StopMovement();
 
-	EGameDirection		direction	= FCommonFunctions::FindDirection(this, m_actor_target->GetActorLocation());
+	EGameDirection			direction		= FCommonFunctions::FindDirection(this, m_actor_target->GetActorLocation());
 	FNPC_CombatActionData*	derived_attack	= m_actions->FindRow<FNPC_CombatActionData>(prv_attack_section, prv_attack_section.ToString());
 	CHECK_INVALID_PTR(derived_attack)
 
-	int32 count = derived_attack->DerivedAttack.Num();
+	int32 count	= derived_attack->DerivedAttack.Num();
 	int idx = (count == 1) ? 0 : FMath::RandRange(0, count - 1);
 
 	FName section = derived_attack->DerivedAttack[idx];
 	FNPC_CombatActionData* cur_attack = m_actions->FindRow<FNPC_CombatActionData>(section, section.ToString());
 	CHECK_INVALID_PTR(cur_attack)
 
-	m_action_combat	   = cur_attack->CombatActionType;
-	prv_attack_section = section;
+	m_action_combat		= cur_attack->CombatActionType;
+	prv_attack_section	= section;
 
 	UAnimMontage* montage = nullptr;
 	switch (direction)
@@ -553,12 +555,13 @@ void AC3251::AfterTargetDeath(TObjectPtr<class AGameCharacter> Target)
 	if (m_combat_list.IsEmpty())
 	{
 		FLatentActionInfo callback;
-		callback.UUID 			= FGuid::NewGuid().A;
-		callback.CallbackTarget 	= this;
-		callback.Linkage 		= 0;
-		callback.ExecutionFunction 	= FName("IdleMode");
+		callback.UUID = FGuid::NewGuid().A;
+		callback.CallbackTarget = this;
+		callback.Linkage = 0;
+		callback.ExecutionFunction = FName("IdleMode");
 
-		float duration = (float)FMath::RandRange(1.f, WaitAfterPlayerDeath);
+		float duration = WaitAfterPlayerDeath;
+		duration = (float)FMath::RandRange(1.f, duration);
 		UKismetSystemLibrary::Delay(this, duration, callback);
 	}
 }

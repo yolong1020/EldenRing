@@ -16,12 +16,16 @@
 
 void AGameField::LoadedLevel()
 {
+	LoadNavDataLayer();
+
 	GetWorldTimerManager().ClearTimer(timer_start);
 	GetWorldTimerManager().SetTimer(timer_start, this, &AGameField::StartStage, 6.f);
 }
 
 void AGameField::BeginPlay()
 {
+	UE_LOG(LogTemp, Warning, TEXT("[GameField BeginPlay]"))
+
 	Super::BeginPlay();
 	m_is_play = true;
 
@@ -44,8 +48,11 @@ void AGameField::BeginPlay()
 			CHECK_INVALID_PTR(ui_mgr);
 
 			FAfterHideBlackOutFunc hide_callback;
-			hide_callback.BindLambda([&]()->void { LoadDataLayer(); });
+			hide_callback.BindLambda([&]()->void { 
+				LoadDataLayer();
+			});
 			ui_mgr->HideBlackOut(hide_callback);
+
 		});
 	ui_mgr->ShowBlackOut(show_callback);
 
@@ -69,7 +76,7 @@ void AGameField::StartStage()
 		}
 	}
 
-	USoundBase* sound = LoadObject<USoundBase>(nullptr, TEXT("SoundWave'/Game/EldenRing/Sounds/BackgroundMusic/Field.Field'"));
+	USoundBase* sound =	LoadObject<USoundBase>(nullptr, TEXT("SoundWave'/Game/EldenRing/Sounds/BackgroundMusic/Field.Field'"));
 	CHECK_INVALID_PTR(sound)
 	m_sound_mgr->PlayStageBGM(sound);
 

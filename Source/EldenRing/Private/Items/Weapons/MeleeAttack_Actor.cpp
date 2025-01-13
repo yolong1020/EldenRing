@@ -80,7 +80,7 @@ void AMeleeAttack_Actor::OnBoxOverlap(UPrimitiveComponent* OverlappedComponent, 
 	if (component)
 	{
 		AGameCharacter* defender = Cast<AGameCharacter>(OtherActor);
-		if (defender && defender->GetParrySphere() == component)
+		if (defender && component == defender->GetParrySphere())
 		{
 			AGameCharacter* attacker = Cast<AGameCharacter>(owner);
 			if (attacker)
@@ -103,7 +103,7 @@ void AMeleeAttack_Actor::OnBoxOverlap(UPrimitiveComponent* OverlappedComponent, 
 		if (defender->GetClass() == attacker->GetClass()) return;
 
 		if (attacker->IsCurrentActionState(FString("Attacking")) &&
-		    defender->IsGuardState())
+			defender->IsGuardState())
 		{
 			m_ignore_actors.AddUnique(defender);
 
@@ -113,17 +113,22 @@ void AMeleeAttack_Actor::OnBoxOverlap(UPrimitiveComponent* OverlappedComponent, 
 			if (m_weapon_sound)  { UGameplayStatics::PlaySoundAtLocation(this, m_weapon_sound, GetActorLocation()); }
 			if (m_effect_sparks) { m_effect_sparks->SetActive(true); }
 		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Fail Guard"))
+		}
 	}
 	else
 	{
 		const FVector start = m_boxtrace_start->GetComponentLocation();
-		const FVector end   = m_boxtrace_end->GetComponentLocation();
+		const FVector end	= m_boxtrace_end->GetComponentLocation();
 
 		TArray<AActor*> actor_ignore;
 		actor_ignore.Add(this);
 		actor_ignore.Add(owner);
 
-		for (AActor* actor : m_ignore_actors) actor_ignore.AddUnique(actor);
+		for (AActor* actor : m_ignore_actors)
+			actor_ignore.AddUnique(actor);
 
 		FHitResult hit;
 		bool hit_result = UKismetSystemLibrary::BoxTraceSingle(this,

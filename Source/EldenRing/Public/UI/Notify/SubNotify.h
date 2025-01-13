@@ -29,13 +29,13 @@ private:
 	
 private:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, meta = (BindWideget), meta = (AllowPrivateAccess))
-	TObjectPtr<class UTextBlock> Message;
+	class UTextBlock* Message;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess), Transient)
-	TObjectPtr<UWidgetAnimation> StartShowNotify;
+	UWidgetAnimation* StartShowNotify;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess), Transient)
-	TObjectPtr<UWidgetAnimation> StartHideNotify;
+	UWidgetAnimation* StartHideNotify;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Sound", meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class USoundBase> NotifySound;

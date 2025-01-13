@@ -94,10 +94,10 @@ void UUIManager::OpenExitPopUp(const TWeakObjectPtr<APlayerController>& Controll
 			OpenSubNotify(FText::FromString(TEXT("10초 뒤 게임이 종료됩니다.")));
 
 			FLatentActionInfo callback;
-			callback.CallbackTarget    = this;
+			callback.CallbackTarget = this;
 			callback.ExecutionFunction = FName("ExitPopUpAction");
-			callback.Linkage 	   = 0;
-			callback.UUID 		   = FGuid::NewGuid().A;
+			callback.Linkage = 0;
+			callback.UUID = FGuid::NewGuid().A;
 			UKismetSystemLibrary::Delay(this, 10.f, callback);
 
 			UWidgetBlueprintLibrary::SetInputMode_GameOnly(Controller.Get());
@@ -160,7 +160,7 @@ void UUIManager::CloseTutorialGroupCall()
 
 void UUIManager::OpenTutorialCallout(const FName& Name, const EInputActionType& Type, const bool IsLargeKey, const float& Duration)
 {
-	if (!m_callout)			{ CreateTutorialCallout(); }
+	if (!m_callout)					{ CreateTutorialCallout(); }
 	if (!m_callout->IsInViewport()) { m_callout->AddToViewport(); }
 
 	m_callout->OriginalSetUp(Name, Type, IsLargeKey, Duration);
@@ -237,7 +237,7 @@ void UUIManager::CreatePopUp()
 
 void UUIManager::CreateTutorialGroupCall()
 {
-	UClass* widget_class = LoadClass<UTutorialPersistent>(nullptr, TEXT("WidgetBlueprint'/Game/Blueprint/UI/Tutorial/WBP_TutorialGroupCallout.WBP_TutorialGroupCallout_C'"));
+	UClass* widget_class = LoadClass<UTutorialPersistent>(nullptr, TEXT("WidgetBlueprint'/Game/Blueprint/UI/Tutorial/WBP_TutorialPersistent.WBP_TutorialPersistent_C'"));
 	CHECK_INVALID_PTR(widget_class)
 	m_tutorial_group = CreateWidget<UTutorialPersistent>(GetWorld(), widget_class);
 	CHECK_INVALID_PTR(m_tutorial_group)

@@ -47,19 +47,19 @@ private:
 
 private:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "ture"))
-	TObjectPtr<UCommonButton> Active;
+	UCommonButton* Active;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "ture"))
-	TObjectPtr<UCommonButton> Cancel;
+	UCommonButton* Cancel;
 	
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "ture"))
-	TObjectPtr<UCommonButton> Confirm;
+	UCommonButton* Confirm;
 
 	UPROPERTY(BlueprintReadWrite, Category = "PopUp Setting", meta = (BindWidget), meta = (AllowPrivateAccess = "ture"))
-	TObjectPtr<UTextBlock> Title;
+	UTextBlock* Title;
 
 	UPROPERTY(BlueprintReadWrite, Category = "PopUp Setting", meta = (BindWidget), meta = (AllowPrivateAccess = "ture"))
-	TObjectPtr<URichTextBlock> RichTextBlock;
+	URichTextBlock* RichTextBlock;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PopUp Setting", meta = (BindWidget), meta = (AllowPrivateAccess = "ture"))
 	EPopupButtonType m_button_type;

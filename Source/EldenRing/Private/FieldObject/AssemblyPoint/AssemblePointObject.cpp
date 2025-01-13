@@ -50,20 +50,21 @@ void AAssemblePointObject::OnSphereOverlap(UPrimitiveComponent* OverlappedCompon
 	ANPC_Character*	  npc	 = Cast<ANPC_Character>(OtherActor);
 	USphereComponent* sphere = Cast<USphereComponent>(OtherComp);
 
-	if (!npc || !sphere || sphere->GetFName() != FName("Interaction Sphere")) return;
+	if (!npc || !sphere	|| sphere->GetFName() != FName("Interaction Sphere")) return;
 
 	bool result = npc->InAssmeblyPointAction();
 	if (result)
 	{
 		m_time_using_start = GetWorld()->TimeSeconds;
-		m_is_using	   = true;
-		m_is_reserved	   = false;
+		m_is_using		= true;
+		m_is_reserved	= false;
 		m_sphere_action->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 }
 
 void AAssemblePointObject::ReportUsingTime()
 {
+	// UE_LOG(LogTemp, Warning, TEXT("%s Reservate Rest"), *NewMember->GetUniqueName())
 	if (false == m_is_using && false == m_is_reserved)
 	{
 		m_report_callback.Execute(this);
@@ -77,7 +78,7 @@ void AAssemblePointObject::ReportUsingTime()
 		return;
 	}
 
-	m_latent.UUID     = FGuid::NewGuid().A;
+	m_latent.UUID = FGuid::NewGuid().A;
 	double delay_time = abs(m_time_limit - total_using);
 	UKismetSystemLibrary::Delay(GetWorld(), delay_time, m_latent);
 }
@@ -113,7 +114,7 @@ void AAssemblePointObject::InitCallback(const FReportUsingPointObject& Callback)
 void AAssemblePointObject::ResetPointObject()
 {
 	m_time_using_start	= 0;
-	m_is_using		= false;
+	m_is_using			= false;
 	m_is_reserved		= false;
 	m_sphere_action->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 }

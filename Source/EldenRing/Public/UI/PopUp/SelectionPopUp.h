@@ -40,23 +40,23 @@ private:
 
 private:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<class USelectionButton> FirstOption;
+	class USelectionButton* FirstOption;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<class USelectionButton> SecondOption;
+	class USelectionButton* SecondOption;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess = "true"), Transient)
-	TObjectPtr<UWidgetAnimation> StartShowSelection;
+	UWidgetAnimation* StartShowSelection;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess = "true"), Transient)
-	TObjectPtr<UWidgetAnimation> StartHideSelection;
+	UWidgetAnimation* StartHideSelection;
 
 	UPROPERTY()
-	TObjectPtr<class UTradeManager> m_trade_mgr;
+	class UTradeManager* m_trade_mgr;
 
 	UPROPERTY()
 	TWeakObjectPtr<class UInteractionManager> m_interact_mgr;
 
 	UPROPERTY()
-	TObjectPtr<class APlayerController> m_controller;
+	class APlayerController* m_controller;
 };

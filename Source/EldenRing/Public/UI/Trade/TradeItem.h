@@ -67,5 +67,5 @@ private:
 	bool				m_is_player;
 
 	TSubclassOf<UDragDropOperation> m_drag_drop_class;
-	TObjectPtr<UDragDropOperation> m_widget_drag;
+	UDragDropOperation* m_widget_drag;
 };

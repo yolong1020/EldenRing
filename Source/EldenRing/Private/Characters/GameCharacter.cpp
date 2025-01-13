@@ -45,7 +45,7 @@ AGameCharacter::AGameCharacter()
 	movement_component->bAllowPhysicsRotationDuringAnimRootMotion = true;
 
 	bUseControllerRotationYaw	= false;
-	bUseControllerRotationPitch 	= false;
+	bUseControllerRotationPitch = false;
 	bUseControllerRotationRoll	= false;
 
 	//	Attribute
@@ -121,7 +121,6 @@ void AGameCharacter::BeginPlay()
 	}
 
 	//	Parry Sphere
-	m_sphere_parry->OnComponentBeginOverlap.AddDynamic(this, &AGameCharacter::OnParryOverlap);
 	m_sphere_parry->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
 	m_sphere_parry->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility, ECollisionResponse::ECR_Ignore);
 	m_sphere_parry->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);

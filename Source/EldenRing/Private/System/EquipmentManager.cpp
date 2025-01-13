@@ -39,12 +39,13 @@ bool UEquipmentManager::TryEquipItem(const TObjectPtr<UItemObject> ItemObject, c
 	{
 		case EEquipmentType::EET_None:
 		case EEquipmentType::EET_Max:
-		case EEquipmentType::EET_Consumable: return false;
+		case EEquipmentType::EET_Consumable:
+			return false;
 		default:
 		{
 			UInventoryEquipSlot* slot = nullptr;
 			if (Type == EEquipmentType::EET_Weapon) { slot = IsRight ? m_slots[(int32)Type - 1] : m_slots[(int32)Type]; }
-			else					{ slot = m_slots[(int32)Type - 1]; }
+			else									{ slot = m_slots[(int32)Type - 1]; }
 
 			if (slot == nullptr || !slot->IsEmpty()) return false;
 
@@ -60,9 +61,9 @@ bool UEquipmentManager::TryEquipItem(const TObjectPtr<UItemObject> ItemObject, c
 
 bool UEquipmentManager::TryUnequipItem(const EEquipmentType& Type, const bool IsRight)
 {
-	if (Type == EEquipmentType::EET_None	||
-	    Type == EEquipmentType::EET_Max	||
-	    Type == EEquipmentType::EET_Consumable) return false;
+	if (Type == EEquipmentType::EET_None		||
+		Type == EEquipmentType::EET_Max			||
+		Type == EEquipmentType::EET_Consumable) return false;
 
 	TObjectPtr<UItemObject> item;
 	if (Type == EEquipmentType::EET_Weapon)
@@ -190,7 +191,7 @@ void UEquipmentManager::UpdateMesh(const TObjectPtr<UItemObject> ItemObject, con
 		AWeapon_Actor* weapon = world->SpawnActor<AWeapon_Actor>(ItemObject->GetItemClass());
 		CHECK_INVALID_PTR(weapon)
 
-		FString	    socket_name   = IsRight ? "R" : "L";
+		FString		socket_name   = IsRight ? "R" : "L";
 		EWeaponType weapon_type   = weapon->GetWeaponType();
 
 		socket_name += ((EWeaponType::EWT_Shield == weapon_type) ? FString("_ShieldSocket") : FString("_WeaponSocket"));
@@ -216,7 +217,7 @@ void UEquipmentManager::UpdateMesh(const TObjectPtr<UItemObject> ItemObject, con
 		new_mesh_component->SetLeaderPoseComponent(mesh);
 		new_mesh_component->RegisterComponent();
 
-		m_equipments[int32(Type) - 1].Key   = new_mesh_component;
+		m_equipments[int32(Type) - 1].Key	= new_mesh_component;
 		m_equipments[int32(Type) - 1].Value = ItemObject;
 		
 		MeshActivate(ItemObject, false);

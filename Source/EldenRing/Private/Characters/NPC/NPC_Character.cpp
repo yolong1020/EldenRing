@@ -84,9 +84,9 @@ void ANPC_Character::SetAssemblyPoint(const FString& AssemblyPoint)
 
 void ANPC_Character::SetTimeValues(const float& WaitTimeMin, const float& WaitTimeMax, const float& PatrolTime, const float& KnowMissingTarget)
 {
-	m_time_wait_min			= WaitTimeMin;
-	m_time_wait_max			= WaitTimeMax;
-	m_time_patrol			= PatrolTime;
+	m_time_wait_min				= WaitTimeMin;
+	m_time_wait_max				= WaitTimeMax;
+	m_time_patrol				= PatrolTime;
 	m_sec_kwon_missing_target	= KnowMissingTarget;
 }
 
@@ -97,6 +97,7 @@ void ANPC_Character::RegisteAssemblyPointMember()
 
 void ANPC_Character::StartPatrolTimer()
 {
+	UE_LOG(LogTemp, Warning, TEXT("%s Patrol Timer is Over"), *m_unique_name)
 	GetWorldTimerManager().ClearTimer(m_timer_patrol);
 	if (m_request_callback.IsBound()) m_request_callback.Broadcast();
 }
@@ -117,7 +118,10 @@ void ANPC_Character::BeginPlay()
 	CHECK_INVALID_PTR(m_pawn_sensing)
 	m_pawn_sensing->OnSeePawn.AddDynamic(this, &ANPC_Character::PawnSeen);
 
-	if (!ActorHasTag(FName("Boss"))) { RegisteAssemblyPointMember(); }
+	if (!ActorHasTag(FName("Boss")))
+	{
+		RegisteAssemblyPointMember();
+	}
 
 	UERGameInstance* instance = Cast<UERGameInstance>(GetGameInstance());
 	CHECK_INVALID_PTR(instance)
@@ -150,6 +154,33 @@ void ANPC_Character::OnDeath(TWeakObjectPtr<UAnimMontage> Montage, const float& 
 void ANPC_Character::GameStartAction()
 {
 	SetActorTransform(m_start_transform);
+}
+
+void ANPC_Character::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	// FVector position = GetActorLocation();
+	// position.Z -= 180.f;
+	// FVector forward_dir = position + GetActorForwardVector().GetSafeNormal2D() * 100;
+	// 
+	// UKismetSystemLibrary::DrawDebugLine(this, position, forward_dir, FColor::Purple, 0.5f, 2.f);
+	// 
+	// FTransform transform = GetActorTransform();
+	// transform.SetLocation(position);
+	// transform.SetRotation(FVector(0, 0, 90).Rotation().Quaternion());
+	// DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_tracking, 50, FColor::Red, false, 0.1);
+	// DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_attack, 50, FColor::Black, false, 0.1);
+	// DrawDebugCircle(GetWorld(), transform.ToMatrixWithScale(), m_radius_confront, 50, FColor::Blue, false, 0.1);
+
+	// if (nullptr != m_actor_target)
+	// {
+	// 	FVector target_position = m_actor_target->GetActorLocation();
+	// 
+	// 	FVector dir = (FVector(target_position.X, target_position.Y, position.Z) - position).GetSafeNormal();
+	// 
+	// 	UKismetSystemLibrary::DrawDebugArrow(this, position, position + dir * m_radius_tracking, 5.f, FColor::Red, 1.f);
+	// }
 }
 
 void ANPC_Character::Destroyed()
@@ -238,7 +269,7 @@ void ANPC_Character::SetBlindPawn(const bool& is_blind)
 	CHECK_INVALID_PTR(m_pawn_sensing)
 
 	if (is_blind)	{ m_pawn_sensing->OnSeePawn.RemoveDynamic(this, &ANPC_Character::PawnSeen); }
-	else		{ m_pawn_sensing->OnSeePawn.AddDynamic(this, &ANPC_Character::PawnSeen); }
+	else			{ m_pawn_sensing->OnSeePawn.AddDynamic(this, &ANPC_Character::PawnSeen); }
 }
 
 bool ANPC_Character::EquipWeapon(const FName& socket_name, const EWeaponEquipHand& hand)
@@ -246,7 +277,7 @@ bool ANPC_Character::EquipWeapon(const FName& socket_name, const EWeaponEquipHan
 	UWorld* world = GetWorld();
 	if (nullptr == world) return false;
 
-	TObjectPtr<AWeapon_Actor>&  weapon	= hand == EWeaponEquipHand::EWEH_Right ? m_equiped_weapon_R : m_equiped_weapon_L;
+	TObjectPtr<AWeapon_Actor>&  weapon		= hand == EWeaponEquipHand::EWEH_Right ? m_equiped_weapon_R : m_equiped_weapon_L;
 	TSubclassOf<AWeapon_Actor> weapon_class	= hand == EWeaponEquipHand::EWEH_Right ? m_class_weapon_R : m_class_weapon_L;
 	if (!weapon && weapon_class)
 	{
@@ -287,17 +318,33 @@ void ANPC_Character::MoveToAssemblePoint(AAssemblePointObject* const PointObject
 
 	FVector dest = PointObject->GetActionLocation();
 	EGameDirection	direction = FCommonFunctions::FindDirection(this, dest);
-	if      (direction == EGameDirection::EGD_Front) { MoveToLocation(dest, 0, false); }
-	else if (direction != EGameDirection::EGD_None)  { StartTurn(direction); }
+	if (direction == EGameDirection::EGD_Front)
+	{
+		MoveToLocation(dest, 0, false);
+	}
+	else if (direction != EGameDirection::EGD_None)
+	{
+		StartTurn(direction);
+	}
 }
 
 void ANPC_Character::MoveToPatrolPoint()
 {
+	FVector target = m_target_patrol->GetActorLocation();
+
 	m_action_state = EActionState_NPC::EASN_Patrolling;
 
-	EGameDirection direction = FCommonFunctions::FindDirection(this, m_target_patrol->GetActorLocation());
-	if      (direction == EGameDirection::EGD_Front) { MoveToLocation(target, -1.f); }
-	else if (direction != EGameDirection::EGD_None)  { StartTurn(direction); }
+	EGameDirection direction = FCommonFunctions::FindDirection(this, target);
+	if (direction == EGameDirection::EGD_Front)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("%s MoveToPatrolPoint -> MoveToLocation"), *m_unique_name)
+		MoveToLocation(target, -1.f);
+	}
+	else if (direction != EGameDirection::EGD_None)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("%s MoveToPatrolPoint -> StartTurn"), *m_unique_name)
+		StartTurn(direction);
+	}
 }
 
 const uint8 ANPC_Character::GetTargetDirectionFromNPC()
@@ -370,7 +417,7 @@ bool ANPC_Character::IsNeedChangeDeath(const EGameDirection& direction)
 
 	FName section_name;
 	if (direction == EGameDirection::EGD_Front) { section_name = FName("TakeExecution_Death_Front"); m_death_pose = EDeathPose::EDP_Death_Front; }
-	else					    { section_name = FName("TakeExecution_Death_Back");  m_death_pose = EDeathPose::EDP_Death_Back; }
+	else										{ section_name = FName("TakeExecution_Death_Back");  m_death_pose = EDeathPose::EDP_Death_Back;}
 	
 	PlayMontageSection(m_montage_take_execution, section_name);
 	OnDeath(m_montage_take_execution);
@@ -393,6 +440,7 @@ void ANPC_Character::OnRestingSwitch()
 
 void ANPC_Character::OnRestingEnd(const FString& section_name)
 {
+	UE_LOG(LogTemp, Warning, TEXT("%s OnRestingEnd"), *GetUniqueName())
 	GetCapsuleComponent()->SetCanEverAffectNavigation(false);
 
 	m_is_resting		= false;
@@ -413,9 +461,15 @@ void ANPC_Character::StartPatrol()
 	m_is_patrolling = true;
 	m_is_resting	= false;
 
+	// TDelegate patrol_delegate = FTimerDelegate::CreateLambda([&]()->void {
+	// 	GetWorldTimerManager().ClearTimer(m_timer_patrol);
+	// 	if (m_request_callback.IsBound()) m_request_callback.Broadcast();
+	// 	});
+
 	GetWorldTimerManager().ClearTimer(m_timer_patrol);
 	GetWorldTimerManager().SetTimer(m_timer_patrol, this, &ANPC_Character::StartPatrolTimer, m_time_patrol, false);
-	
+
+	UE_LOG(LogTemp, Warning, TEXT("%s StartPatrol -> MoveToPatrolPoint"), *m_unique_name)
 	MoveToPatrolPoint();
 }
 

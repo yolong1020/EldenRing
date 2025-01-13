@@ -58,6 +58,8 @@ void ULoading::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 
 				if (IsInViewport()) { RemoveFromParent(); }
 
+
+
 				UERGameInstance* instance = Cast<UERGameInstance>(GetGameInstance());
 				CHECK_INVALID_PTR(instance)
 				instance->SetLoadState(ELevelLoadState::ELLS_Complete);

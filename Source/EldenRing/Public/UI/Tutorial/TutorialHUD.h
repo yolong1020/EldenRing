@@ -47,19 +47,19 @@ private:
 	
 private:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess = "true"), Transient)
-	TObjectPtr<UWidgetAnimation> ShowInteraction;
+	UWidgetAnimation* ShowInteraction;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetAnim), meta = (AllowPrivateAccess = "true"), Transient)
-	TObjectPtr<UWidgetAnimation> HideInteraction;
+	UWidgetAnimation* HideInteraction;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UOverlay> Head;
+	UOverlay* Head;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UOverlay> DiamondBox;
+	UOverlay* DiamondBox;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UTextBlock> TXT;
+	UTextBlock* TXT;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UImage> Icon;
@@ -68,15 +68,16 @@ private:
 	TObjectPtr<UImage> Icon_Large;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget), meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UProgressBar> PressBar;
+	UProgressBar* PressBar;
 
 	UPROPERTY(EditDefaultsOnly, Category = "HUD", meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UIconDataAsset> IconData;
+	UIconDataAsset* IconData;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD", meta = (AllowPrivateAccess = "true"))
 	bool m_has_diamond;
 
 	float m_duration;
-	bool  m_is_actived;
+
+	bool m_is_actived;
 	FTimerHandle m_timer;
 };

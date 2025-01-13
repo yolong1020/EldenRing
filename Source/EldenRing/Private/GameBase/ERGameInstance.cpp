@@ -151,11 +151,11 @@ void UERGameInstance::LoadNPC()
 	UWorld* world = GetWorld();
 	CHECK_INVALID_PTR(world)
 
-	TArray<AActor*> npcs;
-	UGameplayStatics::GetAllActorsWithTag(this, FName("NPC"), npcs);
-	for (AActor* const npc : npcs)
+	TArray<AActor*> monsters;
+	UGameplayStatics::GetAllActorsWithTag(this, FName("NPC"), monsters);
+	for (AActor* const monster : monsters)
 	{ 
-		npc->LifeSpanExpired();
+		monster->LifeSpanExpired();
 	}
 
 	if (UGameplayStatics::DoesSaveGameExist(FString("SavedGame"), 0))
@@ -177,8 +177,8 @@ void UERGameInstance::LoadNPC()
 #if WITH_EDITOR
 			character->SetFolderPath(is_vender ? FName("Vender") : FName("Enemy"));
 #endif
-			IGameCharacter_Interface*  character_interface = Cast<IGameCharacter_Interface>(character);
-			INPC_Interfaces*	   npc_interface       = Cast<INPC_Interfaces>(character);
+			IGameCharacter_Interface*	character_interface = Cast<IGameCharacter_Interface>(character);
+			INPC_Interfaces*			npc_interface		= Cast<INPC_Interfaces>(character);
 			CHECK_INVALID_PTR(character_interface)
 			CHECK_INVALID_PTR(npc_interface)
 
